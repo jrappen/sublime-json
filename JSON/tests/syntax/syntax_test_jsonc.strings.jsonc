@@ -1,43 +1,42 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
 {
-  "a": "\"",
-//      ^^ constant.character.escape.double-quote.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "a": "\"",
+//        ^^ constant.character.escape.double-quote.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "b": "\\",
-//      ^^ constant.character.escape.back-slash.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "b": "\\",
+//        ^^ constant.character.escape.back-slash.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "c": "\/",
-//      ^^ constant.character.escape.forward-slash.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "c": "\/",
+//        ^^ constant.character.escape.forward-slash.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "d": "\b",
-//      ^^ constant.character.escape.backspace.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "d": "\b",
+//        ^^ constant.character.escape.backspace.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "e": "\f",
-//      ^^ constant.character.escape.form-feed.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "e": "\f",
+//        ^^ constant.character.escape.form-feed.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "f": "\n",
-//      ^^ constant.character.escape.newline.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "f": "\n",
+//        ^^ constant.character.escape.newline.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "g": "\r",
-//      ^^ constant.character.escape.carriage-return.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "g": "\r",
+//        ^^ constant.character.escape.carriage-return.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "h": "\t",
-//      ^^ constant.character.escape.tab.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "h": "\t",
+//        ^^ constant.character.escape.tab.json
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "i": "\u1234",
-//      ^^^^^^ constant.character.escape.unicode-symbol.json
-//     ^^^^^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "i": "\u1234",
+//        ^^^^^^ constant.character.escape.unicode-symbol.json
+//       ^^^^^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-  "j": "\."
-//      ^^ invalid.illegal.unrecognized-string-escape.json
-//     ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+    "ke//y": "value"
+//  ^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
 }

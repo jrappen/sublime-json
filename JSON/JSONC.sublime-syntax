@@ -75,7 +75,7 @@ contexts:
           pop: 1
         - match: ^\s*(\*)(?!/)
           captures:
-            1: punctuation.definition.comment.end.jsonc
+            1: punctuation.definition.comment.jsonc
 
   comment-block:
     - match: /\*
