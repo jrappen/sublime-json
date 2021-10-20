@@ -35,7 +35,7 @@ extends: 'Packages/JSON/JSON.sublime-syntax'
 #   - doc block comments                                                       #
 #   - block comments                                                           #
 #                                                                              #
-#   while making sure that prototype contexts are included properly.           #
+#   while making sure that prototype contexts are ex- or included properly.    #
 #                                                                              #
 ################################################################################
 
