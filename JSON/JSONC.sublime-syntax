@@ -37,10 +37,6 @@ contexts:
   prototype:
     - include: comments
 
-  main:
-    - meta_prepend: true
-    - meta_include_prototype: true
-
 ####[ Comments ]########################################################################################################
 
   comments:
