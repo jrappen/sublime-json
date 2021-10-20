@@ -103,16 +103,15 @@ contexts:
 
   inside-double-quoted-string:
     - meta_scope: string.quoted.double.json
-    # JSONC will extend this context and meta exclude comments (its prototype)
     - match: '"'
       scope: punctuation.definition.string.end.json
       pop: 1
-    - include: string-escape
+    - include: double-quoted-string-escape
     - match: \n
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
-  string-escape:
+  double-quoted-string-escape:
     - match: |-
         (?x:
           (\\\")|
@@ -168,15 +167,14 @@ contexts:
       pop: 1
     - match: '"'
       scope: punctuation.definition.string.begin.json
-      push: inside-string-inside-object
+      push: inside-double-quoted-string-inside-object
     - include: latter-part-of-key-value-pair-inside-object
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
-  inside-string-inside-object:
+  inside-double-quoted-string-inside-object:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json string.quoted.double.json
-    # JSONC will extend this context and meta exclude comments (its prototype)
     - include: inside-double-quoted-string
 
   latter-part-of-key-value-pair-inside-object:
