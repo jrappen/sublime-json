@@ -4,47 +4,59 @@
 
 {
     "a": "\"",
-//        ^^ constant.character.escape.double-quote.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.double-quote
 
     "b": "\\",
-//        ^^ constant.character.escape.back-slash.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.back-slash
 
     "c": "\/",
-//        ^^ constant.character.escape.forward-slash.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.forward-slash
 
     "d": "\b",
-//        ^^ constant.character.escape.backspace.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.backspace
 
     "e": "\f",
-//        ^^ constant.character.escape.form-feed.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.form-feed
 
     "f": "\n",
-//        ^^ constant.character.escape.newline.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.newline
 
     "g": "\r",
-//        ^^ constant.character.escape.carriage-return.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.carriage-return
 
     "h": "\t",
-//        ^^ constant.character.escape.horizontal-tab.json
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^ constant.character.escape.horizontal-tab
 
     "i": "\u1234",
-//        ^^^^^^ constant.character.escape.unicode-symbol.json
-//       ^^^^^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^^^^^ constant.character.escape.unicode-symbol
 
     "ke//y": "value",
-//  ^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+//  ^^^^^^^ meta.mapping.key string.quoted.double - comment
+//           ^^^^^^^ meta.mapping.value string.quoted.double
 
     "ke/***/y": "value",
-//  ^^^^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+//  ^^^^^^^^^^ meta.mapping.key string.quoted.double - comment
+//              ^^^^^^^ meta.mapping.value string.quoted.double
 
-    "ke/**/y": "value",
-//  ^^^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+    "ke/**/y": "value"
+//  ^^^^^^^^^ meta.mapping.key string.quoted.double - comment
+//             ^^^^^^^ meta.mapping.value string.quoted.double
 }
