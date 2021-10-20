@@ -1,5 +1,7 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
+// <- source.jsonc
+
 {
     "a": "\.",
 //        ^^ invalid.illegal.unrecognized-string-escape.json - constant.character.escape

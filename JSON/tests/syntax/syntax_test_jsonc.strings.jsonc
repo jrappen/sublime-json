@@ -1,5 +1,7 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
+// <- source.jsonc
+
 {
     "a": "\"",
 //        ^^ constant.character.escape.double-quote.json
@@ -37,6 +39,12 @@
 //        ^^^^^^ constant.character.escape.unicode-symbol.json
 //       ^^^^^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
-    "ke//y": "value"
+    "ke//y": "value",
 //  ^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+
+    "ke/***/y": "value",
+//  ^^^^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+
+    "ke/**/y": "value",
+//  ^^^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
 }

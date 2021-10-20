@@ -1,5 +1,7 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
+// <- source.jsonc
+
 {
     //  comment // comment
 //  ^^ comment.line.double-slash.jsonc punctuation.definition.comment.jsonc
@@ -56,31 +58,31 @@
 //              ^^^^^^^^^^^^ - comment.block comment.block
 //                        ^^ comment.block.jsonc punctuation.definition.comment.end.jsonc - comment.block comment.block punctuation.definition.comment.end
 
-  "array": [ /**/ ],
-//           ^^^^ comment.block.jsonc
+    "array": [ /**/ ],
+//             ^^^^ comment.block.jsonc
 
-  "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
-//              ^^^^^^^^^^^ comment.block.jsonc
-//                          ^^^^^^^^^^^ comment.block.jsonc
-//                                          ^^^^^^^^^^^ comment.block.jsonc
+    "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
+//                ^^^^^^^^^^^ comment.block.jsonc
+//                            ^^^^^^^^^^^ comment.block.jsonc
+//                                            ^^^^^^^^^^^ comment.block.jsonc
 
-  "dict": {
-    "foo": "bar"
-    // comment
-//  ^^^^^^^^^^ comment.line.double-slash.jsonc
-    ,
-//  ^ punctuation.separator.mapping.pair.json
-    "foo": "bar"
-    /* comment */
-//  ^^^^^^^^^^^^^ comment.block.jsonc
+    "dict": {
+        "foo": "bar"
+        // comment
+//      ^^^^^^^^^^ comment.line.double-slash.jsonc
+        ,
+//      ^ punctuation.separator.mapping.pair.json
+        "foo": "bar"
+        /* comment */
+//      ^^^^^^^^^^^^^ comment.block.jsonc
   },
 
-  "unterminated string
-/**/: "test",
-// ^ meta.mapping.json comment.block.jsonc
+    "unterminated string
+    /**/: "test",
+//  ^^^^ meta.mapping.json comment.block.jsonc
 
-  "ke//y": "value"
-//^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+    "ke//y": "value"
+//  ^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
 
 /**
     *

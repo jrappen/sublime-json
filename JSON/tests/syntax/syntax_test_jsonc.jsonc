@@ -1,5 +1,7 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
+// <- source.jsonc
+
 {
 // <- meta.mapping.json punctuation.section.mapping.begin.json
   "bool": false,
