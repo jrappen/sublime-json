@@ -112,7 +112,7 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
     - include: double-quoted-string-escape
-    - match: \n
+    - match: $\n?
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
