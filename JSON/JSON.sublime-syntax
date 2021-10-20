@@ -11,7 +11,7 @@ hidden: false
 
 file_extensions:
   - json
-  - ipynb
+  - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
   - Pipfile.lock
 
 extends: 'Packages/JSON/JSON (Basic).sublime-syntax'
