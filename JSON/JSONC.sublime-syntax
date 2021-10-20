@@ -24,20 +24,10 @@ file_extensions:
   - sublime-theme
   - sublime-workspace
 
+#   The JSONC syntax extends the JSON syntax with comments
+#   while making sure that prototype contexts are ex- or included properly.
+
 extends: 'Packages/JSON/JSON.sublime-syntax'
-
-
-################################################################################
-#                                                                              #
-#   The JSONC syntax extends the JSON syntax with the following:               #
-#                                                                              #
-#   - line comments                                                            #
-#   - doc block comments                                                       #
-#   - block comments                                                           #
-#                                                                              #
-#   while making sure that prototype contexts are ex- or included properly.    #
-#                                                                              #
-################################################################################
 
 
 ####[ Contexts ]########################################################################################################
