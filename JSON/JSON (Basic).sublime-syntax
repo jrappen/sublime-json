@@ -14,12 +14,12 @@ version: 2
 
 
 variables:
-  const_boolean: |-
+  boolean: |-
     (?x:                                                                        # ignore whitespace
       false|
       true
     )
-  const_null: |-
+  'null': |-
     (?x:                                                                        # ignore whitespace
       null
     )
@@ -31,24 +31,29 @@ variables:
 contexts:
 
   main:
-    - include: values
+    - include: any
 
-  values:
-    - include: constants
+  any:
+    - include: 'null'
+    - include: boolean
     - include: numbers
     - include: strings
-    - include: arrays
-    - include: objects
+    - include: sequence
+    - include: mapping
 
-####[ Constants ]#######################################################################################################
+####[ Null ]############################################################################################################
 
-  constants:
-    - match: \b({{const_boolean}})\b
-      captures:
-        1: constant.language.boolean.json
-    - match: \b({{const_null}})\b
+  'null':
+    - match: \b({{null}})\b
       captures:
         1: constant.language.null.json
+
+####[ Boolean ]#########################################################################################################
+
+  boolean:
+    - match: \b({{boolean}})\b
+      captures:
+        1: constant.language.boolean.json
 
 ####[ Numbers ]#########################################################################################################
 
@@ -137,9 +142,9 @@ contexts:
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 
-####[ Arrays ]##########################################################################################################
+####[ Sequence ]########################################################################################################
 
-  arrays:
+  sequence:
     - match: \[
       scope: punctuation.section.sequence.begin.json
       push:
@@ -147,37 +152,37 @@ contexts:
         - match: \]
           scope: punctuation.section.sequence.end.json
           pop: 1
-        - include: values
+        - include: any
         - match: ','
           scope: punctuation.separator.sequence.json
         - match: '[^\s\]]'
           scope: invalid.illegal.expected-sequence-separator.json
 
-####[ Objects ]#########################################################################################################
+####[ Mapping ]#########################################################################################################
 
-  objects:
+  mapping:
     - match: \{
       scope: punctuation.section.mapping.begin.json
-      push: inside-object
+      push: inside-mapping
 
-  inside-object:
+  inside-mapping:
     - meta_scope: meta.mapping.json
     - match: \}
       scope: punctuation.section.mapping.end.json
       pop: 1
     - match: '"'
       scope: punctuation.definition.string.begin.json
-      push: inside-double-quoted-string-inside-object
-    - include: latter-part-of-key-value-pair-inside-object
+      push: inside-double-quoted-string-inside-mapping
+    - include: latter-part-of-key-value-pair-inside-mapping
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
-  inside-double-quoted-string-inside-object:
+  inside-double-quoted-string-inside-mapping:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json string.quoted.double.json
     - include: inside-double-quoted-string
 
-  latter-part-of-key-value-pair-inside-object:
+  latter-part-of-key-value-pair-inside-mapping:
     - match: ':'
       scope: punctuation.separator.mapping.key-value.json
       push:
@@ -188,7 +193,7 @@ contexts:
           set:
             - clear_scopes: 1
             - meta_scope: meta.mapping.value.json
-            - include: values
+            - include: any
             - match: ''
               set:
                 - match: ','

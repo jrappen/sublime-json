@@ -91,6 +91,6 @@ contexts:
     - meta_prepend: true
     - meta_include_prototype: false
 
-  inside-double-quoted-string-inside-object:
+  inside-double-quoted-string-inside-mapping:
     - meta_prepend: true
     - meta_include_prototype: false
