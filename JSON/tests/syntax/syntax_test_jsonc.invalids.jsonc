@@ -5,18 +5,21 @@
 {
     "a": "\.",
 //        ^^ invalid.illegal.unrecognized-string-escape - constant.character.escape
-//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
 
-    "b": "b"
+    "b": "\u123",
+//        ^^ invalid.illegal.unrecognized-string-escape
+//        ^^^^^ - constant.character.escape
+
+    "c": "c"
             , ,
 //          ^ meta.mapping punctuation.separator.mapping.pair
 //            ^ meta.mapping invalid.illegal.expected-mapping-key
 
-    "c": { "c": },
+    "d": { "d": },
 //             ^ meta.mapping.value meta.mapping invalid.illegal.expected-mapping-value
 //              ^ meta.mapping.value meta.mapping punctuation.section.mapping.end
 
-    "d": { "d":
+    "e": { "e":
      },
 //  ^ invalid.illegal.expected-mapping-value
 //   ^ punctuation.section.mapping.end
@@ -24,7 +27,7 @@
     [],
 //  ^^^ invalid.illegal.expected-mapping-key
 
-    "e": "e"
     "f": "f"
+    "g": "g"
 // ^ invalid.illegal.expected-mapping-separator
 }
