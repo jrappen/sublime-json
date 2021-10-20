@@ -1,0 +1,96 @@
+%YAML 1.2
+---
+# https://yaml.org/spec/1.2/spec.html
+# https://www.sublimetext.com/docs/syntax.html
+# https://www.sublimetext.com/docs/syntax.html#testing
+# https://www.sublimetext.com/docs/scope_naming.html
+name: JSONC
+scope: source.jsonc
+version: 2
+hidden: false
+
+file_extensions:
+  - jsonc
+  - sublime-build
+  - sublime-color-scheme
+  - sublime-commands
+  - sublime-completions
+  - sublime-keymap
+  - sublime-macro
+  - sublime-menu
+  - sublime-mousemap
+  - sublime-project
+  - sublime-settings
+  - sublime-theme
+  - sublime-workspace
+
+extends: 'Packages/JSON/JSON.sublime-syntax'
+
+
+################################################################################
+#                                                                              #
+#   The JSONC syntax extends the JSON syntax with the following:               #
+#                                                                              #
+#   - line comments                                                            #
+#   - doc block comments                                                       #
+#   - block comments                                                           #
+#                                                                              #
+#   while making sure that prototype contexts are included properly.           #
+#                                                                              #
+################################################################################
+
+
+####[ Contexts ]########################################################################################################
+
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - meta_prepend: true
+    - meta_include_prototype: true
+
+####[ Comments ]########################################################################################################
+
+  comments:
+    - include: comment-line
+    - include: comment-block-doc
+    - include: comment-block
+
+  comment-line:
+    - match: (//).*$\n?
+      scope: comment.line.double-slash.jsonc
+      captures:
+        1: punctuation.definition.comment.jsonc
+
+  comment-block-doc:
+    - match: /\*\*(?!/)
+      scope: punctuation.definition.comment.jsonc
+      push:
+        - meta_scope: comment.block.documentation.jsonc
+        - meta_include_prototype: false
+        - match: \*/
+          pop: 1
+        - match: ^\s*(\*)(?!/)
+          captures:
+            1: punctuation.definition.comment.jsonc
+
+  comment-block:
+    - match: /\*
+      scope: punctuation.definition.comment.jsonc
+      push:
+        - meta_scope: comment.block.jsonc
+        - meta_include_prototype: false
+        - match: \*/
+          pop: 1
+
+####[ Extends ]#########################################################################################################
+
+  inside-string:
+    - meta_prepend: true
+    - meta_include_prototype: false
+
+  inside-string-inside-object:
+    - meta_prepend: true
+    - meta_include_prototype: false

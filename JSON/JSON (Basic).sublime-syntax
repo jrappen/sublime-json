@@ -1,0 +1,203 @@
+%YAML 1.2
+---
+# https://yaml.org/spec/1.2/spec.html
+# https://www.sublimetext.com/docs/syntax.html
+# https://www.sublimetext.com/docs/syntax.html#testing
+# https://www.sublimetext.com/docs/scope_naming.html
+name: JSON (Basic)
+scope: source.json.basic
+hidden: true
+version: 2
+
+
+####[ Variables ]#######################################################################################################
+
+
+variables:
+  const_boolean: |-
+    (?x:                                                                        # ignore whitespace
+      false|
+      true
+    )
+  const_null: |-
+    (?x:                                                                        # ignore whitespace
+      null
+    )
+
+
+####[ Contexts ]########################################################################################################
+
+
+contexts:
+
+  main:
+    - include: values
+
+  values:
+    - include: constants
+    - include: numbers
+    - include: strings
+    - include: arrays
+    - include: objects
+
+####[ Constants ]#######################################################################################################
+
+  constants:
+    - match: \b({{const_boolean}})\b
+      captures:
+        1: constant.language.boolean.json
+    - match: \b({{const_null}})\b
+      captures:
+        1: constant.language.null.json
+
+####[ Numbers ]#########################################################################################################
+
+  numbers:
+    - include: decimal-float
+    - include: decimal-integer
+
+  decimal-float:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([-]?)                                                                # optional sign
+          (
+            (?:
+              0|
+              [1-9]\d*
+            )
+            (?:
+              (?:(\.)\d+)(?:[eE][-+]?\d+)?|
+              (?:[eE][-+]?\d+)
+            )
+          )
+        )
+      scope: meta.number.float.decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
+        3: punctuation.separator.decimal.json
+
+  decimal-integer:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([-]?)                                                                # optional sign
+          (
+            0|
+            [1-9]\d*
+          )
+        )
+      scope: meta.number.integer.decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
+
+####[ Strings ]#########################################################################################################
+
+  strings:
+    - include: double-quoted-string
+
+  double-quoted-string:
+    - match: '"'
+      scope: punctuation.definition.string.begin.json
+      push: inside-double-quoted-string
+
+  inside-double-quoted-string:
+    - meta_scope: string.quoted.double.json
+    # JSONC will extend this context and meta exclude comments (its prototype)
+    - match: '"'
+      scope: punctuation.definition.string.end.json
+      pop: 1
+    - include: string-escape
+    - match: \n
+      scope: invalid.illegal.unclosed-string.json
+      pop: 1
+
+  string-escape:
+    - match: |-
+        (?x:
+          (\\\")|
+          (\\\\)|
+          (\\\/)|
+          (\\b)|
+          (\\f)|
+          (\\n)|
+          (\\r)|
+          (\\t)|
+          (\\u[0-9a-fA-F]{4})
+        )
+      captures:
+        1: constant.character.escape.double-quote.json
+        2: constant.character.escape.back-slash.json
+        3: constant.character.escape.forward-slash.json
+        4: constant.character.escape.backspace.json
+        5: constant.character.escape.form-feed.json
+        6: constant.character.escape.newline.json
+        7: constant.character.escape.carriage-return.json
+        8: constant.character.escape.tab.json
+        9: constant.character.escape.unicode-symbol.json
+    - match: \\.
+      scope: invalid.illegal.unrecognized-string-escape.json
+
+####[ Arrays ]##########################################################################################################
+
+  arrays:
+    - match: \[
+      scope: punctuation.section.sequence.begin.json
+      push:
+        - meta_scope: meta.sequence.json
+        - match: \]
+          scope: punctuation.section.sequence.end.json
+          pop: 1
+        - include: values
+        - match: ','
+          scope: punctuation.separator.sequence.json
+        - match: '[^\s\]]'
+          scope: invalid.illegal.expected-sequence-separator.json
+
+####[ Objects ]#########################################################################################################
+
+  objects:
+    - match: \{
+      scope: punctuation.section.mapping.begin.json
+      push: inside-object
+
+  inside-object:
+    - meta_scope: meta.mapping.json
+    - match: \}
+      scope: punctuation.section.mapping.end.json
+      pop: 1
+    - match: '"'
+      scope: punctuation.definition.string.begin.json
+      push: inside-string-inside-object
+    - include: latter-part-of-key-value-pair-inside-object
+    - match: '[^\s\}]'
+      scope: invalid.illegal.expected-mapping-key.json
+
+  inside-string-inside-object:
+    - clear_scopes: 1
+    - meta_scope: meta.mapping.key.json string.quoted.double.json
+    # JSONC will extend this context and meta exclude comments (its prototype)
+    - include: inside-double-quoted-string
+
+  latter-part-of-key-value-pair-inside-object:
+    - match: ':'
+      scope: punctuation.separator.mapping.key-value.json
+      push:
+        - match: ',|\s?(?=\})'
+          scope: invalid.illegal.expected-mapping-value.json
+          pop: 1
+        - match: (?=\S)
+          set:
+            - clear_scopes: 1
+            - meta_scope: meta.mapping.value.json
+            - include: values
+            - match: ''
+              set:
+                - match: ','
+                  scope: punctuation.separator.mapping.pair.json
+                  pop: 1
+                - match: \s*(?=\})
+                  pop: 1
+                - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
+                  scope: invalid.illegal.expected-mapping-separator.json
+                  pop: 1
