@@ -34,8 +34,9 @@
 //                 ^ punctuation.separator.decimal.json
 
     "float-negative-zero": -0.0,
-//                         ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                         ^^^^ meta.number.float.decimal.json
 //                         ^ keyword.operator.arithmetic.json
+//                          ^^^ constant.numeric.value.json
 //                           ^ punctuation.separator.decimal.json
 
     "float-zero-with-zero-exponent": 0.0e0,
@@ -47,28 +48,32 @@
 //                                             ^ punctuation.separator.decimal.json
 
     "float-negative-zero-with-zero-exponent": -0.0e0,
-//                                            ^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                            ^^^^^^ meta.number.float.decimal.json
 //                                            ^ keyword.operator.arithmetic.json
+//                                             ^^^^^ constant.numeric.value.json
 //                                              ^ punctuation.separator.decimal.json
 
     "float-negative-zero-with-negative-zero-exponent": -0.0e-0,
-//                                                     ^^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                     ^^^^^^^ meta.number.float.decimal.json
 //                                                     ^ keyword.operator.arithmetic.json
+//                                                      ^^^^^^ constant.numeric.value.json
 //                                                       ^ punctuation.separator.decimal.json
 
     "float-zero-no-fraction-with-zero-exponent": 0e0,
 //                                               ^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-zero-no-fraction-with-zero-exponent": -0e0,
-//                                                        ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                        ^^^^ meta.number.float.decimal.json
 //                                                        ^ keyword.operator.arithmetic.json
+//                                                         ^^^constant.numeric.value.json
 
     "float-zero-no-fraction-with-negative-zero-exponent": 0e-0,
 //                                                        ^^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-zero-no-fraction-with-negative-zero-exponent": -0e-0,
-//                                                                 ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                                 ^^^^^ meta.number.float.decimal.json
 //                                                                 ^ keyword.operator.arithmetic.json
+//                                                                  ^^^^ constant.numeric.value.json
 
     "float-zero-with-exponent": 0.0e9,
 //                              ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
@@ -79,28 +84,32 @@
 //                                        ^ punctuation.separator.decimal.json
 
     "float-negative-zero-with-exponent": -0.0e9,
-//                                       ^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                       ^^^^^^ meta.number.float.decimal.json
 //                                       ^ keyword.operator.arithmetic.json
+//                                        ^^^^^ constant.numeric.value.json
 //                                         ^ punctuation.separator.decimal.json
 
     "float-negative-zero-with-negative-exponent": -0.0e-9,
-//                                                ^^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                ^^^^^^^ meta.number.float.decimal.json
 //                                                ^ keyword.operator.arithmetic.json
+//                                                 ^^^^^^ constant.numeric.value.json
 //                                                  ^ punctuation.separator.decimal.json
 
     "float-zero-no-fraction-with-exponent": 0e9,
 //                                          ^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-zero-no-fraction-with-exponent": -0e9,
-//                                                   ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                   ^^^^ meta.number.float.decimal.json
 //                                                   ^ keyword.operator.arithmetic.json
+//                                                    ^^^ constant.numeric.value.json
 
     "float-zero-no-fraction-with-negative-exponent": 0e-9,
 //                                                   ^^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-zero-no-fraction-with-negative-exponent": -0e-9,
-//                                                            ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                            ^^^^^ meta.number.float.decimal.json
 //                                                            ^ keyword.operator.arithmetic.json
+//                                                             ^^^^ constant.numeric.value.json
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,8 +120,9 @@
 //            ^ punctuation.separator.decimal.json
 
     "float-negative": -9.0,
-//                    ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                    ^^^^ meta.number.float.decimal.json
 //                    ^ keyword.operator.arithmetic.json
+//                     ^^^ constant.numeric.value.json
 //                      ^ punctuation.separator.decimal.json
 
     "float-with-zero-exponent": 9.0e0,
@@ -124,28 +134,32 @@
 //                                        ^ punctuation.separator.decimal.json
 
     "float-negative-with-zero-exponent": -9.0e0,
-//                                       ^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                       ^^^^^^ meta.number.float.decimal.json
 //                                       ^ keyword.operator.arithmetic.json
+//                                        ^^^^^ constant.numeric.value.json
 //                                         ^ punctuation.separator.decimal.json
 
     "float-negative-with-negative-zero-exponent": -9.0e-0,
-//                                                ^^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                ^^^^^^^ meta.number.float.decimal.json
 //                                                ^ keyword.operator.arithmetic.json
+//                                                 ^^^^^^ constant.numeric.value.json
 //                                                  ^ punctuation.separator.decimal.json
 
     "float-no-fraction-with-zero-exponent": 9e0,
 //                                          ^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-no-fraction-with-zero-exponent": -9e0,
-//                                                   ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                   ^^^^ meta.number.float.decimal.json
 //                                                   ^ keyword.operator.arithmetic.json
+//                                                    ^^^ constant.numeric.value.json
 
     "float-no-fraction-with-negative-zero-exponent": 9e-0,
 //                                                   ^^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-no-fraction-with-negative-zero-exponent": -9e-0,
-//                                                            ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                            ^^^^^ meta.number.float.decimal.json
 //                                                            ^ keyword.operator.arithmetic.json
+//                                                             ^^^^ constant.numeric.value.json
 
     "float-with-exponent": 9.0e9,
 //                         ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
@@ -156,26 +170,30 @@
 //                                   ^ punctuation.separator.decimal.json
 
     "float-negative-with-exponent": -9.0e9,
-//                                  ^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                  ^^^^^^ meta.number.float.decimal.json
 //                                  ^ keyword.operator.arithmetic.json
+//                                   ^^^^^ constant.numeric.value.json
 //                                    ^ punctuation.separator.decimal.json
 
     "float-negative-with-negative-exponent": -9.0e-9,
-//                                           ^^^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                           ^^^^^^^ meta.number.float.decimal.json
 //                                           ^ keyword.operator.arithmetic.json
+//                                            ^^^^^^ constant.numeric.value.json
 //                                             ^ punctuation.separator.decimal.json
 
     "float-no-fraction-with-exponent": 9e9,
 //                                     ^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-no-fraction-with-exponent": -9e9,
-//                                              ^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                              ^^^^ meta.number.float.decimal.json
 //                                              ^ keyword.operator.arithmetic.json
+//                                               ^^^ constant.numeric.value.json
 
     "float-no-fraction-with-negative-exponent": 9e-9,
 //                                              ^^^^ meta.number.float.decimal.json constant.numeric.value.json
 
     "float-negative-no-fraction-with-negative-exponent": -9e-9
-//                                                       ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//                                                       ^^^^^ meta.number.float.decimal.json
 //                                                       ^ keyword.operator.arithmetic.json
+//                                                        ^^^^ constant.numeric.value.json
 }
