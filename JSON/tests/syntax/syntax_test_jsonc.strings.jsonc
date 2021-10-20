@@ -30,7 +30,7 @@
 //       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
     "h": "\t",
-//        ^^ constant.character.escape.tab.json
+//        ^^ constant.character.escape.horizontal-tab.json
 //       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
 
     "i": "\u1234",

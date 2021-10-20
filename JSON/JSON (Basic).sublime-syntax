@@ -137,7 +137,7 @@ contexts:
         5: constant.character.escape.form-feed.json
         6: constant.character.escape.newline.json
         7: constant.character.escape.carriage-return.json
-        8: constant.character.escape.tab.json
+        8: constant.character.escape.horizontal-tab.json
         9: constant.character.escape.unicode-symbol.json
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
