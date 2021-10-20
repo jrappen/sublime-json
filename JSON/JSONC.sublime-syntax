@@ -87,10 +87,10 @@ contexts:
 
 ####[ Extends ]#########################################################################################################
 
-  inside-string:
+  inside-double-quoted-string:
     - meta_prepend: true
     - meta_include_prototype: false
 
-  inside-string-inside-object:
+  inside-double-quoted-string-inside-object:
     - meta_prepend: true
     - meta_include_prototype: false
