@@ -49,31 +49,55 @@ contexts:
     - include: comment-block
 
   comment-line:
-    - match: (//).*$\n?
+    - match: |-
+        (?x:
+          (//)                                                                  # capture group 1: two forwards slahes
+          .*                                                                    # zero or more of any character
+          $\n?                                                                  # eol (end of line) optionally followed by newline
+        )
       scope: comment.line.double-slash.jsonc
       captures:
         1: punctuation.definition.comment.jsonc
 
   comment-block-doc:
-    - match: /\*\*(?!/)
+    - match: |-
+        (?x:
+          /\*\*                                                                 # forward-slash, two asterisks
+          (?!/)                                                                 # negative look-ahead: forward-slash
+        )
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.documentation.jsonc
         - meta_include_prototype: false
-        - match: \*/
+        - match: |-
+            (?x:
+              \*/                                                               # asterisk, forward-slash
+            )
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
-        - match: ^\s*(\*)(?!/)
+        - match: |-
+            (?x:
+              ^                                                                 # bol (beginning of line)
+              \s*                                                               # zero or more whitespace characters
+              (\*)                                                              # capture group 1: asterisk
+              (?!/)                                                             # negative look-ahead: forward-slash
+            )
           captures:
             1: punctuation.definition.comment.jsonc
 
   comment-block:
-    - match: /\*
+    - match: |-
+        (?x:
+          /\*                                                                   # forward-slash, asterisk
+        )
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.jsonc
         - meta_include_prototype: false
-        - match: \*/
+        - match: |-
+            (?x:
+              \*/                                                               # asterisk, forward-slash
+            )
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
 
