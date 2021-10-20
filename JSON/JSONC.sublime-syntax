@@ -71,6 +71,7 @@ contexts:
         - meta_scope: comment.block.documentation.jsonc
         - meta_include_prototype: false
         - match: \*/
+          scope: punctuation.definition.comment.end.jsonc
           pop: 1
         - match: ^\s*(\*)(?!/)
           captures:
