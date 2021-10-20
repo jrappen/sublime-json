@@ -4,12 +4,12 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://www.sublimetext.com/docs/syntax.html#testing
 # https://www.sublimetext.com/docs/scope_naming.html
+# https://datatracker.ietf.org/doc/html/rfc7159
 name: JSON
 scope: source.json
 version: 2
 
 file_extensions:
-  - json
   - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
   - Pipfile.lock
 

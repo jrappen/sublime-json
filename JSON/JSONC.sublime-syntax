@@ -9,6 +9,7 @@ scope: source.jsonc
 version: 2
 
 file_extensions:
+  - json
   - jsonc
   - sublime-build
   - sublime-color-scheme
