@@ -144,16 +144,18 @@ contexts:
   sequence:
     - match: \[
       scope: punctuation.section.sequence.begin.json
-      push:
-        - meta_scope: meta.sequence.json
-        - match: \]
-          scope: punctuation.section.sequence.end.json
-          pop: 1
-        - include: any
-        - match: ','
-          scope: punctuation.separator.sequence.json
-        - match: '[^\s\]]'
-          scope: invalid.illegal.expected-sequence-separator.json
+      push: inside-sequence
+
+  inside-sequence:
+    - meta_scope: meta.sequence.json
+    - match: \]
+      scope: punctuation.section.sequence.end.json
+      pop: 1
+    - include: any
+    - match: ','
+      scope: punctuation.separator.sequence.json
+    - match: '[^\s\]]'
+      scope: invalid.illegal.expected-sequence-separator.json
 
 ####[ Mapping ]#########################################################################################################
 
