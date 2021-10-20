@@ -4,88 +4,92 @@
 
 {
     //  comment // comment
-//  ^^ comment.line.double-slash.jsonc punctuation.definition.comment.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.jsonc
+//  ^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^^^^^ - comment.line comment.line
 
     //  comment /** comment */
-//  ^^ comment.line.double-slash.jsonc punctuation.definition.comment.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.jsonc
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^^^^^^^^^ - comment.line comment.block.documentation
 //              ^^^ - punctuation.definition.comment.begin
 //                          ^^ - punctuation.definition.comment.end
 
     //  comment /* comment */
-//  ^^ comment.line.double-slash.jsonc punctuation.definition.comment.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.jsonc
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^^^^^^^^ - comment.line comment.block
 //              ^^ - punctuation.definition.comment.begin
 //                         ^^ - punctuation.definition.comment.end
 
     /** comment // comment */
-//  ^^^ comment.block.documentation.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.jsonc
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
+//  ^^^ comment.block.documentation punctuation.definition.comment.begin
 //              ^^^^^^^^^^^^^ - comment.line
-//                         ^^ comment.block.documentation.jsonc punctuation.definition.comment.end.jsonc
+//                         ^^ comment.block.documentation punctuation.definition.comment.end
 
     /** comment /** comment */
-//  ^^^ comment.block.documentation.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.jsonc
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
+//  ^^^ comment.block.documentation punctuation.definition.comment.begin
 //              ^^^^^^^^^^^^^^ - comment.block.documentation comment.block.documentation
-//                          ^^ comment.block.documentation.jsonc punctuation.definition.comment.end.jsonc - comment.block.documentation comment.block.documentation punctuation.definition.comment.end
+//                          ^^ comment.block.documentation punctuation.definition.comment.end
+//                          ^^ - comment.block.documentation comment.block.documentation punctuation.definition.comment.end
 
     /** comment /* comment */
-//  ^^^ comment.block.documentation.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.jsonc
+//  ^^^ comment.block.documentation punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
 //              ^^^^^^^^^^^^^ - comment.block.documentation comment.block
-//                         ^^ comment.block.documentation.jsonc punctuation.definition.comment.end.jsonc - comment.block.documentation comment.block punctuation.definition.comment.end
+//                         ^^ comment.block.documentation punctuation.definition.comment.end
+//                         ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
 
     /* comment // comment */
-//  ^^ comment.block.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.jsonc
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
 //              ^^^^^^^^^^^^ - comment.line
-//                        ^^ comment.block.jsonc punctuation.definition.comment.end.jsonc
+//                        ^^ comment.block punctuation.definition.comment.end
 
     /* comment /** comment */
-//  ^^ comment.block.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.jsonc
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
 //              ^^^^^^^^^^^^^ - comment.block comment.block.documentation
-//                         ^^ comment.block.jsonc punctuation.definition.comment.end.jsonc - comment.block comment.block.documentation punctuation.definition.comment.end
+//                         ^^ comment.block punctuation.definition.comment.end
+//                         ^^ - comment.block comment.block.documentation punctuation.definition.comment.end
 
     /* comment /* comment */
-//  ^^ comment.block.jsonc punctuation.definition.comment.begin.jsonc
-//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.jsonc
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
 //              ^^^^^^^^^^^^ - comment.block comment.block
-//                        ^^ comment.block.jsonc punctuation.definition.comment.end.jsonc - comment.block comment.block punctuation.definition.comment.end
+//                        ^^ comment.block punctuation.definition.comment.end
+//                        ^^ - comment.block comment.block punctuation.definition.comment.end
 
     "array": [ /**/ ],
-//             ^^^^ comment.block.jsonc
+//             ^^^^ comment.block
 
     "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
-//                ^^^^^^^^^^^ comment.block.jsonc
-//                            ^^^^^^^^^^^ comment.block.jsonc
-//                                            ^^^^^^^^^^^ comment.block.jsonc
+//                ^^^^^^^^^^^ comment.block
+//                            ^^^^^^^^^^^ comment.block
+//                                            ^^^^^^^^^^^ comment.block
 
     "dict": {
         "foo": "bar"
         // comment
-//      ^^^^^^^^^^ comment.line.double-slash.jsonc
+//      ^^^^^^^^^^ comment.line.double-slash
         ,
-//      ^ punctuation.separator.mapping.pair.json
+//      ^ punctuation.separator.mapping.pair
         "foo": "bar"
         /* comment */
-//      ^^^^^^^^^^^^^ comment.block.jsonc
+//      ^^^^^^^^^^^^^ comment.block
   },
 
     "unterminated string
     /**/: "test",
-//  ^^^^ meta.mapping.json comment.block.jsonc
+//  ^^^^ meta.mapping comment.block
 
     "ke//y": "value"
-//  ^^^^^^^ meta.mapping.key.json string.quoted.double.json - comment
+//  ^^^^^^^ meta.mapping.key string.quoted.double - comment
 
 /**
     *
-//  ^ meta.mapping.json comment.block.documentation.jsonc punctuation.definition.comment.jsonc
+//  ^ meta.mapping comment.block.documentation punctuation.definition.comment
 */
 }

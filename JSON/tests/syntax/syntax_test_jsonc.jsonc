@@ -3,78 +3,78 @@
 // <- source.jsonc
 
 {
-// <- meta.mapping.json punctuation.section.mapping.begin.json
+// <- meta.mapping punctuation.section.mapping.begin
   "bool": false,
-//^^^^^^ meta.mapping.key.json
+//^^^^^^ meta.mapping.key
 //^^^^^^^^^^^^^^ - meta.mapping meta.mapping
-//        ^^^^^ constant.language.boolean.json
+//        ^^^^^ constant.language.boolean
 
   "null": null,
-//^^^^^^ meta.mapping.key.json
+//^^^^^^ meta.mapping.key
 //^^^^^^^^^^^^^ - meta.mapping meta.mapping
-//        ^^^^ constant.language.null.json
+//        ^^^^ constant.language.null
 
   "dict": { "key": "value" }
-//        ^^^^^^^^^^^^^^^^^^ meta.mapping.value.json meta.mapping - meta.mapping meta.mapping meta.mapping
-//        ^   punctuation.section.mapping.begin.json
-//                         ^ punctuation.section.mapping.end.json
-//        ^^ meta.mapping.value.json meta.mapping.json
-//          ^^^^^ meta.mapping.key.json string.quoted.double.json
-//               ^^ meta.mapping.value.json meta.mapping.json
-//                 ^^^^^^^ meta.mapping.value.json meta.mapping.value.json string.quoted.double.json
-//                        ^^ meta.mapping.value.json meta.mapping.json
+//        ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping - meta.mapping meta.mapping meta.mapping
+//        ^   punctuation.section.mapping.begin
+//                         ^ punctuation.section.mapping.end
+//        ^^ meta.mapping.value meta.mapping
+//          ^^^^^ meta.mapping.key string.quoted.double
+//               ^^ meta.mapping.value meta.mapping
+//                 ^^^^^^^ meta.mapping.value meta.mapping.value string.quoted.double
+//                        ^^ meta.mapping.value meta.mapping
 
 ,
 
   "sep": {},
-//     ^ punctuation.separator.mapping.key-value.json
+//     ^ punctuation.separator.mapping.key-value
 
   "array": [ /**/ ],
-//         ^^^^^^^^ meta.mapping.value.json meta.sequence.json
-//         ^   punctuation.section.sequence.begin.json
-//           ^^^^ comment.block.jsonc
-//                ^ punctuation.section.sequence.end.json
+//         ^^^^^^^^ meta.mapping.value meta.sequence
+//         ^   punctuation.section.sequence.begin
+//           ^^^^ comment.block
+//                ^ punctuation.section.sequence.end
 
   "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
-//              ^^^^^^^^^^^ comment.block.jsonc
-//                          ^^^^^^^^^^^ comment.block.jsonc
-//                                          ^^^^^^^^^^^ comment.block.jsonc
+//              ^^^^^^^^^^^ comment.block
+//                          ^^^^^^^^^^^ comment.block
+//                                          ^^^^^^^^^^^ comment.block
 
   "dict": {
     "foo": "bar"
     // comment
 // ^ - invalid
-//  ^^^^^^^^^^ comment.line.double-slash.jsonc
+//  ^^^^^^^^^^ comment.line.double-slash
     ,
-//  ^ punctuation.separator.mapping.pair.json
+//  ^ punctuation.separator.mapping.pair
     "foo": "bar"
     /* comment */
 // ^ - invalid
-//  ^^^^^^^^^^^^^ comment.block.jsonc
+//  ^^^^^^^^^^^^^ comment.block
   },
-//^ punctuation.section.mapping.end.json
-// ^ punctuation.separator.mapping.pair.json
+//^ punctuation.section.mapping.end
+// ^ punctuation.separator.mapping.pair
 
   "string": "string",
-//          ^        punctuation.definition.string.begin.json
-//          ^^^^^^^^ meta.mapping.value.json string.quoted.double.json
-//                 ^ punctuation.definition.string.end.json
+//          ^        punctuation.definition.string.begin
+//          ^^^^^^^^ meta.mapping.value string.quoted.double
+//                 ^ punctuation.definition.string.end
 
   "unterminated string
-//^^^^^^^^^^^^^^^^^^^^ string.quoted.double.json
-//                    ^ string.quoted.double.json invalid.illegal.unclosed-string.json
+//^^^^^^^^^^^^^^^^^^^^ string.quoted.double
+//                    ^ string.quoted.double invalid.illegal.unclosed-string
 
 // <- - string
 
 /**/: "test",
-// ^ meta.mapping.json comment.block.jsonc
-//  ^ punctuation.separator.mapping.key-value.json - comment
-//    ^^^^^^ meta.mapping.value.json string.quoted.double.json
+// ^ meta.mapping comment.block
+//  ^ punctuation.separator.mapping.key-value - comment
+//    ^^^^^^ meta.mapping.value string.quoted.double
 
   "array2":
     [
       "foobar",
-//    ^^^^^^^^ meta.mapping.value meta.sequence.json string.quoted.double.json - meta.mapping.key
+//    ^^^^^^^^ meta.mapping.value meta.sequence string.quoted.double - meta.mapping.key
     ]
 
   "typing json": {}

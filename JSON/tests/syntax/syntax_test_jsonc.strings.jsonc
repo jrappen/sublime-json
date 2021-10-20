@@ -48,6 +48,12 @@
 //       ^^^^^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
 //        ^^^^^^ constant.character.escape.unicode-symbol
 
+    "j": "\u12345",
+//  ^^^ meta.mapping.key string.quoted.double - meta.mapping.value
+//       ^^^^^^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
+//        ^^^^^^ constant.character.escape.unicode-symbol
+//              ^ string.quoted.double - constant.character.escape
+
     "ke//y": "value",
 //  ^^^^^^^ meta.mapping.key string.quoted.double - comment
 //           ^^^^^^^ meta.mapping.value string.quoted.double

@@ -4,27 +4,27 @@
 
 {
     "a": "\.",
-//        ^^ invalid.illegal.unrecognized-string-escape.json - constant.character.escape
-//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+//        ^^ invalid.illegal.unrecognized-string-escape - constant.character.escape
+//       ^^^^ meta.mapping.value string.quoted.double - meta.mapping.key
 
     "b": "b"
             , ,
-//          ^ meta.mapping.json punctuation.separator.mapping.pair.json
-//            ^ meta.mapping.json invalid.illegal.expected-mapping-key.json
+//          ^ meta.mapping punctuation.separator.mapping.pair
+//            ^ meta.mapping invalid.illegal.expected-mapping-key
 
     "c": { "c": },
-//             ^ meta.mapping.value.json meta.mapping.json invalid.illegal.expected-mapping-value.json
-//              ^ meta.mapping.value.json meta.mapping.json punctuation.section.mapping.end.json
+//             ^ meta.mapping.value meta.mapping invalid.illegal.expected-mapping-value
+//              ^ meta.mapping.value meta.mapping punctuation.section.mapping.end
 
     "d": { "d":
      },
-//  ^ invalid.illegal.expected-mapping-value.json
-//   ^ punctuation.section.mapping.end.json
+//  ^ invalid.illegal.expected-mapping-value
+//   ^ punctuation.section.mapping.end
 
     [],
-//  ^^^ invalid.illegal.expected-mapping-key.json
+//  ^^^ invalid.illegal.expected-mapping-key
 
     "e": "e"
     "f": "f"
-// ^ invalid.illegal.expected-mapping-separator.json
+// ^ invalid.illegal.expected-mapping-separator
 }
