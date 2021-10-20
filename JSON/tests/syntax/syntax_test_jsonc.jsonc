@@ -22,9 +22,7 @@
 //                 ^^^^^^^ meta.mapping.value.json meta.mapping.value.json string.quoted.double.json
 //                        ^^ meta.mapping.value.json meta.mapping.json
 
-, ,
-// <- punctuation.separator.mapping.pair.json
-//^ invalid.illegal.expected-mapping-key.json
+,
 
   "sep": {},
 //     ^ punctuation.separator.mapping.key-value.json
@@ -34,14 +32,6 @@
 //         ^   punctuation.section.sequence.begin.json
 //           ^^^^ comment.block.jsonc
 //                ^ punctuation.section.sequence.end.json
-
-  "dict": {"foo": },
-//               ^ invalid.illegal.expected-mapping-value.json
-//                ^ punctuation.section.mapping.end.json
-  "dict": {"foo":
-   },
-//^ invalid.illegal.expected-mapping-value.json
-// ^ punctuation.section.mapping.end.json
 
   "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
 //              ^^^^^^^^^^^ comment.block.jsonc
@@ -68,59 +58,6 @@
 //          ^^^^^^^^ meta.mapping.value.json string.quoted.double.json
 //                 ^ punctuation.definition.string.end.json
 
-  "num": 20.09,
-//       ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
-//         ^ punctuation.separator.decimal.json
-
-  "neg": -9,
-//       ^^ meta.number.integer.decimal.json
-//       ^ keyword.operator.arithmetic.json
-//        ^ constant.numeric.value.json
-
-  "E": 20e10,
-//     ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
-//^^^ meta.mapping.key.json string.quoted.double.json
-//   ^ punctuation.separator.mapping.key-value.json - meta.mapping.key
-
-  "escape": "\"",
-//           ^^ constant.character.escape.double-quote.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\\",
-//           ^^ constant.character.escape.back-slash.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\/",
-//           ^^ constant.character.escape.forward-slash.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\b",
-//           ^^ constant.character.escape.backspace.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\f",
-//           ^^ constant.character.escape.form-feed.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\n",
-//           ^^ constant.character.escape.newline.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\r",
-//           ^^ constant.character.escape.carriage-return.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\t",
-//           ^^ constant.character.escape.tab.json
-//          ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "escape": "\u1234",
-//           ^^^^^^ constant.character.escape.unicode-symbol.json
-//          ^^^^^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
-
-  "illegal": "\.",
-//            ^^ invalid.illegal.unrecognized-string-escape.json
-
   "unterminated string
 //^^^^^^^^^^^^^^^^^^^^ string.quoted.double.json
 //                    ^ string.quoted.double.json invalid.illegal.unclosed-string.json
@@ -137,10 +74,6 @@
       "foobar",
 //    ^^^^^^^^ meta.mapping.value meta.sequence.json string.quoted.double.json - meta.mapping.key
     ]
-
-   [],
-//^ invalid.illegal.expected-mapping-separator.json
-// ^^^ invalid.illegal.expected-mapping-key.json
 
   "typing json": {}
   ,,,, "another key": false,

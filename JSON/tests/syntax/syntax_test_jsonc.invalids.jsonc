@@ -1,0 +1,28 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+{
+    "a": "\.",
+//        ^^ invalid.illegal.unrecognized-string-escape.json - constant.character.escape
+//       ^^^^ meta.mapping.value.json string.quoted.double.json - meta.mapping.key
+
+    "b": "b"
+            , ,
+//          ^ meta.mapping.json punctuation.separator.mapping.pair.json
+//            ^ meta.mapping.json invalid.illegal.expected-mapping-key.json
+
+    "c": { "c": },
+//             ^ meta.mapping.value.json meta.mapping.json invalid.illegal.expected-mapping-value.json
+//              ^ meta.mapping.value.json meta.mapping.json punctuation.section.mapping.end.json
+
+    "d": { "d":
+     },
+//  ^ invalid.illegal.expected-mapping-value.json
+//   ^ punctuation.section.mapping.end.json
+
+    [],
+//  ^^^ invalid.illegal.expected-mapping-key.json
+
+    "e": "e"
+    "f": "f"
+// ^ invalid.illegal.expected-mapping-separator.json
+}

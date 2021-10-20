@@ -1,0 +1,15 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+{
+    "float": 20.09,
+//           ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+//             ^ punctuation.separator.decimal.json
+
+  "negative-integer": -9,
+//                    ^^ meta.number.integer.decimal.json
+//                    ^ keyword.operator.arithmetic.json
+//                     ^ constant.numeric.value.json
+
+    "e": 20e10
+//       ^^^^^ meta.number.float.decimal.json constant.numeric.value.json
+}
