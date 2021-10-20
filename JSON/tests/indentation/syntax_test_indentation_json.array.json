@@ -1,0 +1,34 @@
+// SYNTAX TEST reindent "Packages/JSON/JSON.sublime-syntax"
+
+{
+    "a":
+    [
+        "a",
+        "b"
+    ],
+    "b":
+    [
+        {
+            "a": "a",
+            "b": "b"
+        },
+        {
+            "a": "a",
+            "b": "b"
+        }
+    ],
+    "c":
+    {
+        "a":
+        {
+            "a": "a",
+            "b": "b"
+        },
+        "b":
+        [
+            "a",
+            "b",
+            "c"
+        ]
+    }
+}
