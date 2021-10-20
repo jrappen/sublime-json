@@ -4,15 +4,6 @@
 
 {
 // <- meta.mapping punctuation.section.mapping.begin
-  "bool": false,
-//^^^^^^ meta.mapping.key
-//^^^^^^^^^^^^^^ - meta.mapping meta.mapping
-//        ^^^^^ constant.language.boolean
-
-  "null": null,
-//^^^^^^ meta.mapping.key
-//^^^^^^^^^^^^^ - meta.mapping meta.mapping
-//        ^^^^ constant.language.null
 
   "dict": { "key": "value" }
 //        ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping - meta.mapping meta.mapping meta.mapping

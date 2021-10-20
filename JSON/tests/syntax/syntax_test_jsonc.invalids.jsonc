@@ -4,11 +4,11 @@
 
 {
     "a": "\.",
-//        ^^ invalid.illegal.unrecognized-string-escape - constant.character.escape
+//        ^^ string.quoted.double invalid.illegal.unrecognized-string-escape - constant.character.escape
 
     "b": "\u123",
-//        ^^ invalid.illegal.unrecognized-string-escape
-//        ^^^^^ - constant.character.escape
+//        ^^ string.quoted.double invalid.illegal.unrecognized-string-escape
+//        ^^^^^ string.quoted.double - constant.character.escape
 
     "c": "c"
             , ,

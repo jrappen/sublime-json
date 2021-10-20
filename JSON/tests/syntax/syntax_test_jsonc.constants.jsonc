@@ -1,0 +1,14 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.jsonc
+
+{
+    "bool-false": false,
+//                ^^^^^ constant.language.boolean
+
+    "bool-true": true,
+//               ^^^^ constant.language.boolean
+
+    "null": null
+//          ^^^^ constant.language.null
+}
