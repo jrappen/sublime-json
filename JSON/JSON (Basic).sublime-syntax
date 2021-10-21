@@ -10,21 +10,6 @@ version: 2
 hidden: true
 
 
-####[ Variables ]#######################################################################################################
-
-
-variables:
-  boolean: |-
-    (?x:                                                                        # ignore whitespace
-      false|
-      true
-    )
-  'null': |-
-    (?x:                                                                        # ignore whitespace
-      null
-    )
-
-
 ####[ Contexts ]########################################################################################################
 
 
@@ -44,14 +29,14 @@ contexts:
 ####[ Null ]############################################################################################################
 
   'null':
-    - match: \b({{null}})\b
+    - match: \b(null)\b
       captures:
         1: constant.language.null.json
 
 ####[ Boolean ]#########################################################################################################
 
   boolean:
-    - match: \b({{boolean}})\b
+    - match: \b(false|true)\b
       captures:
         1: constant.language.boolean.json
 
