@@ -107,8 +107,8 @@
 
     /* comment
     // comment */
-//  ^^^^^^^^^^^^ - comment.line
-//            ^^ comment.block punctuation.definition.comment.end
+//  ^^^^^^^^^^^^^ - comment.line
+//             ^^ comment.block punctuation.definition.comment.end
 
     /* comment
     /** comment */
