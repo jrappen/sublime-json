@@ -58,11 +58,23 @@
 //  ^^^^^^^ meta.mapping.key string.quoted.double - comment
 //           ^^^^^^^ meta.mapping.value string.quoted.double
 
+    "ke// y": "value",
+//  ^^^^^^^^ meta.mapping.key string.quoted.double - comment
+//            ^^^^^^^ meta.mapping.value string.quoted.double
+
     "ke/***/y": "value",
 //  ^^^^^^^^^^ meta.mapping.key string.quoted.double - comment
 //              ^^^^^^^ meta.mapping.value string.quoted.double
 
-    "ke/**/y": "value"
+    "ke/** */y": "value",
+//  ^^^^^^^^^^^ meta.mapping.key string.quoted.double - comment
+//               ^^^^^^^ meta.mapping.value string.quoted.double
+
+    "ke/**/y": "value",
 //  ^^^^^^^^^ meta.mapping.key string.quoted.double - comment
 //             ^^^^^^^ meta.mapping.value string.quoted.double
+
+    "ke/* */y": "value"
+//  ^^^^^^^^^^ meta.mapping.key string.quoted.double - comment
+//              ^^^^^^^ meta.mapping.value string.quoted.double
 }
