@@ -4,14 +4,64 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://www.sublimetext.com/docs/syntax.html#testing
 # https://www.sublimetext.com/docs/scope_naming.html
-# https://datatracker.ietf.org/doc/html/rfc7159
 name: JSON
 scope: source.json
 version: 2
 
+
+####[ Inheritance ]#####################################################################################################
+####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
+
+
 extends:
   - 'Packages/JSON/JSON (Basic).sublime-syntax'
 
+
+####[ File Extensions ]#################################################################################################
+
+
+#   To not confuse beginners too much with comments being marked as invalid
+#   and not knowing where to change from "JSON" to "JSON (with Comments)",
+#   it was decided to apply the "JSON (with Comments)" syntax by default to
+#   `*.json` files instead.
+
 file_extensions:
-  - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
+
+  - .watchmanconfig
+    # Facebook Watchman
+    # root specific configuration file
+    # https://facebook.github.io/watchman/docs/config.html
+
   - Pipfile.lock
+  - bowerrc
+  - composer.lock
+  - css.map
+
+  - geojson
+    # JSON for geographic data structures
+    # https://geojson.org
+    # https://datatracker.ietf.org/wg/geojson/charter/
+    # https://datatracker.ietf.org/doc/html/rfc7946
+
+  - har
+    # HTTP Archive Format
+
+  - ipynb
+    # Jupyter Notebook, formerly known as iPython Notebook
+    # https://jupyter.org/documentation
+
+  - js.map
+
+  - .jscsrc
+    # JavaScript Code Style Configuration
+    # https://jscs-dev.github.io
+
+  - jsonld
+    # JSON for Linking Data
+    # https://json-ld.org
+
+  - ts.map
+
+  - webmanifest
+    # Web app manifests
+    # https://developer.mozilla.org/en-US/docs/Web/Manifest

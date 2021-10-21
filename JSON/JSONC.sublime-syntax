@@ -8,27 +8,81 @@ name: JSON (with Comments)
 scope: source.json.jsonc
 version: 2
 
+
+####[ Inheritance ]#####################################################################################################
+####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
+
+
 #   The JSONC syntax extends the JSON syntax with comments
 #   while making sure that prototype contexts are properly ex- or included.
 
 extends:
   - 'Packages/JSON/JSON.sublime-syntax'
 
+
+####[ File Extensions ]#################################################################################################
+
+
+#   To not confuse beginners too much with comments being marked as invalid
+#   and not knowing where to change from "JSON" to "JSON (with Comments)",
+#   it was decided to apply the "JSON (with Comments)" syntax by default to
+#   `*.json` files instead.
+
 file_extensions:
+
   - json
+    # https://datatracker.ietf.org/doc/html/rfc7159
+
   - jsonc
+
   - sublime-build
+    # https://www.sublimetext.com/docs/build_systems.html
+
   - sublime-color-scheme
+    # https://www.sublimetext.com/docs/color_schemes.html
+
   - sublime-commands
+
   - sublime-completions
+    # https://www.sublimetext.com/docs/completions.html
+
   - sublime-keymap
+    # https://www.sublimetext.com/docs/key_bindings.html
+
   - sublime-macro
+
   - sublime-menu
+    # https://www.sublimetext.com/docs/menus.html
+
   - sublime-mousemap
+
   - sublime-project
+    # https://www.sublimetext.com/docs/projects.html
+
   - sublime-settings
+    # https://www.sublimetext.com/docs/settings.html
+
   - sublime-theme
+    # https://www.sublimetext.com/docs/themes.html
+
   - sublime-workspace
+    # https://www.sublimetext.com/docs/projects.html
+
+  - .babelrc.json
+  - .ember-cli
+
+  - .jslintrc
+    # JSLint Configuration
+    # https://jslint.com
+
+  - babel.config.json
+  - babelrc
+  - eslintrc
+  - eslintrc.json
+  - hintrc
+  - jsfmtrc
+  - jshintrc
+  - swcrc
 
 
 ####[ Contexts ]########################################################################################################
