@@ -43,8 +43,26 @@ contexts:
 ####[ Numbers ]#########################################################################################################
 
   numbers:
+    - include: invalid-illegal-decimal-float-with-leading-period-in-base
+    - include: invalid-illegal-decimal-float-with-trailing-period-in-base
     - include: decimal-float
     - include: decimal-integer
+
+  invalid-illegal-decimal-float-with-leading-period-in-base:
+    - match: '([-]?)((?:(\.)\d+)(?:[eE][-+]?\d+)?)'
+      scope: invalid.illegal.meta-number-float-decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
+        3: punctuation.separator.decimal.json
+
+  invalid-illegal-decimal-float-with-trailing-period-in-base:
+    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?:[eE][-+]?\d+)?)'
+      scope: invalid.illegal.meta-number-float-decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
+        3: punctuation.separator.decimal.json
 
   decimal-float:
     - match: |-
