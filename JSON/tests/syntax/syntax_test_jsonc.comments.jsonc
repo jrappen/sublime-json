@@ -157,14 +157,6 @@
   },
 
     "unterminated string
-    /**/: "test",
+    /**/: "test"
 //  ^^^^ meta.mapping comment.block
-
-    "ke//y": "value"
-//  ^^^^^^^ meta.mapping.key string.quoted.double - comment
-
-/**
-    *
-//  ^ comment.block.documentation punctuation.definition.comment
-*/
 }
