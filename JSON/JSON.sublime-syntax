@@ -9,8 +9,9 @@ name: JSON
 scope: source.json
 version: 2
 
+extends:
+  - 'Packages/JSON/JSON (Basic).sublime-syntax'
+
 file_extensions:
   - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
   - Pipfile.lock
-
-extends: 'Packages/JSON/JSON (Basic).sublime-syntax'

@@ -6,8 +6,8 @@
 # https://www.sublimetext.com/docs/scope_naming.html
 name: JSON (Basic)
 scope: source.json.basic
-hidden: true
 version: 2
+hidden: true
 
 
 ####[ Variables ]#######################################################################################################

@@ -8,6 +8,12 @@ name: JSON (with Comments)
 scope: source.jsonc
 version: 2
 
+#   The JSONC syntax extends the JSON syntax with comments
+#   while making sure that prototype contexts are properly ex- or included.
+
+extends:
+  - 'Packages/JSON/JSON.sublime-syntax'
+
 file_extensions:
   - json
   - jsonc
@@ -23,11 +29,6 @@ file_extensions:
   - sublime-settings
   - sublime-theme
   - sublime-workspace
-
-#   The JSONC syntax extends the JSON syntax with comments
-#   while making sure that prototype contexts are properly ex- or included.
-
-extends: 'Packages/JSON/JSON.sublime-syntax'
 
 
 ####[ Contexts ]########################################################################################################
