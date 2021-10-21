@@ -13,7 +13,11 @@
 //                    ^ constant.numeric.value
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
     "integer": 9,
@@ -26,7 +30,11 @@
 //                       ^ constant.numeric.value
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
     "float-zero": 0.0,
@@ -38,6 +46,14 @@
 //                         ^ keyword.operator.arithmetic
 //                          ^^^ constant.numeric.value
 //                           ^ punctuation.separator.decimal
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
     "float-zero-with-zero-exponent": 0.0e0,
 //                                   ^^^^^ meta.number.float.decimal constant.numeric.value
@@ -74,6 +90,14 @@
 //                                                                 ^^^^^ meta.number.float.decimal
 //                                                                 ^ keyword.operator.arithmetic
 //                                                                  ^^^^ constant.numeric.value
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
     "float-zero-with-exponent": 0.0e9,
 //                              ^^^^^ meta.number.float.decimal constant.numeric.value
@@ -112,7 +136,11 @@
 //                                                             ^^^^ constant.numeric.value
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
     "float": 9.0,
@@ -124,6 +152,14 @@
 //                    ^ keyword.operator.arithmetic
 //                     ^^^ constant.numeric.value
 //                      ^ punctuation.separator.decimal
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
     "float-with-zero-exponent": 9.0e0,
 //                              ^^^^^ meta.number.float.decimal constant.numeric.value
@@ -161,6 +197,14 @@
 //                                                            ^ keyword.operator.arithmetic
 //                                                             ^^^^ constant.numeric.value
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
     "float-with-exponent": 9.0e9,
 //                         ^^^^^ meta.number.float.decimal constant.numeric.value
 //                          ^ punctuation.separator.decimal
@@ -180,6 +224,14 @@
 //                                           ^ keyword.operator.arithmetic
 //                                            ^^^^^^ constant.numeric.value
 //                                             ^ punctuation.separator.decimal
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
     "float-no-fraction-with-exponent": 9e9,
 //                                     ^^^ meta.number.float.decimal constant.numeric.value
