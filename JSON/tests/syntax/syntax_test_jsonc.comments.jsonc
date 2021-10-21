@@ -22,6 +22,10 @@
 //              ^^ - punctuation.definition.comment.begin
 //                         ^^ - punctuation.definition.comment.end
 
+
+
+
+
     /** comment // comment */
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
 //  ^^^ comment.block.documentation punctuation.definition.comment.begin
@@ -42,6 +46,41 @@
 //                         ^^ comment.block.documentation punctuation.definition.comment.end
 //                         ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
 
+
+
+
+
+    /** comment
+    // comment */
+//  ^^^^^^^^^^^^^ - comment.line
+//             ^^ comment.block.documentation punctuation.definition.comment.end
+
+    /** comment
+    /** comment */
+//  ^^^^^^^^^^^^^^ - comment.block.documentation comment.block.documentation
+//              ^^ comment.block.documentation punctuation.definition.comment.end
+//              ^^ - comment.block.documentation comment.block.documentation punctuation.definition.comment.end
+
+    /** comment
+    /* comment */
+//  ^^^^^^^^^^^^^ - comment.block.documentation comment.block
+//             ^^ comment.block.documentation punctuation.definition.comment.end
+//             ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
+
+
+
+
+
+    /**
+     * comment
+//   ^ comment.block.documentation punctuation.definition.comment
+     * comment
+     */
+
+
+
+
+
     /* comment // comment */
 //  ^^ comment.block punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
@@ -61,6 +100,42 @@
 //              ^^^^^^^^^^^^ - comment.block comment.block
 //                        ^^ comment.block punctuation.definition.comment.end
 //                        ^^ - comment.block comment.block punctuation.definition.comment.end
+
+
+
+
+
+    /* comment
+    // comment */
+//  ^^^^^^^^^^^^ - comment.line
+//            ^^ comment.block punctuation.definition.comment.end
+
+    /* comment
+    /** comment */
+//   ^^^^^^^^^^^^^ - comment.block comment.block.documentation
+//              ^^ comment.block punctuation.definition.comment.end
+//              ^^ - comment.block comment.block.documentation punctuation.definition.comment.end
+
+    /* comment
+    /* comment */
+//   ^^^^^^^^^^^^ - comment.block comment.block
+//             ^^ comment.block punctuation.definition.comment.end
+//             ^^ - comment.block comment.block punctuation.definition.comment.end
+
+
+
+
+
+    /*
+     * comment
+//   ^ comment.block
+//   ^ - punctuation.definition.comment
+     * comment
+     */
+
+
+
+
 
     "array": [ /**/ ],
 //             ^^^^ comment.block
@@ -90,6 +165,6 @@
 
 /**
     *
-//  ^ meta.mapping comment.block.documentation punctuation.definition.comment
+//  ^ comment.block.documentation punctuation.definition.comment
 */
 }
