@@ -1,5 +1,7 @@
 // SYNTAX TEST reindent "Packages/JSON/JSONC.sublime-syntax"
 
+// <- source.json.jsonc
+
 {
     "a":
     [

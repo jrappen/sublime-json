@@ -1,6 +1,6 @@
 // SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
-// <- source.jsonc
+// <- source.json.jsonc
 
 {
     //  comment // comment
