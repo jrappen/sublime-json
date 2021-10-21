@@ -4,7 +4,7 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://www.sublimetext.com/docs/syntax.html#testing
 # https://www.sublimetext.com/docs/scope_naming.html
-name: JSON (with Comments)
+name: JSONC (JSON with Comments)
 scope: source.json.jsonc
 version: 2
 
