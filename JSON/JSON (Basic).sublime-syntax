@@ -57,7 +57,7 @@ contexts:
         3: punctuation.separator.decimal.json
 
   invalid-illegal-decimal-float-with-trailing-period-in-base:
-    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?:[eE][-+]?\d+)?)'
+    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?!\d)(?:[eE][-+]?\d+)?)'
       scope: invalid.illegal.meta-number-float-decimal.json
       captures:
         1: keyword.operator.arithmetic.json
