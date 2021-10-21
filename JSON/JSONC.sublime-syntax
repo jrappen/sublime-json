@@ -89,10 +89,23 @@ file_extensions:
 
 
 contexts:
+
+####[ Prototype / Add to inherited syntax ]#############################################################################
+
   prototype:
     - include: comments
 
-####[ Comments ]########################################################################################################
+####[ Extends / Override inherited syntax ]#############################################################################
+
+  inside-double-quoted-string:
+    - meta_prepend: true
+    - meta_include_prototype: false
+
+  inside-double-quoted-string-inside-mapping:
+    - meta_prepend: true
+    - meta_include_prototype: false
+
+####[ Comments / Add to inherited syntax ]##############################################################################
 
   comments:
     - include: comment-line
@@ -151,13 +164,3 @@ contexts:
             )
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
-
-####[ Extends ]#########################################################################################################
-
-  inside-double-quoted-string:
-    - meta_prepend: true
-    - meta_include_prototype: false
-
-  inside-double-quoted-string-inside-mapping:
-    - meta_prepend: true
-    - meta_include_prototype: false
