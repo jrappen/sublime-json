@@ -21,46 +21,6 @@
 
 
 
-    "invalid-float-leading-period-followed-by-zero": .0,
-//                                                   ^^ invalid.illegal.meta-number-float-decimal.json
-//                                                   ^^ - meta.number.float
-
-    "invalid-float-leading-period-followed-by-nonzero": .9,
-//                                                      ^^ invalid.illegal.meta-number-float-decimal.json
-//                                                      ^^ - meta.number.float
-
-    "invalid-negative-float-leading-period-followed-by-zero": -.0,
-//                                                            ^^^ invalid.illegal.meta-number-float-decimal.json
-//                                                            ^^^ - meta.number.float
-
-    "invalid-negative-float-leading-period-followed-by-nonzero": -.9,
-//                                                               ^^^ invalid.illegal.meta-number-float-decimal.json
-//                                                               ^^^ - meta.number.float
-
-    "invalid-float-trailing-period-lead-by-zero": 0.,
-//                                                ^^ invalid.illegal.meta-number-float-decimal.json
-//                                                ^^ - meta.number.float
-
-    "invalid-float-trailing-period-lead-by-nonzero": 9.,
-//                                                   ^^ invalid.illegal.meta-number-float-decimal.json
-//                                                   ^^ - meta.number.float
-
-    "invalid-negative-float-trailing-period-lead-by-zero": -0.,
-//                                                         ^^^ invalid.illegal.meta-number-float-decimal.json
-//                                                         ^^^ - meta.number.float
-
-    "invalid-negative-float-trailing-period-lead-by-nonzero": -9.,
-//                                                            ^^^ invalid.illegal.meta-number-float-decimal.json
-//                                                            ^^^ - meta.number.float
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
     "c": "c"
             , ,
 //          ^ meta.mapping punctuation.separator.mapping.pair

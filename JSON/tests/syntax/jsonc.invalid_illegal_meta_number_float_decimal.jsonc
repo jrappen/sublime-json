@@ -1,0 +1,56 @@
+//  Keep syntax tests for later maybe, until we figure out how to resolve these
+//  conflicts of interest:
+//
+//  - highlight wrongly formatted decimal floats as `invalid.illegal`
+//  - do not flash user while typing (i.e. `-0.|`)
+//  - auto-pairing of brackets
+//
+//  invalid-illegal-decimal-float-with-leading-period-in-base:
+//    - match: '([-]?)((?:(\.)\d+)(?:[eE][-+]?\d+)?)'
+//      scope: invalid.illegal.meta-number-float-decimal.json
+//      captures:
+//        1: keyword.operator.arithmetic.json
+//        2: constant.numeric.value.json
+//        3: punctuation.separator.decimal.json
+//
+//  invalid-illegal-decimal-float-with-trailing-period-in-base:
+//    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?!\d)(?:[eE][-+]?\d+)?)'
+//      scope: invalid.illegal.meta-number-float-decimal.json
+//      captures:
+//        1: keyword.operator.arithmetic.json
+//        2: constant.numeric.value.json
+//        3: punctuation.separator.decimal.json
+
+{
+    "invalid-float-leading-period-followed-by-zero": .0,
+//                                                   ^^ invalid.illegal.meta-number-float-decimal.json
+//                                                   ^^ - meta.number.float
+
+    "invalid-float-leading-period-followed-by-nonzero": .9,
+//                                                      ^^ invalid.illegal.meta-number-float-decimal.json
+//                                                      ^^ - meta.number.float
+
+    "invalid-negative-float-leading-period-followed-by-zero": -.0,
+//                                                            ^^^ invalid.illegal.meta-number-float-decimal.json
+//                                                            ^^^ - meta.number.float
+
+    "invalid-negative-float-leading-period-followed-by-nonzero": -.9,
+//                                                               ^^^ invalid.illegal.meta-number-float-decimal.json
+//                                                               ^^^ - meta.number.float
+
+    "invalid-float-trailing-period-lead-by-zero": 0.,
+//                                                ^^ invalid.illegal.meta-number-float-decimal.json
+//                                                ^^ - meta.number.float
+
+    "invalid-float-trailing-period-lead-by-nonzero": 9.,
+//                                                   ^^ invalid.illegal.meta-number-float-decimal.json
+//                                                   ^^ - meta.number.float
+
+    "invalid-negative-float-trailing-period-lead-by-zero": -0.,
+//                                                         ^^^ invalid.illegal.meta-number-float-decimal.json
+//                                                         ^^^ - meta.number.float
+
+    "invalid-negative-float-trailing-period-lead-by-nonzero": -9.
+//                                                            ^^^ invalid.illegal.meta-number-float-decimal.json
+//                                                            ^^^ - meta.number.float
+}
