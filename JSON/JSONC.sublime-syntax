@@ -97,13 +97,19 @@ contexts:
 
 ####[ Extends / Override inherited syntax ]#############################################################################
 
-  inside-double-quoted-string:
-    - meta_prepend: true
-    - meta_include_prototype: false
-
-  inside-double-quoted-string-inside-mapping:
-    - meta_prepend: true
-    - meta_include_prototype: false
+          ################################################################################
+          #                                                                              #
+          #   As we inherit from a syntax without a prototype, but which has:            #
+          #                                                                              #
+          #               inside-double-quoted-string:                                   #
+          #                 - meta_include_prototype: false                              #
+          #                                                                              #
+          #               inside-double-quoted-string-inside-mapping:                    #
+          #                 - meta_include_prototype: false                              #
+          #                                                                              #
+          #  already set, we don't need to `meta_prepend: true` and do this here.        #
+          #                                                                              #
+          ################################################################################
 
 ####[ Comments / Add to inherited syntax ]##############################################################################
 
