@@ -27,12 +27,37 @@ extends:
 
 file_extensions:
 
+  - .htmlhintrc
+    # HTML hint
+    # https://htmlhint.com/docs/user-guide/getting-started
+
+  - .jscsrc
+    # JavaScript Code Style Configuration
+    # https://jscs-dev.github.io
+
+  - .jsfmtrc
+    # jsfmt Configuration
+    # https://github.com/rdio/jsfmt
+
+  - .tern-config
+    # Tern.js Server Configuration
+    # https://ternjs.net/doc/manual.html#server
+
+  - .tern-project
+    # Tern.js Project Configuration
+    # https://ternjs.net/doc/manual.html#configuration
+
   - .watchmanconfig
     # Facebook Watchman
     # root specific configuration file
     # https://facebook.github.io/watchman/docs/config.html
 
   - Pipfile.lock
+
+  - avsc
+    # Pure JavaScript implementation of the Avro specification
+    # https://github.com/mtth/avsc
+
   - bowerrc
   - composer.lock
   - css.map
@@ -43,6 +68,10 @@ file_extensions:
     # https://datatracker.ietf.org/wg/geojson/charter/
     # https://datatracker.ietf.org/doc/html/rfc7946
 
+  - gltf
+    # glTF Runtime 3D asset delivery
+    # https://www.khronos.com/gltf
+
   - har
     # HTTP Archive Format
 
@@ -52,15 +81,33 @@ file_extensions:
 
   - js.map
 
-  - .jscsrc
-    # JavaScript Code Style Configuration
-    # https://jscs-dev.github.io
-
   - jsonld
     # JSON for Linking Data
     # https://json-ld.org
 
+  - ldjson
+    # JSON for Linking Data
+    # https://json-ld.org
+
+  - schema
+    # JSON Schema
+    # https://json-schema.org/learn
+
+  - tfstate
+    # Hashicorp Terraform State
+    # https://www.terraform.io/docs/language/state/index.html
+
+  - tfstate.backup
+
+  - topojson
+    # TopoJSON, an extension to GeoJSON
+    # https://github.com/topojson/topojson-specification
+
   - ts.map
+
+  - webapp
+    # Web app manifests
+    # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
   - webmanifest
     # Web app manifests

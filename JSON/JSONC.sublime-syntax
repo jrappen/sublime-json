@@ -71,18 +71,38 @@ file_extensions:
   - .babelrc.json
   - .ember-cli
 
+  - .eslintrc
+    # ESLint Configuration
+    # https://eslint.org/docs/user-guide/configuring/
+
+  - .hintrc
+    # Webhint Configuration
+    # https://webhint.io/docs/user-guide/configuring-webhint/summary/
+
+  - .jshintrc
+    # JSHint
+    # https://www.jshint.com/docs/#options
+
   - .jslintrc
-    # JSLint Configuration
-    # https://jslint.com
+    # JSLint's implementation of JSHint
+    # https://www.jslint.com/lint.html
+
+  - .stylintrc
+    # stylint Configuration
+    # https://github.com/SimenB/stylint
+
+  - .swcrc
+    # swc Configuration
+    # https://swc.rs/docs/configuring-swc
 
   - babel.config.json
   - babelrc
-  - eslintrc
+
   - eslintrc.json
-  - hintrc
-  - jsfmtrc
-  - jshintrc
-  - swcrc
+    # ESLint Configuration
+    # https://eslint.org/docs/user-guide/configuring/
+
+  - languagebabel
 
 
 ####[ Contexts ]########################################################################################################
