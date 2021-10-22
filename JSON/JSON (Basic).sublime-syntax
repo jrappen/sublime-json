@@ -19,26 +19,19 @@ contexts:
     - include: any
 
   any:
-    - include: 'null'
-    - include: boolean
+    - include: constants
     - include: numbers
     - include: strings
     - include: sequence
     - include: mapping
 
-####[ Null ]############################################################################################################
+####[ Constants ]#######################################################################################################
 
-  'null':
-    - match: \b(null)\b
-      captures:
-        1: constant.language.null.json
-
-####[ Boolean ]#########################################################################################################
-
-  boolean:
-    - match: \b(false|true)\b
-      captures:
-        1: constant.language.boolean.json
+  constants:
+    - match: \b(?:null)\b
+      scope: constant.language.null.json
+    - match: \b(?:false|true)\b
+      scope: constant.language.boolean.json
 
 ####[ Numbers ]#########################################################################################################
 
