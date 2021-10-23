@@ -120,25 +120,9 @@ contexts:
 
           ################################################################################
           #                                                                              #
-          #   As we inherit from a syntax without a prototype, but which has:            #
-          #                                                                              #
-          #               inside-double-quoted-string:                                   #
-          #                 - meta_include_prototype: false                              #
-          #                                                                              #
-          #               inside-double-quoted-string-inside-mapping:                    #
-          #                 - meta_include_prototype: false                              #
-          #                                                                              #
-          #  already set, we don't need:                                                 #
-          #                                                                              #
-          #               inside-double-quoted-string:                                   #
-          #                 - meta_prepend: true                                         #
-          #                 - meta_include_prototype: false                              #
-          #                                                                              #
-          #               inside-double-quoted-string-inside-mapping:                    #
-          #                 - meta_prepend: true                                         #
-          #                 - meta_include_prototype: false                              #
-          #                                                                              #
-          #  here.                                                                       #
+          #   The syntax we are inheriting from and extending already excludes           #
+          #   prototype from the relevant rules, although not having a prototype         #
+          #   itself.                                                                    #
           #                                                                              #
           ################################################################################
 
