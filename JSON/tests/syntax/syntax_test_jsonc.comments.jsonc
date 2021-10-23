@@ -11,14 +11,14 @@
     //  comment /** comment */
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
-//              ^^^^^^^^^^^^^^ - comment.line comment.block.documentation
+//              ^^^^^^^^^^^^^^ - comment.block.documentation
 //              ^^^ - punctuation.definition.comment.begin
 //                          ^^ - punctuation.definition.comment.end
 
     //  comment /* comment */
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
-//              ^^^^^^^^^^^^^ - comment.line comment.block
+//              ^^^^^^^^^^^^^ - comment.block
 //              ^^ - punctuation.definition.comment.begin
 //                         ^^ - punctuation.definition.comment.end
 
@@ -42,9 +42,9 @@
     /** comment /* comment */
 //  ^^^ comment.block.documentation punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//              ^^^^^^^^^^^^^ - comment.block.documentation comment.block
+//              ^^^^^^^^^^^^^ - comment.block
 //                         ^^ comment.block.documentation punctuation.definition.comment.end
-//                         ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
+//                         ^^ - comment.block punctuation.definition.comment.end
 
 
 
@@ -53,7 +53,7 @@
     /** comment
     // comment */
 //  ^^^^^^^^^^^^^ - comment.line
-//             ^^ comment.block.documentation punctuation.definition.comment.end
+//             ^^ punctuation.definition.comment.end
 
     /** comment
     /** comment */
@@ -63,9 +63,9 @@
 
     /** comment
     /* comment */
-//  ^^^^^^^^^^^^^ - comment.block.documentation comment.block
+//  ^^^^^^^^^^^^^ - comment.block
 //             ^^ comment.block.documentation punctuation.definition.comment.end
-//             ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
+//             ^^ - comment.block punctuation.definition.comment.end
 
 
 
@@ -90,9 +90,9 @@
     /* comment /** comment */
 //  ^^ comment.block punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
-//              ^^^^^^^^^^^^^ - comment.block comment.block.documentation
+//             ^^^^^^^^^^^^^^ - comment.block.documentation
 //                         ^^ comment.block punctuation.definition.comment.end
-//                         ^^ - comment.block comment.block.documentation punctuation.definition.comment.end
+//                         ^^ - comment.block.documentation punctuation.definition.comment.end
 
     /* comment /* comment */
 //  ^^ comment.block punctuation.definition.comment.begin
@@ -112,9 +112,9 @@
 
     /* comment
     /** comment */
-//   ^^^^^^^^^^^^^ - comment.block comment.block.documentation
+//   ^^^^^^^^^^^^^ - comment.block.documentation
 //              ^^ comment.block punctuation.definition.comment.end
-//              ^^ - comment.block comment.block.documentation punctuation.definition.comment.end
+//              ^^ - comment.block.documentation punctuation.definition.comment.end
 
     /* comment
     /* comment */
