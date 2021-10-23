@@ -96,6 +96,9 @@ contexts:
   double-quoted-string-escape-characters:
     - match: \\\"
       scope: constant.character.escape.double-quote.json
+    - include: string-escape-characters
+
+  string-escape-characters:
     - match: \\\\
       scope: constant.character.escape.back-slash.json
     - match: \\\/
