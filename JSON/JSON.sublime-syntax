@@ -27,6 +27,10 @@ extends:
 
 file_extensions:
 
+  - .bowerrc
+    # Bower
+    # https://bower.io/docs/config/
+
   - .htmlhintrc
     # HTML hint
     # https://htmlhint.com/docs/user-guide/getting-started
@@ -53,14 +57,19 @@ file_extensions:
     # https://facebook.github.io/watchman/docs/config.html
 
   - Pipfile.lock
+    # Pipfile
+    # https://github.com/pypa/pipfile
 
   - avsc
     # Pure JavaScript implementation of the Avro specification
     # https://github.com/mtth/avsc
 
-  - bowerrc
   - composer.lock
+    # Composer lock file
+    # https://getcomposer.org/doc/01-basic-usage.md
+
   - css.map
+    # CSS Source Map
 
   - geojson
     # JSON for geographic data structures
@@ -80,6 +89,7 @@ file_extensions:
     # https://jupyter.org/documentation
 
   - js.map
+    # JavaScript Source Map
 
   - jsonld
     # JSON for Linking Data
@@ -98,12 +108,15 @@ file_extensions:
     # https://www.terraform.io/docs/language/state/index.html
 
   - tfstate.backup
+    # Hashicorp Terraform State
+    # https://www.terraform.io/docs/language/state/index.html
 
   - topojson
     # TopoJSON, an extension to GeoJSON
     # https://github.com/topojson/topojson-specification
 
   - ts.map
+    # TypeScript Source Map
 
   - webapp
     # Web app manifests

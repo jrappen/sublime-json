@@ -68,7 +68,14 @@ file_extensions:
   - sublime-workspace
     # https://www.sublimetext.com/docs/projects.html
 
+  - .babelrc
+    # Babel.js File-relative Configuration
+    # https://babeljs.io/docs/en/config-files
+
   - .babelrc.json
+    # Babel.js File-relative Configuration
+    # https://babeljs.io/docs/en/config-files
+
   - .ember-cli
 
   - .eslintrc
@@ -96,13 +103,18 @@ file_extensions:
     # https://swc.rs/docs/configuring-swc
 
   - babel.config.json
-  - babelrc
+    # Babel.js Project-wide Configuration
+    # https://babeljs.io/docs/en/config-files
 
   - eslintrc.json
     # ESLint Configuration
     # https://eslint.org/docs/user-guide/configuring/
 
   - languagebabel
+
+  - tsconfig.json
+    # TypeScript Configuration
+    # https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
 
 ####[ Contexts ]########################################################################################################
