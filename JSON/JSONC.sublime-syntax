@@ -164,13 +164,15 @@ contexts:
   comment-line:
     - match: |-
         (?x:
-          (//)                                                                  # capture group 1: two forwards slahes
-          .*                                                                    # zero or more of any character
+          (                                                                     # capture group 1
+            (//)                                                                # capture group 2: two forwards slahes
+            .*                                                                  # zero or more of any character
+          )
           $\n?                                                                  # eol (end of line) optionally followed by newline
         )
-      scope: comment.line.double-slash.jsonc
       captures:
-        1: punctuation.definition.comment.jsonc
+        1: comment.line.double-slash.jsonc
+        2: punctuation.definition.comment.jsonc
 
   comment-block-doc:
     - match: |-
