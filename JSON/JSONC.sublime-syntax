@@ -23,10 +23,11 @@ extends:
 ####[ File Extensions ]#################################################################################################
 
 
-#   To not confuse beginners too much with comments being marked as invalid
-#   and not knowing where to change from "JSON" to "JSON (with Comments)",
-#   it was decided to apply the "JSON (with Comments)" syntax by default to
+#   To not confuse beginners too much with comments being marked as invalid and
+#   not knowing where to change from `JSON` to `JSONC (JSON with Comments)`, it
+#   was decided to apply the `JSONC (JSON with Comments)` syntax by default to
 #   `*.json` files instead.
+#                          See: https://github.com/sublimehq/Packages/issues/285
 
 file_extensions:
 
@@ -139,7 +140,17 @@ contexts:
           #               inside-double-quoted-string-inside-mapping:                    #
           #                 - meta_include_prototype: false                              #
           #                                                                              #
-          #  already set, we don't need to `meta_prepend: true` and do this here.        #
+          #  already set, we don't need:                                                 #
+          #                                                                              #
+          #               inside-double-quoted-string:                                   #
+          #                 - meta_prepend: true                                         #
+          #                 - meta_include_prototype: false                              #
+          #                                                                              #
+          #               inside-double-quoted-string-inside-mapping:                    #
+          #                 - meta_prepend: true                                         #
+          #                 - meta_include_prototype: false                              #
+          #                                                                              #
+          #  here.                                                                       #
           #                                                                              #
           ################################################################################
 
