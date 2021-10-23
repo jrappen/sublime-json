@@ -58,6 +58,8 @@ contexts:
 
   numbers:
     - meta_prepend: true
+    - include: decimal-float-with-leading-period-in-base
+    - include: decimal-float-with-trailing-period-in-base
     - include: hexadecimal-integer
 
   strings:
@@ -71,7 +73,23 @@ contexts:
     - match: \\0
       scope: constant.character.escape.null.json5
 
-####[ Strings ]#########################################################################################################
+####[ Numbers ]#########################################################################################################
+
+  decimal-float-with-leading-period-in-base:
+    - match: '([-]?)((?:(\.)\d+)(?:[eE][-+]?\d+)?)'
+      scope: meta.number.float.decimal.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
+        3: punctuation.separator.decimal.json5
+
+  decimal-float-with-trailing-period-in-base:
+    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?!\d)(?:[eE][-+]?\d+)?)'
+      scope: meta.number.float.decimal.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
+        3: punctuation.separator.decimal.json5
 
   hexadecimal-integer:
     - match: |-
@@ -85,6 +103,8 @@ contexts:
       captures:
         1: keyword.operator.arithmetic.json5
         2: constant.numeric.value.json5
+
+####[ Strings ]#########################################################################################################
 
   single-quoted-string:
     - match: "'"
