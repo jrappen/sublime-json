@@ -49,9 +49,9 @@
     /** comment /* comment */
 //  ^^^ comment.block.documentation punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//              ^^^^^^^^^^^^^ - comment.block
+//              ^^^^^^^^^^^^^ - comment.block.documentation comment.block
 //                         ^^ comment.block.documentation punctuation.definition.comment.end
-//                         ^^ - comment.block punctuation.definition.comment.end
+//                         ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
 
     /** comment "not a string" */
 //  ^^^ comment.block.documentation punctuation.definition.comment.begin
@@ -78,9 +78,9 @@
 
     /** comment
     /* comment */
-//  ^^^^^^^^^^^^^ - comment.block
+//  ^^^^^^^^^^^^^ - comment.block.documentation comment.block
 //             ^^ comment.block.documentation punctuation.definition.comment.end
-//             ^^ - comment.block punctuation.definition.comment.end
+//             ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
 
     /** comment
     "not a string" */
