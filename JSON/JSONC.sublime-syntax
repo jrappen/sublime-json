@@ -118,13 +118,13 @@ contexts:
 
 ####[ Extends / Override inherited syntax ]#############################################################################
 
-          ################################################################################
-          #                                                                              #
-          #   The syntax we are inheriting from and extending already excludes           #
-          #   prototype from the relevant rules, although not having a prototype         #
-          #   itself.                                                                    #
-          #                                                                              #
-          ################################################################################
+  ################################################################################
+  #                                                                              #
+  #   The syntax we are inheriting from and extending already excludes           #
+  #   prototype from the relevant rules, although not having a prototype         #
+  #   itself.                                                                    #
+  #                                                                              #
+  ################################################################################
 
 ####[ Comments / Add to inherited syntax ]##############################################################################
 
