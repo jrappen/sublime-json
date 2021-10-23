@@ -22,6 +22,13 @@
 //              ^^ - punctuation.definition.comment.begin
 //                         ^^ - punctuation.definition.comment.end
 
+    //  comment "not a string"
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//              ^ - punctuation.definition.string.begin
+//                           ^ - punctuation.definition.string.end
+
 
 
 
@@ -46,6 +53,14 @@
 //                         ^^ comment.block.documentation punctuation.definition.comment.end
 //                         ^^ - comment.block punctuation.definition.comment.end
 
+    /** comment "not a string" */
+//  ^^^ comment.block.documentation punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
+//              ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//              ^ - punctuation.definition.string.begin
+//                           ^ - punctuation.definition.string.end
+//                             ^^ comment.block.documentation punctuation.definition.comment.end
+
 
 
 
@@ -66,6 +81,13 @@
 //  ^^^^^^^^^^^^^ - comment.block
 //             ^^ comment.block.documentation punctuation.definition.comment.end
 //             ^^ - comment.block punctuation.definition.comment.end
+
+    /** comment
+    "not a string" */
+//  ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//  ^ - punctuation.definition.string.begin
+//               ^ - punctuation.definition.string.end
+//                 ^^ comment.block.documentation punctuation.definition.comment.end
 
 
 
@@ -101,6 +123,14 @@
 //                        ^^ comment.block punctuation.definition.comment.end
 //                        ^^ - comment.block comment.block punctuation.definition.comment.end
 
+    /* comment "not a string" */
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
+//             ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//             ^ - punctuation.definition.string.begin
+//                          ^ - punctuation.definition.string.end
+//                            ^^ comment.block punctuation.definition.comment.end
+
 
 
 
@@ -121,6 +151,13 @@
 //  ^^^^^^^^^^^^^ - comment.block comment.block
 //             ^^ comment.block punctuation.definition.comment.end
 //             ^^ - comment.block comment.block punctuation.definition.comment.end
+
+    /* comment
+    "not a string" */
+//  ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//  ^ - punctuation.definition.string.begin
+//               ^ - punctuation.definition.string.end
+//                 ^^ comment.block punctuation.definition.comment.end
 
 
 
