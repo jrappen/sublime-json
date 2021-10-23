@@ -182,10 +182,7 @@ contexts:
       push:
         - meta_scope: comment.block.documentation.jsonc
         - meta_include_prototype: false
-        - match: |-
-            (?x:
-              \*/                                                               # asterisk, forward-slash
-            )
+        - match: \*/                                                            # asterisk, forward-slash
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
         - match: |-
@@ -199,10 +196,7 @@ contexts:
             1: punctuation.definition.comment.jsonc
 
   comment-block:
-    - match: |-
-        (?x:
-          /\*                                                                   # forward-slash, asterisk
-        )
+    - match: /\*                                                                # forward-slash, asterisk
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.jsonc
