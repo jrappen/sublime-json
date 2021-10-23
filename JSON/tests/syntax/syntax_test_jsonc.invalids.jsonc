@@ -4,14 +4,14 @@
 
 {
     "unrecognized-string-escape": "\.",
-//                                ^^^^ meta.mapping.value string.quoted.double
-//                                 ^^ string.quoted.double invalid.illegal.unrecognized-string-escape
+//                                ^^^^ meta.mapping.value meta.string string.quoted.double
+//                                 ^^ invalid.illegal.unrecognized-string-escape
 //                                 ^^ - constant.character.escape
 
     "unrecognized-string-escape-too-short": "\u123",
-//                                          ^^^^^^^ meta.mapping.value string.quoted.double
-//                                           ^^^^^ string.quoted.double - constant.character.escape
-//                                           ^^ string.quoted.double invalid.illegal.unrecognized-string-escape
+//                                          ^^^^^^^ meta.mapping.value meta.string string.quoted.double
+//                                           ^^^^^ - constant.character.escape
+//                                           ^^ invalid.illegal.unrecognized-string-escape
 
 
 

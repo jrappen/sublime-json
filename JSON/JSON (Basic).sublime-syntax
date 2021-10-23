@@ -79,7 +79,7 @@ contexts:
       push: inside-double-quoted-string
 
   inside-double-quoted-string:
-    - meta_scope: string.quoted.double.json
+    - meta_scope: meta.string.json string.quoted.double.json
 
     # This syntax does not have a prototype, but we make sure
     # inheriting syntaxes cannot inject unwanted rules.
@@ -157,7 +157,7 @@ contexts:
 
   inside-double-quoted-string-inside-mapping:
     - clear_scopes: 1
-    - meta_scope: meta.mapping.key.json string.quoted.double.json
+    - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
 
     # This syntax does not have a prototype, but we make sure
     # inheriting syntaxes cannot inject unwanted rules.
