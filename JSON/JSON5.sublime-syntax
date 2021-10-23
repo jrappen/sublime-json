@@ -1,0 +1,108 @@
+%YAML 1.2
+---
+# https://yaml.org/spec/1.2/spec.html
+# https://www.sublimetext.com/docs/syntax.html
+# https://www.sublimetext.com/docs/syntax.html#testing
+# https://www.sublimetext.com/docs/scope_naming.html
+name: JSON5
+scope: source.json.json5
+version: 2
+
+
+####[ Inheritance ]#####################################################################################################
+####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
+
+
+extends:
+  - 'Packages/JSON/JSONC.sublime-syntax'
+
+
+####[ File Extensions ]#################################################################################################
+
+
+file_extensions:
+
+  - json5
+
+  - .babelrc
+    # Babel.js File-relative Configuration
+    # https://babeljs.io/docs/en/config-files
+
+  - .babelrc.json
+    # Babel.js File-relative Configuration
+    # https://babeljs.io/docs/en/config-files
+
+  - .jupyterlab-settings
+    # JupyterLab User Settings
+    # https://jupyterlab.readthedocs.io/en/stable/user/directories.html?highlight=json5#jupyterlab-user-settings-directory
+
+  - babel.config.json
+    # Babel.js Project-wide Configuration
+    # https://babeljs.io/docs/en/config-files
+
+  - next.config.json
+    # Vercel Next.js Configuration
+    # https://nextjs.org/docs/api-reference/next.config.js/introduction
+
+  - nextrc.json
+    # Vercel Next.js Configuration
+    # https://nextjs.org/docs/api-reference/next.config.js/introduction
+
+
+####[ Contexts ]########################################################################################################
+
+
+contexts:
+
+####[ Extends / Override inherited syntax ]#############################################################################
+
+  numbers:
+    - meta_prepend: true
+    - include: hexadecimal-integer
+
+  strings:
+    - meta_append: true
+    - include: single-quoted-string
+
+  string-escape-characters:
+    - meta_prepend: true
+    - match: \\v
+      scope: constant.character.escape.vertical-tab.json5
+    - match: \\0
+      scope: constant.character.escape.null.json5
+
+####[ Strings ]#########################################################################################################
+
+  hexadecimal-integer:
+    - match: |-
+        (?xi:                                                                   # ignore whitespace & case
+          ([-+])?                                                               # optional minus or plus sign
+          (
+            0[x]\h+
+          )
+        )
+      scope: meta.number.integer.hexadecimal.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
+
+  single-quoted-string:
+    - match: "'"
+      scope: punctuation.definition.string.begin.json5
+      push: inside-single-quoted-string
+
+  inside-single-quoted-string:
+    - meta_scope: meta.string.json5 string.quoted.single.json5
+    - meta_include_prototype: false
+    - match: "'"
+      scope: punctuation.definition.string.end.json5
+      pop: 1
+    - include: single-quoted-string-escape-characters
+    - match: \n
+      scope: invalid.illegal.unclosed-string.json5
+      pop: 1
+
+  single-quoted-string-escape-characters:
+    - match: \\\'
+      scope: constant.character.escape.single-quote.json5
+    - include: string-escape-characters

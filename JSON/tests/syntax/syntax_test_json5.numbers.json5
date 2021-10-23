@@ -1,0 +1,18 @@
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+
+// <- source.json.json5
+
+{
+    "hexadecimal-zero-integer": 0x0,
+//                              ^^^ meta.mapping.value meta.number.integer.hexadecimal
+    "explicitly-positive-hexadecimal-zero-integer": +0x0,
+//                                                  ^^^^ meta.mapping.value meta.number.integer.hexadecimal
+    "negative-hexadecimal-zero-integer": -0x0,
+//                                       ^^^^ meta.mapping.value meta.number.integer.hexadecimal
+    "hexadecimal-integer": 0x1,
+//                         ^^^ meta.mapping.value meta.number.integer.hexadecimal
+    "explicitly-positive-hexadecimal-integer": +0x1,
+//                                             ^^^^ meta.mapping.value meta.number.integer.hexadecimal
+    "negative-hexadecimal-integer": -0x1
+//                                  ^^^^ meta.mapping.value meta.number.integer.hexadecimal
+}

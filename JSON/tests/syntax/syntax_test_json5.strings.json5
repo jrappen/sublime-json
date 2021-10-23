@@ -1,0 +1,24 @@
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+
+// <- source.json.json5
+
+{
+    'key': 'value',
+//  ^^^^^ meta.mapping.key meta.string string.quoted.single
+//         ^^^^^^^ meta.mapping.value meta.string string.quoted.single
+
+    'escape-character-single-quote': '\'',
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                   ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                    ^^ constant.character.escape.single-quote
+
+    'escape-character-vertical-tab': '\v',
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                   ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                    ^^ constant.character.escape.vertical-tab
+
+    'escape-character-null': '\0'
+//  ^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                           ^^^^ meta.mapping.value meta.string string.quoted.single
+//                            ^^ constant.character.escape.null
+}
