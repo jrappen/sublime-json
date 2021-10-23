@@ -4,7 +4,11 @@
 //  - highlight wrongly formatted decimal floats as `invalid.illegal`
 //  - do not flash user while typing (i.e. `-0.|`)
 //  - auto-pairing of brackets
-//
+
+
+
+
+
 //  invalid-illegal-decimal-float-with-leading-period-in-base:
 //    - match: '([-]?)((?:(\.)\d+)(?:[eE][-+]?\d+)?)'
 //      scope: invalid.illegal.meta-number-float-decimal.json
@@ -20,6 +24,10 @@
 //        1: keyword.operator.arithmetic.json
 //        2: constant.numeric.value.json
 //        3: punctuation.separator.decimal.json
+
+
+
+
 
 {
     "invalid-float-leading-period-followed-by-zero": .0,
