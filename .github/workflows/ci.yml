@@ -1,4 +1,5 @@
 name: ci
+
 on:
   push:
     branches:
@@ -11,7 +12,7 @@ on:
       - '**/*.sublime-syntax'
       - '**/*.tmLanguage'
       - '**/*.tmPreferences'
-      - '.github/workflows/continuous-integration.yml'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches:
       - '*'
@@ -21,25 +22,29 @@ on:
       - '**/*.sublime-syntax'
       - '**/*.tmLanguage'
       - '**/*.tmPreferences'
-      - '.github/workflows/continuous-integration.yml'
+      - '.github/workflows/ci.yml'
   workflow_dispatch:
 
 jobs:
   run_syntax_tests:
-    name: Test on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
+    name: Test syntaxes on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.optional }}
     strategy:
       max-parallel: 2
+      fail-fast: false
       matrix:
         include:
           - sublime-channel: stable
             sublime-build: 4113
+            optional: true
           - sublime-channel: dev
             sublime-build: 4118
+            optional: false
     steps:
 
       - name: Git checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
 
       - name: Get binary for Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
         run: |
