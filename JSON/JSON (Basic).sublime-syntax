@@ -156,16 +156,15 @@ contexts:
       scope: invalid.illegal.expected-mapping-key.json
 
   mapping-key:
-    - match: (?=\")
+    - match: '"'
+      scope: punctuation.definition.string.begin.json
       push: mapping-key-double-quoted
 
   mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
     - meta_include_prototype: false                                             # for inheriting syntaxes
-    - match: '"'
-      scope: punctuation.definition.string.begin.json
-      set: inside-double-quoted-string
+    - include: inside-double-quoted-string
 
   latter-part-of-key-value-pair-inside-mapping:
     - match: ':'
