@@ -122,13 +122,13 @@ contexts:
 
   sequence:
     - match: \[
-      scope: punctuation.section.sequence.begin.json
+      scope: punctuation.definition.sequence.begin.json
       push: inside-sequence
 
   inside-sequence:
     - meta_scope: meta.sequence.json
     - match: \]
-      scope: punctuation.section.sequence.end.json
+      scope: punctuation.definition.sequence.end.json
       pop: 1
     - include: any
     - match: ','
@@ -140,13 +140,13 @@ contexts:
 
   mapping:
     - match: \{
-      scope: punctuation.section.mapping.begin.json
+      scope: punctuation.definition.mapping.begin.json
       push: inside-mapping
 
   inside-mapping:
     - meta_scope: meta.mapping.json
     - match: \}
-      scope: punctuation.section.mapping.end.json
+      scope: punctuation.definition.mapping.end.json
       pop: 1
     - match: '"'
       scope: punctuation.definition.string.begin.json

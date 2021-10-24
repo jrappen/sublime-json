@@ -28,12 +28,12 @@
 
     "d": { "d": },
 //             ^ meta.mapping.value meta.mapping invalid.illegal.expected-mapping-value
-//              ^ meta.mapping.value meta.mapping punctuation.section.mapping.end
+//              ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
 
     "e": { "e":
      },
 //  ^ invalid.illegal.expected-mapping-value
-//   ^ punctuation.section.mapping.end
+//   ^ punctuation.definition.mapping.end
 
     [],
 //  ^^^ invalid.illegal.expected-mapping-key

@@ -3,12 +3,12 @@
 // <- source.json.jsonc
 
 {
-// <- meta.mapping punctuation.section.mapping.begin
+// <- meta.mapping punctuation.definition.mapping.begin
 
   "dict": { "key": "value" }
 //        ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping - meta.mapping meta.mapping meta.mapping
-//        ^   punctuation.section.mapping.begin
-//                         ^ punctuation.section.mapping.end
+//        ^   punctuation.definition.mapping.begin
+//                         ^ punctuation.definition.mapping.end
 //        ^^ meta.mapping.value meta.mapping
 //          ^^^^^ meta.mapping.key string.quoted.double
 //               ^^ meta.mapping.value meta.mapping
@@ -22,9 +22,9 @@
 
   "array": [ /**/ ],
 //         ^^^^^^^^ meta.mapping.value meta.sequence
-//         ^   punctuation.section.sequence.begin
+//         ^   punctuation.definition.sequence.begin
 //           ^^^^ comment.block
-//                ^ punctuation.section.sequence.end
+//                ^ punctuation.definition.sequence.end
 
   "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
 //              ^^^^^^^^^^^ comment.block
@@ -43,7 +43,7 @@
 // ^ - invalid
 //  ^^^^^^^^^^^^^ comment.block
   },
-//^ punctuation.section.mapping.end
+//^ punctuation.definition.mapping.end
 // ^ punctuation.separator.mapping.pair
 
   "string": "string",
