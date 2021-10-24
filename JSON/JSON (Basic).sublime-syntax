@@ -71,12 +71,18 @@ contexts:
 ####[ Strings ]#########################################################################################################
 
   strings:
-    - include: double-quoted-string
+    - include: double-quoted-string-ahead
+
+  double-quoted-string-ahead:
+    - match: '(?=\")'
+      push: double-quoted-string
 
   double-quoted-string:
+    - meta_scope: meta.string.json string.quoted.double.json
     - match: '"'
       scope: punctuation.definition.string.begin.json
-      push: inside-double-quoted-string
+      set: inside-double-quoted-string
+    # ?
 
   inside-double-quoted-string:
     - meta_scope: meta.string.json string.quoted.double.json
@@ -144,18 +150,22 @@ contexts:
     - match: \}
       scope: punctuation.definition.mapping.end.json
       pop: 1
-    - match: '"'
-      scope: punctuation.definition.string.begin.json
-      push: inside-double-quoted-string-inside-mapping
+    - include: mapping-key
     - include: latter-part-of-key-value-pair-inside-mapping
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
-  inside-double-quoted-string-inside-mapping:
+  mapping-key:
+    - match: (?=\")
+      push: mapping-key-double-quoted
+
+  mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
     - meta_include_prototype: false                                             # for inheriting syntaxes
-    - include: inside-double-quoted-string
+    - match: '"'
+      scope: punctuation.definition.string.begin.json
+      set: inside-double-quoted-string
 
   latter-part-of-key-value-pair-inside-mapping:
     - match: ':'

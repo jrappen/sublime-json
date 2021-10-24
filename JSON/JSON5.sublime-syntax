@@ -66,7 +66,7 @@ contexts:
 
   strings:
     - meta_append: true
-    - include: single-quoted-string
+    - include: single-quoted-string-ahead
 
   string-escape-characters:
     - meta_prepend: true
@@ -108,10 +108,16 @@ contexts:
 
 ####[ Strings ]#########################################################################################################
 
+  single-quoted-string-ahead:
+    - match: "(?=\')"
+      push: single-quoted-string
+
   single-quoted-string:
+    - meta_scope: meta.string.json5 string.quoted.single.json5
     - match: "'"
       scope: punctuation.definition.string.begin.json5
-      push: inside-single-quoted-string
+      set: inside-single-quoted-string
+    # ?
 
   inside-single-quoted-string:
     - meta_scope: meta.string.json5 string.quoted.single.json5
@@ -128,3 +134,17 @@ contexts:
     - match: \\\'
       scope: constant.character.escape.single-quote.json5
     - include: string-escape-characters
+
+  mapping-key:
+    - meta_append: true
+    - match: (?=\')
+      push: mapping-key-single-quoted
+
+  mapping-key-single-quoted:
+    - clear_scopes: 1
+    - meta_scope: meta.mapping.key.json meta.string.json string.quoted.single.json
+    - meta_include_prototype: false                                             # for inheriting syntaxes
+    - match: "'"
+      scope: punctuation.definition.string.begin.json
+      set: inside-single-quoted-string
+
