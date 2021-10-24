@@ -143,9 +143,9 @@ contexts:
   sequence:
     - match: \[
       scope: punctuation.definition.sequence.begin.json
-      push: inside-sequence
+      push: meta-sequence
 
-  inside-sequence:
+  meta-sequence:
     - meta_scope: meta.sequence.json
     - match: \]
       scope: punctuation.definition.sequence.end.json
@@ -161,15 +161,15 @@ contexts:
   mapping:
     - match: \{
       scope: punctuation.definition.mapping.begin.json
-      push: inside-mapping
+      push: meta-mapping
 
-  inside-mapping:
+  meta-mapping:
     - meta_scope: meta.mapping.json
     - match: \}
       scope: punctuation.definition.mapping.end.json
       pop: 1
     - include: mapping-key
-    - include: separator-mapping
+    - include: mapping-separator
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
@@ -184,12 +184,12 @@ contexts:
     - meta_include_prototype: false                                             # for inheriting syntaxes
     - include: inside-double-quoted-string
 
-  separator-mapping:
+  mapping-separator:
     - match: ':'
       scope: punctuation.separator.mapping.key-value.json
-      push: expect-mapping-value
+      push: mapping-expect-value
 
-  expect-mapping-value:
+  mapping-expect-value:
     - match: ',|\s?(?=\})'
       scope: invalid.illegal.expected-mapping-value.json
       pop: 1
