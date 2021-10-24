@@ -3,23 +3,6 @@
 // <- source.json.jsonc
 
 {
-// <- meta.mapping punctuation.definition.mapping.begin
-
-  "dict": { "key": "value" }
-//        ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping - meta.mapping meta.mapping meta.mapping
-//        ^   punctuation.definition.mapping.begin
-//                         ^ punctuation.definition.mapping.end
-//        ^^ meta.mapping.value meta.mapping
-//          ^^^^^ meta.mapping.key string.quoted.double
-//               ^^ meta.mapping.value meta.mapping
-//                 ^^^^^^^ meta.mapping.value meta.mapping.value string.quoted.double
-//                        ^^ meta.mapping.value meta.mapping
-
-,
-
-  "sep": {},
-//     ^ punctuation.separator.mapping.key-value
-
   "array": [ /**/ ],
 //         ^^^^^^^^ meta.mapping.value meta.sequence
 //         ^   punctuation.definition.sequence.begin
