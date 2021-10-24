@@ -16,8 +16,7 @@ version: 2
 #   The JSONC syntax extends the JSON syntax with comments
 #   while making sure that prototype contexts are properly ex- or included.
 
-extends:
-  - 'Packages/JSON/JSON.sublime-syntax'
+extends: 'Packages/JSON/JSON.sublime-syntax'
 
 
 ####[ File Extensions ]#################################################################################################

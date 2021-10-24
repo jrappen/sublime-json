@@ -15,8 +15,7 @@ version: 2
 ####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
 
 
-extends:
-  - 'Packages/JSON/JSONC.sublime-syntax'
+extends: 'Packages/JSON/JSONC.sublime-syntax'
 
 
 ####[ File Extensions ]#################################################################################################
