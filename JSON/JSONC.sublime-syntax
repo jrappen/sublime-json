@@ -143,37 +143,24 @@ contexts:
           pop: 1
 
   comment-block-doc:
-    - match: |-
-        (?x:
-          /\*\*                                                                 # forward-slash, two asterisks
-          (?!/)                                                                 # negative look-ahead: forward-slash
-        )
+    - match: '/\*\*(?!/)'
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.documentation.jsonc
         - meta_include_prototype: false
-        - match: \*/                                                            # asterisk, forward-slash
+        - match: '\*/'
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
-        - match: |-
-            (?x:
-              ^                                                                 # bol (beginning of line)
-              \s*                                                               # zero or more whitespace characters
-              (\*)                                                              # capture group 1: asterisk
-              (?!/)                                                             # negative look-ahead: forward-slash
-            )
+        - match: '^\s*(\*)(?!/)'
           captures:
             1: punctuation.definition.comment.jsonc
 
   comment-block:
-    - match: /\*                                                                # forward-slash, asterisk
+    - match: '/\*'
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.jsonc
         - meta_include_prototype: false
-        - match: |-
-            (?x:
-              \*/                                                               # asterisk, forward-slash
-            )
+        - match: '\*/'
           scope: punctuation.definition.comment.end.jsonc
           pop: 1
