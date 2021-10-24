@@ -10,6 +10,24 @@ version: 2
 hidden: true
 
 
+####[ Variables ]#######################################################################################################
+
+
+variables:
+  exponent: |-
+    (?x:
+      [eE]
+      [-+]?
+      \d+
+    )
+  pos_integer: |-
+    (?x:
+      0
+      |
+      [1-9]\d*
+    )
+
+
 ####[ Contexts ]########################################################################################################
 
 
@@ -44,10 +62,10 @@ contexts:
         (?x:                                                                    # ignore whitespace
           ([-]?)                                                                # capture group 1: optional sign
           (                                                                     # capture group 2: numeric value
-            (?:0|[1-9]\d*)                                                      # zero or any other (positive) decimal integer
+            (?:{{pos_integer}})                                                 # zero or any other (positive) decimal integer
             (?:
-              (?:(\.)\d+)(?:[eE][-+]?\d+)?|                                     # ... and either a period, one or more number characters, an optional exponent
-              (?:[eE][-+]?\d+)                                                  # ... or an exponent
+              (?:(\.)\d+){{exponent}}?|                                         # ... and either a period, one or more number characters, an optional exponent
+              {{exponent}}                                                      # ... or an exponent
             )
           )
         )
@@ -61,7 +79,7 @@ contexts:
     - match: |-
         (?x:                                                                    # ignore whitespace
           ([-]?)                                                                # capture group 1: optional sign
-          (0|[1-9]\d*)                                                          # capture group 2: zero or any other (positive) decimal integer
+          ({{pos_integer}})                                                     # capture group 2: zero or any other (positive) decimal integer
         )
       scope: meta.number.integer.decimal.json
       captures:
