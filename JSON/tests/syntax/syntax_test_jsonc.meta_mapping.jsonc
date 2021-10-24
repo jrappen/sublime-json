@@ -30,7 +30,7 @@
     "meta-mapping-value-mapping": { "a": 1, "b": 2 }
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping meta.mapping.key
 //                              ^ meta.mapping punctuation.separator.mapping.key-value
-//                                ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping meta.mapping.value
+//                                ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 //                                ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
 //                                                 ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
 //                                  ^^^ meta.mapping.value meta.mapping.key
