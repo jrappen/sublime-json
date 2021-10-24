@@ -4,6 +4,8 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://www.sublimetext.com/docs/syntax.html#testing
 # https://www.sublimetext.com/docs/scope_naming.html
+# https://www.json.org/json-en.html
+# https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 name: JSON
 scope: source.json
 version: 2
