@@ -151,7 +151,7 @@ contexts:
       scope: punctuation.definition.mapping.end.json
       pop: 1
     - include: mapping-key
-    - include: latter-part-of-key-value-pair-inside-mapping
+    - include: separator-mapping
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
@@ -166,25 +166,29 @@ contexts:
     - meta_include_prototype: false                                             # for inheriting syntaxes
     - include: inside-double-quoted-string
 
-  latter-part-of-key-value-pair-inside-mapping:
+  separator-mapping:
     - match: ':'
       scope: punctuation.separator.mapping.key-value.json
-      push:
-        - match: ',|\s?(?=\})'
-          scope: invalid.illegal.expected-mapping-value.json
+      push: expect-mapping-value
+
+  expect-mapping-value:
+    - match: ',|\s?(?=\})'
+      scope: invalid.illegal.expected-mapping-value.json
+      pop: 1
+    - match: (?=\S)
+      set: mapping-value
+
+  mapping-value:
+    - clear_scopes: 1
+    - meta_scope: meta.mapping.value.json
+    - include: any
+    - match: ''
+      set:
+        - match: ','
+          scope: punctuation.separator.mapping.pair.json
           pop: 1
-        - match: (?=\S)
-          set:
-            - clear_scopes: 1
-            - meta_scope: meta.mapping.value.json
-            - include: any
-            - match: ''
-              set:
-                - match: ','
-                  scope: punctuation.separator.mapping.pair.json
-                  pop: 1
-                - match: \s*(?=\})
-                  pop: 1
-                - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
-                  scope: invalid.illegal.expected-mapping-separator.json
-                  pop: 1
+        - match: \s*(?=\})
+          pop: 1
+        - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
+          scope: invalid.illegal.expected-mapping-separator.json
+          pop: 1
