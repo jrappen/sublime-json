@@ -39,16 +39,30 @@
 
 
 
-    "hexadecimal-zero-integer": 0x0,
-//                              ^^^ meta.number.integer.hexadecimal
-    "explicitly-positive-hexadecimal-zero-integer": +0x0,
+    "lower-case-hexadecimal-zero-integer": 0x0,
+//                                         ^^^ meta.number.integer.hexadecimal
+    "lower-case-explicitly-positive-hexadecimal-zero-integer": +0x0,
+//                                                             ^^^^ meta.number.integer.hexadecimal
+    "lower-case-negative-hexadecimal-zero-integer": -0x0,
 //                                                  ^^^^ meta.number.integer.hexadecimal
-    "negative-hexadecimal-zero-integer": -0x0,
-//                                       ^^^^ meta.number.integer.hexadecimal
-    "hexadecimal-integer": 0x1,
-//                         ^^^ meta.number.integer.hexadecimal
-    "explicitly-positive-hexadecimal-integer": +0x1,
+    "lower-case-hexadecimal-integer": 0x1,
+//                                    ^^^ meta.number.integer.hexadecimal
+    "lower-case-explicitly-positive-hexadecimal-integer": +0x1,
+//                                                        ^^^^ meta.number.integer.hexadecimal
+    "lower-case-negative-hexadecimal-integer": -0x1,
 //                                             ^^^^ meta.number.integer.hexadecimal
-    "negative-hexadecimal-integer": -0x1
-//                                  ^^^^ meta.number.integer.hexadecimal
+
+
+    "upper-case-hexadecimal-zero-integer": 0X0,
+//                                         ^^^ meta.number.integer.hexadecimal
+    "upper-case-explicitly-positive-hexadecimal-zero-integer": +0X0,
+//                                                             ^^^^ meta.number.integer.hexadecimal
+    "upper-case-negative-hexadecimal-zero-integer": -0X0,
+//                                                  ^^^^ meta.number.integer.hexadecimal
+    "upper-case-hexadecimal-integer": 0X1,
+//                                    ^^^ meta.number.integer.hexadecimal
+    "upper-case-explicitly-positive-hexadecimal-integer": +0X1,
+//                                                        ^^^^ meta.number.integer.hexadecimal
+    "upper-case-negative-hexadecimal-integer": -0X1
+//                                             ^^^^ meta.number.integer.hexadecimal
 }
