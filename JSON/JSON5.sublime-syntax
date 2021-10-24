@@ -4,6 +4,8 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://www.sublimetext.com/docs/syntax.html#testing
 # https://www.sublimetext.com/docs/scope_naming.html
+# https://json5.org/
+# https://spec.json5.org/
 name: JSON5
 scope: source.json.json5
 version: 2
