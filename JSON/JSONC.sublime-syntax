@@ -130,7 +130,7 @@ contexts:
 
   comments:
     - include: comment-line
-    - include: comment-block-doc
+    - include: comment-doc-block
     - include: comment-block
 
   comment-line:
@@ -142,15 +142,13 @@ contexts:
         - match: $\n?
           pop: 1
 
-  comment-block-doc:
+  comment-doc-block:
     - match: '/\*\*(?!/)'
       scope: punctuation.definition.comment.begin.jsonc
       push:
         - meta_scope: comment.block.documentation.jsonc
         - meta_include_prototype: false
-        - match: '\*/'
-          scope: punctuation.definition.comment.end.jsonc
-          pop: 1
+        - include: comment-block-end
         - match: '^\s*(\*)(?!/)'
           captures:
             1: punctuation.definition.comment.jsonc
@@ -161,6 +159,9 @@ contexts:
       push:
         - meta_scope: comment.block.jsonc
         - meta_include_prototype: false
-        - match: '\*/'
-          scope: punctuation.definition.comment.end.jsonc
-          pop: 1
+        - include: comment-block-end
+
+  comment-block-end:
+    - match: '\*/'
+      scope: punctuation.definition.comment.end.jsonc
+      pop: 1
