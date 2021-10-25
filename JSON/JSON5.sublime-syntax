@@ -50,12 +50,26 @@ file_extensions:
     # https://nextjs.org/docs/api-reference/next.config.js/introduction
 
 
+####[ Variables ]#######################################################################################################
+
+
+variables:
+  optional_sign: |-
+    (?x:                                                                        # ignore whitespace
+      [-+]?
+    )
+  pos_integer_hexadecimal: |-
+    (?xi:                                                                       # ignore whitespace and case
+      0[x]\h+
+    )
+
+
 ####[ Contexts ]########################################################################################################
 
 
 contexts:
 
-####[ Extends / Override inherited syntax ]#############################################################################
+####[ Numbers ]#########################################################################################################
 
   numbers:
     - meta_prepend: true
@@ -63,21 +77,15 @@ contexts:
     - include: decimal-float-with-trailing-period-in-base
     - include: hexadecimal-integer
 
-  strings:
-    - meta_append: true
-    - include: single-quoted-string-ahead
-
-  string-escape-characters:
-    - meta_prepend: true
-    - match: \\v
-      scope: constant.character.escape.vertical-tab.json5
-    - match: \\0
-      scope: constant.character.escape.null.json5
-
-####[ Numbers ]#########################################################################################################
-
   decimal-float-with-leading-period-in-base:
-    - match: '([-]?)((?:(\.)\d+)(?:[eE][-+]?\d+)?)'
+    - match: |-
+        (?x:
+          ({{optional_neg_sign}})
+          (
+            (?:(\.)\d+)
+            {{optional_exponent}}
+          )
+        )
       scope: meta.number.float.decimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
@@ -85,7 +93,16 @@ contexts:
         3: punctuation.separator.decimal.json5
 
   decimal-float-with-trailing-period-in-base:
-    - match: '([-]?)((?:0|[1-9]\d*)(\.)(?!\d)(?:[eE][-+]?\d+)?)'
+    - match: |-
+        (?x:
+          ({{optional_neg_sign}})
+          (
+            {{pos_integer}}
+            (\.)
+            (?!\d)
+            {{optional_exponent}}
+          )
+        )
       scope: meta.number.float.decimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
@@ -95,10 +112,8 @@ contexts:
   hexadecimal-integer:
     - match: |-
         (?xi:                                                                   # ignore whitespace & case
-          ([-+])?                                                               # optional minus or plus sign
-          (
-            0[x]\h+
-          )
+          ({{optional_sign}})
+          ({{pos_integer_hexadecimal}})
         )
       scope: meta.number.integer.hexadecimal.json5
       captures:
@@ -106,6 +121,10 @@ contexts:
         2: constant.numeric.value.json5
 
 ####[ Strings ]#########################################################################################################
+
+  strings:
+    - meta_append: true
+    - include: single-quoted-string-ahead
 
   single-quoted-string-ahead:
     - match: "(?=\')"
@@ -132,6 +151,13 @@ contexts:
     - match: \\\'
       scope: constant.character.escape.single-quote.json5
     - include: string-escape-characters
+
+  string-escape-characters:
+    - meta_prepend: true
+    - match: \\v
+      scope: constant.character.escape.vertical-tab.json5
+    - match: \\0
+      scope: constant.character.escape.null.json5
 
 ####[ Mapping ]#########################################################################################################
 
