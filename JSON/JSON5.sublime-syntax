@@ -111,7 +111,7 @@ contexts:
 
   hexadecimal-integer:
     - match: |-
-        (?xi:                                                                   # ignore whitespace & case
+        (?x:
           ({{optional_sign}})
           ({{pos_integer_hexadecimal}})
         )
