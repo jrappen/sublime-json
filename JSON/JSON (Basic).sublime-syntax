@@ -69,7 +69,7 @@ contexts:
     - match: |-
         (?x:                                                                    # ignore whitespace
           ({{optional_sign}})
-          (                                                                     # capture group 2: numeric value
+          (
             {{pos_integer}}
             (?:
               (?:(\.)\d+){{optional_exponent}}
@@ -109,7 +109,6 @@ contexts:
     - match: '"'
       scope: punctuation.definition.string.begin.json
       set: inside-double-quoted-string
-    # ?
 
   inside-double-quoted-string:
     - meta_scope: meta.string.json string.quoted.double.json
