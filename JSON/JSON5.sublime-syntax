@@ -97,7 +97,7 @@ contexts:
         (?x:
           ({{optional_neg_sign}})
           (
-            {{pos_integer}}
+            {{pos_integer_decimal}}
             (\.)
             (?!\d)
             {{optional_exponent}}
