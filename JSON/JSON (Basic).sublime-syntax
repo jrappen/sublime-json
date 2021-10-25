@@ -24,11 +24,11 @@ variables:
     (?x:                                                                        # ignore whitespace
       (?:{{exponent}})?
     )
-  optional_sign: |-
+  optional_neg_sign: |-
     (?x:                                                                        # ignore whitespace
       [-]?
     )
-  pos_integer: |-
+  pos_integer_decimal: |-
     (?x:                                                                        # ignore whitespace
       0
       |
@@ -68,9 +68,9 @@ contexts:
   decimal-float:
     - match: |-
         (?x:                                                                    # ignore whitespace
-          ({{optional_sign}})
+          ({{optional_neg_sign}})
           (
-            {{pos_integer}}
+            {{pos_integer_decimal}}
             (?:
               (?:(\.)\d+){{optional_exponent}}
               |
@@ -87,8 +87,8 @@ contexts:
   decimal-integer:
     - match: |-
         (?x:                                                                    # ignore whitespace
-          ({{optional_sign}})
-          ({{pos_integer}})
+          ({{optional_neg_sign}})
+          ({{pos_integer_decimal}})
         )
       scope: meta.number.integer.decimal.json
       captures:
