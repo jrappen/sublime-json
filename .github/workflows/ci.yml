@@ -27,7 +27,7 @@ on:
 
 jobs:
   run_syntax_tests:
-    name: Test syntaxes on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
+    name: Test on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.optional }}
     strategy:
