@@ -15,13 +15,21 @@ hidden: true
 
 variables:
   exponent: |-
-    (?x:
-      [eE]
+    (?xi:                                                                       # ignore whitespace and case
+      [e]
       [-+]?
       \d+
     )
+  optional_exponent: |-
+    (?x:                                                                        # ignore whitespace
+      (?:{{exponent}})?
+    )
+  optional_sign: |-
+    (?x:                                                                        # ignore whitespace
+      [-]?
+    )
   pos_integer: |-
-    (?x:
+    (?x:                                                                        # ignore whitespace
       0
       |
       [1-9]\d*
@@ -60,12 +68,13 @@ contexts:
   decimal-float:
     - match: |-
         (?x:                                                                    # ignore whitespace
-          ([-]?)                                                                # capture group 1: optional sign
+          ({{optional_sign}})
           (                                                                     # capture group 2: numeric value
-            (?:{{pos_integer}})                                                 # zero or any other (positive) decimal integer
+            {{pos_integer}}
             (?:
-              (?:(\.)\d+){{exponent}}?|                                         # ... and either a period, one or more number characters, an optional exponent
-              {{exponent}}                                                      # ... or an exponent
+              (?:(\.)\d+){{optional_exponent}}
+              |
+              {{exponent}}
             )
           )
         )
@@ -78,8 +87,8 @@ contexts:
   decimal-integer:
     - match: |-
         (?x:                                                                    # ignore whitespace
-          ([-]?)                                                                # capture group 1: optional sign
-          ({{pos_integer}})                                                     # capture group 2: zero or any other (positive) decimal integer
+          ({{optional_sign}})
+          ({{pos_integer}})
         )
       scope: meta.number.integer.decimal.json
       captures:
