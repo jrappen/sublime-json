@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
 # https://yaml.org/spec/1.2/spec.html
-# https://www.sublimetext.com/docs/syntax.html
-# https://www.sublimetext.com/docs/syntax.html#testing
+# https://www.sublimetext.com/docs/syntax.html#ver-dev
+# https://www.sublimetext.com/docs/syntax.html#testing:ver-dev
 # https://www.sublimetext.com/docs/scope_naming.html
 name: JSON
 scope: source.json
