@@ -22,6 +22,8 @@ extends: 'Packages/JSON/JSONC.sublime-syntax'
 file_extensions:
 
   - json5
+    # https://json5.org/
+    # https://spec.json5.org/
 
   - .babelrc
     # Babel.js File-relative Configuration
