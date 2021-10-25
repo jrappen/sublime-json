@@ -31,7 +31,9 @@ extends: 'Packages/JSON/JSON.sublime-syntax'
 file_extensions:
 
   - json
+    # https://www.json.org/json-en.html
     # https://datatracker.ietf.org/doc/html/rfc7159
+    # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
   - jsonc
 
