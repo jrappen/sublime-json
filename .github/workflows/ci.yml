@@ -36,7 +36,7 @@ jobs:
       matrix:
         include:
           - sublime-channel: stable
-            sublime-build: 4113
+            sublime-build: 4121
             optional: true
           - sublime-channel: dev
             sublime-build: 4120
