@@ -11,50 +11,50 @@
 			(
 				^
 				(
+					# Consume strings
 					"(?:[^"\\]|\\.)*"
 					|
+					# Consume all chars that don't start a string, comment or
+					# open an object on this line
 					[^"/{\n]
 				)*
-				\}
-				.*
-				$
+				\}.*$
 			)
 			|
 			# When an array is closed by itself on a line (interacts with indentSquareBrackets)
 			(
-				^
-				(.*\*/)?
-				\s*
-				\]
-				.*
-				$
+				^(.*\*/)?\s*\].*$
 			)
 		</string>
 		<key>increaseIndentPattern</key>
 		<string>(?x)
 			# When an object is opened, but not closed
 			(
-				^
-				.*
-				\{
+				^.*\{
 				(
+					# Consume strings
 					"(?:[^"\\]|\\.)*"
 					|
+					# Consume all chars that don't start a string, comment or
+					# end the object that was opened on this line
 					[^"/}]
 				)*
+				# Stop matching at the end of the line, or once we hit a comment
 				($|/[/*])
 			)
 			|
 			# When an array is opened, but not closed
 			(
-				^
-				.*
-				\[
+				^.*\[
 				(
+					# Consume strings
 					"(?:[^"\\]|\\.)*"
 					|
+					# Consume all chars that don't start a string, comment or
+					# end the object that was opened on this line
 					[^"/\]]
 				)*
+				# Stop matching at the end of the line, or once we hit a comment
 				($|/[/*])
 			)
 		</string>
