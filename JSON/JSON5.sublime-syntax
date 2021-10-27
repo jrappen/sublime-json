@@ -54,10 +54,7 @@ file_extensions:
 
 
 variables:
-  optional_sign: |-
-    (?x:                                                                        # ignore whitespace
-      [-+]?
-    )
+  optional_sign: '(?:[-+]?)'
 
 
 ####[ Contexts ]########################################################################################################

@@ -14,26 +14,10 @@ hidden: true
 
 
 variables:
-  exponent: |-
-    (?xi:                                                                       # ignore whitespace and case
-      [e]
-      [-+]?
-      \d+
-    )
-  optional_exponent: |-
-    (?x:                                                                        # ignore whitespace
-      (?:{{exponent}})?
-    )
-  optional_neg_sign: |-
-    (?x:                                                                        # ignore whitespace
-      [-]?
-    )
-  pos_integer_decimal: |-
-    (?x:                                                                        # ignore whitespace
-      0
-      |
-      [1-9]\d*
-    )
+  exponent: '(?:[eE][-+]?\d+)'
+  optional_exponent: '(?:{{exponent}}?)'
+  optional_neg_sign: '(?:[-]?)'
+  pos_integer_decimal: '(?:0|[1-9]\d*)'
 
 
 ####[ Contexts ]########################################################################################################
