@@ -58,10 +58,6 @@ variables:
     (?x:                                                                        # ignore whitespace
       [-+]?
     )
-  pos_integer_hexadecimal: |-
-    (?xi:                                                                       # ignore whitespace and case
-      0[x]\h+
-    )
 
 
 ####[ Contexts ]########################################################################################################
@@ -168,14 +164,16 @@ contexts:
 
   hexadecimal-integer:
     - match: |-
-        (?x:
+        (?xi:                                                                   # ignore whitespace and case
           ({{optional_sign}})
-          ({{pos_integer_hexadecimal}})
+          (0[x])
+          (\h+)
         )
       scope: meta.number.integer.hexadecimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
-        2: constant.numeric.value.json5
+        2: constant.numeric.base.json5
+        3: constant.numeric.value.json5
 
 ####[ Strings ]#########################################################################################################
 

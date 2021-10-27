@@ -5,28 +5,60 @@
 {
     "lower-case-hexadecimal-zero-integer": 0x0,
 //                                         ^^^ meta.number.integer.hexadecimal
+//                                         ^^ constant.numeric.base
+//                                           ^ constant.numeric.value
     "lower-case-explicitly-positive-hexadecimal-zero-integer": +0x0,
 //                                                             ^^^^ meta.number.integer.hexadecimal
+//                                                             ^ keyword.operator.arithmetic
+//                                                              ^^ constant.numeric.base
+//                                                                ^ constant.numeric.value
     "lower-case-negative-hexadecimal-zero-integer": -0x0,
 //                                                  ^^^^ meta.number.integer.hexadecimal
+//                                                  ^ keyword.operator.arithmetic
+//                                                   ^^ constant.numeric.base
+//                                                     ^ constant.numeric.value
     "lower-case-hexadecimal-integer": 0x1,
 //                                    ^^^ meta.number.integer.hexadecimal
+//                                    ^^ constant.numeric.base
+//                                      ^ constant.numeric.value
     "lower-case-explicitly-positive-hexadecimal-integer": +0x1,
 //                                                        ^^^^ meta.number.integer.hexadecimal
+//                                                        ^ keyword.operator.arithmetic
+//                                                         ^^ constant.numeric.base
+//                                                           ^ constant.numeric.value
     "lower-case-negative-hexadecimal-integer": -0x1,
 //                                             ^^^^ meta.number.integer.hexadecimal
+//                                             ^ keyword.operator.arithmetic
+//                                              ^^ constant.numeric.base
+//                                                ^ constant.numeric.value
 
 
     "upper-case-hexadecimal-zero-integer": 0X0,
 //                                         ^^^ meta.number.integer.hexadecimal
+//                                         ^^ constant.numeric.base
+//                                           ^ constant.numeric.value
     "upper-case-explicitly-positive-hexadecimal-zero-integer": +0X0,
 //                                                             ^^^^ meta.number.integer.hexadecimal
+//                                                             ^ keyword.operator.arithmetic
+//                                                              ^^ constant.numeric.base
+//                                                                ^ constant.numeric.value
     "upper-case-negative-hexadecimal-zero-integer": -0X0,
 //                                                  ^^^^ meta.number.integer.hexadecimal
+//                                                  ^ keyword.operator.arithmetic
+//                                                   ^^ constant.numeric.base
+//                                                     ^ constant.numeric.value
     "upper-case-hexadecimal-integer": 0X1,
 //                                    ^^^ meta.number.integer.hexadecimal
+//                                    ^^ constant.numeric.base
+//                                      ^ constant.numeric.value
     "upper-case-explicitly-positive-hexadecimal-integer": +0X1,
 //                                                        ^^^^ meta.number.integer.hexadecimal
+//                                                        ^ keyword.operator.arithmetic
+//                                                         ^^ constant.numeric.base
+//                                                           ^ constant.numeric.value
     "upper-case-negative-hexadecimal-integer": -0X1
 //                                             ^^^^ meta.number.integer.hexadecimal
+//                                             ^ keyword.operator.arithmetic
+//                                              ^^ constant.numeric.base
+//                                                ^ constant.numeric.value
 }
