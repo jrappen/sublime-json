@@ -13,9 +13,6 @@ version: 2
 ####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
 
 
-#   The JSONC syntax extends the JSON syntax with comments
-#   while making sure that prototype contexts are properly ex- or included.
-
 extends: Packages/JSON/JSON.sublime-syntax
 
 
@@ -120,19 +117,11 @@ file_extensions:
 
 contexts:
 
-####[ Prototype / Add to inherited syntax ]#############################################################################
-
+  # The syntax we are inheriting from already excludes prototype from the
+  # relevant contexts, although not having a prototype itself.
   prototype:
     - include: comments
 
-####[ Extends / Override inherited syntax ]#############################################################################
-
-    #############################################################################
-    #                                                                           #
-    # The syntax we are inheriting from already excludes prototype from the     #
-    # relevant contexts, although not having a prototype itself.                #
-    #                                                                           #
-    #############################################################################
 
 ####[ Comments / Add to inherited syntax ]##############################################################################
 
