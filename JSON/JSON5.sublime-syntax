@@ -13,7 +13,7 @@ version: 2
 ####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
 
 
-extends: 'Packages/JSON/JSONC.sublime-syntax'
+extends: Packages/JSON/JSONC.sublime-syntax
 
 
 ####[ File Extensions ]#################################################################################################
@@ -182,7 +182,7 @@ contexts:
     - include: single-quoted-string-ahead
 
   single-quoted-string-ahead:
-    - match: "(?=\')"
+    - match: (?=')
       push: single-quoted-string
 
   single-quoted-string:
