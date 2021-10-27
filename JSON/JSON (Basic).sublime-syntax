@@ -62,10 +62,32 @@ contexts:
 ####[ Numbers ]#########################################################################################################
 
   numbers:
+    - include: floats
+    - include: integers
+
+  floats:
     - include: decimal-float
-    - include: decimal-integer
 
   decimal-float:
+    - include: explicitly-positive-decimal-float-json
+    - include: decimal-float-json
+
+  explicitly-positive-decimal-float-json:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([+])
+          (
+            {{pos_integer_decimal}}
+            (?:
+              (?:(\.)\d+){{optional_exponent}}
+              |
+              {{exponent}}
+            )
+          )
+        )
+      scope: invalid.illegal.unrecognized-float-decimal.json
+
+  decimal-float-json:
     - match: |-
         (?x:                                                                    # ignore whitespace
           ({{optional_neg_sign}})
@@ -84,7 +106,22 @@ contexts:
         2: constant.numeric.value.json
         3: punctuation.separator.decimal.json
 
+  integers:
+    - include: decimal-integer
+
   decimal-integer:
+    - include: explicitly-positive-decimal-integer-json
+    - include: decimal-integer-json
+
+  explicitly-positive-decimal-integer-json:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([+])
+          ({{pos_integer_decimal}})
+        )
+      scope: invalid.illegal.unrecognized-integer-decimal.json
+
+  decimal-integer-json:
     - match: |-
         (?x:                                                                    # ignore whitespace
           ({{optional_neg_sign}})

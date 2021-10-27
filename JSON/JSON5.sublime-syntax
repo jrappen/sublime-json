@@ -71,11 +71,27 @@ contexts:
 
 ####[ Numbers ]#########################################################################################################
 
-  numbers:
-    - meta_prepend: true
+  # we completely override here instead of prepending
+  decimal-float:
+    # (!) do not `meta_prepend: true`
+    - include: decimal-float-ieee-754
     - include: decimal-float-with-leading-period-in-base
     - include: decimal-float-with-trailing-period-in-base
-    - include: hexadecimal-integer
+    # (!) do not `include: explicitly-positive-decimal-float-json`
+    - include: explicitly-positive-decimal-float-json5
+    - include: decimal-float-json
+
+  decimal-float-ieee-754:
+    - match: '({{optional_sign}})(Infinity)'
+      scope: meta.number.float.decimal.json5 constant.language.infinity.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
+    - match: '({{optional_sign}})(NaN)'
+      scope: meta.number.float.decimal.json5 constant.language.nan.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
 
   decimal-float-with-leading-period-in-base:
     - match: |-
@@ -108,6 +124,47 @@ contexts:
         1: keyword.operator.arithmetic.json5
         2: constant.numeric.value.json5
         3: punctuation.separator.decimal.json5
+
+  explicitly-positive-decimal-float-json5:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([+])
+          (
+            {{pos_integer_decimal}}
+            (?:
+              (?:(\.)\d+){{optional_exponent}}
+              |
+              {{exponent}}
+            )
+          )
+        )
+      scope: meta.number.float.decimal.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
+        3: punctuation.separator.decimal.json5
+
+  integers:
+    - meta_prepend: true
+    - include: hexadecimal-integer
+
+  # we completely override here instead of prepending
+  decimal-integer:
+    # (!) do not `meta_prepend: true`
+    - include: explicitly-positive-decimal-integer-json5
+    # (!) do not `include: explicitly-positive-decimal-integer-json`
+    - include: decimal-integer-json
+
+  explicitly-positive-decimal-integer-json5:
+    - match: |-
+        (?x:                                                                    # ignore whitespace
+          ([+])
+          ({{pos_integer_decimal}})
+        )
+      scope: meta.number.integer.decimal.json5
+      captures:
+        1: keyword.operator.arithmetic.json5
+        2: constant.numeric.value.json5
 
   hexadecimal-integer:
     - match: |-
