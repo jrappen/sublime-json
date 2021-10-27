@@ -76,9 +76,17 @@ file_extensions:
     # ESLint Configuration
     # https://eslint.org/docs/user-guide/configuring/
 
+  - .eslintrc.json
+    # ESLint Configuration
+    # https://eslint.org/docs/user-guide/configuring/
+
   - .hintrc
     # Webhint Configuration
     # https://webhint.io/docs/user-guide/configuring-webhint/summary/
+
+  - .htmlhintrc
+    # HTMLHint Configuration
+    # https://htmlhint.com/docs/user-guide/configuration
 
   - .jshintrc
     # JSHint
