@@ -5,17 +5,27 @@
 {
     "float-leading-period-followed-by-zero": .0,
 //                                           ^^ meta.number.float.decimal
+//                                           ^^ constant.numeric.value
+//                                           ^^ constant.numeric.value.fraction
 //                                           ^^ - invalid.illegal.meta-number-float-decimal
 
     "float-leading-period-followed-by-nonzero": .9,
 //                                              ^^ meta.number.float.decimal
+//                                              ^^ constant.numeric.value
+//                                              ^^ constant.numeric.value.fraction
 //                                              ^^ - invalid.illegal.meta-number-float-decimal
 
     "negative-float-leading-period-followed-by-zero": -.0,
 //                                                    ^^^ meta.number.float.decimal
+//                                                    ^ keyword.operator.arithmetic
+//                                                     ^^ constant.numeric.value
+//                                                     ^^ constant.numeric.value.fraction
 //                                                    ^^^ - invalid.illegal.meta-number-float-decimal
 
     "negative-float-leading-period-followed-by-nonzero": -.9
 //                                                       ^^^ meta.number.float.decimal
+//                                                       ^ keyword.operator.arithmetic
+//                                                        ^^ constant.numeric.value
+//                                                        ^^ constant.numeric.value.fraction
 //                                                       ^^^ - invalid.illegal.meta-number-float-decimal
 }

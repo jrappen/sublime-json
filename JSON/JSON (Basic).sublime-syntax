@@ -57,9 +57,9 @@ contexts:
           (
             {{pos_integer_decimal}}
             (?:
-              (?:(\.)\d+){{optional_exponent}}
+              ((\.)\d+)({{optional_exponent}})
               |
-              {{exponent}}
+              ({{exponent}})
             )
           )
         )
@@ -67,7 +67,10 @@ contexts:
       captures:
         1: keyword.operator.arithmetic.json
         2: constant.numeric.value.json
-        3: punctuation.separator.decimal.json
+        3: constant.numeric.value.fraction.json
+        4: punctuation.separator.decimal.json
+        5: constant.numeric.value.exponent.json
+        6: constant.numeric.value.exponent.json
 
   decimal-float-json:
     - match: |-
@@ -76,9 +79,9 @@ contexts:
           (
             {{pos_integer_decimal}}
             (?:
-              (?:(\.)\d+){{optional_exponent}}
+              ((\.)\d+)({{optional_exponent}})
               |
-              {{exponent}}
+              ({{exponent}})
             )
           )
         )
@@ -86,7 +89,10 @@ contexts:
       captures:
         1: keyword.operator.arithmetic.json
         2: constant.numeric.value.json
-        3: punctuation.separator.decimal.json
+        3: constant.numeric.value.fraction.json
+        4: punctuation.separator.decimal.json
+        5: constant.numeric.value.exponent.json
+        6: constant.numeric.value.exponent.json
 
   integers:
     - include: decimal-integer

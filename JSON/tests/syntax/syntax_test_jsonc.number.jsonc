@@ -39,12 +39,14 @@
 
     "float-zero": 0.0,
 //                ^^^ meta.number.float.decimal constant.numeric.value
+//                 ^^ constant.numeric.value.fraction
 //                 ^ punctuation.separator.decimal
 
     "float-negative-zero": -0.0,
 //                         ^^^^ meta.number.float.decimal
 //                         ^ keyword.operator.arithmetic
 //                          ^^^ constant.numeric.value
+//                           ^^ constant.numeric.value.fraction
 //                           ^ punctuation.separator.decimal
 
 
@@ -57,39 +59,51 @@
 
     "float-zero-with-zero-exponent": 0.0e0,
 //                                   ^^^^^ meta.number.float.decimal constant.numeric.value
+//                                    ^^ constant.numeric.value.fraction
 //                                    ^ punctuation.separator.decimal
+//                                      ^^ constant.numeric.value.exponent
 
     "float-zero-with-negative-zero-exponent": 0.0e-0,
 //                                            ^^^^^^ meta.number.float.decimal constant.numeric.value
+//                                             ^^ constant.numeric.value.fraction
 //                                             ^ punctuation.separator.decimal
+//                                               ^^^ constant.numeric.value.exponent
 
     "float-negative-zero-with-zero-exponent": -0.0e0,
 //                                            ^^^^^^ meta.number.float.decimal
 //                                            ^ keyword.operator.arithmetic
 //                                             ^^^^^ constant.numeric.value
+//                                              ^^ constant.numeric.value.fraction
 //                                              ^ punctuation.separator.decimal
+//                                                ^^ constant.numeric.value.exponent
 
     "float-negative-zero-with-negative-zero-exponent": -0.0e-0,
 //                                                     ^^^^^^^ meta.number.float.decimal
 //                                                     ^ keyword.operator.arithmetic
 //                                                      ^^^^^^ constant.numeric.value
+//                                                       ^^ constant.numeric.value.fraction
 //                                                       ^ punctuation.separator.decimal
+//                                                         ^^^ constant.numeric.value.exponent
 
     "float-zero-no-fraction-with-zero-exponent": 0e0,
 //                                               ^^^ meta.number.float.decimal constant.numeric.value
+//                                                ^^ constant.numeric.value.exponent
 
     "float-negative-zero-no-fraction-with-zero-exponent": -0e0,
 //                                                        ^^^^ meta.number.float.decimal
 //                                                        ^ keyword.operator.arithmetic
-//                                                         ^^^constant.numeric.value
+//                                                         ^^^ constant.numeric.value
+//                                                          ^^ constant.numeric.value.exponent
 
     "float-zero-no-fraction-with-negative-zero-exponent": 0e-0,
 //                                                        ^^^^ meta.number.float.decimal constant.numeric.value
+//                                                         ^^^ constant.numeric.value.exponent
 
     "float-negative-zero-no-fraction-with-negative-zero-exponent": -0e-0,
 //                                                                 ^^^^^ meta.number.float.decimal
 //                                                                 ^ keyword.operator.arithmetic
 //                                                                  ^^^^ constant.numeric.value
+//                                                                   ^^^ constant.numeric.value.exponent
 
 
 
@@ -101,39 +115,51 @@
 
     "float-zero-with-exponent": 0.0e9,
 //                              ^^^^^ meta.number.float.decimal constant.numeric.value
+//                               ^^ constant.numeric.value.fraction
 //                               ^ punctuation.separator.decimal
+//                                 ^^ constant.numeric.value.exponent
 
     "float-zero-with-negative-exponent": 0.0e-9,
 //                                       ^^^^^^ meta.number.float.decimal constant.numeric.value
+//                                        ^^ constant.numeric.value.fraction
 //                                        ^ punctuation.separator.decimal
+//                                          ^^^ constant.numeric.value.exponent
 
     "float-negative-zero-with-exponent": -0.0e9,
 //                                       ^^^^^^ meta.number.float.decimal
 //                                       ^ keyword.operator.arithmetic
 //                                        ^^^^^ constant.numeric.value
+//                                         ^^ constant.numeric.value.fraction
 //                                         ^ punctuation.separator.decimal
+//                                           ^^ constant.numeric.value.exponent
 
     "float-negative-zero-with-negative-exponent": -0.0e-9,
 //                                                ^^^^^^^ meta.number.float.decimal
 //                                                ^ keyword.operator.arithmetic
 //                                                 ^^^^^^ constant.numeric.value
+//                                                  ^^ constant.numeric.value.fraction
 //                                                  ^ punctuation.separator.decimal
+//                                                    ^^^ constant.numeric.value.exponent
 
     "float-zero-no-fraction-with-exponent": 0e9,
 //                                          ^^^ meta.number.float.decimal constant.numeric.value
+//                                           ^^ constant.numeric.value.exponent
 
     "float-negative-zero-no-fraction-with-exponent": -0e9,
 //                                                   ^^^^ meta.number.float.decimal
 //                                                   ^ keyword.operator.arithmetic
 //                                                    ^^^ constant.numeric.value
+//                                                     ^^ constant.numeric.value.exponent
 
     "float-zero-no-fraction-with-negative-exponent": 0e-9,
 //                                                   ^^^^ meta.number.float.decimal constant.numeric.value
+//                                                    ^^^ constant.numeric.value.exponent
 
     "float-negative-zero-no-fraction-with-negative-exponent": -0e-9,
 //                                                            ^^^^^ meta.number.float.decimal
 //                                                            ^ keyword.operator.arithmetic
 //                                                             ^^^^ constant.numeric.value
+//                                                              ^^^ constant.numeric.value.exponent
 
 
 
@@ -145,12 +171,14 @@
 
     "float": 9.0,
 //           ^^^ meta.number.float.decimal constant.numeric.value
+//            ^^ constant.numeric.value.fraction
 //            ^ punctuation.separator.decimal
 
     "float-negative": -9.0,
 //                    ^^^^ meta.number.float.decimal
 //                    ^ keyword.operator.arithmetic
 //                     ^^^ constant.numeric.value
+//                      ^^ constant.numeric.value.fraction
 //                      ^ punctuation.separator.decimal
 
 
@@ -163,39 +191,51 @@
 
     "float-with-zero-exponent": 9.0e0,
 //                              ^^^^^ meta.number.float.decimal constant.numeric.value
+//                               ^^ constant.numeric.value.fraction
 //                               ^ punctuation.separator.decimal
+//                                 ^^ constant.numeric.value.exponent
 
     "float-with-negative-zero-exponent": 9.0e-0,
 //                                       ^^^^^^ meta.number.float.decimal constant.numeric.value
+//                                        ^^ constant.numeric.value.fraction
 //                                        ^ punctuation.separator.decimal
+//                                          ^^^ constant.numeric.value.exponent
 
     "float-negative-with-zero-exponent": -9.0e0,
 //                                       ^^^^^^ meta.number.float.decimal
 //                                       ^ keyword.operator.arithmetic
 //                                        ^^^^^ constant.numeric.value
+//                                         ^^ constant.numeric.value.fraction
 //                                         ^ punctuation.separator.decimal
+//                                           ^^ constant.numeric.value.exponent
 
     "float-negative-with-negative-zero-exponent": -9.0e-0,
 //                                                ^^^^^^^ meta.number.float.decimal
 //                                                ^ keyword.operator.arithmetic
 //                                                 ^^^^^^ constant.numeric.value
+//                                                  ^^ constant.numeric.value.fraction
 //                                                  ^ punctuation.separator.decimal
+//                                                    ^^^ constant.numeric.value.exponent
 
     "float-no-fraction-with-zero-exponent": 9e0,
 //                                          ^^^ meta.number.float.decimal constant.numeric.value
+//                                           ^^ constant.numeric.value.exponent
 
     "float-negative-no-fraction-with-zero-exponent": -9e0,
 //                                                   ^^^^ meta.number.float.decimal
 //                                                   ^ keyword.operator.arithmetic
 //                                                    ^^^ constant.numeric.value
+//                                                     ^^ constant.numeric.value.exponent
 
     "float-no-fraction-with-negative-zero-exponent": 9e-0,
 //                                                   ^^^^ meta.number.float.decimal constant.numeric.value
+//                                                    ^^^ constant.numeric.value.exponent
 
     "float-negative-no-fraction-with-negative-zero-exponent": -9e-0,
 //                                                            ^^^^^ meta.number.float.decimal
 //                                                            ^ keyword.operator.arithmetic
 //                                                             ^^^^ constant.numeric.value
+//                                                              ^^^ constant.numeric.value.exponent
 
 
 
@@ -207,23 +247,31 @@
 
     "float-with-exponent": 9.0e9,
 //                         ^^^^^ meta.number.float.decimal constant.numeric.value
+//                          ^^ constant.numeric.value.fraction
 //                          ^ punctuation.separator.decimal
+//                            ^^ constant.numeric.value.exponent
 
     "float-with-negative-exponent": 9.0e-9,
 //                                  ^^^^^^ meta.number.float.decimal constant.numeric.value
+//                                   ^^ constant.numeric.value.fraction
 //                                   ^ punctuation.separator.decimal
+//                                     ^^^ constant.numeric.value.exponent
 
     "float-negative-with-exponent": -9.0e9,
 //                                  ^^^^^^ meta.number.float.decimal
 //                                  ^ keyword.operator.arithmetic
 //                                   ^^^^^ constant.numeric.value
+//                                    ^^ constant.numeric.value.fraction
 //                                    ^ punctuation.separator.decimal
+//                                      ^^ constant.numeric.value.exponent
 
     "float-negative-with-negative-exponent": -9.0e-9,
 //                                           ^^^^^^^ meta.number.float.decimal
 //                                           ^ keyword.operator.arithmetic
 //                                            ^^^^^^ constant.numeric.value
+//                                             ^^ constant.numeric.value.fraction
 //                                             ^ punctuation.separator.decimal
+//                                               ^^^ constant.numeric.value.exponent
 
 
 
@@ -235,17 +283,21 @@
 
     "float-no-fraction-with-exponent": 9e9,
 //                                     ^^^ meta.number.float.decimal constant.numeric.value
+//                                      ^^ constant.numeric.value.exponent
 
     "float-negative-no-fraction-with-exponent": -9e9,
 //                                              ^^^^ meta.number.float.decimal
 //                                              ^ keyword.operator.arithmetic
 //                                               ^^^ constant.numeric.value
+//                                                ^^ constant.numeric.value.exponent
 
     "float-no-fraction-with-negative-exponent": 9e-9,
 //                                              ^^^^ meta.number.float.decimal constant.numeric.value
+//                                               ^^^ constant.numeric.value.exponent
 
     "float-negative-no-fraction-with-negative-exponent": -9e-9
 //                                                       ^^^^^ meta.number.float.decimal
 //                                                       ^ keyword.operator.arithmetic
 //                                                        ^^^^ constant.numeric.value
+//                                                         ^^^ constant.numeric.value.exponent
 }

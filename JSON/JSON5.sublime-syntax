@@ -83,15 +83,17 @@ contexts:
         (?x:
           ({{optional_neg_sign}})
           (
-            (?:(\.)\d+)
-            {{optional_exponent}}
+            ((\.)\d+)
+            ({{optional_exponent}})
           )
         )
       scope: meta.number.float.decimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
         2: constant.numeric.value.json5
-        3: punctuation.separator.decimal.json5
+        3: constant.numeric.value.fraction.json5
+        4: punctuation.separator.decimal.json5
+        5: constant.numeric.value.exponent.json5
 
   decimal-float-with-trailing-period-in-base:
     - match: |-
@@ -101,14 +103,15 @@ contexts:
             {{pos_integer_decimal}}
             (\.)
             (?!\d)
-            {{optional_exponent}}
+            ({{optional_exponent}})
           )
         )
       scope: meta.number.float.decimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
         2: constant.numeric.value.json5
-        3: punctuation.separator.decimal.json5
+        3: constant.numeric.value.fraction.json5 punctuation.separator.decimal.json5
+        4: constant.numeric.value.exponent.json5
 
   explicitly-positive-decimal-float-json5:
     - match: |-
@@ -117,9 +120,9 @@ contexts:
           (
             {{pos_integer_decimal}}
             (?:
-              (?:(\.)\d+){{optional_exponent}}
+              ((\.)\d+)({{optional_exponent}})
               |
-              {{exponent}}
+              ({{exponent}})
             )
           )
         )
@@ -127,7 +130,10 @@ contexts:
       captures:
         1: keyword.operator.arithmetic.json5
         2: constant.numeric.value.json5
-        3: punctuation.separator.decimal.json5
+        3: constant.numeric.value.fraction.json5
+        4: punctuation.separator.decimal.json5
+        5: constant.numeric.value.exponent.json5
+        6: constant.numeric.value.exponent.json5
 
   integers:
     - meta_prepend: true
