@@ -1,0 +1,16 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.json.jsonc
+
+{
+
+    "explicitly-positive-zero": +0,
+//                              ^^ invalid.illegal.unrecognized-integer-decimal
+//                              ^ keyword.operator.arithmetic
+//                               ^ constant.numeric.value
+
+    "explicitly-positive-integer": +9
+//                                 ^^ invalid.illegal.unrecognized-integer-decimal
+//                                 ^ keyword.operator.arithmetic
+//                                  ^ constant.numeric.value
+}
