@@ -216,5 +216,5 @@ contexts:
   mapping-key-single-quoted:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json5 meta.string.json5 string.quoted.single.json5
-    - meta_include_prototype: false                                             # for inheriting syntaxes
+    - meta_include_prototype: false
     - include: inside-single-quoted-string
