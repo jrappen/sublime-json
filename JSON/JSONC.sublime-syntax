@@ -109,18 +109,15 @@ first_line_match: |-
   )
 
 
-####[ Contexts ]########################################################################################################
-
-
 contexts:
 
-  # The syntax we are inheriting from already excludes prototype from the
-  # relevant contexts, although not having a prototype itself.
   prototype:
+    # The syntax we are inheriting from already excludes prototype from the
+    # relevant contexts, although not having a prototype itself.
     - include: comments
 
 
-####[ Comments / Add to inherited syntax ]##############################################################################
+####[ Comments ]########################################################################################################
 
   comments:
     - include: comment-line
