@@ -98,19 +98,14 @@ contexts:
     - include: decimal-integer-json
 
   explicitly-positive-decimal-integer-json:
-    - match: |-
-        (?x:                                                                    # ignore whitespace
-          ([+])
-          ({{pos_integer_decimal}})
-        )
+    - match: '([+])({{pos_integer_decimal}})'
       scope: invalid.illegal.unrecognized-integer-decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
 
   decimal-integer-json:
-    - match: |-
-        (?x:                                                                    # ignore whitespace
-          ({{optional_neg_sign}})
-          ({{pos_integer_decimal}})
-        )
+    - match: '({{optional_neg_sign}})({{pos_integer_decimal}})'
       scope: meta.number.integer.decimal.json
       captures:
         1: keyword.operator.arithmetic.json
