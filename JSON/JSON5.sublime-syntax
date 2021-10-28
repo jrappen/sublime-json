@@ -149,11 +149,7 @@ contexts:
     - include: decimal-integer-json
 
   explicitly-positive-decimal-integer-json5:
-    - match: |-
-        (?x:                                                                    # ignore whitespace
-          ([+])
-          ({{pos_integer_decimal}})
-        )
+    - match: '([+])({{pos_integer_decimal}})'
       scope: meta.number.integer.decimal.json5
       captures:
         1: keyword.operator.arithmetic.json5
