@@ -51,7 +51,7 @@
 					"(?:[^"\\]|\\.)*"
 					|
 					# Consume all chars that don't start a string, comment or
-					# end the object that was opened on this line
+					# end the array that was opened on this line
 					[^"/\]]
 				)*
 				# Stop matching at the end of the line, or once we hit a comment
