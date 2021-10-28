@@ -8,24 +8,16 @@ name: JSON
 scope: source.json
 version: 2
 
-
-####[ Inheritance ]#####################################################################################################
-####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
-
-
-extends: 'Packages/JSON/JSON (Basic).sublime-syntax'
-
-
-####[ File Extensions ]#################################################################################################
-
-
-#   To not confuse beginners too much with comments being marked as invalid and
-#   not knowing where to change from `JSON` to `JSONC (JSON with Comments)`, it
-#   was decided by Jon to apply the `JSONC (JSON with Comments)` syntax by
-#   default to `*.json` files instead.
-#                          See: https://github.com/sublimehq/Packages/issues/285
+extends:
+  # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - 'Packages/JSON/JSON (Basic).sublime-syntax'
 
 file_extensions:
+  #   To not confuse beginners too much with comments being marked as invalid and
+  #   not knowing where to change from `JSON` to `JSONC (JSON with Comments)`, it
+  #   was decided by Jon to apply the `JSONC (JSON with Comments)` syntax by
+  #   default to `*.json` files instead.
+  #                          See: https://github.com/sublimehq/Packages/issues/285
 
   - .bowerrc
     # Bower
@@ -125,3 +117,8 @@ file_extensions:
   - webmanifest
     # Web app manifests
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bjson\b .*? -\*-  # editorconfig
+  )

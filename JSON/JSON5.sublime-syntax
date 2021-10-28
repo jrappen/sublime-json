@@ -8,16 +8,9 @@ name: JSON5
 scope: source.json.json5
 version: 2
 
-
-####[ Inheritance ]#####################################################################################################
-####[ https://www.sublimetext.com/docs/syntax.html#inheritance ]########################################################
-
-
-extends: Packages/JSON/JSONC.sublime-syntax
-
-
-####[ File Extensions ]#################################################################################################
-
+extends:
+  # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSONC.sublime-syntax
 
 file_extensions:
 
@@ -48,6 +41,11 @@ file_extensions:
   - nextrc.json
     # Vercel Next.js Configuration
     # https://nextjs.org/docs/api-reference/next.config.js/introduction
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bjson5\b .*? -\*-  # editorconfig
+  )
 
 
 ####[ Variables ]#######################################################################################################
