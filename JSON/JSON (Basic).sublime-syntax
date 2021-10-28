@@ -70,6 +70,10 @@ contexts:
           )
         )
       scope: invalid.illegal.unrecognized-float-decimal.json
+      captures:
+        1: keyword.operator.arithmetic.json
+        2: constant.numeric.value.json
+        3: punctuation.separator.decimal.json
 
   decimal-float-json:
     - match: |-
