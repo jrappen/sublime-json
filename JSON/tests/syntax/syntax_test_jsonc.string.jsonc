@@ -52,7 +52,7 @@
 //  ^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.value
 //       ^^^^^^^^^ meta.mapping.value meta.string string.quoted.double - meta.mapping.key
 //        ^^^^^^ constant.character.escape.unicode-symbol
-//              ^ meta.string string.quoted.double - constant.character.escape
+//              ^ - constant.character.escape
 
     "ke//y": "value",
 //  ^^^^^^^ meta.mapping.key meta.string string.quoted.double - comment
