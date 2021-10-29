@@ -20,14 +20,14 @@ variables:
 contexts:
 
   main:
-    - include: sequence
     - include: top-level-object
+    - include: arrays
 
   any:
     - include: constants
     - include: numbers
     - include: strings
-    - include: sequence
+    - include: arrays
     - include: objects
 
 ####[ Constants ]#######################################################################################################
@@ -169,12 +169,20 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
-  sequence:
+  arrays:
+    - include: empty-array
     - match: \[
       scope: punctuation.definition.sequence.begin.json
-      push: meta-sequence
+      push: inside-array
 
-  meta-sequence:
+  empty-array:
+    - match: (\[)\s*(\])
+      scope: meta.sequence.list.empty.json
+      captures:
+        1: punctuation.definition.sequence.begin.json
+        2: punctuation.definition.sequence.end.json
+
+  inside-array:
     - meta_scope: meta.sequence.list.json
     - match: \]
       scope: punctuation.definition.sequence.end.json
