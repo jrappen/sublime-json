@@ -1,0 +1,25 @@
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+
+// <- source.json.json5
+
+{
+    "key-one": "value",
+//  ^^^^^^^^^ meta.toc-list.json
+//  @@@@@@@@@ definition
+
+    'key-two': 'value',
+//  ^^^^^^^^^ meta.toc-list.json5
+//  @@@@@@@@@ definition
+
+    "key-three": { "key-three-one": "value", "key-three-two": "value" },
+//  ^^^^^^^^^^^ meta.toc-list.json
+//                 ^^^^^^^^^^^^^^^ - meta.toc-list.json
+//                                           ^^^^^^^^^^^^^^^ - meta.toc-list.json
+//  @@@@@@@@@@@ definition
+
+    'key-four': { 'key-four-one': 'value', 'key-four-two': 'value' }
+//  ^^^^^^^^^^ meta.toc-list.json5
+//                ^^^^^^^^^^^^^^ - meta.toc-list.json5
+//                                         ^^^^^^^^^^^^^^ - meta.toc-list.json5
+//  @@@@@@@@@@ definition
+}

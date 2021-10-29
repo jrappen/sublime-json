@@ -206,6 +206,18 @@ contexts:
 
 ####[ Mapping ]#########################################################################################################
 
+  top-level-mapping-key:
+    - meta_append: true
+    - match: "'"
+      scope: punctuation.definition.string.begin.json5
+      push: top-level-mapping-key-single-quoted
+
+  top-level-mapping-key-single-quoted:
+    - clear_scopes: 1
+    - meta_scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.quoted.single.json5
+    - meta_include_prototype: false
+    - include: inside-single-quoted-string
+
   mapping-key:
     - meta_append: true
     - match: "'"

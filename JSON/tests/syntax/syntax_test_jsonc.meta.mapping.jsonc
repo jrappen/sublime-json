@@ -7,21 +7,25 @@
 
     "meta-mapping-value-constant": null,
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.json meta.mapping.key
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                               ^ meta.mapping punctuation.separator.mapping.key-value
 //                                 ^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 
     "meta-mapping-value-number": 0,
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.json meta.mapping.key
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                             ^ meta.mapping punctuation.separator.mapping.key-value
 //                               ^ meta.mapping.value - meta.mapping.json meta.mapping.value
 
     "meta-mapping-value-string": "value",
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.json meta.mapping.key
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                             ^ meta.mapping punctuation.separator.mapping.key-value
 //                               ^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 
     "meta-mapping-value-sequence": [1, 2, 3],
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.json meta.mapping.key
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                               ^ meta.mapping punctuation.separator.mapping.key-value
 //                                 ^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 //                                 ^ meta.mapping.value meta.sequence punctuation.definition.sequence.begin
@@ -29,15 +33,18 @@
 
     "meta-mapping-value-mapping": { "a": 1, "b": 2 }
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.json meta.mapping.key
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                              ^ meta.mapping punctuation.separator.mapping.key-value
 //                                ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 //                                ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
 //                                                 ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
 //                                  ^^^ meta.mapping.value meta.mapping.key
+//                                  ^^^ - meta.toc-list
 //                                     ^ meta.mapping.value meta.mapping punctuation.separator.mapping.key-value
 //                                       ^ meta.mapping.value meta.mapping.value
 //                                        ^ meta.mapping.value meta.mapping punctuation.separator.mapping.pair
 //                                          ^^^ meta.mapping.value meta.mapping.key
+//                                          ^^^ - meta.toc-list
 //                                             ^ meta.mapping.value meta.mapping punctuation.separator.mapping.key-value
 //                                               ^ meta.mapping.value meta.mapping.value
 }

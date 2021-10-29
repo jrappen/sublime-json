@@ -1,0 +1,15 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.json.jsonc
+
+{
+    "key": "value",
+//  @@@@@ definition
+//  ^^^^^ meta.toc-list.json
+
+    "key-two": { "key-two-one": "value", "key-two-two": "value" }
+//  ^^^^^^^^^ meta.toc-list.json
+//               ^^^^^^^^^^^^^ - meta.toc-list.json
+//                                       ^^^^^^^^^^^^^ - meta.toc-list.json
+//  @@@@@@@@@ definition
+}
