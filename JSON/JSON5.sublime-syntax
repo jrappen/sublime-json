@@ -69,12 +69,12 @@ contexts:
     - match: '({{optional_sign}})(Infinity)'
       scope: meta.number.float.decimal.json5 constant.language.infinity.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
     - match: '({{optional_sign}})(NaN)'
       scope: meta.number.float.decimal.json5 constant.language.nan.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
 
   decimal-float-with-leading-period-in-base:
@@ -88,7 +88,7 @@ contexts:
         )
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
         3: constant.numeric.value.fraction.json5
         4: punctuation.separator.decimal.json5
@@ -107,7 +107,7 @@ contexts:
         )
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
         3: constant.numeric.value.fraction.json5 punctuation.separator.decimal.json5
         4: constant.numeric.value.exponent.json5
@@ -127,7 +127,7 @@ contexts:
         )
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
         3: constant.numeric.value.fraction.json5
         4: punctuation.separator.decimal.json5
@@ -149,7 +149,7 @@ contexts:
     - match: '([+])({{pos_integer_decimal}})'
       scope: meta.number.integer.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
 
   hexadecimal-integer:
@@ -161,7 +161,7 @@ contexts:
         )
       scope: meta.number.integer.hexadecimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.base.json5
         3: constant.numeric.value.json5
 

@@ -5,7 +5,7 @@
 {
     "float-explicitly-positive-zero": +0.0,
 //                                    ^^^^ invalid.illegal.unrecognized-float-decimal
-//                                    ^ keyword.operator.arithmetic
+//                                    ^ constant.numeric.sign
 //                                     ^^^ constant.numeric.value
 //                                      ^^ constant.numeric.value.fraction
 //                                      ^ punctuation.separator.decimal
@@ -14,7 +14,7 @@
 
     "float-explicitly-positive-zero-with-zero-exponent": +0.0e0,
 //                                                       ^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                       ^ keyword.operator.arithmetic
+//                                                       ^ constant.numeric.sign
 //                                                        ^^^^^ constant.numeric.value
 //                                                         ^^ constant.numeric.value.fraction
 //                                                         ^ punctuation.separator.decimal
@@ -22,7 +22,7 @@
 
     "float-explicitly-positive-zero-with-negative-zero-exponent": +0.0e-0,
 //                                                                ^^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                ^ keyword.operator.arithmetic
+//                                                                ^ constant.numeric.sign
 //                                                                 ^^^^^^ constant.numeric.value
 //                                                                  ^^ constant.numeric.value.fraction
 //                                                                  ^ punctuation.separator.decimal
@@ -30,13 +30,13 @@
 
     "float-explicitly-positive-zero-no-fraction-with-zero-exponent": +0e0,
 //                                                                   ^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                   ^ keyword.operator.arithmetic
+//                                                                   ^ constant.numeric.sign
 //                                                                    ^^^ constant.numeric.value
 //                                                                     ^^ constant.numeric.value.exponent
 
     "float-explicitly-positive-zero-no-fraction-with-negative-zero-exponent": +0e-0,
 //                                                                            ^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                            ^ keyword.operator.arithmetic
+//                                                                            ^ constant.numeric.sign
 //                                                                             ^^^^ constant.numeric.value
 //                                                                              ^^^ constant.numeric.value.exponent
 
@@ -50,7 +50,7 @@
 
     "float-explicitly-positive-zero-with-exponent": +0.0e9,
 //                                                  ^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                  ^ keyword.operator.arithmetic
+//                                                  ^ constant.numeric.sign
 //                                                   ^^^^^ constant.numeric.value
 //                                                    ^^ constant.numeric.value.fraction
 //                                                    ^ punctuation.separator.decimal
@@ -58,7 +58,7 @@
 
     "float-explicitly-positive-zero-with-negative-exponent": +0.0e-9,
 //                                                           ^^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                           ^ keyword.operator.arithmetic
+//                                                           ^ constant.numeric.sign
 //                                                            ^^^^^^ constant.numeric.value
 //                                                             ^^ constant.numeric.value.fraction
 //                                                             ^ punctuation.separator.decimal
@@ -66,13 +66,13 @@
 
     "float-explicitly-positive-zero-no-fraction-with-exponent": +0e9,
 //                                                              ^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                              ^ keyword.operator.arithmetic
+//                                                              ^ constant.numeric.sign
 //                                                               ^^^ constant.numeric.value
 //                                                                ^^ constant.numeric.value.exponent
 
     "float-explicitly-positive-zero-no-fraction-with-negative-exponent": +0e-9,
 //                                                                       ^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                       ^ keyword.operator.arithmetic
+//                                                                       ^ constant.numeric.sign
 //                                                                        ^^^^ constant.numeric.value
 //                                                                         ^^^ constant.numeric.value.exponent
 
@@ -86,7 +86,7 @@
 
     "float-explicitly-positive": +9.0,
 //                               ^^^^ invalid.illegal.unrecognized-float-decimal
-//                               ^ keyword.operator.arithmetic
+//                               ^ constant.numeric.sign
 //                                ^^^ constant.numeric.value
 //                                 ^^ constant.numeric.value.fraction
 //                                 ^ punctuation.separator.decimal
@@ -101,7 +101,7 @@
 
     "float-explicitly-positive-with-zero-exponent": +9.0e0,
 //                                                  ^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                  ^ keyword.operator.arithmetic
+//                                                  ^ constant.numeric.sign
 //                                                   ^^^^^ constant.numeric.value
 //                                                    ^^ constant.numeric.value.fraction
 //                                                    ^ punctuation.separator.decimal
@@ -109,7 +109,7 @@
 
     "float-explicitly-positive-with-negative-zero-exponent": +9.0e-0,
 //                                                           ^^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                           ^ keyword.operator.arithmetic
+//                                                           ^ constant.numeric.sign
 //                                                            ^^^^^^ constant.numeric.value
 //                                                             ^^ constant.numeric.value.fraction
 //                                                             ^ punctuation.separator.decimal
@@ -117,13 +117,13 @@
 
     "float-explicitly-positive-no-fraction-with-zero-exponent": +9e0,
 //                                                              ^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                              ^ keyword.operator.arithmetic
+//                                                              ^ constant.numeric.sign
 //                                                               ^^^ constant.numeric.value
 //                                                                ^^ constant.numeric.value.exponent
 
     "float-explicitly-positive-no-fraction-with-negative-zero-exponent": +9e-0,
 //                                                                       ^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                       ^ keyword.operator.arithmetic
+//                                                                       ^ constant.numeric.sign
 //                                                                        ^^^^ constant.numeric.value
 //                                                                         ^^^ constant.numeric.value.exponent
 
@@ -137,7 +137,7 @@
 
     "float-explicitly-positive-with-exponent": +9.0e9,
 //                                             ^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                             ^ keyword.operator.arithmetic
+//                                             ^ constant.numeric.sign
 //                                              ^^^^^ constant.numeric.value
 //                                               ^^ constant.numeric.value.fraction
 //                                               ^ punctuation.separator.decimal
@@ -145,7 +145,7 @@
 
     "float-explicitly-positive-with-negative-exponent": +9.0e-9,
 //                                                      ^^^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                      ^ keyword.operator.arithmetic
+//                                                      ^ constant.numeric.sign
 //                                                       ^^^^^^ constant.numeric.value
 //                                                        ^^ constant.numeric.value.fraction
 //                                                        ^ punctuation.separator.decimal
@@ -161,13 +161,13 @@
 
     "float-explicitly-positive-no-fraction-with-exponent": +9e9,
 //                                                         ^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                         ^ keyword.operator.arithmetic
+//                                                         ^ constant.numeric.sign
 //                                                          ^^^ constant.numeric.value
 //                                                           ^^ constant.numeric.value.exponent
 
     "float-explicitly-positive-no-fraction-with-negative-exponent": +9e-9
 //                                                                  ^^^^^ invalid.illegal.unrecognized-float-decimal
-//                                                                  ^ keyword.operator.arithmetic
+//                                                                  ^ constant.numeric.sign
 //                                                                   ^^^^ constant.numeric.value
 //                                                                    ^^^ constant.numeric.value.exponent
 }

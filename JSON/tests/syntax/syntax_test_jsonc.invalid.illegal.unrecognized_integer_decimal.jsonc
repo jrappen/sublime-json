@@ -6,11 +6,11 @@
 
     "explicitly-positive-zero": +0,
 //                              ^^ invalid.illegal.unrecognized-integer-decimal
-//                              ^ keyword.operator.arithmetic
+//                              ^ constant.numeric.sign
 //                               ^ constant.numeric.value
 
     "explicitly-positive-integer": +9
 //                                 ^^ invalid.illegal.unrecognized-integer-decimal
-//                                 ^ keyword.operator.arithmetic
+//                                 ^ constant.numeric.sign
 //                                  ^ constant.numeric.value
 }
