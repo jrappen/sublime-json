@@ -5,34 +5,55 @@
 
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
+
     true,
-//  ^^^^ meta.sequence.list constant.language.boolean
+//  ^^^^ meta.sequence.item.first constant.language.boolean
+
     false,
-//  ^^^^^ meta.sequence.list constant.language.boolean
+//  ^^^^^ meta.sequence.item constant.language.boolean
+
     null,
-//  ^^^^ meta.sequence.list constant.language.null
+//  ^^^^ meta.sequence.item constant.language.null
+
     0,
-//  ^ meta.sequence.list meta.number.integer.decimal constant.numeric.value
+//  ^ meta.sequence.item meta.number.integer.decimal constant.numeric.value
+
     0.0,
-//  ^^^ meta.sequence.list meta.number.float.decimal constant.numeric.value
+//  ^^^ meta.sequence.item meta.number.float.decimal constant.numeric.value
+
     "value",
-//  ^^^^^^^ meta.sequence.list string.quoted.double
+//  ^^^^^^^ meta.sequence.item string.quoted.double
+
+    [],
+//  ^^ meta.sequence.item meta.sequence.list.empty
+
+    [ ],
+//  ^^^ meta.sequence.item meta.sequence.list.empty
+
     [1, 2
-//  ^^^^^ meta.sequence.list meta.sequence.list
-//  ^ meta.sequence.list meta.sequence.list punctuation.definition.sequence.begin
+//  ^ meta.sequence.item meta.sequence.list punctuation.definition.sequence.begin
+//   ^ meta.sequence.item meta.sequence.item.first
+//    ^ meta.sequence.item meta.sequence.list
+//      ^ meta.sequence.item meta.sequence.item
         ,
 //     ^ - invalid
-//      ^ meta.sequence.list meta.sequence.list punctuation.separator.sequence
+//      ^ meta.sequence.item meta.sequence.list punctuation.separator.sequence
         "three"
-//      ^^^^^^^ meta.sequence.list meta.sequence.list string.quoted.double - meta.mapping.key
+//      ^^^^^^^ meta.sequence.item meta.sequence.item string.quoted.double - meta.mapping.key
     ],
-//  ^ meta.sequence.list meta.sequence.list punctuation.definition.sequence.end
+//  ^ meta.sequence.item meta.sequence.list punctuation.definition.sequence.end
 //   ^ meta.sequence.list punctuation.separator.sequence
 
+    {},
+//  ^^ meta.sequence.item meta.mapping.empty
+
+    { },
+//  ^^^ meta.sequence.item meta.mapping.empty
+
     { "a": 1, "b": 2
-//  ^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
-//       ^ meta.sequence.list meta.mapping punctuation.separator.mapping.key-value
-//          ^ meta.sequence.list meta.mapping punctuation.separator.mapping.pair
+//  ^^^^^^^^^^^^^^^^ meta.sequence.item meta.mapping
+//       ^ meta.sequence.item meta.mapping punctuation.separator.mapping.key-value
+//          ^ meta.sequence.item meta.mapping punctuation.separator.mapping.pair
         ,
 //     ^ - invalid
         "c": 3

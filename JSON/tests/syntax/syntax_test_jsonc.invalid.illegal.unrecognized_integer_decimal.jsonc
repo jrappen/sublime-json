@@ -5,12 +5,12 @@
 {
 
     "explicitly-positive-zero": +0,
-//                              ^^ invalid.illegal.unrecognized-integer-decimal
-//                              ^ constant.numeric.sign
+//                              ^^ meta.mapping.value meta.number.integer.decimal
+//                              ^ invalid.illegal.number-sign
 //                               ^ constant.numeric.value
 
     "explicitly-positive-integer": +9
-//                                 ^^ invalid.illegal.unrecognized-integer-decimal
-//                                 ^ constant.numeric.sign
+//                                 ^^ meta.mapping.value meta.number.integer.decimal
+//                                 ^ invalid.illegal.number-sign
 //                                  ^ constant.numeric.value
 }

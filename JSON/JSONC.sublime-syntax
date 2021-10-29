@@ -111,10 +111,11 @@ first_line_match: |-
 contexts:
 
   prototype:
-    # The syntax we are inheriting from already excludes prototype from the
-    # relevant contexts, although not having a prototype itself.
     - include: comments
 
+  eol-pop:
+    - match: '$\n?'
+      pop: 1
 
 ####[ Comments ]########################################################################################################
 
@@ -129,8 +130,7 @@ contexts:
       push:
         - meta_scope: comment.line.double-slash.jsonc
         - meta_include_prototype: false
-        - match: $\n?
-          pop: 1
+        - include: eol-pop
 
   comment-doc-block:
     - match: '/\*\*(?!/)'

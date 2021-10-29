@@ -6,26 +6,22 @@
     "float-trailing-period-lead-by-zero": 0.,
 //                                        ^^ meta.number.float.decimal
 //                                        ^^ constant.numeric.value
-//                                         ^ constant.numeric.value.fraction
 //                                        ^^ - invalid.illegal.meta-number-float-decimal
 
     "float-trailing-period-lead-by-nonzero": 9.,
 //                                           ^^ meta.number.float.decimal
 //                                           ^^ constant.numeric.value
-//                                            ^ constant.numeric.value.fraction
 //                                           ^^ - invalid.illegal.meta-number-float-decimal
 
     "negative-float-trailing-period-lead-by-zero": -0.,
 //                                                 ^^^ meta.number.float.decimal
 //                                                 ^ constant.numeric.sign
 //                                                  ^^ constant.numeric.value
-//                                                   ^ constant.numeric.value.fraction
 //                                                 ^^^ - invalid.illegal.meta-number-float-decimal
 
     "negative-float-trailing-period-lead-by-nonzero": -9.
 //                                                    ^^^ meta.number.float.decimal
 //                                                    ^ constant.numeric.sign
 //                                                     ^^ constant.numeric.value
-//                                                      ^ constant.numeric.value.fraction
 //                                                    ^^^ - invalid.illegal.meta-number-float-decimal
 }

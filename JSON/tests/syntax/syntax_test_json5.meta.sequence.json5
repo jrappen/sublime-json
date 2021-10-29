@@ -5,25 +5,55 @@
 
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
+
     true,
-//  ^^^^ meta.sequence.list constant.language.boolean
+//  ^^^^ meta.sequence.item.first constant.language.boolean
+
     false,
-//  ^^^^^ meta.sequence.list constant.language.boolean
+//  ^^^^^ meta.sequence.item constant.language.boolean
+//  ^^^^^ - meta.sequence.item.first
+
     null,
-//  ^^^^ meta.sequence.list constant.language.null
+//  ^^^^ meta.sequence.item constant.language.null
+
     0,
-//  ^ meta.sequence.list meta.number.integer.decimal constant.numeric.value
+//  ^ meta.sequence.item meta.number.integer.decimal constant.numeric.value
+
     0.0,
-//  ^^^ meta.sequence.list meta.number.float.decimal constant.numeric.value
+//  ^^^ meta.sequence.item meta.number.float.decimal constant.numeric.value
+
     "value",
-//  ^^^^^^^ meta.sequence.list string.quoted.double
+//  ^^^^^^^ meta.sequence.item string.quoted.double
+
     'value',
-//  ^^^^^^^ meta.sequence.list string.quoted.single
+//  ^^^^^^^ meta.sequence.item string.quoted.single
+
+    [],
+//  ^^ meta.sequence.item meta.sequence.list.empty
+
+    [ ],
+//  ^^^ meta.sequence.item meta.sequence.list.empty
+
     [1, 2, 3],
-//  ^^^^^^^^^ meta.sequence.list meta.sequence.list
+//  ^ meta.sequence.item meta.sequence.list
+//   ^ meta.sequence.item meta.sequence.item.first
+//    ^ meta.sequence.item meta.sequence.list
+//      ^ meta.sequence.item meta.sequence.item - meta.sequence.item meta.sequence.item.first
+//       ^ meta.sequence.item meta.sequence.list
+//         ^ meta.sequence.item meta.sequence.item
+//          ^ meta.sequence.item meta.sequence.list
+//           ^ meta.sequence.list
+
+    {},
+//  ^^ meta.sequence.item meta.mapping.empty
+
+    { },
+//  ^^^ meta.sequence.item meta.mapping.empty
+
     { "a": 1, "b": 2, "c": 3 },
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.item meta.mapping
+
     { 'a': 1, 'b': 2, 'c': 3 }
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.item meta.mapping
 ]
 // <- meta.sequence.list punctuation.definition.sequence.end

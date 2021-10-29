@@ -11,17 +11,19 @@ hidden: true
 
 
 variables:
-  exponent: '(?:[eE][-+]?\d+)'
-  optional_exponent: '(?:{{exponent}}?)'
-  optional_neg_sign: '(?:[-]?)'
-  pos_integer_decimal: '(?:0|[1-9]\d*)'
+  exponent: (?:[eE][-+]?\d+)
+  pos_integer_decimal: (?:0|[1-9]\d*)
 
 
 contexts:
 
+  prototype:
+    - include: comments
+
   main:
     - include: top-level-object
     - include: arrays
+    # TODO: highlight other stuff as illegal
 
   any:
     - include: constants
@@ -30,6 +32,50 @@ contexts:
     - include: arrays
     - include: objects
 
+  eol-pop:
+    - match: '$\n?'
+      pop: 1
+
+
+####[ Comments ]########################################################################################################
+
+  comments:
+    - include: comment-line
+    - include: comment-doc-block
+    - include: comment-block
+
+  comment-line:
+    - match: '//'
+      scope: invalid.illegal.comment.json
+      push:
+        - meta_scope: invalid.illegal.comment.json
+        - meta_include_prototype: false
+        - include: eol-pop
+
+  comment-doc-block:
+    - match: '/\*\*(?!/)'
+      scope: invalid.illegal.comment.json
+      push:
+        - meta_scope: invalid.illegal.comment.json
+        - meta_include_prototype: false
+        - include: comment-block-end
+        - match: '^\s*(\*)(?!/)'
+          captures:
+            1: invalid.illegal.comment.json
+
+  comment-block:
+    - match: '/\*'
+      scope: invalid.illegal.comment.json
+      push:
+        - meta_scope: invalid.illegal.comment.json
+        - meta_include_prototype: false
+        - include: comment-block-end
+
+  comment-block-end:
+    - match: '\*/'
+      scope: invalid.illegal.comment.json
+      pop: 1
+
 ####[ Constants ]#######################################################################################################
 
   constants:
@@ -37,6 +83,11 @@ contexts:
       scope: constant.language.null.json
     - match: \b(?:false|true)\b
       scope: constant.language.boolean.json
+    # when for example typing "Null" or "NULL" instead of "null"
+    - match: \b(?i:null)\b
+      scope: invalid.illegal.expected-lower-case-null.json
+    - match: \b(?i:false|true)\b
+      scope: invalid.illegal.expected-lower-case-boolean.json
 
 ####[ Numbers ]#########################################################################################################
 
@@ -45,76 +96,39 @@ contexts:
     - include: integers
 
   floats:
-    - include: decimal-float
+    - include: decimal-floats
 
-  decimal-float:
-    - include: explicitly-positive-decimal-float-json
-    - include: decimal-float-json
-
-  explicitly-positive-decimal-float-json:
+  decimal-floats:
     - match: |-
-        (?x:                                                                    # ignore whitespace
-          ([+])
+        (?x:
+          (?:(-)|(\+))?
           (
             {{pos_integer_decimal}}
             (?:
-              ((\.)\d+)({{optional_exponent}})
-              |
-              ({{exponent}})
-            )
-          )
-        )
-      scope: invalid.illegal.unrecognized-float-decimal.json
-      captures:
-        1: constant.numeric.sign.json
-        2: constant.numeric.value.json
-        3: constant.numeric.value.fraction.json
-        4: punctuation.separator.decimal.json
-        5: constant.numeric.value.exponent.json
-        6: constant.numeric.value.exponent.json
-
-  decimal-float-json:
-    - match: |-
-        (?x:                                                                    # ignore whitespace
-          ({{optional_neg_sign}})
-          (
-            {{pos_integer_decimal}}
-            (?:
-              ((\.)\d+)({{optional_exponent}})
-              |
-              ({{exponent}})
+              # 1.1 1.1e1 1.1e-1 1.1e+1
+              (\.)\d+ {{exponent}}?
+              # 1e1 1+e1 1-e1
+            | {{exponent}}
             )
           )
         )
       scope: meta.number.float.decimal.json
       captures:
         1: constant.numeric.sign.json
-        2: constant.numeric.value.json
-        3: constant.numeric.value.fraction.json
+        2: invalid.illegal.number-sign.json
+        3: constant.numeric.value.json
         4: punctuation.separator.decimal.json
-        5: constant.numeric.value.exponent.json
-        6: constant.numeric.value.exponent.json
 
   integers:
-    - include: decimal-integer
+    - include: decimal-integers
 
-  decimal-integer:
-    - include: explicitly-positive-decimal-integer-json
-    - include: decimal-integer-json
-
-  explicitly-positive-decimal-integer-json:
-    - match: '([+])({{pos_integer_decimal}})'
-      scope: invalid.illegal.unrecognized-integer-decimal.json
-      captures:
-        1: constant.numeric.sign.json
-        2: constant.numeric.value.json
-
-  decimal-integer-json:
-    - match: '({{optional_neg_sign}})({{pos_integer_decimal}})'
+  decimal-integers:
+    - match: (?:(-)|(\+))?({{pos_integer_decimal}})
       scope: meta.number.integer.decimal.json
       captures:
         1: constant.numeric.sign.json
-        2: constant.numeric.value.json
+        2: invalid.illegal.number-sign.json
+        3: constant.numeric.value.json
 
 ####[ Strings ]#########################################################################################################
 
@@ -133,7 +147,7 @@ contexts:
 
   inside-double-quoted-string:
     - meta_scope: meta.string.json string.quoted.double.json
-    - meta_include_prototype: false                                             # for inheriting syntaxes
+    - meta_include_prototype: false
     - match: '"'
       scope: punctuation.definition.string.end.json
       pop: 1
@@ -169,6 +183,8 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
+  # FIXME: trailing commas
+
   arrays:
     - include: empty-array
     - match: \[
@@ -187,13 +203,56 @@ contexts:
     - match: \]
       scope: punctuation.definition.sequence.end.json
       pop: 1
+    - match: (?=\S)
+      set: expect-sequence-first-item
+    # - match: '[^\s\]]'
+    #   scope: invalid.illegal.expected-any-value.json
+
+  expect-sequence-first-item:
+    - meta_scope: meta.sequence.list.json
+    - match: \]
+      scope: punctuation.definition.sequence.end.json
+      pop: 1
+    - match: ','
+      scope: invalid.illegal.expected-any-value.json
+    - match: (?=\S)
+      set: sequence-first-item
+
+  sequence-first-item:
+    - meta_scope: meta.sequence.item.first.json
     - include: any
+    - match: (?=\S)
+      set: expect-sequence-end-or-sequence-separator
+
+  expect-sequence-end-or-sequence-separator:
+    - meta_scope: meta.sequence.list.json
+    - match: \]
+      scope: punctuation.definition.sequence.end.json
+      pop: 1
     - match: ','
       scope: punctuation.separator.sequence.json
-    - match: '[^\s\]]'
+      set: expect-sequence-item
+    - match: (?=\S)
       scope: invalid.illegal.expected-sequence-separator.json
+      pop: 1
+
+  expect-sequence-item:
+    - meta_scope: meta.sequence.list.json
+    - match: ','
+      scope: invalid.illegal.expected-any-value.json
+    - match: (?=\S)
+      set: sequence-item
+
+  sequence-item:
+    - meta_scope: meta.sequence.item.json
+    - include: any
+    - match: (?=\S)
+      set: expect-sequence-end-or-sequence-separator
 
 ####[ Mapping ]#########################################################################################################
+
+  # FIXME: leading separators
+  # FIXME: trailing commas
 
   # The top-level contexts here are to ensure that we can apply `meta.toc-list`
   # to the top-level object keys.
@@ -250,13 +309,13 @@ contexts:
   top-level-mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json meta.toc-list.json meta.string.json string.quoted.double.json
-    - meta_include_prototype: false                                             # for inheriting syntaxes
+    - meta_include_prototype: false
     - include: inside-double-quoted-string
 
   mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
-    - meta_include_prototype: false                                             # for inheriting syntaxes
+    - meta_include_prototype: false
     - include: inside-double-quoted-string
 
   mapping-separator:

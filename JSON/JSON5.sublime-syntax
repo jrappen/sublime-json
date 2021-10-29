@@ -47,118 +47,61 @@ first_line_match: |-
   )
 
 
-variables:
-  optional_sign: '(?:[-+]?)'
-
-
 contexts:
+
+  # TODO: check whitespace valid chars
 
 ####[ Numbers ]#########################################################################################################
 
-  # we completely override here instead of prepending
-  decimal-float:
-    # (!) do not `meta_prepend: true`
-    - include: decimal-float-ieee-754
-    - include: decimal-float-with-leading-period-in-base
-    - include: decimal-float-with-trailing-period-in-base
-    # (!) do not `include: explicitly-positive-decimal-float-json`
-    - include: explicitly-positive-decimal-float-json5
-    - include: decimal-float-json
 
-  decimal-float-ieee-754:
-    - match: '({{optional_sign}})(Infinity)'
-      scope: meta.number.float.decimal.json5 constant.language.infinity.json5
-      captures:
-        1: constant.numeric.sign.json5
-        2: constant.numeric.value.json5
-    - match: '({{optional_sign}})(NaN)'
-      scope: meta.number.float.decimal.json5 constant.language.nan.json5
-      captures:
-        1: constant.numeric.sign.json5
-        2: constant.numeric.value.json5
-
-  decimal-float-with-leading-period-in-base:
+  # completely override original context
+  decimal-floats:
     - match: |-
         (?x:
-          ({{optional_neg_sign}})
-          (
-            ((\.)\d+)
-            ({{optional_exponent}})
-          )
-        )
-      scope: meta.number.float.decimal.json5
-      captures:
-        1: constant.numeric.sign.json5
-        2: constant.numeric.value.json5
-        3: constant.numeric.value.fraction.json5
-        4: punctuation.separator.decimal.json5
-        5: constant.numeric.value.exponent.json5
-
-  decimal-float-with-trailing-period-in-base:
-    - match: |-
-        (?x:
-          ({{optional_neg_sign}})
-          (
-            {{pos_integer_decimal}}
-            (\.)
-            (?!\d)
-            ({{optional_exponent}})
-          )
-        )
-      scope: meta.number.float.decimal.json5
-      captures:
-        1: constant.numeric.sign.json5
-        2: constant.numeric.value.json5
-        3: constant.numeric.value.fraction.json5 punctuation.separator.decimal.json5
-        4: constant.numeric.value.exponent.json5
-
-  explicitly-positive-decimal-float-json5:
-    - match: |-
-        (?x:                                                                    # ignore whitespace
-          ([+])
+          ([-+]?)
           (
             {{pos_integer_decimal}}
             (?:
-              ((\.)\d+)({{optional_exponent}})
-              |
-              ({{exponent}})
+              # 1. 1.e1 1.e-1 1.e+1 1.1 1.1e1 1.1e-1 1.1e+1
+              (\.)\d* {{exponent}}?
+              # 1e1 1+e1 1-e1
+              | {{exponent}}
             )
+            # .1 .1e1 .1e+1 .1e-1
+            | (\.)\d+ {{exponent}}?
           )
         )
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
-        3: constant.numeric.value.fraction.json5
+        3: punctuation.separator.decimal.json5
         4: punctuation.separator.decimal.json5
-        5: constant.numeric.value.exponent.json5
-        6: constant.numeric.value.exponent.json5
+    - match: ([-+]?)(Infinity)
+      scope: meta.number.float.decimal.json5
+      captures:
+        1: constant.numeric.sign.json5
+        2: constant.language.infinity.json5
+    - match: ([-+]?)(NaN)
+      scope: meta.number.float.decimal.json5
+      captures:
+        1: constant.numeric.sign.json5
+        2: constant.language.nan.json5
 
   integers:
     - meta_prepend: true
-    - include: hexadecimal-integer
+    - include: hexadecimal-integers
 
-  # we completely override here instead of prepending
-  decimal-integer:
-    # (!) do not `meta_prepend: true`
-    - include: explicitly-positive-decimal-integer-json5
-    # (!) do not `include: explicitly-positive-decimal-integer-json`
-    - include: decimal-integer-json
-
-  explicitly-positive-decimal-integer-json5:
-    - match: '([+])({{pos_integer_decimal}})'
+  # completely override original context
+  decimal-integers:
+    - match: ([-+]?)({{pos_integer_decimal}})
       scope: meta.number.integer.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
 
-  hexadecimal-integer:
-    - match: |-
-        (?xi:                                                                   # ignore whitespace and case
-          ({{optional_sign}})
-          (0[x])
-          (\h+)
-        )
+  hexadecimal-integers:
+    - match: ([-+]?)(0[xX])(\h+)
       scope: meta.number.integer.hexadecimal.json5
       captures:
         1: constant.numeric.sign.json5
@@ -166,6 +109,12 @@ contexts:
         3: constant.numeric.value.json5
 
 ####[ Strings ]#########################################################################################################
+
+  # TODO: add multiline with new-line-escapes
+  # TODO: add escapes with 2 hex
+  # TODO: add escapes for UTF-16, pair with four hex each
+  # TODO: no decimal digit after null escpae allowed
+  # TODO: add warnings for paragraph separator & line separator
 
   strings:
     - meta_append: true
@@ -205,6 +154,8 @@ contexts:
       scope: constant.character.escape.null.json5
 
 ####[ Mapping ]#########################################################################################################
+
+  # TODO: add ECMAScript identifier
 
   top-level-mapping-key:
     - meta_append: true
