@@ -3,53 +3,17 @@
 // <- source.json.jsonc
 
 {
-  "array": [ /**/ ],
-//         ^^^^^^^^ meta.mapping.value meta.sequence
-//         ^   punctuation.definition.sequence.begin
-//           ^^^^ comment.block
-//                ^ punctuation.definition.sequence.end
-
-  "dict": {"foo"/*comment*/:/*comment*/"bar"/*comment*/},
-//              ^^^^^^^^^^^ comment.block
-//                          ^^^^^^^^^^^ comment.block
-//                                          ^^^^^^^^^^^ comment.block
-
-  "dict": {
-    "foo": "bar"
-    // comment
-// ^ - invalid
-//  ^^^^^^^^^^ comment.line.double-slash
-    ,
-//  ^ punctuation.separator.mapping.pair
-    "foo": "bar"
-    /* comment */
-// ^ - invalid
-//  ^^^^^^^^^^^^^ comment.block
-  },
-//^ punctuation.definition.mapping.end
-// ^ punctuation.separator.mapping.pair
-
-  "string": "string",
-//          ^        punctuation.definition.string.begin
-//          ^^^^^^^^ meta.mapping.value string.quoted.double
-//                 ^ punctuation.definition.string.end
-
   "unterminated string
 //^^^^^^^^^^^^^^^^^^^^ string.quoted.double
 //                    ^ string.quoted.double invalid.illegal.unclosed-string
 
 // <- - string
 
-/**/: "test",
+/**/: "test"
 // ^ meta.mapping comment.block
 //  ^ punctuation.separator.mapping.key-value - comment
 //    ^^^^^^ meta.mapping.value string.quoted.double
 
-  "array2":
-    [
-      "foobar",
-//    ^^^^^^^^ meta.mapping.value meta.sequence string.quoted.double - meta.mapping.key
-    ]
 
   "typing json": {}
   ,,,, "another key": false
