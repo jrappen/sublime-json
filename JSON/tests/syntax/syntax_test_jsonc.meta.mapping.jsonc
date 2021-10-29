@@ -31,13 +31,13 @@
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.toc-list
 //                               ^ meta.mapping punctuation.separator.mapping.key-value
 //                                 ^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
-//                                 ^ meta.mapping.value meta.sequence punctuation.definition.sequence.begin
-//                                   ^ meta.mapping.value meta.sequence punctuation.separator.sequence
+//                                 ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.begin
+//                                   ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
         ,
 //     ^ - invalid
         3
     ],
-//  ^ meta.mapping.value meta.sequence punctuation.definition.sequence.end
+//  ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.end
 //   ^ punctuation.separator.mapping.pair
 
     "meta-mapping-value-mapping": { "a": 1

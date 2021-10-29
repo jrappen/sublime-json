@@ -175,7 +175,7 @@ contexts:
       push: meta-sequence
 
   meta-sequence:
-    - meta_scope: meta.sequence.json
+    - meta_scope: meta.sequence.list.json
     - match: \]
       scope: punctuation.definition.sequence.end.json
       pop: 1

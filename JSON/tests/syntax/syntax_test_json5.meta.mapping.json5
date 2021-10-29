@@ -44,8 +44,8 @@
 //                               ^ meta.mapping punctuation.separator.mapping.key-value
 //                                 ^^^^^^^^^ meta.mapping.value
 //                                 ^^^^^^^^^ - meta.mapping meta.mapping.value
-//                                 ^ meta.mapping.value meta.sequence punctuation.definition.sequence.begin
-//                                         ^ meta.mapping.value meta.sequence punctuation.definition.sequence.end
+//                                 ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.begin
+//                                         ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.end
 
     'meta-mapping-value-mapping': { "a": 1, "b": 2 },
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
