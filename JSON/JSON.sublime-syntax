@@ -8,9 +8,8 @@ name: JSON
 scope: source.json
 version: 2
 
-extends:
-  # https://www.sublimetext.com/docs/syntax.html#inheritance
-  - 'Packages/JSON/JSON (Basic).sublime-syntax'
+# https://www.sublimetext.com/docs/syntax.html#inheritance
+extends: 'Packages/JSON/JSON (Basic).sublime-syntax'
 
 file_extensions:
   #   To not confuse beginners too much with comments being marked as invalid and
