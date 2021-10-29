@@ -1,0 +1,25 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.json.jsonc
+
+
+[
+// <- meta.sequence punctuation.definition.sequence.begin
+    true,
+//  ^^^^ meta.sequence constant.language.boolean
+    false,
+//  ^^^^^ meta.sequence constant.language.boolean
+    null,
+//  ^^^^ meta.sequence constant.language.null
+    0,
+//  ^ meta.sequence meta.number.integer.decimal constant.numeric.value
+    0.0,
+//  ^^^ meta.sequence meta.number.float.decimal constant.numeric.value
+    "value",
+//  ^^^^^^^ meta.sequence string.quoted.double
+    [1, 2, 3],
+//  ^^^^^^^^^ meta.sequence meta.sequence
+    { "a": 1, "b": 2, "c": 3 }
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence meta.mapping
+]
+// <- meta.sequence punctuation.definition.sequence.end
