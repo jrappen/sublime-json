@@ -119,11 +119,13 @@ contexts:
 
 ####[ Comments ]########################################################################################################
 
+  # completely override original context
   comments:
     - include: comment-line
     - include: comment-doc-block
     - include: comment-block
 
+  # completely override original context
   comment-line:
     - match: '//'
       scope: punctuation.definition.comment.jsonc
@@ -132,6 +134,7 @@ contexts:
         - meta_include_prototype: false
         - include: eol-pop
 
+  # completely override original context
   comment-doc-block:
     - match: '/\*\*(?!/)'
       scope: punctuation.definition.comment.begin.jsonc
@@ -143,6 +146,7 @@ contexts:
           captures:
             1: punctuation.definition.comment.jsonc
 
+  # completely override original context
   comment-block:
     - match: '/\*'
       scope: punctuation.definition.comment.begin.jsonc
@@ -151,6 +155,7 @@ contexts:
         - meta_include_prototype: false
         - include: comment-block-end
 
+  # completely override original context
   comment-block-end:
     - match: '\*/'
       scope: punctuation.definition.comment.end.jsonc
