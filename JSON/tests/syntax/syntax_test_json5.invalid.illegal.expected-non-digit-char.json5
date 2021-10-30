@@ -1,0 +1,11 @@
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+
+// <- source.json.json5
+
+{
+    'escape-character-null': '\00'
+//  ^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                           ^^^^^ meta.mapping.value meta.string string.quoted.single
+//                            ^^ constant.character.escape.null
+//                              ^ invalid.illegal.expected-non-digit-char
+}

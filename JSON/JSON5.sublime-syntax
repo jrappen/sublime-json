@@ -111,7 +111,6 @@ contexts:
 ####[ Strings ]#########################################################################################################
 
   # TODO: add multiline with new-line-escapes
-  # TODO: no decimal digit after null escape allowed
   # TODO: add warnings for paragraph separator & line separator
 
   strings:
@@ -148,8 +147,10 @@ contexts:
     - meta_prepend: true
     - match: \\v
       scope: constant.character.escape.vertical-tab.json5
-    - match: \\0
-      scope: constant.character.escape.null.json5
+    - match: (\\0)([0-9])?
+      captures:
+        1: constant.character.escape.null.json5
+        2: invalid.illegal.expected-non-digit-char.json5
     - match: \\x[0-9a-fA-F]{2}
       scope: constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json5
     - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
