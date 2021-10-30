@@ -1,0 +1,59 @@
+[JSON] Rewrite syntax
+
+
+- Using inheritance split up `JSON.sublime-syntax` into:
+    - `JSON (Basic).sublime-syntax` with `scope:source.json.basic`
+    - `JSON.sublime-syntax` with `scope:source.json`
+    - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
+    - `JSON5.sublime-syntax` with `scope:source.json.json5`
+- Add many more file extensions for `JSON` & `JSONC`:
+    - add doc links to exensions where applicable as a reference to be
+      able to more quickly verify that they (still) use said syntax
+      flavor
+- Only allow objects or arrays at the top level
+    - add `meta.toc-list` scope to top level object keys to add them to
+      the symbol list (also add tests, see below)
+- Make use of newer syntax features including those only available in
+  `version: 2` syntaxes
+- Make use of `variables`
+- Highlighting speed improvements for empty objects and empty arrays
+- Significantly improve number highlighting
+- Correctly scope number signs with `constant.numeric.sign` instead of
+  `keyword.operator.arithmetic`
+- Significantly extend tests to cover more parts of the syntaxes
+  defined:
+    - Split original test file into logical parts
+    - Add indentation tests for:
+        - `json`, `jsonc` & `json5`
+        - `mapping` (objects), `sequence` (arrays)
+    - Add symbols tests for:
+        - scope: `meta.toc-list.json | meta.toc-list.json5`
+        - languages: `json`, `jsonc` & `json5`
+- Fix tests for `meta.mapping meta.mapping.*`
+- Make `mapping.*` contexts more modular
+- Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
+  code blocks into `json`, `jsonc` & `json5` to behave similarly to
+  `GitHub Flavored Markdown`
+
+
+BREAKING CHANGE: number signs scopes have changed
+
+- scopes for number signs have changed from being
+  `keyword.operator.arithmetic` to `constant.numeric.sign`
+
+
+- fix #285 as requested by Jon
+- address #757 using tips to fix line comments for `JSONC`
+- address #2430 using sort-order as requested by deathaxe
+- address #2852 using tips to fix scopes of curly braces & square
+  brackets in `JSON`
+
+Co-authored-by: Ashwin Shenoy <Ultra-Instinct-05@users.noreply.github.com>
+Co-authored-by: Jack Cherng <jfcherng@users.noreply.github.com>
+Co-authored-by: Janos Wortmann <jwortmann@users.noreply.github.com>
+Co-authored-by: Jon Skinner <jps@sublimetext.com>
+Co-authored-by: FichteFoll <FichteFoll@users.noreply.github.com>
+Co-authored-by: Keith Hall <keith-hall@users.noreply.github.com>
+Co-authored-by: Michael B. Lyons <michaelblyons@users.noreply.github.com>
+Co-authored-by: Rafał Chłodnicki <rchl@users.noreply.github.com>
+Co-authored-by: deathaxe <deathaxe@users.noreply.github.com>
