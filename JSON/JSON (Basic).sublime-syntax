@@ -162,6 +162,10 @@ contexts:
     - include: string-escape-characters
 
   string-escape-characters:
+    - include: valid-string-escape-characters
+    - include: invalid-string-escape-characters
+
+  valid-string-escape-characters:
     - match: \\\\
       scope: constant.character.escape.back-slash.json
     - match: \\\/
@@ -177,7 +181,9 @@ contexts:
     - match: \\t
       scope: constant.character.escape.horizontal-tab.json
     - match: \\u[0-9a-fA-F]{4}
-      scope: constant.character.escape.unicode-symbol.json
+      scope: constant.character.escape.unicode-symbol.basic-multilingual-plane.json
+
+  invalid-string-escape-characters:
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 

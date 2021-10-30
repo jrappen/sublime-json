@@ -111,9 +111,7 @@ contexts:
 ####[ Strings ]#########################################################################################################
 
   # TODO: add multiline with new-line-escapes
-  # TODO: add escapes with 2 hex
-  # TODO: add escapes for UTF-16, pair with four hex each
-  # TODO: no decimal digit after null escpae allowed
+  # TODO: no decimal digit after null escape allowed
   # TODO: add warnings for paragraph separator & line separator
 
   strings:
@@ -146,12 +144,16 @@ contexts:
       scope: constant.character.escape.single-quote.json5
     - include: string-escape-characters
 
-  string-escape-characters:
+  valid-string-escape-characters:
     - meta_prepend: true
     - match: \\v
       scope: constant.character.escape.vertical-tab.json5
     - match: \\0
       scope: constant.character.escape.null.json5
+    - match: \\x[0-9a-fA-F]{2}
+      scope: constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json5
+    - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
+      scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json5
 
 ####[ Mapping ]#########################################################################################################
 
