@@ -27,10 +27,20 @@
 //                                           ^^^^^^ meta.mapping.value meta.string string.quoted.single
 //                                            ^^^^ constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement
 
-    'escape-character-unicode-symbol-utf16-surrogate-pair': '\u0000\u0000'
+    'escape-character-unicode-symbol-utf16-surrogate-pair': '\u0000\u0000',
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
 //                                                          ^^^^^^^^^^^^^^ meta.mapping.value meta.string string.quoted.single
 //                                                           ^^^^^^^^^^^^ constant.character.escape.unicode-symbol.utf16-surrogate-pair
 //                                                           ^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
 //                                                                 ^^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
+
+    'escape-character-line-separator': '\ ',
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                     ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                      ^^ constant.character.escape.line-separator
+
+    'escape-character-paragraph-separator': '\ '
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                          ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                           ^^ constant.character.escape.paragraph-separator
 }

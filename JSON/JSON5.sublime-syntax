@@ -111,7 +111,6 @@ contexts:
 ####[ Strings ]#########################################################################################################
 
   # TODO: add multiline with new-line-escapes
-  # TODO: add warnings for paragraph separator & line separator
 
   strings:
     - meta_append: true
@@ -151,10 +150,20 @@ contexts:
       captures:
         1: constant.character.escape.null.json5
         2: invalid.illegal.expected-non-digit-char.json5
+    - match: \\\x{2028}
+      scope: constant.character.escape.line-separator.json5
+    - match: \\\x{2029}
+      scope: constant.character.escape.paragraph-separator.json5
     - match: \\x[0-9a-fA-F]{2}
       scope: constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json5
     - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
       scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json5
+
+  invalid-string-escape-characters:
+    - meta_prepend: true
+    - match: ([^\\])(?:\x{2028}|\x{2029})
+      captures:
+        1: invalid.illegal.expected-backslash-char.json5
 
 ####[ Mapping ]#########################################################################################################
 

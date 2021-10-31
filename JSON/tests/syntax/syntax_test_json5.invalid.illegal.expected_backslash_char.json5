@@ -1,0 +1,17 @@
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+
+// <- source.json.json5
+
+{
+    'expected-backslash-char-line-separator': 'x ',
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                            ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                             ^ invalid.illegal.expected-backslash-char
+//                                              ^ - constant.character.escape.line-separator
+
+    'expected-backslash-char-paragraph-separator': 'x '
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                                 ^^^^ meta.mapping.value meta.string string.quoted.single
+//                                                  ^ invalid.illegal.expected-backslash-char
+//                                                   ^ - constant.character.escape.paragraph-separator
+}
