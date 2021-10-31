@@ -23,7 +23,9 @@ contexts:
   main:
     - include: top-level-object
     - include: arrays
-    # TODO: highlight other stuff as illegal
+    - include: constants
+    - include: numbers
+    - include: strings
 
   any:
     - include: constants
@@ -133,22 +135,17 @@ contexts:
 ####[ Strings ]#########################################################################################################
 
   strings:
-    - include: double-quoted-string-ahead
+    - include: double-quoted-strings
 
-  double-quoted-string-ahead:
-    - match: '(?=\")'
-      push: double-quoted-string
-
-  double-quoted-string:
-    - meta_scope: meta.string.json string.quoted.double.json
-    - match: '"'
+  double-quoted-strings:
+    - match: \"
       scope: punctuation.definition.string.begin.json
-      set: inside-double-quoted-string
+      push: inside-double-quoted-string
 
   inside-double-quoted-string:
-    - meta_scope: meta.string.json string.quoted.double.json
     - meta_include_prototype: false
-    - match: '"'
+    - meta_scope: meta.string.json string.quoted.double.json
+    - match: \"
       scope: punctuation.definition.string.end.json
       pop: 1
     - include: double-quoted-string-escape-characters

@@ -114,22 +114,17 @@ contexts:
 
   strings:
     - meta_append: true
-    - include: single-quoted-string-ahead
+    - include: single-quoted-strings
 
-  single-quoted-string-ahead:
-    - match: (?=')
-      push: single-quoted-string
-
-  single-quoted-string:
-    - meta_scope: meta.string.json5 string.quoted.single.json5
-    - match: "'"
+  single-quoted-strings:
+    - match: \'
       scope: punctuation.definition.string.begin.json5
-      set: inside-single-quoted-string
+      push: inside-single-quoted-string
 
   inside-single-quoted-string:
-    - meta_scope: meta.string.json5 string.quoted.single.json5
     - meta_include_prototype: false
-    - match: "'"
+    - meta_scope: meta.string.json5 string.quoted.single.json5
+    - match: \'
       scope: punctuation.definition.string.end.json5
       pop: 1
     - include: single-quoted-string-escape-characters
