@@ -10,22 +10,29 @@
     - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
       flavor
+- JSON:
+    - highlight leading / trailing / multiple commas as invalid
+- JSONC:
+    - highlight leading / multiple commas as invalid, trailing as valid
 - Add JSON5 with support for:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
-- Only allow objects or arrays at the top level
-    - add `meta.toc-list` scope to top level object keys to add them to
-      the symbol list (also add tests, see below)
-- Make use of newer syntax features including those only available in
-  `version: 2` syntaxes
-- Make use of `variables`
-- Highlighting speed improvements for empty objects and empty arrays
-- Significantly improve number highlighting
-- Correctly scope number signs with `constant.numeric.sign` instead of
-  `keyword.operator.arithmetic`
-- Significantly extend tests to cover more parts of the syntaxes
-  defined:
+- Objects
+    - Add `meta.toc-list` scope to top level object keys to add them to the
+      symbol list (also add tests, see below)
+    - Highlighting speed improvements for empty objects
+    - Make `mapping.*` contexts more modular
+- Arrays
+    - Highlighting speed improvements for empty arrays
+- Numbers
+    - Significantly improve number highlighting
+- Syntaxes
+    - Make use of newer syntax features including those only available in
+      `version: 2` syntaxes
+    - Make use of `variables`
+- Tests
+    - Significantly extend tests to cover more parts of the syntaxes defined.
     - Split original test file into logical parts
     - Add indentation tests for:
         - `json`, `jsonc` & `json5`
@@ -33,17 +40,10 @@
     - Add symbols tests for:
         - scope: `meta.toc-list.json | meta.toc-list.json5`
         - languages: `json`, `jsonc` & `json5`
-- Fix tests for `meta.mapping meta.mapping.*`
-- Make `mapping.*` contexts more modular
+    - Fix tests for `meta.mapping meta.mapping.*`
 - Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
   code blocks into `json`, `jsonc` & `json5` to behave similarly to
   `GitHub Flavored Markdown`
-
-
-BREAKING CHANGES:
-
-- scopes for number signs have changed from being
-  `keyword.operator.arithmetic` to `constant.numeric.sign`
 
 
 - fix #285 as requested by Jon
@@ -51,6 +51,7 @@ BREAKING CHANGES:
 - address #2430 using sort-order as requested by deathaxe
 - address #2852 using tips to fix scopes of curly braces & square
   brackets in `JSON`
+
 
 Co-authored-by: Ashwin Shenoy <Ultra-Instinct-05@users.noreply.github.com>
 Co-authored-by: Jack Cherng <jfcherng@users.noreply.github.com>
