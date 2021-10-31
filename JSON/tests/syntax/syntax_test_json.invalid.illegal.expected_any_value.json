@@ -4,15 +4,18 @@
 
 [
     ,
-// ^ meta.sequence.list
-//  ^ meta.sequence.list invalid.illegal.expected-any-value
-//   ^ meta.sequence.list
+// ^^^ meta.sequence.list
+//  ^ invalid.illegal.unexpected-separator.json
 
-    1,
-//  ^ meta.sequence.item.first
+    1,,
+// ^^^^^ meta.sequence.list.json
+//  ^ constant.numeric.value.json
+//   ^ punctuation.separator.sequence.json
+//    ^ invalid.illegal.unexpected-separator.json
 
-    [, 1, 2]
-//  ^ meta.sequence.item meta.sequence.list punctuation.definition.sequence.begin.json
-//   ^ meta.sequence.item meta.sequence.list invalid.illegal.expected-any-value
-//     ^ meta.sequence.item meta.sequence.item.first
+    [, 1, 2,]
+//  ^^^^^^^^^ meta.sequence.list.json meta.sequence.list.json
+//   ^ invalid.illegal.unexpected-separator.json
+//      ^ punctuation.separator.sequence.json
+//         ^ invalid.illegal.unexpected-separator.json
 ]

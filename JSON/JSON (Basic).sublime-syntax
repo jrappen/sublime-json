@@ -186,71 +186,53 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
-  # FIXME: trailing commas
-
   arrays:
-    - include: empty-array
+    - include: empty-arrays
     - match: \[
       scope: punctuation.definition.sequence.begin.json
-      push: inside-array
+      push:
+        - array-body
+        - array-illegal-separator
 
-  empty-array:
+  array-body:
+    - meta_scope: meta.sequence.list.json
+    - match: \]
+      scope: punctuation.definition.sequence.end.json
+      pop: 1
+    - include: array-separators
+    - include: any
+    - match: '[^\s\]]'
+      scope: invalid.illegal.expected-separator.json
+
+  array-separators:
+    - match: (?=,)
+      branch_point: array-separators
+      branch:
+        - array-separator
+        - array-illegal-separator
+
+  array-separator:
+    - match: ','
+      scope: punctuation.separator.sequence.json
+      set: array-expect-value
+
+  array-expect-value:
+    - match: (?=\])
+      fail: array-separators
+    - include: array-illegal-separator
+
+  array-illegal-separator:
+    - match: ','
+      scope: invalid.illegal.unexpected-separator.json
+    - match: (?=\S)
+      pop: 1
+
+  empty-arrays:
     - match: (\[)\s*(\])
       scope: meta.sequence.list.empty.json
       captures:
         1: punctuation.definition.sequence.begin.json
         2: punctuation.definition.sequence.end.json
-
-  inside-array:
-    - meta_scope: meta.sequence.list.json
-    - match: \]
-      scope: punctuation.definition.sequence.end.json
-      pop: 1
-    - match: (?=\S)
-      set: expect-sequence-first-item
-    # - match: '[^\s\]]'
-    #   scope: invalid.illegal.expected-any-value.json
-
-  expect-sequence-first-item:
-    - meta_scope: meta.sequence.list.json
-    - match: \]
-      scope: punctuation.definition.sequence.end.json
-      pop: 1
-    - match: ','
-      scope: invalid.illegal.expected-any-value.json
-    - match: (?=\S)
-      set: sequence-first-item
-
-  sequence-first-item:
-    - meta_scope: meta.sequence.item.first.json
-    - include: any
-    - match: (?=\S)
-      set: expect-sequence-end-or-sequence-separator
-
-  expect-sequence-end-or-sequence-separator:
-    - meta_scope: meta.sequence.list.json
-    - match: \]
-      scope: punctuation.definition.sequence.end.json
-      pop: 1
-    - match: ','
-      scope: punctuation.separator.sequence.json
-      set: expect-sequence-item
-    - match: (?=\S)
-      scope: invalid.illegal.expected-sequence-separator.json
-      pop: 1
-
-  expect-sequence-item:
-    - meta_scope: meta.sequence.list.json
-    - match: ','
-      scope: invalid.illegal.expected-any-value.json
-    - match: (?=\S)
-      set: sequence-item
-
-  sequence-item:
-    - meta_scope: meta.sequence.item.json
-    - include: any
-    - match: (?=\S)
-      set: expect-sequence-end-or-sequence-separator
 
 ####[ Mapping ]#########################################################################################################
 
