@@ -7,7 +7,7 @@
     - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
 - Add many more file extensions for `JSON` & `JSONC`:
-    - add doc links to exensions where applicable as a reference to be
+    - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
       flavor
 - Add JSON5 with support for:
