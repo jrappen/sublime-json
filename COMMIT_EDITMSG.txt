@@ -10,6 +10,10 @@
     - add doc links to exensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
       flavor
+- Add JSON5 with support for:
+    - explicitly pos numbers, hexadecimal ints, Infinity and NaN
+    - single quoted strings
+    - more escape chars for strings
 - Only allow objects or arrays at the top level
     - add `meta.toc-list` scope to top level object keys to add them to
       the symbol list (also add tests, see below)
@@ -36,7 +40,7 @@
   `GitHub Flavored Markdown`
 
 
-BREAKING CHANGE: number signs scopes have changed
+BREAKING CHANGES:
 
 - scopes for number signs have changed from being
   `keyword.operator.arithmetic` to `constant.numeric.sign`
