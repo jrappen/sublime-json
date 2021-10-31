@@ -6,6 +6,9 @@
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
 
+    ,
+//  ^ invalid.illegal.unexpected-separator
+
     true,
 //  ^^^^ constant.language.boolean
 
@@ -35,14 +38,14 @@
 
     [1, 2, 3],
 //  ^^^^^^^^^ meta.sequence.list
-//  ^ punctuation.definition.sequence.begin.json
-//   ^ constant.numeric.value.json5
-//    ^ punctuation.separator.sequence.jsonc
-//      ^ constant.numeric.value.json5
-//       ^ punctuation.separator.sequence.jsonc
-//         ^ constant.numeric.value.json5
-//          ^ punctuation.definition.sequence.end.json
-//           ^ punctuation.separator.sequence.jsonc
+//  ^ punctuation.definition.sequence.begin
+//   ^ constant.numeric.value
+//    ^ punctuation.separator.sequence
+//      ^ constant.numeric.value
+//       ^ punctuation.separator.sequence
+//         ^ constant.numeric.value
+//          ^ punctuation.definition.sequence.end
+//           ^ punctuation.separator.sequence
     {},
 //  ^^ meta.mapping.empty
 

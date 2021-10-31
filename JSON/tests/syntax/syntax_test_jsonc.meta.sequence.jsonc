@@ -5,12 +5,13 @@
 
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
+
     ,
-//  ^ invalid.illegal.unexpected-separator.json
+//  ^ invalid.illegal.unexpected-separator
 
     true,,
 //  ^^^^ constant.language.boolean
-//       ^ invalid.illegal.unexpected-separator.json
+//       ^ invalid.illegal.unexpected-separator
 
     false,
 //  ^^^^^ constant.language.boolean
@@ -61,6 +62,6 @@
     }
 
     ,
-//  ^ punctuation.separator.sequence.jsonc
+//  ^ punctuation.separator.sequence
 ]
 // <- meta.sequence.list punctuation.definition.sequence.end

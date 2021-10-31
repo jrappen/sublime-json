@@ -1,0 +1,21 @@
+// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
+
+// <- source.json
+
+[
+    ,
+// ^^^ meta.sequence.list
+//  ^ invalid.illegal.unexpected-separator
+
+    1,,
+// ^^^^^ meta.sequence.list
+//  ^ constant.numeric.value
+//   ^ punctuation.separator.sequence
+//    ^ invalid.illegal.unexpected-separator
+
+    [, 1, 2,]
+//  ^^^^^^^^^ meta.sequence.list meta.sequence.list
+//   ^ invalid.illegal.unexpected-separator
+//      ^ punctuation.separator.sequence
+//         ^ invalid.illegal.unexpected-separator
+]
