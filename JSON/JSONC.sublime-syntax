@@ -160,3 +160,10 @@ contexts:
     - match: '\*/'
       scope: punctuation.definition.comment.end.jsonc
       pop: 1
+
+####[ Sequence ]########################################################################################################
+
+  array-separators:
+    - match: ','
+      scope: punctuation.separator.sequence.jsonc
+      push: array-illegal-separator
