@@ -15,13 +15,13 @@
 
     "negative-float-leading-period-followed-by-zero": -.0,
 //                                                    ^^^ meta.number.float.decimal
-//                                                    ^ constant.numeric.sign
+//                                                    ^ keyword.operator.arithmetic
 //                                                     ^^ constant.numeric.value
 //                                                    ^^^ - invalid.illegal.meta-number-float-decimal
 
     "negative-float-leading-period-followed-by-nonzero": -.9
 //                                                       ^^^ meta.number.float.decimal
-//                                                       ^ constant.numeric.sign
+//                                                       ^ keyword.operator.arithmetic
 //                                                        ^^ constant.numeric.value
 //                                                       ^^^ - invalid.illegal.meta-number-float-decimal
 }
