@@ -117,7 +117,7 @@ contexts:
       scope: meta.number.float.decimal.json
       captures:
         1: keyword.operator.arithmetic.json
-        2: invalid.illegal.number-sign.json
+        2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
         4: punctuation.separator.decimal.json
 
@@ -129,7 +129,7 @@ contexts:
       scope: meta.number.integer.decimal.json
       captures:
         1: keyword.operator.arithmetic.json
-        2: invalid.illegal.number-sign.json
+        2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
 
 ####[ Strings ]#########################################################################################################
