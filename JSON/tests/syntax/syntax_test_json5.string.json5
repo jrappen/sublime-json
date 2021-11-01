@@ -7,6 +7,15 @@
 //  ^^^^^ meta.mapping.key meta.string string.quoted.single
 //         ^^^^^^^ meta.mapping.value meta.string string.quoted.single
 
+    'line-continuation-single': 'line\
+    continuation',
+// ^ meta.mapping.value meta.string string.quoted.single
+
+    "line-continuation-double": "line\
+    continuation",
+// ^ meta.mapping.value meta.string string.quoted.double
+
+
     'escape-character-single-quote': '\'',
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
 //                                   ^^^^ meta.mapping.value meta.string string.quoted.single
@@ -34,13 +43,11 @@
 //                                                           ^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
 //                                                                 ^^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
 
-    'escape-character-line-separator': '\ ',
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
-//                                     ^^^^ meta.mapping.value meta.string string.quoted.single
-//                                      ^^ constant.character.escape.line-separator
+    'escape-character-line-separator': '\ 
+    ',
+// ^ meta.mapping.value meta.string string.quoted.single
 
-    'escape-character-paragraph-separator': '\ '
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
-//                                          ^^^^ meta.mapping.value meta.string string.quoted.single
-//                                           ^^ constant.character.escape.paragraph-separator
+    'escape-character-paragraph-separator': '\ 
+    '
+// ^ meta.mapping.value meta.string string.quoted.single
 }

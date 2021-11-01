@@ -120,8 +120,6 @@ contexts:
 
 ####[ Strings ]#########################################################################################################
 
-  # TODO: add multiline with new-line-escapes
-
   strings:
     - meta_append: true
     - include: single-quoted-strings
@@ -149,16 +147,25 @@ contexts:
 
   valid-string-escape-characters:
     - meta_prepend: true
+    - match: ((\\)\x{2028})(?:(.*)(?:$\n))
+      captures:
+        1: constant.character.escape.line-separator.json5
+        2: punctuation.separator.continuation.line.json5
+        3: invalid.illegal.expected-eol-after-line-continuation.json5
+    - match: ((\\)\x{2029})(?:(.*)(?:$\n))
+      captures:
+        1: constant.character.escape.paragraph-separator.json5
+        2: punctuation.separator.continuation.line.json5
+        3: invalid.illegal.expected-eol-after-line-continuation.json5
+    - match: '(\\)(?:$\n)'
+      captures:
+        1: punctuation.separator.continuation.line.json5
     - match: \\v
       scope: constant.character.escape.vertical-tab.json5
     - match: (\\0)([0-9])?
       captures:
         1: constant.character.escape.null.json5
         2: invalid.illegal.unexpected-digit-character.json5
-    - match: \\\x{2028}
-      scope: constant.character.escape.line-separator.json5
-    - match: \\\x{2029}
-      scope: constant.character.escape.paragraph-separator.json5
     - match: \\x[0-9a-fA-F]{2}
       scope: constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json5
     - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
