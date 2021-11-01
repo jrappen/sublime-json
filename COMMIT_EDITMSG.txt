@@ -18,6 +18,8 @@
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
+    - ECMA identifierName as object keys (re-using regexes from the JavaScript
+      syntax by @Thom1729)
 - Objects
     - Add `meta.toc-list` scope to top level object keys to add them to the
       symbol list (also add tests, see below)
@@ -61,4 +63,5 @@ Co-authored-by: FichteFoll <FichteFoll@users.noreply.github.com>
 Co-authored-by: Keith Hall <keith-hall@users.noreply.github.com>
 Co-authored-by: Michael B. Lyons <michaelblyons@users.noreply.github.com>
 Co-authored-by: Rafał Chłodnicki <rchl@users.noreply.github.com>
+Co-authored-by: Thomas Smith <Thom1729@users.noreply.github.com>
 Co-authored-by: deathaxe <deathaxe@users.noreply.github.com>
