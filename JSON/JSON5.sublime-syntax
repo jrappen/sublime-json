@@ -15,7 +15,9 @@ file_extensions:
 
   - json5
     # https://json5.org/
-    # https://spec.json5.org/
+    # https://spec.json5.org/#summary-of-features
+    # https://262.ecma-international.org/5.1/
+    # https://www.unicode.org/versions/latest/
 
   - .babelrc
     # Babel.js File-relative Configuration
