@@ -5,6 +5,30 @@
 {
 // <- meta.mapping punctuation.definition.mapping.begin
 
+    _identifierOne: null,
+//  ^^^^^^^^^^^^^^ meta.mapping.key
+//  ^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//  ^^^^^^^^^^^^^^ meta.toc-list
+//                ^ meta.mapping punctuation.separator.mapping.key-value
+//                  ^^^^ meta.mapping.value
+//                  ^^^^ - meta.mapping meta.mapping.value
+
+    $identifierTwo: null,
+//  ^^^^^^^^^^^^^^ meta.mapping.key
+//  ^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//  ^^^^^^^^^^^^^^ meta.toc-list
+//                ^ meta.mapping punctuation.separator.mapping.key-value
+//                  ^^^^ meta.mapping.value
+//                  ^^^^ - meta.mapping meta.mapping.value
+
+    \u1234abc: null,
+//  ^^^^^^^^^ meta.mapping.key
+//  ^^^^^^^^^ - meta.mapping meta.mapping.key
+//  ^^^^^^^^^ meta.toc-list
+//           ^ meta.mapping punctuation.separator.mapping.key-value
+//             ^^^^ meta.mapping.value
+//             ^^^^ - meta.mapping meta.mapping.value
+
     'meta-mapping-value-constant': null,
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key

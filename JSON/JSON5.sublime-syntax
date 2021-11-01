@@ -47,6 +47,15 @@ first_line_match: |-
   )
 
 
+variables:
+  identifier_escape: (?:\\u(?:\h{4}|\{\h+\}))
+  identifier_start: (?:[_$\p{L}\p{Nl}]|{{identifier_escape}})
+  identifier_part: (?:[_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]|{{identifier_escape}})
+  identifier_break: (?!{{identifier_part}})
+
+  identifier_name: (?:{{identifier_start}}{{identifier_part}}*{{identifier_break}})
+
+
 contexts:
 
   # TODO: check whitespace valid chars
@@ -161,13 +170,19 @@ contexts:
 
 ####[ Mapping ]#########################################################################################################
 
-  # TODO: add ECMAScript identifier
-
   top-level-mapping-key:
     - meta_append: true
     - match: "'"
       scope: punctuation.definition.string.begin.json5
       push: top-level-mapping-key-single-quoted
+    - match: '(?={{identifier_name}})'
+      push: top-level-mapping-key-ecma
+
+  top-level-mapping-key-ecma:
+    - clear_scopes: 1
+    - match: '{{identifier_name}}'
+      scope: meta.mapping.key.json5 meta.toc-list.json5
+      pop: 1
 
   top-level-mapping-key-single-quoted:
     - clear_scopes: 1
@@ -180,6 +195,14 @@ contexts:
     - match: "'"
       scope: punctuation.definition.string.begin.json5
       push: mapping-key-single-quoted
+    - match: '(?={{identifier_name}})'
+      push: mapping-key-ecma
+
+  mapping-key-ecma:
+    - clear_scopes: 1
+    - match: '{{identifier_name}}'
+      scope: meta.mapping.key.json5
+      pop: 1
 
   mapping-key-single-quoted:
     - clear_scopes: 1
