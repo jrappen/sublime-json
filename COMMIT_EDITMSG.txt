@@ -53,6 +53,7 @@
 - address #2430 using sort-order as requested by deathaxe
 - address #2852 using tips to fix scopes of curly braces & square
   brackets in `JSON`
+- address sublimehq/sublime_text#3154 and add symbol tests
 
 
 Co-authored-by: Ashwin Shenoy <Ultra-Instinct-05@users.noreply.github.com>
