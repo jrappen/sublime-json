@@ -53,7 +53,6 @@ contexts:
 
 ####[ Numbers ]#########################################################################################################
 
-
   # completely override original context
   decimal-floats:
     - match: |-
@@ -144,7 +143,7 @@ contexts:
     - match: (\\0)([0-9])?
       captures:
         1: constant.character.escape.null.json5
-        2: invalid.illegal.expected-non-digit-char.json5
+        2: invalid.illegal.unexpected-digit-character.json5
     - match: \\\x{2028}
       scope: constant.character.escape.line-separator.json5
     - match: \\\x{2029}

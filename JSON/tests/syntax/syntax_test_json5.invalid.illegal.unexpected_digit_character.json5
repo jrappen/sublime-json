@@ -7,5 +7,5 @@
 //  ^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
 //                           ^^^^^ meta.mapping.value meta.string string.quoted.single
 //                            ^^ constant.character.escape.null
-//                              ^ invalid.illegal.expected-non-digit-char
+//                              ^ invalid.illegal.unexpected-digit-character
 }
