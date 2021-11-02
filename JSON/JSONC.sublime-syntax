@@ -159,6 +159,7 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
+  # completely override original context
   array-separators:
     - match: ','
       scope: punctuation.separator.sequence.jsonc
