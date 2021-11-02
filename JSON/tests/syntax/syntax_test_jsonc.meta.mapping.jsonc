@@ -57,6 +57,7 @@
 //                                   ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
         ,
 //     ^ - invalid
+//      ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
         3
     ],
 //  ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.end

@@ -6,9 +6,6 @@
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
 
-    ,
-//  ^ invalid.illegal.unexpected-separator
-
     true,
 //  ^^^^ constant.language.boolean
 

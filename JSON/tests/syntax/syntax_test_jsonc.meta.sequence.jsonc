@@ -6,12 +6,8 @@
 [
 // <- meta.sequence.list punctuation.definition.sequence.begin
 
-    ,
-//  ^ invalid.illegal.unexpected-separator
-
-    true,,
+    true,
 //  ^^^^ constant.language.boolean
-//       ^ invalid.illegal.unexpected-separator
 
     false,
 //  ^^^^^ constant.language.boolean
@@ -40,8 +36,10 @@
         ,
 //     ^ - invalid
 //      ^ meta.sequence.list punctuation.separator.sequence
-        "three"
+        "three",
 //      ^^^^^^^  string.quoted.double - meta.mapping.key
+//             ^ punctuation.separator.sequence
+//             ^ - invalid.illegal.unexpected-separator
     ],
 //  ^ meta.sequence.list punctuation.definition.sequence.end
 //   ^ meta.sequence.list punctuation.separator.sequence
@@ -58,10 +56,12 @@
 //          ^ meta.mapping punctuation.separator.mapping.pair
         ,
 //     ^ - invalid
+//      ^ meta.mapping punctuation.separator.mapping.pair
         "c": 3
     }
 
     ,
 //  ^ punctuation.separator.sequence
+//  ^ - invalid.illegal.unexpected-separator
 ]
 // <- meta.sequence.list punctuation.definition.sequence.end
