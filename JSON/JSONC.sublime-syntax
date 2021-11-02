@@ -113,10 +113,6 @@ contexts:
   prototype:
     - include: comments
 
-  eol-pop:
-    - match: '$\n?'
-      pop: 1
-
 ####[ Comments ]########################################################################################################
 
   # completely override original context
