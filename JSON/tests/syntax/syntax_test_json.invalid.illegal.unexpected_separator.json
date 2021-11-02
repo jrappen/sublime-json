@@ -13,9 +13,11 @@
 //   ^ punctuation.separator.sequence
 //    ^ invalid.illegal.unexpected-separator
 
-    [, 1, 2,]
+    [, 1,, 2,],
 //  ^^^^^^^^^ meta.sequence.list meta.sequence.list
 //   ^ invalid.illegal.unexpected-separator
 //      ^ punctuation.separator.sequence
-//         ^ invalid.illegal.unexpected-separator
+//       ^ invalid.illegal.unexpected-separator
+//          ^ invalid.illegal.unexpected-separator
+//            ^ invalid.illegal.unexpected-separator
 ]
