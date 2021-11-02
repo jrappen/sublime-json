@@ -110,16 +110,7 @@ first_line_match: |-
 
 contexts:
 
-  prototype:
-    - include: comments
-
 ####[ Comments ]########################################################################################################
-
-  # completely override original context
-  comments:
-    - include: comment-line
-    - include: comment-doc-block
-    - include: comment-block
 
   # completely override original context
   comment-line:
