@@ -11,24 +11,27 @@
       able to more quickly verify that they (still) use said syntax
       flavor
 - JSON:
+    - highlight by default as `JSONC` (as decided by Jon)
     - highlight leading / trailing / multiple commas as invalid
+    - only allow exactly one structure (object, array) or value (constant,
+      number, string) at top level (thanks to Keith)
 - JSONC:
     - highlight leading / multiple commas as invalid, trailing as valid
 - Add JSON5 with support for:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
-    - ECMA identifierName as object keys (re-using regexes from the JavaScript
-      syntax by @Thom1729)
+    - ECMA identifierName as object keys (thanks to Thomas)
+    - line continuation in strings (with tests thanks to Keith)
 - Objects
     - Add `meta.toc-list` scope to top level object keys to add them to the
       symbol list (also add tests, see below)
-    - Highlighting speed improvements for empty objects
+    - Highlighting speed improvements for empty objects (thanks to FichteFoll)
     - Make `mapping.*` contexts more modular
 - Arrays
-    - Highlighting speed improvements for empty arrays
+    - Highlighting speed improvements for empty arrays (thanks to FichteFoll)
 - Numbers
-    - Significantly improve number highlighting
+    - Significantly improve number highlighting (thanks to deathaxe)
 - Syntaxes
     - Make use of newer syntax features including those only available in
       `version: 2` syntaxes

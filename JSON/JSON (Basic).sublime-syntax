@@ -21,11 +21,49 @@ contexts:
     - include: comments
 
   main:
-    - include: top-level-object
-    - include: arrays
-    - include: constants
-    - include: numbers
-    - include: strings
+    - match: '(?=\S)'
+      set: try-top-level-object
+
+  try-top-level-object:
+    - match: ''
+      set:
+        - include: top-level-object
+        - match: ''
+          set: try-top-level-array
+
+  try-top-level-array:
+    - match: ''
+      set:
+        - include: arrays
+        - match: ''
+          set: try-top-level-constant
+
+  try-top-level-constant:
+    - match: ''
+      set:
+        - include: constants
+        - match: ''
+          set: try-top-level-number
+
+  try-top-level-number:
+    - match: ''
+      set:
+        - include: numbers
+        - match: ''
+          set: try-top-level-string
+
+  try-top-level-string:
+    - match: ''
+      set:
+        - include: strings
+        - match: ''
+          set: remainder-all-invalid
+
+  remainder-all-invalid:
+    - match: ''
+      push:
+        - match: '\S*'
+          scope: invalid.illegal.expected-only-exactly-one-structure-or-value.json
 
   any:
     - include: constants
@@ -50,7 +88,7 @@ contexts:
     - match: '//'
       scope: invalid.illegal.comment.json
       push:
-        - meta_scope: invalid.illegal.comment.json
+        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
         - include: eol-pop
 
@@ -58,7 +96,7 @@ contexts:
     - match: '/\*\*(?!/)'
       scope: invalid.illegal.comment.json
       push:
-        - meta_scope: invalid.illegal.comment.json
+        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
         - include: comment-block-end
         - match: '^\s*(\*)(?!/)'
@@ -69,7 +107,7 @@ contexts:
     - match: '/\*'
       scope: invalid.illegal.comment.json
       push:
-        - meta_scope: invalid.illegal.comment.json
+        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
         - include: comment-block-end
 
