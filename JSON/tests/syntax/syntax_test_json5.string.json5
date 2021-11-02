@@ -1,4 +1,4 @@
-// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax" \
 
 // <- source.json.json5
 
@@ -8,10 +8,16 @@
 //         ^^^^^^^ meta.mapping.value meta.string string.quoted.single
 
     'line-continuation-single': 'line\
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single \
+//                              ^^^^^^ meta.mapping.value meta.string string.quoted.single \
+//                                   ^ punctuation.separator.continuation.line \
     continuation',
 // ^ meta.mapping.value meta.string string.quoted.single
 
     "line-continuation-double": "line\
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double \
+//                              ^^^^^^ meta.mapping.value meta.string string.quoted.double \
+//                                   ^ punctuation.separator.continuation.line \
     continuation",
 // ^ meta.mapping.value meta.string string.quoted.double
 
@@ -44,10 +50,16 @@
 //                                                                 ^^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
 
     'escape-character-line-separator': '\ 
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single \
+//                                     ^^^ meta.mapping.value meta.string string.quoted.single \
+//                                      ^^ constant.character.escape.line-separator \
     ',
 // ^ meta.mapping.value meta.string string.quoted.single
 
     'escape-character-paragraph-separator': '\ 
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single \
+//                                          ^^^ meta.mapping.value meta.string string.quoted.single \
+//                                           ^^ constant.character.escape.paragraph-separator \
     '
 // ^ meta.mapping.value meta.string string.quoted.single
 }
