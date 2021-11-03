@@ -83,19 +83,19 @@ contexts:
         )
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
         3: punctuation.separator.decimal.json5
         4: punctuation.separator.decimal.json5
     - match: ([-+]?)(Infinity)
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.language.infinity.json5
     - match: ([-+]?)(NaN)
       scope: meta.number.float.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.language.nan.json5
 
   integers:
@@ -107,14 +107,14 @@ contexts:
     - match: ([-+]?)({{pos_integer_decimal}})
       scope: meta.number.integer.decimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
 
   hexadecimal-integers:
     - match: ([-+]?)(0[xX])(\h+)
       scope: meta.number.integer.hexadecimal.json5
       captures:
-        1: keyword.operator.arithmetic.json5
+        1: constant.numeric.sign.json5
         2: constant.numeric.base.json5
         3: constant.numeric.value.json5
 
