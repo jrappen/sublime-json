@@ -35,7 +35,8 @@
 - Syntaxes
     - Make use of newer syntax features including those only available in
       `version: 2` syntaxes
-    - Make use of `variables`
+    - Make use of `variables` (with optimizations provided by deathaxe and regex
+      patterns provided by Thomas)
 - Tests
     - Significantly extend tests to cover more parts of the syntaxes defined.
     - Split original test file into logical parts
@@ -52,9 +53,10 @@
 
 
 - fix #285 as requested by Jon
-- address #757 using tips to fix line comments for `JSONC`
+- address #481 to remove incompatible regex patterns according to Will
+- address #757 using tips from Keith to fix line comments for `JSONC`
 - address #2430 using sort-order as requested by deathaxe
-- address #2852 using tips to fix scopes of curly braces & square
+- address #2852 using tips from Thomas to fix scopes of curly braces & square
   brackets in `JSON`
 - address sublimehq/sublime_text#3154 and add symbol tests
 
@@ -68,4 +70,5 @@ Co-authored-by: Keith Hall <keith-hall@users.noreply.github.com>
 Co-authored-by: Michael B. Lyons <michaelblyons@users.noreply.github.com>
 Co-authored-by: Rafał Chłodnicki <rchl@users.noreply.github.com>
 Co-authored-by: Thomas Smith <Thom1729@users.noreply.github.com>
+Co-authored-by: Will Bond <wbond@users.noreply.github.com>
 Co-authored-by: deathaxe <deathaxe@users.noreply.github.com>
