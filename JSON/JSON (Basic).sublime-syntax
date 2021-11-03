@@ -21,9 +21,41 @@ contexts:
     - include: comments
 
   main:
+    - match: '(?=\S)'
+      push: top-level-expect-object
+
+  top-level-expect-object:
     - include: top-level-objects
+    - match: ''
+      push: top-level-expect-array
+
+  top-level-expect-array:
     - include: arrays
-    - include: values
+    - match: ''
+      push: top-level-expect-constant
+
+  top-level-expect-constant:
+    - include: constants
+    - match: ''
+      push: top-level-expect-number
+
+  top-level-expect-number:
+    - include: numbers
+    - match: ''
+      push: top-level-expect-string
+
+  top-level-expect-string:
+    - include: strings
+    - match: ''
+      push: top-level-expect-invalid-remainder
+
+  top-level-expect-invalid-remainder:
+    - match: ','
+      scope: invalid.illegal.unexpected-separator.json
+    - match: ':'
+      scope: invalid.illegal.unexpected-separator.json
+    - match: '\S*'
+      scope: invalid.illegal.unexpected-code-after-first-structure-or-value.json
 
   any:
     - include: structures
