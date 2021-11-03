@@ -179,6 +179,9 @@ contexts:
 
 ####[ Mapping ]#########################################################################################################
 
+  # The top-level contexts here are to ensure that we can apply `meta.toc-list`
+  # to the top-level object keys to index them as symbols.
+
   top-level-mapping-key:
     - meta_append: true
     - match: "'"

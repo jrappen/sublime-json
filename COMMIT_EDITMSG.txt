@@ -12,11 +12,9 @@
       flavor
 - JSON:
     - highlight by default as `JSONC` (as decided by Jon)
-    - highlight leading / trailing / multiple commas as invalid
-    - only allow exactly one structure (object, array) or value (constant,
-      number, string) at top level (thanks to Keith)
+    - highlight leading, trailing & multiple commas as invalid
 - JSONC:
-    - highlight leading / multiple commas as invalid, trailing as valid
+    - highlight leading & multiple commas as invalid, trailing as valid
 - Add JSON5 with support for:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
