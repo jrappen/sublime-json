@@ -21,49 +21,44 @@ contexts:
     - include: comments
 
   main:
+    # FIXME: allow testing syntaxes that use json
     - match: '(?=\S)'
-      set: try-top-level-object
+      set: top-level-expect-object
 
-  try-top-level-object:
+  top-level-expect-object:
+    - include: top-level-object
+    - match: ''
+      set: top-level-expect-array
+
+  top-level-expect-array:
+    - include: arrays
+    - match: ''
+      set: top-level-expect-constant
+
+  top-level-expect-constant:
+    - include: constants
+    - match: ''
+      set: top-level-expect-number
+
+  top-level-expect-number:
+    - include: numbers
+    - match: ''
+      set: top-level-expect-string
+
+  top-level-expect-string:
+    - include: strings
+    - match: ''
+      set: top-level-expect-invalid-remainder
+
+  top-level-expect-invalid-remainder:
+    - match: ':'
+      scope: invalid.illegal.unexpected-separator.json
+    - match: ','
+      scope: invalid.illegal.unexpected-separator.json
     - match: ''
       set:
-        - include: top-level-object
-        - match: ''
-          set: try-top-level-array
-
-  try-top-level-array:
-    - match: ''
-      set:
-        - include: arrays
-        - match: ''
-          set: try-top-level-constant
-
-  try-top-level-constant:
-    - match: ''
-      set:
-        - include: constants
-        - match: ''
-          set: try-top-level-number
-
-  try-top-level-number:
-    - match: ''
-      set:
-        - include: numbers
-        - match: ''
-          set: try-top-level-string
-
-  try-top-level-string:
-    - match: ''
-      set:
-        - include: strings
-        - match: ''
-          set: remainder-all-invalid
-
-  remainder-all-invalid:
-    - match: ''
-      push:
-        - match: '\S*'
-          scope: invalid.illegal.expected-only-exactly-one-structure-or-value.json
+        - meta_scope: invalid.illegal.unexpected-structure-or-value.json
+        - include: any
 
   any:
     - include: constants
