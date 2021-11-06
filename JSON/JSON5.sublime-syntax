@@ -146,6 +146,7 @@ contexts:
       pop: 1
 
   single-quoted-string-escape-characters:
+    - meta_include_prototype: false
     - match: \\\'
       scope: constant.character.escape.single-quote.json5
     - include: string-escape-characters
@@ -203,8 +204,8 @@ contexts:
 
   top-level-mapping-key-single-quoted:
     - clear_scopes: 1
-    - meta_scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.quoted.single.json5
     - meta_include_prototype: false
+    - meta_scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.quoted.single.json5
     - include: inside-single-quoted-string
 
   mapping-key:
@@ -223,6 +224,6 @@ contexts:
 
   mapping-key-single-quoted:
     - clear_scopes: 1
-    - meta_scope: meta.mapping.key.json5 meta.string.json5 string.quoted.single.json5
     - meta_include_prototype: false
+    - meta_scope: meta.mapping.key.json5 meta.string.json5 string.quoted.single.json5
     - include: inside-single-quoted-string

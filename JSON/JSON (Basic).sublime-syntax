@@ -90,38 +90,43 @@ contexts:
 ####[ Comments ]########################################################################################################
 
   comments:
+    - meta_include_prototype: false
     - include: comment-line
     - include: comment-doc-block
     - include: comment-block
 
   comment-line:
+    - meta_include_prototype: false
     - match: '//'
       scope: invalid.illegal.comment.json
       push:
-        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
+        - meta_content_scope: invalid.illegal.comment.json
         - include: eol-pop
 
   comment-doc-block:
+    - meta_include_prototype: false
     - match: '/\*\*(?!/)'
       scope: invalid.illegal.comment.json
       push:
-        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
+        - meta_content_scope: invalid.illegal.comment.json
         - include: comment-block-end
         - match: '^\s*(\*)(?!/)'
           captures:
             1: invalid.illegal.comment.json
 
   comment-block:
+    - meta_include_prototype: false
     - match: '/\*'
       scope: invalid.illegal.comment.json
       push:
-        - meta_content_scope: invalid.illegal.comment.json
         - meta_include_prototype: false
+        - meta_content_scope: invalid.illegal.comment.json
         - include: comment-block-end
 
   comment-block-end:
+    - meta_include_prototype: false
     - match: '\*/'
       scope: invalid.illegal.comment.json
       pop: 1
@@ -202,15 +207,18 @@ contexts:
       pop: 1
 
   double-quoted-string-escape-characters:
+    - meta_include_prototype: false
     - match: \\\"
       scope: constant.character.escape.double-quote.json
     - include: string-escape-characters
 
   string-escape-characters:
+    - meta_include_prototype: false
     - include: valid-string-escape-characters
     - include: invalid-string-escape-characters
 
   valid-string-escape-characters:
+    - meta_include_prototype: false
     - match: \\\\
       scope: constant.character.escape.back-slash.json
     - match: \\\/
@@ -229,6 +237,7 @@ contexts:
       scope: constant.character.escape.unicode-symbol.basic-multilingual-plane.json
 
   invalid-string-escape-characters:
+    - meta_include_prototype: false
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 
@@ -341,14 +350,14 @@ contexts:
 
   top-level-mapping-key-double-quoted:
     - clear_scopes: 1
-    - meta_scope: meta.mapping.key.json meta.toc-list.json meta.string.json string.quoted.double.json
     - meta_include_prototype: false
+    - meta_scope: meta.mapping.key.json meta.toc-list.json meta.string.json string.quoted.double.json
     - include: inside-double-quoted-string
 
   mapping-key-double-quoted:
     - clear_scopes: 1
-    - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
     - meta_include_prototype: false
+    - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
     - include: inside-double-quoted-string
 
   mapping-separator:
