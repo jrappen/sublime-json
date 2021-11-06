@@ -199,7 +199,7 @@ contexts:
   top-level-mapping-key-ecma:
     - clear_scopes: 1
     - match: '{{identifier_name}}'
-      scope: meta.mapping.key.json5 meta.toc-list.json5
+      scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.unquoted.plain.json5
       pop: 1
 
   top-level-mapping-key-single-quoted:
@@ -219,7 +219,7 @@ contexts:
   mapping-key-ecma:
     - clear_scopes: 1
     - match: '{{identifier_name}}'
-      scope: meta.mapping.key.json5
+      scope: meta.mapping.key.json5 meta.string.json5 string.unquoted.plain.json5
       pop: 1
 
   mapping-key-single-quoted:
