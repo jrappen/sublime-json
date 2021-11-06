@@ -29,6 +29,8 @@
 - Arrays
     - Highlighting speed improvements for empty arrays (thanks to FichteFoll)
 - Numbers
+    - Correctly scope number signs with `constant.numeric.sign` instead of
+      `keyword.operator.arithmetic`
     - Significantly improve number highlighting (thanks to deathaxe)
 - Syntaxes
     - Make use of newer syntax features including those only available in
@@ -50,12 +52,23 @@
   `GitHub Flavored Markdown`
 
 
-- fix #285 as requested by Jon
+BREAKING CHANGES:
+
+- JSON does not have values that can be set via an inline calculation with the
+  help of operators, but only simple number values. Scopes for number signs have
+  changed from being `keyword.operator.arithmetic` to `constant.numeric.sign`.
+  Color scheme authors should add this, should it be missing.
+- The `JSON.sublime-syntax` now marks comments as `invalid`, third party plugin
+  authors should target `JSONC.sublime-syntax` instead to have the same user
+  experience as before.
+
+
+- fix #285 in a way that meets Jon's requirements
 - address #481 to remove incompatible regex patterns according to Will
-- address #757 using tips from Keith to fix line comments for `JSONC`
-- address #2430 using sort-order as requested by deathaxe
-- address #2852 using tips from Thomas to fix scopes of curly braces & square
-  brackets in `JSON`
+- address #757 to fix line comments for `JSONC` (thanks to Keith)
+- address #2430 using sort-order (as requested by deathaxe)
+- address #2852 to fix scopes of curly braces & square brackets in `JSON`
+  (thanks to Thomas)
 - address sublimehq/sublime_text#3154 and add symbol tests
 
 
