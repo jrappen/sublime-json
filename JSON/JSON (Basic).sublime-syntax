@@ -24,6 +24,10 @@ contexts:
     - match: '(?=\S)'
       push: top-level-expect-object
 
+####[ Top level ]#######################################################################################################
+
+  # Try these below one-by-one.
+
   top-level-expect-object:
     - include: top-level-objects
     - match: ''
@@ -57,6 +61,8 @@ contexts:
     - match: '\S*'
       scope: invalid.illegal.unexpected-code-after-first-structure-or-value.json
 
+####[ Structural helpers ]##############################################################################################
+
   any:
     - include: structures
     - include: values
@@ -70,10 +76,11 @@ contexts:
     - include: numbers
     - include: strings
 
+####[ Helpers ]#########################################################################################################
+
   eol-pop:
     - match: '$\n?'
       pop: 1
-
 
 ####[ Comments ]########################################################################################################
 
@@ -121,7 +128,7 @@ contexts:
       scope: constant.language.null.json
     - match: \b(?:false|true)\b
       scope: constant.language.boolean.json
-    # when for example typing "Null" or "NULL" instead of "null"
+    # when erroneously containing upper case letters
     - match: \b(?i:null)\b
       scope: invalid.illegal.expected-lower-case-null.json
     - match: \b(?i:false|true)\b
