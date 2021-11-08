@@ -153,6 +153,7 @@ contexts:
 
   valid-string-escape-characters:
     - meta_prepend: true
+    - meta_include_prototype: false
     - match: ((\\)\x{2028})(?:(.*)(?:$\n))
       captures:
         1: constant.character.escape.line-separator.json5
@@ -179,6 +180,7 @@ contexts:
 
   invalid-string-escape-characters:
     - meta_prepend: true
+    - meta_include_prototype: false
     - match: ([^\\])(?:\x{2028}|\x{2029})
       captures:
         1: invalid.illegal.expected-backslash-char.json5
@@ -198,6 +200,7 @@ contexts:
 
   top-level-mapping-key-ecma:
     - clear_scopes: 1
+    - meta_include_prototype: false
     - match: '{{identifier_name}}'
       scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.unquoted.plain.json5
       pop: 1
@@ -218,6 +221,7 @@ contexts:
 
   mapping-key-ecma:
     - clear_scopes: 1
+    - meta_include_prototype: false
     - match: '{{identifier_name}}'
       scope: meta.mapping.key.json5 meta.string.json5 string.unquoted.plain.json5
       pop: 1
