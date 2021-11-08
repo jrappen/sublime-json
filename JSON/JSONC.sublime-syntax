@@ -9,7 +9,7 @@
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONC.sublime-syntax
 #
-name: JSONC (JSON with Comments)
+name: JSONC
 scope: source.json.jsonc
 version: 2
 
