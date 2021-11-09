@@ -17,11 +17,10 @@ version: 2
 extends: 'Packages/JSON/JSON (Basic).sublime-syntax'
 
 file_extensions:
-  #   To not confuse beginners too much with comments being marked as invalid and
-  #   not knowing where to change from `JSON` to `JSONC (JSON with Comments)`, it
-  #   was decided by Jon to apply the `JSONC (JSON with Comments)` syntax by
-  #   default to `*.json` files instead.
-  #                          See: https://github.com/sublimehq/Packages/issues/285
+  - json
+    # https://www.json.org/json-en.html
+    # https://datatracker.ietf.org/doc/html/rfc7159
+    # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
   - .bowerrc
     # Bower
