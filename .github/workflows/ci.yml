@@ -59,8 +59,5 @@ jobs:
           mkdir -p Data/Packages/
           find . -maxdepth 1 -mindepth 1 -type d -not -name 'Data' -exec mv '{}' Data/Packages/ ';'
 
-      - name: Print syntax tests binary info
-        run: ./syntax_tests --help
-
       - name: Run syntax tests
         run: ./syntax_tests
