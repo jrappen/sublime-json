@@ -36,6 +36,15 @@ file_extensions:
     # JupyterLab User Settings
     # https://jupyterlab.readthedocs.io/en/stable/user/directories.html?highlight=json5#jupyterlab-user-settings-directory
 
+  - .parcelrc
+    # parcel Bundler Configuration
+    # https://github.com/parcel-bundler/parcel
+    # https://parceljs.org/features/plugins/#.parcelrc
+
+  - .postcssrc.json
+    # PostCSS Configuration
+    # https://postcss.org
+
   - babel.config.json
     # Babel.js Project-wide Configuration
     # https://babeljs.io/docs/en/config-files
@@ -47,6 +56,11 @@ file_extensions:
   - nextrc.json
     # Vercel Next.js Configuration
     # https://nextjs.org/docs/api-reference/next.config.js/introduction
+
+  - techdocs_metadata.json
+    # Spotify's @backstage/techdocs_common Configuration
+    # https://github.com/backstage/backstage/tree/master/packages/techdocs-common
+    # https://backstage.io/docs/features/techdocs/techdocs-overview
 
 first_line_match: |-
   (?xi:
