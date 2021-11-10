@@ -4,8 +4,8 @@
 
 {
     "key": "value",
-//  @@@@@ definition
 //  ^^^^^ meta.toc-list.json
+//  @@@@@ definition
 
     "key-two": { "key-two-one": "value", "key-two-two": "value" }
 //  ^^^^^^^^^ meta.toc-list.json
