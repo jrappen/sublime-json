@@ -69,6 +69,10 @@ first_line_match: |-
 
 
 variables:
+
+  # https://github.com/kkos/oniguruma/blob/master/doc/RE
+  # https://github.com/kkos/oniguruma/blob/master/doc/UNICODE_PROPERTIES
+
   identifier_escape: (?:\\u(?:\h{4}|\{\h+\}))
   identifier_start: (?:[_$\p{L}\p{Nl}]|{{identifier_escape}})
   identifier_part: (?:[_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]|{{identifier_escape}})
