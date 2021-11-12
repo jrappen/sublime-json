@@ -3,20 +3,14 @@
 // <- source.json.jsonc
 
 [
-    null,
-//  ^^^^ constant.language.null
     Null,
 //  ^^^^ invalid.illegal.expected-lower-case-null
     NULL,
 //  ^^^^ invalid.illegal.expected-lower-case-null
-    false,
-//  ^^^^^ constant.language.boolean
     False,
 //  ^^^^^ invalid.illegal.expected-lower-case-boolean
     FALSE,
 //  ^^^^^ invalid.illegal.expected-lower-case-boolean
-    true,
-//  ^^^^ constant.language.boolean
     True,
 //  ^^^^ invalid.illegal.expected-lower-case-boolean
     TRUE
