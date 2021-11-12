@@ -9,7 +9,7 @@
 //                              ^ invalid.illegal.numeric-sign
 //                               ^ constant.numeric.value
 
-    "explicitly-positive-integer": +9
+    "explicitly-positive-integer": +9,
 //                                 ^^ meta.mapping.value meta.number.integer.decimal
 //                                 ^ invalid.illegal.numeric-sign
 //                                  ^ constant.numeric.value
