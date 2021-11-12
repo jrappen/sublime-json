@@ -3,13 +3,22 @@
 // <- source.json.json5
 
 {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////[ explicitly positive ]/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
     "float-explicitly-positive-zero": +0.0,
 //                                    ^^^^ meta.number.float.decimal
 //                                    ^ constant.numeric.sign
 //                                     ^^^ constant.numeric.value
 //                                      ^ punctuation.separator.decimal
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive-zero-with-zero-exponent": +0.0e0,
 //                                                       ^^^^^^ meta.number.float.decimal
@@ -33,7 +42,9 @@
 //                                                                            ^ constant.numeric.sign
 //                                                                             ^^^^ constant.numeric.value
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive-zero-with-exponent": +0.0e9,
 //                                                  ^^^^^^ meta.number.float.decimal
@@ -57,7 +68,9 @@
 //                                                                       ^ constant.numeric.sign
 //                                                                        ^^^^ constant.numeric.value
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive": +9.0,
 //                               ^^^^ meta.number.float.decimal
@@ -65,7 +78,9 @@
 //                                ^^^ constant.numeric.value
 //                                 ^ punctuation.separator.decimal
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive-with-zero-exponent": +9.0e0,
 //                                                  ^^^^^^ meta.number.float.decimal
@@ -89,7 +104,9 @@
 //                                                                       ^ constant.numeric.sign
 //                                                                        ^^^^ constant.numeric.value
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive-with-exponent": +9.0e9,
 //                                             ^^^^^^ meta.number.float.decimal
@@ -103,15 +120,113 @@
 //                                                       ^^^^^^ constant.numeric.value
 //                                                        ^ punctuation.separator.decimal
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     "float-explicitly-positive-no-fraction-with-exponent": +9e9,
 //                                                         ^^^^ meta.number.float.decimal
 //                                                         ^ constant.numeric.sign
 //                                                          ^^^ constant.numeric.value
 
-    "float-explicitly-positive-no-fraction-with-negative-exponent": +9e-9
+    "float-explicitly-positive-no-fraction-with-negative-exponent": +9e-9,
 //                                                                  ^^^^^ meta.number.float.decimal
 //                                                                  ^ constant.numeric.sign
 //                                                                   ^^^^ constant.numeric.value
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////[ ieee 754 ]////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    "constant-language-nan": NaN,
+//                           ^^^ meta.number.float.decimal constant.language.nan
+    "constant-language-nan-pos": +NaN,
+//                               ^^^^ meta.number.float.decimal
+//                               ^ constant.numeric.sign
+//                                ^^^ constant.language.nan
+    "constant-language-nan-neg": -NaN,
+//                               ^^^^ meta.number.float.decimal
+//                               ^ constant.numeric.sign
+//                                ^^^ constant.language.nan
+
+    "constant-language-infinity": Infinity,
+//                                ^^^^^^^^ meta.number.float.decimal constant.language.infinity
+    "constant-language-infinity-pos": +Infinity,
+//                                    ^^^^^^^^^ meta.number.float.decimal
+//                                    ^ constant.numeric.sign
+//                                     ^^^^^^^^ constant.language.infinity
+    "constant-language-infinity-neg": -Infinity,
+//                                    ^^^^^^^^^ meta.number.float.decimal
+//                                    ^ constant.numeric.sign
+//                                     ^^^^^^^^ constant.language.infinity
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////[ leading period ]//////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    "float-leading-period-followed-by-zero": .0,
+//                                           ^^ meta.number.float.decimal
+//                                           ^^ constant.numeric.value
+//                                           ^^ - invalid.illegal.meta-number-float-decimal
+
+    "float-leading-period-followed-by-nonzero": .9,
+//                                              ^^ meta.number.float.decimal
+//                                              ^^ constant.numeric.value
+//                                              ^^ - invalid.illegal.meta-number-float-decimal
+
+    "negative-float-leading-period-followed-by-zero": -.0,
+//                                                    ^^^ meta.number.float.decimal
+//                                                    ^ constant.numeric.sign
+//                                                     ^^ constant.numeric.value
+//                                                    ^^^ - invalid.illegal.meta-number-float-decimal
+
+    "negative-float-leading-period-followed-by-nonzero": -.9,
+//                                                       ^^^ meta.number.float.decimal
+//                                                       ^ constant.numeric.sign
+//                                                        ^^ constant.numeric.value
+//                                                       ^^^ - invalid.illegal.meta-number-float-decimal
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////[ trailing period ]/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    "float-trailing-period-lead-by-zero": 0.,
+//                                        ^^ meta.number.float.decimal
+//                                        ^^ constant.numeric.value
+//                                        ^^ - invalid.illegal.meta-number-float-decimal
+
+    "float-trailing-period-lead-by-nonzero": 9.,
+//                                           ^^ meta.number.float.decimal
+//                                           ^^ constant.numeric.value
+//                                           ^^ - invalid.illegal.meta-number-float-decimal
+
+    "negative-float-trailing-period-lead-by-zero": -0.,
+//                                                 ^^^ meta.number.float.decimal
+//                                                 ^ constant.numeric.sign
+//                                                  ^^ constant.numeric.value
+//                                                 ^^^ - invalid.illegal.meta-number-float-decimal
+
+    "negative-float-trailing-period-lead-by-nonzero": -9.
+//                                                    ^^^ meta.number.float.decimal
+//                                                    ^ constant.numeric.sign
+//                                                     ^^ constant.numeric.value
+//                                                    ^^^ - invalid.illegal.meta-number-float-decimal
 }
