@@ -22,7 +22,6 @@ file_extensions:
     # https://json5.org/
     # https://spec.json5.org/#summary-of-features
     # https://262.ecma-international.org/5.1/
-    # https://www.unicode.org/versions/latest/
 
   - .babelrc
     # Babel.js File-relative Configuration
@@ -70,8 +69,12 @@ first_line_match: |-
 
 variables:
 
-  # https://github.com/kkos/oniguruma/blob/master/doc/RE
-  # https://github.com/kkos/oniguruma/blob/master/doc/UNICODE_PROPERTIES
+  #   Unicode documentation:
+  #       https://www.unicode.org/versions/latest/
+  #       https://www.unicode.org/Public/UCD/latest/ucd/
+  #   Oniguruma documentation:
+  #       https://github.com/kkos/oniguruma/blob/master/doc/RE
+  #       https://github.com/kkos/oniguruma/blob/master/doc/UNICODE_PROPERTIES
 
   identifier_escape: (?:\\u(?:\h{4}|\{\h+\}))
   identifier_start: (?:[_$\p{L}\p{Nl}]|{{identifier_escape}})
