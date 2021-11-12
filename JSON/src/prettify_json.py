@@ -28,6 +28,10 @@ def status_msg(msg: str = '') -> None:
 class JsonPrettify(sublime_plugin.TextCommand):
 
     def run(self, edit):
+        """
+        Attempt to prettify the current view's JSON contents. Print errors to
+        the console when it fails.
+        """
         try:
             old_contents: str = self.view.substr(
                 x=sublime.Region(
@@ -67,6 +71,10 @@ class JsonPrettify(sublime_plugin.TextCommand):
 class JsonMinify(sublime_plugin.TextCommand):
 
     def run(self, edit):
+        """
+        Attempt to minify the current view's JSON contents. Print errors to
+        the console when it fails.
+        """
         try:
             old_contents: str = self.view.substr(
                 x=sublime.Region(
