@@ -1,3 +1,10 @@
+//  Packages/JSON/Default.sublime-keymap
+
+
+//  This file is being maintained at:
+//      https://github.com/sublimehq/Packages/blob/master/JSON/Default.sublime-keymap
+
+
 [
 	// Auto-pair quotations: "key": '|',
 	{ "keys": ["'"], "command": "insert_snippet", "args": {"contents": "'$0'"}, "context":
