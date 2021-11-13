@@ -12,6 +12,7 @@ import json
 #   Compare the docs for these methods:
 #       https://docs.python.org/3.8/library/json.html#json.loads
 #       https://docs.python.org/3.8/library/json.html#json.dumps
+from typing import Any
 
 
 PKG_NAME: str = __package__.split('.')[0]
@@ -22,7 +23,7 @@ def status_msg(msg: str = '') -> None:
     sublime.status_message(f'{PKG_NAME}: {msg}')
 
 
-def json2py(view: sublime.View):
+def json2py(view: sublime.View) -> Any:
     old_contents: str = view.substr(
         x=whole_view(view)
     )
@@ -31,14 +32,14 @@ def json2py(view: sublime.View):
     )
 
 
-def whole_view(view: sublime.View):
+def whole_view(view: sublime.View) -> sublime.Region:
     return sublime.Region(
         a=0,
         b=view.size()
     )
 
 
-def is_json(view: sublime.View):
+def is_json(view: sublime.View) -> bool:
     return view.match_selector(
         pt=0,
         selector='source.json - (source.json.jsonc | source.json.json5)'
