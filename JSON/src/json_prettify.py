@@ -73,6 +73,15 @@ class JsonPrettify(sublime_plugin.TextCommand):
     def is_enabled(self) -> bool:
         return is_json(self.view)
 
+    def is_visible(self) -> bool:
+        return is_json(self.view)
+
+    def description(self) -> str:
+        return """
+        Attempt to prettify the current view's JSON contents. Print errors to
+        the console when it fails.
+        """
+
 
 class JsonMinify(sublime_plugin.TextCommand):
 
@@ -102,3 +111,12 @@ class JsonMinify(sublime_plugin.TextCommand):
 
     def is_enabled(self) -> bool:
         return is_json(self.view)
+
+    def is_visible(self) -> bool:
+        return is_json(self.view)
+
+    def description(self) -> str:
+        return """
+        Attempt to minify the current view's JSON contents. Print errors to
+        the console when it fails.
+        """

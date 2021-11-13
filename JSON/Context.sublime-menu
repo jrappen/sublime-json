@@ -6,23 +6,12 @@
 
 
 [
-    { "caption": "-" },
     {
-        "id": "context-json",
-        "caption": "JSON",
-        "children":
-        [
-            {
-                "id": "context-json-json-prettify",
-                "caption": "JSON: Prettify JSON",
-                "command": "json_prettify"
-            },
-            {
-                "id": "context-json-json-minify",
-                "caption": "JSON: Minify JSON",
-                "command": "json_minify"
-            }
-        ]
+        "caption": "JSON: Minify JSON",
+        "command": "json_minify"
     },
-    { "caption": "-" }
+    {
+        "caption": "JSON: Prettify JSON",
+        "command": "json_prettify"
+    }
 ]

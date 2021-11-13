@@ -7,11 +7,13 @@
 
 [
     {
+        "caption": "JSON: Minify JSON",
+        "command": "json_minify"
+    },
+    {
         "caption": "JSON: Prettify JSON",
         "command": "json_prettify"
     },
     {
-        "caption": "JSON: Minify JSON",
-        "command": "json_minify"
     }
 ]
