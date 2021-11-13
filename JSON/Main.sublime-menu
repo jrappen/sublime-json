@@ -1,0 +1,53 @@
+//  Packages/JSON/Main.sublime-menu
+
+
+//  This file is being maintained at:
+//      https://github.com/sublimehq/Packages/blob/master/JSON/Main.sublime-menu
+
+
+[
+    {
+        "id": "preferences",
+        "children":
+        [
+            {
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "JSON",
+                        "children":
+                        [
+                            {
+                                "caption": "JSON: Minify",
+                                "command": "json_minify"
+                            },
+                            {
+                                "caption": "JSON: Prettify",
+                                "command": "json_prettify"
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Changelog",
+                                "command": "open_url",
+                                "args":
+                                {
+                                    "url": "https://github.com/sublimehq/Packages/commits/master/JSON"
+                                }
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Report an issue",
+                                "command": "open_url",
+                                "args":
+                                {
+                                    "url": "https://github.com/sublimehq/Packages/issues"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
