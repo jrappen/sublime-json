@@ -1,6 +1,5 @@
 //  Packages/JSON/Main.sublime-menu
-
-
+//
 //  This file is being maintained at:
 //      https://github.com/sublimehq/Packages/blob/master/JSON/Main.sublime-menu
 
@@ -27,22 +26,81 @@
                                 "command": "json_prettify"
                             },
                             { "caption": "-" },
+
+                            //  entries at this level above may be hidden depending
+                            //  upon the current view's syntax
+
                             {
-                                "caption": "Changelog",
-                                "command": "open_url",
+                                "caption": "JSON: Settings - Syntax Specific",
+                                "command": "edit_settings",
                                 "args":
                                 {
-                                    "url": "https://github.com/sublimehq/Packages/commits/master/JSON"
+                                    "base_file": "${packages}/JSON/JSON.sublime-settings",
+                                    "default": "{\n\t$0\n}\n"
                                 }
                             },
                             { "caption": "-" },
                             {
-                                "caption": "Report an issue",
-                                "command": "open_url",
-                                "args":
-                                {
-                                    "url": "https://github.com/sublimehq/Packages/issues"
-                                }
+                                "caption": "Documentation",
+                                "children":
+                                [
+                                    {
+                                        "caption": "JSON: Specs",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://www.json.org/json-en.html"
+                                        }
+                                    },
+                                    {
+                                        "caption": "JSON: RFC 7159",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://datatracker.ietf.org/doc/html/rfc7159"
+                                        }
+                                    },
+                                    {
+                                        "caption": "JSON: ECMA 404",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
+                                        }
+                                    },
+                                    { "caption": "-" },
+                                    {
+                                        "caption": "JSON5: Specs",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://spec.json5.org/#summary-of-features"
+                                        }
+                                    }
+                                ]
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Support",
+                                "children":
+                                [
+                                    {
+                                        "caption": "Changelog",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://github.com/sublimehq/Packages/commits/master/JSON"
+                                        }
+                                    },
+                                    {
+                                        "caption": "Report an issue",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://github.com/sublimehq/Packages/issues"
+                                        }
+                                    }
+                                ]
                             }
                         ]
                     }

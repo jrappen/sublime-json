@@ -5,8 +5,4 @@
 #       https://github.com/sublimehq/Packages/blob/master/JSON/src/__init__.py
 
 
-import sublime
-# import sublime_plugin
-
-
 from .json_prettify import *

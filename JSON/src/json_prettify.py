@@ -9,10 +9,11 @@ import sublime
 import sublime_plugin
 
 import json
-#   Compare the docs for these methods:
+from typing import Any
+
+#   Python documentation for the methods used below:
 #       https://docs.python.org/3.8/library/json.html#json.loads
 #       https://docs.python.org/3.8/library/json.html#json.dumps
-from typing import Any
 
 
 PKG_NAME: str = __package__.split('.')[0]
