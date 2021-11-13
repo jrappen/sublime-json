@@ -9,4 +9,4 @@ import sublime
 # import sublime_plugin
 
 
-from .prettify_json import *
+from .json_prettify import *
