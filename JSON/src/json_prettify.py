@@ -77,10 +77,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
         return is_json(self.view)
 
     def description(self) -> str:
-        return """
-        Attempt to prettify the current view's JSON contents. Print errors to
-        the console when it fails.
-        """
+        return 'Prettify JSON'
 
 
 class JsonMinify(sublime_plugin.TextCommand):
@@ -116,7 +113,4 @@ class JsonMinify(sublime_plugin.TextCommand):
         return is_json(self.view)
 
     def description(self) -> str:
-        return """
-        Attempt to minify the current view's JSON contents. Print errors to
-        the console when it fails.
-        """
+        return 'Minify JSON'
