@@ -18,11 +18,31 @@ PKG_NAME: str = __package__.split('.')[0]
 
 
 def status_msg(msg: str = '') -> None:
-
-    if msg == '':
-        return
-
+    if msg == '': return
     sublime.status_message(f'{PKG_NAME}: {msg}')
+
+
+def json2py(view: sublime.View):
+    old_contents: str = view.substr(
+        x=whole_view(view)
+    )
+    return json.loads(
+        s=old_contents
+    )
+
+
+def whole_view(view: sublime.View):
+    return sublime.Region(
+        a=0,
+        b=view.size()
+    )
+
+
+def is_json(view: sublime.View):
+    return view.match_selector(
+        pt=0,
+        selector='source.json - (source.json.jsonc | source.json.json5)'
+    )
 
 
 class JsonPrettify(sublime_plugin.TextCommand):
@@ -33,23 +53,12 @@ class JsonPrettify(sublime_plugin.TextCommand):
         the console when it fails.
         """
         try:
-            old_contents: str = self.view.substr(
-                x=sublime.Region(
-                    a=0,
-                    b=self.view.size()
-                )
-            )
-            json_to_python = json.loads(
-                s=old_contents
-            )
+            json_as_python = json2py(self.view)
             self.view.replace(
                 edit,
-                r=sublime.Region(
-                    a=0,
-                    b=self.view.size()
-                ),
+                r=whole_view(self.view),
                 text=json.dumps(
-                    obj=json_to_python,
+                    obj=json_as_python,
                     allow_nan=False,
                     indent=4,
                     sort_keys=True
@@ -57,15 +66,12 @@ class JsonPrettify(sublime_plugin.TextCommand):
             )
             status_msg('Prettified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error: \n\n\n{e}')
+            print(f'JSON: Conversion failed due to error:\n\n\n{e}')
             status_msg('Prettifying failed. See console for details.')
             pass
 
     def is_enabled(self) -> bool:
-        return self.view.match_selector(
-            pt=0,
-            selector='source.json - (source.json.jsonc | source.json.json5)'
-        )
+        return is_json(self.view)
 
 
 class JsonMinify(sublime_plugin.TextCommand):
@@ -76,23 +82,12 @@ class JsonMinify(sublime_plugin.TextCommand):
         the console when it fails.
         """
         try:
-            old_contents: str = self.view.substr(
-                x=sublime.Region(
-                    a=0,
-                    b=self.view.size()
-                )
-            )
-            json_to_python = json.loads(
-                s=old_contents
-            )
+            json_as_python = json2py(self.view)
             self.view.replace(
                 edit,
-                r=sublime.Region(
-                    a=0,
-                    b=self.view.size()
-                ),
+                r=whole_view(self.view),
                 text=json.dumps(
-                    obj=json_to_python,
+                    obj=json_as_python,
                     allow_nan=False,
                     indent=None,
                     separators=(',', ':'),
@@ -101,12 +96,9 @@ class JsonMinify(sublime_plugin.TextCommand):
             )
             status_msg('Minified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error: \n\n\n{e}')
+            print(f'JSON: Conversion failed due to error:\n\n\n{e}')
             status_msg('Minifying failed. See console for details.')
             pass
 
     def is_enabled(self) -> bool:
-        return self.view.match_selector(
-            pt=0,
-            selector='source.json - (source.json.jsonc | source.json.json5)'
-        )
+        return is_json(self.view)
