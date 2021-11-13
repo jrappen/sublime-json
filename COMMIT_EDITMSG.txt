@@ -11,6 +11,8 @@
       able to more quickly verify that they (still) use said syntax
       flavor
 - JSON:
+    - (correctly formatted) JSON code can now be prettified or minified via the
+      context menu or the command palette
     - highlight leading, trailing & multiple commas as invalid
     - only allow exactly one structure (object, array) or value (constant,
       number, string) at top level (thanks to Keith)
