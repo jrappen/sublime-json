@@ -13,5 +13,13 @@
     {
         "caption": "JSON: Prettify",
         "command": "json_prettify"
+    },
+    {
+        "caption": "JSONC: Minify",
+        "command": "jsonc_minify"
+    },
+    {
+        "caption": "JSONC: Prettify",
+        "command": "jsonc_prettify"
     }
 ]

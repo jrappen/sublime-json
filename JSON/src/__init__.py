@@ -6,3 +6,4 @@
 
 
 from .json_prettify import *
+from .jsonc_prettify import *
