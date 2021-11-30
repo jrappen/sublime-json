@@ -35,9 +35,16 @@ def json2py(view: sublime.View) -> Any:
     old_contents: str = view.substr(
         x=whole_view(view)
     )
-    return sublime.decode_value(
-        data=old_contents
-    )
+    try:
+        # return sublime.decode_value(
+        #     data=old_contents
+        # )
+        return json.loads(
+            s=old_contents
+        )
+    except Exception as e:
+        print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+    return None
 
 
 def whole_view(view: sublime.View) -> sublime.Region:
@@ -110,6 +117,8 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
     def is_visible(self) -> bool:
         try:
             w = self.window
+            if w is None:
+                return False
             view: Union[sublime.View, None] = w.active_view()
             if view is None:
                 return False
@@ -141,7 +150,8 @@ class JsonPrettify(sublime_plugin.TextCommand):
         the console when it fails.
         """
         try:
-            json_as_python = json2py(self.view)
+            json_as_python: Any = json2py(self.view)
+            if json_as_python is None: return
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
