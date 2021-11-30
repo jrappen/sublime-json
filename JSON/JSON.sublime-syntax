@@ -38,6 +38,9 @@ file_extensions:
     # jsfmt Configuration
     # https://github.com/rdio/jsfmt
 
+  - .markdownlintrc
+    # https://github.com/DavidAnson/markdownlint
+
   - .tern-config
     # Tern.js Server Configuration
     # https://ternjs.net/doc/manual.html#server
