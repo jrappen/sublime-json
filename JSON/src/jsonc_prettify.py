@@ -14,11 +14,6 @@ from typing import (
 )
 
 
-#   Python documentation for the methods used below:
-#       https://docs.python.org/3.8/library/json.html#json.loads
-#       https://docs.python.org/3.8/library/json.html#json.dumps
-
-
 PKG_NAME: str = __package__.split('.')[0]
 base_scope: str = 'source.json.jsonc'
 
@@ -26,6 +21,11 @@ base_scope: str = 'source.json.jsonc'
 def status_msg(msg: str = '') -> None:
     if msg == '': return
     sublime.status_message(f'{PKG_NAME}: {msg}')
+
+
+def print_msg(msg_header: str = '', msg_body: str = '') -> None:
+    if msg_body == '': return
+    print(f'JSONC: {msg_header}:\n\n{msg_body}\n\n')
 
 
 def json2py(view: sublime.View) -> Any:
@@ -58,22 +58,19 @@ class JsoncPrettify(sublime_plugin.TextCommand):
         Attempt to prettify the current view's JSONC contents. Print errors to
         the console when it fails.
         """
+
         try:
             if not auto and not sublime.ok_cancel_dialog(
                 msg='Prettifying JSONC will remove included comments and trailing commas.',
                 ok_title='Continue',
-                title='JSONC: Prettify' # only shown on Windows
+                title='JSONC: Prettify'                                         # only shown on Windows
             ):
                 return
             json_as_python = json2py(self.view)
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # text=sublime.encode_value(
-                #     val=json_as_python,
-                #     pretty=True
-                # )
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
                     indent=4,
@@ -82,7 +79,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
             )
             status_msg('Prettified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
             status_msg('Prettifying failed. See console for details.')
             pass
 
@@ -103,22 +100,19 @@ class JsoncMinify(sublime_plugin.TextCommand):
         Attempt to minify the current view's JSONC contents. Print errors to
         the console when it fails.
         """
+
         try:
             if not auto and not sublime.ok_cancel_dialog(
                 msg='Minifying JSONC will remove included comments and trailing commas.',
                 ok_title='Continue',
-                title='JSONC: Minify' # only shown on Windows
+                title='JSONC: Minify'                                           # only shown on Windows
             ):
                 return
             json_as_python = json2py(self.view)
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # text=sublime.encode_value(
-                #     val=json_as_python,
-                #     pretty=False
-                # )
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
                     indent=None,
@@ -128,7 +122,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
             )
             status_msg('Minified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
             status_msg('Minifying failed. See console for details.')
             pass
 

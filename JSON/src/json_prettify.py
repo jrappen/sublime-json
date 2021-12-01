@@ -26,6 +26,11 @@ def status_msg(msg: str = '') -> None:
     sublime.status_message(f'{PKG_NAME}: {msg}')
 
 
+def print_msg(msg_header: str = '', msg_body: str = '') -> None:
+    if msg_body == '': return
+    print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
+
+
 def json2py(view: sublime.View) -> Any:
     old_contents: str = view.substr(
         x=whole_view(view)
@@ -36,7 +41,7 @@ def json2py(view: sublime.View) -> Any:
             s=old_contents
         )
     except Exception as e:
-        print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+        print_msg(msg_header='Conversion failed due to error:', msg_body=f'{e}')
     return None
 
 
@@ -64,7 +69,7 @@ def plugin_loaded(reload: bool = False) -> None:
             callback=lambda: plugin_loaded(reload=True)
         )
     except Exception as e:
-        print(f'Loading "{base_settings}" failed due to error:\n\n{e}\n\n')
+        print_msg(msg_header=f'Loading "{base_settings}" failed due to error', msg_body=f'{e}')
 
     if reload:
         status_msg('Reloaded settings on change.')
@@ -95,13 +100,11 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
             if settings is None:
                 return
             if self._is_checked:
-                # remove the override (true) of the default (false)
-                settings.erase(key=self._key)
+                settings.erase(key=self._key)                                   # remove the override (true) of the default (false)
             else:
                 settings.set(key=self._key, value=True)
             sublime.save_settings(base_name=base_settings)
-            # toggle
-            self._is_checked = not self._is_checked
+            self._is_checked = not self._is_checked                             # toggle
         except Exception:
             pass
 
@@ -115,7 +118,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
                 return False
             return is_json(view)
         except Exception as e:
-            print(f'JSON: Error while trying to check if active view is JSON:\n\n{e}\n\n')
+            print_msg('Error while trying to check if active view is JSON', msg_body=f'{e}')
         return False
 
 
@@ -140,14 +143,14 @@ class JsonPrettify(sublime_plugin.TextCommand):
         Attempt to prettify the current view's JSON contents. Print errors to
         the console when it fails.
         """
+
         try:
             json_as_python: Any = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
                     indent=4,
@@ -156,7 +159,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
             )
             status_msg('Prettified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
             status_msg('Prettifying failed. See console for details.')
             pass
 
@@ -177,14 +180,14 @@ class JsonMinify(sublime_plugin.TextCommand):
         Attempt to minify the current view's JSON contents. Print errors to
         the console when it fails.
         """
+
         try:
             json_as_python: Any = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
                     indent=None,
@@ -194,7 +197,7 @@ class JsonMinify(sublime_plugin.TextCommand):
             )
             status_msg('Minified.')
         except Exception as e:
-            print(f'JSON: Conversion failed due to error:\n\n{e}\n\n')
+            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
             status_msg('Minifying failed. See console for details.')
             pass
 
