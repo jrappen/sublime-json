@@ -26,6 +26,11 @@
                                 "command": "json_prettify"
                             },
                             {
+                                "command": "json_toggle_auto_prettify",
+                                "caption": "JSON: Automatically prettify before saving",
+                                "checkbox": false
+                            },
+                            {
                                 "caption": "JSONC: Minify",
                                 "command": "jsonc_minify"
                             },
@@ -46,11 +51,6 @@
                                     "base_file": "${packages}/JSON/JSON.sublime-settings",
                                     "default": "{\n\t$0\n}\n"
                                 }
-                            },
-                            {
-                                "command": "json_toggle_auto_prettify",
-                                "caption": "JSON: Automatically prettify before saving",
-                                "checkbox": false
                             },
                             { "caption": "-" },
                             {
