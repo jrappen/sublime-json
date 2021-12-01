@@ -15,11 +15,6 @@ from typing import (
 )
 
 
-#   Python documentation for the methods used below:
-#       https://docs.python.org/3.8/library/json.html#json.loads
-#       https://docs.python.org/3.8/library/json.html#json.dumps
-
-
 PKG_NAME: str = __package__.split('.')[0]
 settings: Union[sublime.Settings, None] = None
 base_settings: str = 'JSON.sublime-settings'
@@ -36,9 +31,7 @@ def json2py(view: sublime.View) -> Any:
         x=whole_view(view)
     )
     try:
-        # return sublime.decode_value(
-        #     data=old_contents
-        # )
+        # https://docs.python.org/3.8/library/json.html#json.loads
         return json.loads(
             s=old_contents
         )
@@ -116,10 +109,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
     def is_visible(self) -> bool:
         try:
-            w = self.window
-            if w is None:
-                return False
-            view: Union[sublime.View, None] = w.active_view()
+            view: Union[sublime.View, None] = self.window.active_view()
             if view is None:
                 return False
             return is_json(view)
@@ -155,10 +145,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # text=sublime.encode_value(
-                #     val=json_as_python,
-                #     pretty=True
-                # )
+                # https://docs.python.org/3.8/library/json.html#json.dumps
                 text=json.dumps(
                     obj=json_as_python,
                     allow_nan=False,
@@ -190,14 +177,12 @@ class JsonMinify(sublime_plugin.TextCommand):
         the console when it fails.
         """
         try:
-            json_as_python = json2py(self.view)
+            json_as_python: Any = json2py(self.view)
+            if json_as_python is None: return
             self.view.replace(
                 edit,
                 r=whole_view(self.view),
-                # text=sublime.encode_value(
-                #     val=json_as_python,
-                #     pretty=False
-                # )
+                # https://docs.python.org/3.8/library/json.html#json.dumps
                 text=json.dumps(
                     obj=json_as_python,
                     allow_nan=False,
