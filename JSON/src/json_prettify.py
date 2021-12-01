@@ -86,8 +86,9 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
     _key: str = 'json.auto_prettify'
 
     def __init__(self, window: sublime.Window) -> None:
+        self.window = window
+
         try:
-            self.window = window
             if settings is None:
                 return
             self._is_checked = settings.has(key=self._key)
