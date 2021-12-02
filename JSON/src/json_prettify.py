@@ -36,8 +36,7 @@ def json2py(view: sublime.View) -> Any:
         x=whole_view(view)
     )
     try:
-        # https://docs.python.org/3.8/library/json.html#json.loads
-        return json.loads(
+        return json.loads(                                                      # https://docs.python.org/3.8/library/json.html#json.loads
             s=old_contents
         )
     except Exception as e:
@@ -95,7 +94,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
         except Exception:
             pass
 
-    def run(self):
+    def run(self) -> None:
         try:
             global settings
             if settings is None:
@@ -127,7 +126,7 @@ class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 
     _key: str = 'json.auto_prettify'
 
-    def on_pre_save_async(self, view):
+    def on_pre_save_async(self, view) -> None:
         if not is_json(view):
             return
         if settings is None:
@@ -139,7 +138,7 @@ class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 
 class JsonPrettify(sublime_plugin.TextCommand):
 
-    def run(self, edit):
+    def run(self, edit_token: sublime.Edit) -> None:
         """
         Attempt to prettify the current view's JSON contents. Print errors to
         the console when it fails.
@@ -149,7 +148,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
             json_as_python: Any = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
-                edit,
+                edit_token,
                 r=whole_view(self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
@@ -176,7 +175,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
 
 class JsonMinify(sublime_plugin.TextCommand):
 
-    def run(self, edit):
+    def run(self, edit_token: sublime.Edit) -> None:
         """
         Attempt to minify the current view's JSON contents. Print errors to
         the console when it fails.
@@ -186,7 +185,7 @@ class JsonMinify(sublime_plugin.TextCommand):
             json_as_python: Any = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
-                edit,
+                edit_token,
                 r=whole_view(self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,

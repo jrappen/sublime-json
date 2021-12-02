@@ -53,7 +53,7 @@ def is_jsonc(view: sublime.View) -> bool:
 
 class JsoncPrettify(sublime_plugin.TextCommand):
 
-    def run(self, edit, auto: bool = False):
+    def run(self, edit_token: sublime.Edit, auto: bool = False) -> None:
         """
         Attempt to prettify the current view's JSONC contents. Print errors to
         the console when it fails.
@@ -68,7 +68,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                 return
             json_as_python = json2py(self.view)
             self.view.replace(
-                edit,
+                edit_token,
                 r=whole_view(self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
@@ -95,7 +95,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
 
 class JsoncMinify(sublime_plugin.TextCommand):
 
-    def run(self, edit, auto: bool = False):
+    def run(self, edit_token: sublime.Edit, auto: bool = False) -> None:
         """
         Attempt to minify the current view's JSONC contents. Print errors to
         the console when it fails.
@@ -110,7 +110,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
                 return
             json_as_python = json2py(self.view)
             self.view.replace(
-                edit,
+                edit_token,
                 r=whole_view(self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
