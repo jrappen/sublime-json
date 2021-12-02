@@ -11,39 +11,43 @@
       able to more quickly verify that they (still) use said syntax
       flavor
 - JSON:
-    - (correctly formatted) JSON code can now be prettified or minified via the
-      context menu or the command palette
+    - (correctly formatted) JSON code can now be prettified or minified
+      via the context menu or the command palette
     - highlight leading, trailing & multiple commas as invalid
-    - only allow exactly one structure (object, array) or value (constant,
-      number, string) at top level (thanks to Keith)
+    - only allow exactly one structure (object, array) or value
+      (constant, number, string) at top level (thanks to Keith)
 - JSONC:
     - highlight some files by default as `JSONC` (as decided by Jon
       in #285)
     - highlight leading & multiple commas as invalid, trailing as valid
-- Add JSON5 with support for:
+- JSON5:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
     - ECMA identifierName as object keys (thanks to Thomas)
+        - scoped as plain unquoted strings
     - line continuation in strings (with tests thanks to Keith)
-- Objects
-    - Add `meta.toc-list` scope to top level object keys to add them to the
-      symbol list (also add tests, see below)
-    - Highlighting speed improvements for empty objects (thanks to FichteFoll)
+- Objects:
+    - Add `meta.toc-list` scope to top level object keys to add them to
+      the symbol list (also add tests, see below)
+    - Highlighting speed improvements for empty objects (thanks to
+      FichteFoll)
     - Make `mapping.*` contexts more modular
-- Arrays
-    - Highlighting speed improvements for empty arrays (thanks to FichteFoll)
-- Numbers
-    - Correctly scope number signs with `constant.numeric.sign` instead of
-      `keyword.operator.arithmetic`
+- Arrays:
+    - Highlighting speed improvements for empty arrays (thanks to
+      FichteFoll)
+- Numbers:
+    - Correctly scope number signs with `constant.numeric.sign` instead
+      of `keyword.operator.arithmetic`
     - Significantly improve number highlighting (thanks to deathaxe)
-- Syntaxes
-    - Make use of newer syntax features including those only available in
-      `version: 2` syntaxes
-    - Make use of `variables` (with optimizations provided by deathaxe and regex
-      patterns provided by Thomas)
-- Tests
-    - Significantly extend tests to cover more parts of the syntaxes defined.
+- Syntaxes:
+    - Make use of newer syntax features including those only available
+      in `version: 2` syntaxes
+    - Make use of `variables` (with optimizations provided by deathaxe
+      and regex patterns provided by Thomas)
+- Tests:
+    - Significantly extend tests to cover more parts of the syntaxes
+      defined.
     - Split original test file into logical parts
     - Add indentation tests for:
         - `json`, `jsonc` & `json5`
@@ -59,21 +63,22 @@
 
 BREAKING CHANGES:
 
-- JSON does not have values that can be set via an inline calculation with the
-  help of operators, but only simple number values. Scopes for number signs have
-  changed from being `keyword.operator.arithmetic` to `constant.numeric.sign`.
-  Color scheme authors should add this, should it be missing.
-- The `JSON.sublime-syntax` now marks comments as `invalid`, third party plugin
-  authors should target `JSONC.sublime-syntax` instead to have the same user
-  experience as before.
+- JSON does not have values that can be set via an inline calculation
+  with the help of operators, but only simple number values. Scopes for
+  number signs have changed from being `keyword.operator.arithmetic` to
+  `constant.numeric.sign`. Color scheme authors should add this, should
+  it be missing.
+- The `JSON.sublime-syntax` now marks comments as `invalid`, third party
+  plugin authors should target `JSONC.sublime-syntax` instead to have
+  the same user experience as before.
 
 
 - fix #285
 - address #481 to remove incompatible regex patterns according to Will
 - address #757 to fix line comments for `JSONC` (thanks to Keith)
 - address #2430 using sort-order (as requested by deathaxe)
-- address #2852 to fix scopes of curly braces & square brackets in `JSON`
-  (thanks to Thomas)
+- address #2852 to fix scopes of curly braces & square brackets in
+  `JSON` (thanks to Thomas)
 - address sublimehq/sublime_text#3154 and add symbol tests
 
 
