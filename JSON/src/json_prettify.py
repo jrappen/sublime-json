@@ -8,6 +8,8 @@
 import sublime
 import sublime_plugin
 
+import collections
+import decimal
 import json
 from typing import (
     Any,
@@ -37,7 +39,9 @@ def json2py(view: sublime.View) -> Any:
     )
     try:
         return json.loads(                                                      # https://docs.python.org/3.8/library/json.html#json.loads
-            s=old_contents
+            s=old_contents,
+            object_pairs_hook=collections.OrderedDict,
+            parse_float=decimal.Decimal
         )
     except Exception as e:
         print_msg(msg_header='Conversion failed due to error:', msg_body=f'{e}')
