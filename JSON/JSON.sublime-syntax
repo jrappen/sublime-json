@@ -156,11 +156,9 @@ contexts:
     - include: string
 
   invalid-remainder:
-    - match: ','
+    - match: '[,:]'
       scope: invalid.illegal.unexpected-separator.json
-    - match: ':'
-      scope: invalid.illegal.unexpected-separator.json
-    - match: '\S*'
+    - match: '[^,:\s]+'
       scope: invalid.illegal.unexpected-code-after-first-structure-or-value.json
 
 ####[ Comments ]########################################################################################################
