@@ -81,54 +81,37 @@ contexts:
     - include: numbers
     - include: strings
 
-####[ Helpers ]#########################################################################################################
-
-  eol-pop:
-    - match: '$\n?'
-      pop: 1
-
 ####[ Comments ]########################################################################################################
 
   comments:
-    - meta_include_prototype: false
     - include: comment-line
     - include: comment-doc-block
     - include: comment-block
 
   comment-line:
-    - meta_include_prototype: false
-    - match: '//'
+    - match: //.*$\n?
       scope: invalid.illegal.comment.json
-      push:
-        - meta_include_prototype: false
-        - meta_content_scope: invalid.illegal.comment.json
-        - include: eol-pop
 
   comment-doc-block:
+    - match: /\*\*(?!/)
+      push: comment-doc-block-content
+
+  comment-doc-block-content:
     - meta_include_prototype: false
-    - match: '/\*\*(?!/)'
-      scope: invalid.illegal.comment.json
-      push:
-        - meta_include_prototype: false
-        - meta_content_scope: invalid.illegal.comment.json
-        - include: comment-block-end
-        - match: '^\s*(\*)(?!/)'
-          captures:
-            1: invalid.illegal.comment.json
+    - meta_scope: invalid.illegal.comment.json
+    - include: comment-block-end
 
   comment-block:
+    - match: /\*
+      push: comment-block-content
+
+  comment-block-content:
     - meta_include_prototype: false
-    - match: '/\*'
-      scope: invalid.illegal.comment.json
-      push:
-        - meta_include_prototype: false
-        - meta_content_scope: invalid.illegal.comment.json
-        - include: comment-block-end
+    - meta_scope: invalid.illegal.comment.json
+    - include: comment-block-end
 
   comment-block-end:
-    - meta_include_prototype: false
-    - match: '\*/'
-      scope: invalid.illegal.comment.json
+    - match: \*/
       pop: 1
 
 ####[ Constants ]#######################################################################################################
