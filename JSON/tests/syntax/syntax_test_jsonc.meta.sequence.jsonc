@@ -25,10 +25,10 @@
 //  ^^^^^^^ string.quoted.double
 
     [],
-//  ^^ meta.sequence.list.empty
+//  ^^ meta.sequence.list
 
     [ ],
-//  ^^^ meta.sequence.list.empty
+//  ^^^ meta.sequence.list
 
     [1, 2
 //  ^ meta.sequence.list punctuation.definition.sequence.begin
@@ -45,10 +45,10 @@
 //   ^ meta.sequence.list punctuation.separator.sequence
 
     {},
-//  ^^ meta.mapping.empty
+//  ^^ meta.mapping
 
     { },
-//  ^^^ meta.mapping.empty
+//  ^^^ meta.mapping
 
     { "a": 1, "b": 2
 //  ^^^^^^^^^^^^^^^^ meta.mapping

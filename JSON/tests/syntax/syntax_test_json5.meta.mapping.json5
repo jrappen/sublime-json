@@ -63,7 +63,7 @@
 //                                     ^ meta.mapping punctuation.separator.mapping.key-value
 //                                       ^^ meta.mapping.value
 //                                       ^^ - meta.mapping meta.mapping.value
-//                                       ^^ meta.mapping.value meta.sequence.list.empty
+//                                       ^^ meta.mapping.value meta.sequence.list
 //                                       ^ punctuation.definition.sequence.begin
 //                                        ^ punctuation.definition.sequence.end
 
@@ -73,7 +73,7 @@
 //                                                ^ meta.mapping punctuation.separator.mapping.key-value
 //                                                  ^^^ meta.mapping.value
 //                                                  ^^^ - meta.mapping meta.mapping.value
-//                                                  ^^^ meta.mapping.value meta.sequence.list.empty
+//                                                  ^^^ meta.mapping.value meta.sequence.list
 //                                                  ^ punctuation.definition.sequence.begin
 //                                                    ^ punctuation.definition.sequence.end
 
@@ -92,7 +92,7 @@
 //                                    ^ meta.mapping punctuation.separator.mapping.key-value
 //                                      ^^ meta.mapping.value
 //                                      ^^ - meta.mapping meta.mapping.value
-//                                      ^^ meta.mapping.value meta.mapping.empty
+//                                      ^^ meta.mapping.value meta.mapping
 //                                      ^ punctuation.definition.mapping.begin
 //                                       ^ punctuation.definition.mapping.end
 
@@ -102,7 +102,7 @@
 //                                               ^ meta.mapping punctuation.separator.mapping.key-value
 //                                                 ^^^ meta.mapping.value
 //                                                 ^^^ - meta.mapping meta.mapping.value
-//                                                 ^^^ meta.mapping.value meta.mapping.empty
+//                                                 ^^^ meta.mapping.value meta.mapping
 //                                                 ^ punctuation.definition.mapping.begin
 //                                                   ^ punctuation.definition.mapping.end
 

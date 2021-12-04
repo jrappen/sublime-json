@@ -223,7 +223,6 @@ contexts:
 ####[ Sequence ]########################################################################################################
 
   arrays:
-    - include: empty-arrays
     - match: \[
       scope: punctuation.definition.sequence.begin.json
       push:
@@ -263,30 +262,15 @@ contexts:
     - match: (?=\S)
       pop: 1
 
-  empty-arrays:
-    - match: (\[)\s*(\])
-      scope: meta.sequence.list.empty.json
-      captures:
-        1: punctuation.definition.sequence.begin.json
-        2: punctuation.definition.sequence.end.json
-
 ####[ Mapping ]#########################################################################################################
 
   # FIXME: leading separators
   # FIXME: trailing commas
 
   objects:
-    - include: empty-object
     - match: \{
       scope: punctuation.definition.mapping.begin.json
       push: object-body
-
-  empty-object:
-    - match: (\{)\s*(\})
-      scope: meta.mapping.empty.json
-      captures:
-        1: punctuation.definition.mapping.begin.json
-        2: punctuation.definition.mapping.end.json
 
   object-body:
     - meta_scope: meta.mapping.json
