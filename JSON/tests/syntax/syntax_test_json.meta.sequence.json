@@ -1,6 +1,6 @@
-// SYNTAX TEST "Packages/JSON/JSON5.sublime-syntax"
+// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
 
-// <- source.json.json5
+// <- source.json
 
 
 [
@@ -24,9 +24,6 @@
     "value",
 //  ^^^^^^^ string.quoted.double
 
-    'value',
-//  ^^^^^^^ string.quoted.single
-
     [],
 //  ^^ meta.sequence.list
 
@@ -49,10 +46,8 @@
     { },
 //  ^^^ meta.mapping
 
-    { "a": 1, "b": 2, "c": 3 },
+    { "a": 1, "b": 2, "c": 3 }
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping
 
-    { 'a': 1, 'b': 2, 'c': 3 },
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping
 ]
 // <- meta.sequence.list punctuation.definition.sequence.end

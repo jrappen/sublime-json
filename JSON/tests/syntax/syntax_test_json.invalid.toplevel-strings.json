@@ -1,0 +1,6 @@
+// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
+
+"string""string"
+// <- meta.string.json string.quoted.double.json punctuation.definition.string.begin.json
+//^^^^^^ meta.string.json string.quoted.double.json
+//      ^^^^^^^^ invalid.illegal.unexpected-code-after-first-structure-or-value.json

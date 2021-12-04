@@ -106,14 +106,12 @@ contexts:
 
 ####[ Comments ]########################################################################################################
 
-  # completely override original context
   comment-line:
     - match: (//).*$\n?
       captures:
         0: comment.line.double-slash.jsonc
         1: punctuation.definition.comment.jsonc
 
-  # completely override original context
   comment-doc-block:
     - match: /\*\*(?!/)
       scope: punctuation.definition.comment.begin.jsonc
@@ -127,7 +125,6 @@ contexts:
       captures:
         1: punctuation.definition.comment.jsonc
 
-  # completely override original context
   comment-block:
     - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
@@ -138,7 +135,6 @@ contexts:
     - meta_scope: comment.block.jsonc
     - include: comment-block-end
 
-  # completely override original context
   comment-block-end:
     - match: \*/
       scope: punctuation.definition.comment.end.jsonc
@@ -146,8 +142,7 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
-  # completely override original context
   array-separators:
     - match: ','
       scope: punctuation.separator.sequence.jsonc
-      push: array-illegal-separator
+      push: array-item

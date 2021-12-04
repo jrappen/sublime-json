@@ -26,60 +26,31 @@ contexts:
     - include: comments
 
   main:
-    - match: '(?=\S)'
-      push: top-level-expect-object
+    - match: (?=\S)
+      push:
+        - invalid-remainder
+        - any-value
 
 ####[ Top level ]#######################################################################################################
 
-  # Try these below one-by-one.
+  any-value:
+    - include: any
+    - include: else-pop
 
-  top-level-expect-object:
-    - include: objects
-    - match: ''
-      push: top-level-expect-array
+  any:
+    - include: object
+    - include: array
+    - include: constant
+    - include: number
+    - include: string
 
-  top-level-expect-array:
-    - include: arrays
-    - match: ''
-      push: top-level-expect-constant
-
-  top-level-expect-constant:
-    - include: constants
-    - match: ''
-      push: top-level-expect-number
-
-  top-level-expect-number:
-    - include: numbers
-    - match: ''
-      push: top-level-expect-string
-
-  top-level-expect-string:
-    - include: strings
-    - match: ''
-      push: top-level-expect-invalid-remainder
-
-  top-level-expect-invalid-remainder:
+  invalid-remainder:
     - match: ','
       scope: invalid.illegal.unexpected-separator.json
     - match: ':'
       scope: invalid.illegal.unexpected-separator.json
     - match: '\S*'
       scope: invalid.illegal.unexpected-code-after-first-structure-or-value.json
-
-####[ Structural helpers ]##############################################################################################
-
-  any:
-    - include: structures
-    - include: values
-
-  structures:
-    - include: objects
-    - include: arrays
-
-  values:
-    - include: constants
-    - include: numbers
-    - include: strings
 
 ####[ Comments ]########################################################################################################
 
@@ -116,27 +87,31 @@ contexts:
 
 ####[ Constants ]#######################################################################################################
 
-  constants:
+  constant:
     - match: \b(?:null)\b
       scope: constant.language.null.json
+      pop: 1
     - match: \b(?:false|true)\b
       scope: constant.language.boolean.json
+      pop: 1
     # when erroneously containing upper case letters
     - match: \b(?i:null)\b
       scope: invalid.illegal.expected-lower-case-null.json
+      pop: 1
     - match: \b(?i:false|true)\b
       scope: invalid.illegal.expected-lower-case-boolean.json
+      pop: 1
 
 ####[ Numbers ]#########################################################################################################
 
-  numbers:
-    - include: floats
-    - include: integers
+  number:
+    - include: float
+    - include: integer
 
-  floats:
-    - include: decimal-floats
+  float:
+    - include: decimal-float
 
-  decimal-floats:
+  decimal-float:
     - match: |-
         (?x:
           (?:(-)|(\+))?
@@ -156,27 +131,29 @@ contexts:
         2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
         4: punctuation.separator.decimal.json
+      pop: 1
 
-  integers:
-    - include: decimal-integers
+  integer:
+    - include: decimal-integer
 
-  decimal-integers:
+  decimal-integer:
     - match: (?:(-)|(\+))?({{pos_integer_decimal}})
       scope: meta.number.integer.decimal.json
       captures:
         1: constant.numeric.sign.json
         2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
+      pop: 1
 
 ####[ Strings ]#########################################################################################################
 
-  strings:
-    - include: double-quoted-strings
+  string:
+    - include: double-quoted-string
 
-  double-quoted-strings:
+  double-quoted-string:
     - match: \"
       scope: punctuation.definition.string.begin.json
-      push: double-quoted-string-content
+      set: double-quoted-string-content
 
   double-quoted-string-content:
     - meta_include_prototype: false
@@ -222,12 +199,12 @@ contexts:
 
 ####[ Sequence ]########################################################################################################
 
-  arrays:
+  array:
     - match: \[
       scope: punctuation.definition.sequence.begin.json
-      push:
+      set:
         - array-body
-        - array-illegal-separator
+        - array-item
 
   array-body:
     - meta_scope: meta.sequence.list.json
@@ -235,7 +212,6 @@ contexts:
       scope: punctuation.definition.sequence.end.json
       pop: 1
     - include: array-separators
-    - include: any
     - match: '[^\s\]]'
       scope: invalid.illegal.expected-separator.json
 
@@ -254,23 +230,26 @@ contexts:
   array-expect-value:
     - match: (?=\])
       fail: array-separators
+    - include: array-item
+
+  array-item:
+    - include: any
     - include: array-illegal-separator
 
   array-illegal-separator:
     - match: ','
       scope: invalid.illegal.unexpected-separator.json
-    - match: (?=\S)
-      pop: 1
+    - include: else-pop
 
 ####[ Mapping ]#########################################################################################################
 
   # FIXME: leading separators
   # FIXME: trailing commas
 
-  objects:
+  object:
     - match: \{
       scope: punctuation.definition.mapping.begin.json
-      push: object-body
+      set: object-body
 
   object-body:
     - meta_scope: meta.mapping.json
@@ -303,19 +282,24 @@ contexts:
       scope: invalid.illegal.expected-mapping-value.json
       pop: 1
     - match: (?=\S)
-      set: mapping-value
+      set:
+        - mapping-value
+        - any-value
 
   mapping-value:
     - clear_scopes: 1
     - meta_scope: meta.mapping.value.json
-    - include: any
-    - match: ''
-      set:
-        - match: ','
-          scope: punctuation.separator.mapping.pair.json
-          pop: 1
-        - match: \s*(?=\})
-          pop: 1
-        - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
-          scope: invalid.illegal.expected-mapping-separator.json
-          pop: 1
+    - match: ','
+      scope: punctuation.separator.mapping.pair.json
+      pop: 1
+    - match: \s*(?=\})
+      pop: 1
+    - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
+      scope: invalid.illegal.expected-mapping-separator.json
+      pop: 1
+
+####[ Prototypes ]######################################################################################################
+
+  else-pop:
+    - match: (?=\S)
+      pop: 1
