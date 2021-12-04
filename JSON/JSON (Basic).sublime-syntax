@@ -339,12 +339,12 @@ contexts:
       scope: invalid.illegal.expected-mapping-key.json
 
   top-level-mapping-key:
-    - match: '"'
+    - match: \"
       scope: punctuation.definition.string.begin.json
       push: top-level-mapping-key-double-quoted
 
   mapping-key:
-    - match: '"'
+    - match: \"
       scope: punctuation.definition.string.begin.json
       push: mapping-key-double-quoted
 

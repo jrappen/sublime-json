@@ -213,11 +213,11 @@ contexts:
 
   top-level-mapping-key:
     - meta_append: true
-    - match: '(?={{identifier_name}})'
-      push: top-level-mapping-key-ecma
-    - match: "'"
+    - match: \'
       scope: punctuation.definition.string.begin.json5
       push: top-level-mapping-key-single-quoted
+    - match: (?={{identifier_name}})
+      push: top-level-mapping-key-ecma
 
   top-level-mapping-key-ecma:
     - clear_scopes: 1
@@ -234,10 +234,10 @@ contexts:
 
   mapping-key:
     - meta_append: true
-    - match: "'"
+    - match: \'
       scope: punctuation.definition.string.begin.json5
       push: mapping-key-single-quoted
-    - match: '(?={{identifier_name}})'
+    - match: (?={{identifier_name}})
       push: mapping-key-ecma
 
   mapping-key-ecma:
