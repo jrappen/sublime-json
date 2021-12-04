@@ -108,41 +108,39 @@ contexts:
 
   # completely override original context
   comment-line:
-    - meta_include_prototype: false
-    - match: '//'
-      scope: punctuation.definition.comment.jsonc
-      push:
-        - meta_include_prototype: false
-        - meta_scope: comment.line.double-slash.jsonc
-        - include: eol-pop
+    - match: (//).*$\n?
+      captures:
+        0: comment.line.double-slash.jsonc
+        1: punctuation.definition.comment.jsonc
 
   # completely override original context
   comment-doc-block:
-    - meta_include_prototype: false
-    - match: '/\*\*(?!/)'
+    - match: /\*\*(?!/)
       scope: punctuation.definition.comment.begin.jsonc
-      push:
-        - meta_include_prototype: false
-        - meta_scope: comment.block.documentation.jsonc
-        - include: comment-block-end
-        - match: '^\s*(\*)(?!/)'
-          captures:
-            1: punctuation.definition.comment.jsonc
+      push: comment-doc-block-content
+
+  comment-doc-block-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.block.documentation.jsonc
+    - include: comment-block-end
+    - match: ^\s*(\*)(?!/)
+      captures:
+        1: punctuation.definition.comment.jsonc
 
   # completely override original context
   comment-block:
-    - meta_include_prototype: false
-    - match: '/\*'
+    - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
-      push:
-        - meta_include_prototype: false
-        - meta_scope: comment.block.jsonc
-        - include: comment-block-end
+      push: comment-block-content
+
+  comment-block-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.block.jsonc
+    - include: comment-block-end
 
   # completely override original context
   comment-block-end:
-    - meta_include_prototype: false
-    - match: '\*/'
+    - match: \*/
       scope: punctuation.definition.comment.end.jsonc
       pop: 1
 
