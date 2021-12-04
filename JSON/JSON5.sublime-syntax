@@ -210,14 +210,14 @@ contexts:
     - match: \'
       scope: punctuation.definition.string.begin.json5
       push: mapping-key-single-quoted
-    - match: (?={{identifier_name}})
+    - match: (?={{identifier_start}})
       push: mapping-key-ecma
 
   mapping-key-ecma:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - match: '{{identifier_name}}'
-      scope: meta.mapping.key.json5 meta.string.json5 string.unquoted.plain.json5
+    - meta_scope: meta.mapping.key.json5 meta.string.json5 string.unquoted.plain.json5
+    - match: '{{identifier_break}}'
       pop: 1
 
   mapping-key-single-quoted:
