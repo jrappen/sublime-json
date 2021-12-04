@@ -176,9 +176,9 @@ contexts:
   double-quoted-strings:
     - match: \"
       scope: punctuation.definition.string.begin.json
-      push: inside-double-quoted-string
+      push: double-quoted-string-content
 
-  inside-double-quoted-string:
+  double-quoted-string-content:
     - meta_include_prototype: false
     - meta_scope: meta.string.json string.quoted.double.json
     - match: \"
@@ -307,7 +307,7 @@ contexts:
     - clear_scopes: 1
     - meta_include_prototype: false
     - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
-    - include: inside-double-quoted-string
+    - include: double-quoted-string-content
 
   mapping-separator:
     - match: ':'

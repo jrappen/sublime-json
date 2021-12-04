@@ -153,9 +153,9 @@ contexts:
   single-quoted-strings:
     - match: \'
       scope: punctuation.definition.string.begin.json5
-      push: inside-single-quoted-string
+      push: single-quoted-string-content
 
-  inside-single-quoted-string:
+  single-quoted-string-content:
     - meta_include_prototype: false
     - meta_scope: meta.string.json5 string.quoted.single.json5
     - match: \'
@@ -224,4 +224,4 @@ contexts:
     - clear_scopes: 1
     - meta_include_prototype: false
     - meta_scope: meta.mapping.key.json5 meta.string.json5 string.quoted.single.json5
-    - include: inside-single-quoted-string
+    - include: single-quoted-string-content
