@@ -90,8 +90,7 @@ contexts:
 
 ####[ Numbers ]#########################################################################################################
 
-  # completely override original context
-  decimal-floats:
+  decimal-float:
     - match: |-
         (?x:
           ([-+]?)
@@ -113,47 +112,51 @@ contexts:
         2: constant.numeric.value.json5
         3: punctuation.separator.decimal.json5
         4: punctuation.separator.decimal.json5
+      pop: 1
     - match: ([-+]?)(Infinity)
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.language.infinity.json5
+      pop: 1
     - match: ([-+]?)(NaN)
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.language.nan.json5
+      pop: 1
 
-  integers:
+  integer:
     - meta_prepend: true
-    - include: hexadecimal-integers
+    - include: hexadecimal-integer
 
-  # completely override original context
-  decimal-integers:
+  decimal-integer:
     - match: ([-+]?)({{pos_integer_decimal}})
       scope: meta.number.integer.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
+      pop: 1
 
-  hexadecimal-integers:
+  hexadecimal-integer:
     - match: ([-+]?)(0[xX])(\h+)
       scope: meta.number.integer.hexadecimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.numeric.base.json5
         3: constant.numeric.value.json5
+      pop: 1
 
 ####[ Strings ]#########################################################################################################
 
-  strings:
+  string:
     - meta_append: true
-    - include: single-quoted-strings
+    - include: single-quoted-string
 
-  single-quoted-strings:
+  single-quoted-string:
     - match: \'
       scope: punctuation.definition.string.begin.json5
-      push: single-quoted-string-content
+      set: single-quoted-string-content
 
   single-quoted-string-content:
     - meta_include_prototype: false
