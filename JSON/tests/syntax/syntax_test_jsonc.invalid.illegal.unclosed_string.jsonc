@@ -4,7 +4,7 @@
 
 {
     "unterminated string
-//  ^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.toc-list meta.string string.quoted.double
+//  ^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double
 //                      ^ invalid.illegal.unclosed-string
 
     /**/: "test"

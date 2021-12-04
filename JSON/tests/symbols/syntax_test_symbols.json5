@@ -4,34 +4,23 @@
 
 {
     _keyOne: "value",
-//  ^^^^^^^ meta.toc-list.json5
 //  @@@@@@@ definition
 
     $keyTwo: "value",
-//  ^^^^^^^ meta.toc-list.json5
 //  @@@@@@@ definition
 
     \u1234keyThree: "value",
-//  ^^^^^^^^^^^^^^ meta.toc-list.json5
 //  @@@@@@@@@@@@@@ definition
 
     "key-four": "value",
-//  ^^^^^^^^^^ meta.toc-list.json
 //  @@@@@@@@@@ definition
 
     'key-five': 'value',
-//  ^^^^^^^^^^ meta.toc-list.json5
 //  @@@@@@@@@@ definition
 
     "key-six": { "key-three-one": "value", "key-three-two": "value" },
-//  ^^^^^^^^^ meta.toc-list.json
-//               ^^^^^^^^^^^^^^^ - meta.toc-list.json
-//                                         ^^^^^^^^^^^^^^^ - meta.toc-list.json
 //  @@@@@@@@@ definition
 
     'key-seven': { 'key-four-one': 'value', 'key-four-two': 'value' }
-//  ^^^^^^^^^^^ meta.toc-list.json5
-//                 ^^^^^^^^^^^^^^ - meta.toc-list.json5
-//                                          ^^^^^^^^^^^^^^ - meta.toc-list.json5
 //  @@@@@@@@@@@ definition
 }

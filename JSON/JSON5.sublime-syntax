@@ -205,30 +205,6 @@ contexts:
 
 ####[ Mapping ]#########################################################################################################
 
-  # The top-level contexts here are to ensure that we can apply `meta.toc-list`
-  # to the top-level object keys to index them as symbols.
-
-  top-level-mapping-key:
-    - meta_append: true
-    - match: \'
-      scope: punctuation.definition.string.begin.json5
-      push: top-level-mapping-key-single-quoted
-    - match: (?={{identifier_name}})
-      push: top-level-mapping-key-ecma
-
-  top-level-mapping-key-ecma:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - match: '{{identifier_name}}'
-      scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.unquoted.plain.json5
-      pop: 1
-
-  top-level-mapping-key-single-quoted:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: meta.mapping.key.json5 meta.toc-list.json5 meta.string.json5 string.quoted.single.json5
-    - include: inside-single-quoted-string
-
   mapping-key:
     - meta_append: true
     - match: \'
