@@ -34,7 +34,7 @@ contexts:
   # Try these below one-by-one.
 
   top-level-expect-object:
-    - include: top-level-objects
+    - include: objects
     - match: ''
       push: top-level-expect-array
 
@@ -275,15 +275,6 @@ contexts:
   # FIXME: leading separators
   # FIXME: trailing commas
 
-  # The top-level contexts here are to ensure that we can apply `meta.toc-list`
-  # to the top-level object keys to index them as symbols.
-
-  top-level-objects:
-    - include: empty-object
-    - match: \{
-      scope: punctuation.definition.mapping.begin.json
-      push: top-level-meta-mapping
-
   objects:
     - include: empty-object
     - match: \{
@@ -297,16 +288,6 @@ contexts:
         1: punctuation.definition.mapping.begin.json
         2: punctuation.definition.mapping.end.json
 
-  top-level-meta-mapping:
-    - meta_scope: meta.mapping.json
-    - match: \}
-      scope: punctuation.definition.mapping.end.json
-      pop: 1
-    - include: top-level-mapping-key
-    - include: mapping-separator
-    - match: '[^\s\}]'
-      scope: invalid.illegal.expected-mapping-key.json
-
   meta-mapping:
     - meta_scope: meta.mapping.json
     - match: \}
@@ -317,21 +298,10 @@ contexts:
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
-  top-level-mapping-key:
-    - match: \"
-      scope: punctuation.definition.string.begin.json
-      push: top-level-mapping-key-double-quoted
-
   mapping-key:
     - match: \"
       scope: punctuation.definition.string.begin.json
       push: mapping-key-double-quoted
-
-  top-level-mapping-key-double-quoted:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: meta.mapping.key.json meta.toc-list.json meta.string.json string.quoted.double.json
-    - include: inside-double-quoted-string
 
   mapping-key-double-quoted:
     - clear_scopes: 1
