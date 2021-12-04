@@ -279,7 +279,7 @@ contexts:
     - include: empty-object
     - match: \{
       scope: punctuation.definition.mapping.begin.json
-      push: meta-mapping
+      push: object-body
 
   empty-object:
     - match: (\{)\s*(\})
@@ -288,7 +288,7 @@ contexts:
         1: punctuation.definition.mapping.begin.json
         2: punctuation.definition.mapping.end.json
 
-  meta-mapping:
+  object-body:
     - meta_scope: meta.mapping.json
     - match: \}
       scope: punctuation.definition.mapping.end.json
