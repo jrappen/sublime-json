@@ -323,8 +323,6 @@ contexts:
       scope: punctuation.definition.sequence.end.json
       pop: 1
     - include: array-separators
-    - match: '[^\s\]]'
-      scope: invalid.illegal.expected-separator.json
 
   array-separators:
     - match: (?=,)
@@ -332,6 +330,9 @@ contexts:
       branch:
         - array-separator
         - array-illegal-separator
+    - match: \s+
+      scope: invalid.illegal.expected-separator.json
+      push: array-item
 
   array-separator:
     - match: ','
