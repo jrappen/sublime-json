@@ -167,14 +167,12 @@ contexts:
       pop: 1
 
   single-quoted-string-escape-characters:
-    - meta_include_prototype: false
     - match: \\\'
       scope: constant.character.escape.single-quote.json5
     - include: string-escape-characters
 
   valid-string-escape-characters:
     - meta_prepend: true
-    - meta_include_prototype: false
     - match: ((\\)\x{2028})(.*)$\n?
       captures:
         1: constant.character.escape.line-separator.json5
@@ -201,7 +199,6 @@ contexts:
 
   invalid-string-escape-characters:
     - meta_prepend: true
-    - meta_include_prototype: false
     - match: ([^\\])(?:\x{2028}|\x{2029})
       captures:
         1: invalid.illegal.expected-backslash-char.json5
