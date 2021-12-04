@@ -190,18 +190,15 @@ contexts:
       pop: 1
 
   double-quoted-string-escape-characters:
-    - meta_include_prototype: false
     - match: \\\"
       scope: constant.character.escape.double-quote.json
     - include: string-escape-characters
 
   string-escape-characters:
-    - meta_include_prototype: false
     - include: valid-string-escape-characters
     - include: invalid-string-escape-characters
 
   valid-string-escape-characters:
-    - meta_include_prototype: false
     - match: \\\\
       scope: constant.character.escape.back-slash.json
     - match: \\\/
@@ -220,7 +217,6 @@ contexts:
       scope: constant.character.escape.unicode-symbol.basic-multilingual-plane.json
 
   invalid-string-escape-characters:
-    - meta_include_prototype: false
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 
