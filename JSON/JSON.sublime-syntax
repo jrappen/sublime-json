@@ -165,21 +165,11 @@ contexts:
 
   comments:
     - include: comment-line
-    - include: comment-doc-block
     - include: comment-block
 
   comment-line:
     - match: //.*$\n?
       scope: invalid.illegal.comment.json
-
-  comment-doc-block:
-    - match: /\*\*(?!/)
-      push: comment-doc-block-content
-
-  comment-doc-block-content:
-    - meta_include_prototype: false
-    - meta_scope: invalid.illegal.comment.json
-    - include: comment-block-end
 
   comment-block:
     - match: /\*
@@ -188,9 +178,6 @@ contexts:
   comment-block-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
-    - include: comment-block-end
-
-  comment-block-end:
     - match: \*/
       pop: 1
 
