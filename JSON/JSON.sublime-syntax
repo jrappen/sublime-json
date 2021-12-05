@@ -314,9 +314,8 @@ contexts:
       branch_point: array-separators
       branch:
         - array-separator
-        - array-illegal-separator
-    - match: \s+
-      scope: invalid.illegal.expected-separator.json
+        - illegal-separator
+    - match: (?=\S)
       push: array-item
 
   array-separator:
@@ -331,12 +330,7 @@ contexts:
 
   array-item:
     - include: any
-    - include: array-illegal-separator
-
-  array-illegal-separator:
-    - match: ','
-      scope: invalid.illegal.unexpected-separator.json
-    - include: else-pop
+    - include: illegal-separator
 
 ####[ Mapping ]#########################################################################################################
 
@@ -394,6 +388,13 @@ contexts:
     - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
       scope: invalid.illegal.expected-mapping-separator.json
       pop: 1
+
+####[ Illegals ]########################################################################################################
+
+  illegal-separator:
+    - match: ','
+      scope: invalid.illegal.unexpected-separator.json
+    - include: else-pop
 
 ####[ Prototypes ]######################################################################################################
 
