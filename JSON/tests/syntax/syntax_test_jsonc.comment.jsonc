@@ -8,13 +8,6 @@
 //  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^^^^^ - comment.line comment.line
 
-    //  comment /** comment */
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
-//  ^^ comment.line.double-slash punctuation.definition.comment
-//              ^^^^^^^^^^^^^^ - comment.block.documentation
-//              ^^^ - punctuation.definition.comment.begin
-//                          ^^ - punctuation.definition.comment.end
-
     //  comment /* comment */
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
@@ -33,88 +26,11 @@
 
 
 
-    /** comment // comment */
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//  ^^^ comment.block.documentation punctuation.definition.comment.begin
-//              ^^^^^^^^^^^^^ - comment.line
-//                         ^^ comment.block.documentation punctuation.definition.comment.end
-
-    /** comment /** comment */
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//  ^^^ comment.block.documentation punctuation.definition.comment.begin
-//              ^^^^^^^^^^^^^^ - comment.block.documentation comment.block.documentation
-//                          ^^ comment.block.documentation punctuation.definition.comment.end
-//                          ^^ - comment.block.documentation comment.block.documentation punctuation.definition.comment.end
-
-    /** comment /* comment */
-//  ^^^ comment.block.documentation punctuation.definition.comment.begin
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//              ^^^^^^^^^^^^^ - comment.block.documentation comment.block
-//                         ^^ comment.block.documentation punctuation.definition.comment.end
-//                         ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
-
-    /** comment "not a string" */
-//  ^^^ comment.block.documentation punctuation.definition.comment.begin
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation
-//              ^^^^^^^^^^^^^^ - meta.string string.quoted.double
-//              ^ - punctuation.definition.string.begin
-//                           ^ - punctuation.definition.string.end
-//                             ^^ comment.block.documentation punctuation.definition.comment.end
-
-
-
-
-
-    /** comment
-    // comment */
-//  ^^^^^^^^^^^^^ - comment.line
-//             ^^ punctuation.definition.comment.end
-
-    /** comment
-    /** comment */
-//  ^^^^^^^^^^^^^^ - comment.block.documentation comment.block.documentation
-//              ^^ comment.block.documentation punctuation.definition.comment.end
-//              ^^ - comment.block.documentation comment.block.documentation punctuation.definition.comment.end
-
-    /** comment
-    /* comment */
-//  ^^^^^^^^^^^^^ - comment.block.documentation comment.block
-//             ^^ comment.block.documentation punctuation.definition.comment.end
-//             ^^ - comment.block.documentation comment.block punctuation.definition.comment.end
-
-    /** comment
-    "not a string" */
-//  ^^^^^^^^^^^^^^ - meta.string string.quoted.double
-//  ^ - punctuation.definition.string.begin
-//               ^ - punctuation.definition.string.end
-//                 ^^ comment.block.documentation punctuation.definition.comment.end
-
-
-
-
-
-    /**
-     * comment
-//   ^ comment.block.documentation punctuation.definition.comment
-     * comment
-     */
-
-
-
-
-
     /* comment // comment */
 //  ^^ comment.block punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
 //             ^^^^^^^^^^^^^ - comment.line
 //                        ^^ comment.block punctuation.definition.comment.end
-
-    /* comment /** comment */
-//  ^^ comment.block punctuation.definition.comment.begin
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
-//             ^^^^^^^^^^^^^^ - comment.block.documentation
-//                         ^^ comment.block punctuation.definition.comment.end
-//                         ^^ - comment.block.documentation punctuation.definition.comment.end
 
     /* comment /* comment */
 //  ^^ comment.block punctuation.definition.comment.begin
@@ -139,12 +55,6 @@
     // comment */
 //  ^^^^^^^^^^^^^ - comment.line
 //             ^^ comment.block punctuation.definition.comment.end
-
-    /* comment
-    /** comment */
-//  ^^^^^^^^^^^^^^ - comment.block.documentation
-//              ^^ comment.block punctuation.definition.comment.end
-//              ^^ - comment.block.documentation punctuation.definition.comment.end
 
     /* comment
     /* comment */
@@ -180,16 +90,6 @@
 //      ^^ punctuation.definition.comment
     ],
 
-    "empty-sequence-with-doc-block-comment-with-no-content": [ /***/ ],
-//                                                             ^^^^^ comment.block.documentation
-//                                                             ^^^ punctuation.definition.comment.begin
-//                                                                ^^ punctuation.definition.comment.end
-
-    "empty-sequence-with-doc-block-comment": [ /** */ ],
-//                                             ^^^^^^ comment.block.documentation
-//                                             ^^^ punctuation.definition.comment.begin
-//                                                 ^^ punctuation.definition.comment.end
-
     "empty-sequence-with-block-comment-with-no-content": [ /**/ ],
 //                                                         ^^^^ comment.block
 //                                                         ^^ punctuation.definition.comment.begin
@@ -222,34 +122,6 @@
 //      ^^^^^^^^^^^^^^^ comment.line
 //      ^^ punctuation.definition.comment
     ],
-
-    "full-sequence-with-doc-block-comment-with-no-content": [ /***/ 1, /***/ 2 /***/ , 3 /***/ ],
-//                                                            ^^^^^ comment.block.documentation
-//                                                            ^^^ punctuation.definition.comment.begin
-//                                                               ^^ punctuation.definition.comment.end
-//                                                                     ^^^^^ comment.block.documentation
-//                                                                     ^^^ punctuation.definition.comment.begin
-//                                                                        ^^ punctuation.definition.comment.end
-//                                                                             ^^^^^ comment.block.documentation
-//                                                                             ^^^ punctuation.definition.comment.begin
-//                                                                                ^^ punctuation.definition.comment.end
-//                                                                                       ^^^^^ comment.block.documentation
-//                                                                                       ^^^ punctuation.definition.comment.begin
-//                                                                                          ^^ punctuation.definition.comment.end
-
-    "full-sequence-with-doc-block-comment": [ /** */ 1, /** */ 2 /** */ , 3 /** */ ],
-//                                            ^^^^^^ comment.block.documentation
-//                                            ^^^ punctuation.definition.comment.begin
-//                                                ^^ punctuation.definition.comment.end
-//                                                      ^^^^^^ comment.block.documentation
-//                                                      ^^^ punctuation.definition.comment.begin
-//                                                          ^^ punctuation.definition.comment.end
-//                                                               ^^^^^^ comment.block.documentation
-//                                                               ^^^ punctuation.definition.comment.begin
-//                                                                   ^^ punctuation.definition.comment.end
-//                                                                          ^^^^^^ comment.block.documentation
-//                                                                          ^^^ punctuation.definition.comment.begin
-//                                                                              ^^ punctuation.definition.comment.end
 
     "full-sequence-with-block-comment-with-no-content": [ /**/ 1, /**/ 2 /**/ , 3 /**/ ],
 //                                                        ^^^^ comment.block
@@ -288,16 +160,6 @@
 //      ^^^^^^^^^^^^^^^ comment.line
 //      ^^ punctuation.definition.comment
     },
-
-    "empty-mapping-with-doc-block-comment-with-no-content": { /***/ },
-//                                                            ^^^^^ comment.block.documentation
-//                                                            ^^^ punctuation.definition.comment.begin
-//                                                               ^^ punctuation.definition.comment.end
-
-    "empty-mapping-with-doc-block-comment": { /** */ },
-//                                            ^^^^^^ comment.block.documentation
-//                                            ^^^ punctuation.definition.comment.begin
-//                                                ^^ punctuation.definition.comment.end
 
     "empty-mapping-with-block-comment-with-no-content": { /**/ },
 //                                                        ^^^^ comment.block
@@ -342,49 +204,6 @@
 //      ^^^^^^^^^^^^^^^ comment.line
 //      ^^ punctuation.definition.comment
     },
-
-    "full-mapping-with-doc-block-comment-with-no-content": { /***/ "a": 1, /***/ "b" /***/ : /***/ 2 /***/ , "c": 3 /***/ },
-//                                                           ^^^^^ comment.block.documentation
-//                                                           ^^^ punctuation.definition.comment.begin
-//                                                              ^^ punctuation.definition.comment.end
-//                                                                         ^^^^^ comment.block.documentation
-//                                                                         ^^^ punctuation.definition.comment.begin
-//                                                                            ^^ punctuation.definition.comment.end
-//                                                                                   ^^^^^ comment.block.documentation
-//                                                                                   ^^^ punctuation.definition.comment.begin
-//                                                                                      ^^ punctuation.definition.comment.end
-//                                                                                   ^^^^^ comment.block.documentation
-//                                                                                   ^^^ punctuation.definition.comment.begin
-//                                                                                      ^^ punctuation.definition.comment.end
-//                                                                                           ^^^^^ comment.block.documentation
-//                                                                                           ^^^ punctuation.definition.comment.begin
-//                                                                                              ^^ punctuation.definition.comment.end
-//                                                                                                   ^^^^^ comment.block.documentation
-//                                                                                                   ^^^ punctuation.definition.comment.begin
-//                                                                                                      ^^ punctuation.definition.comment.end
-//                                                                                                                  ^^^^^ comment.block.documentation
-//                                                                                                                  ^^^ punctuation.definition.comment.begin
-//                                                                                                                     ^^ punctuation.definition.comment.end
-
-    "full-mapping-with-doc-block-comment": { /** */ "a": 1, /** */ "b" /** */ : /** */ 2 /** */ , "c": 3 /** */ },
-//                                           ^^^^^^ comment.block.documentation
-//                                           ^^^ punctuation.definition.comment.begin
-//                                               ^^ punctuation.definition.comment.end
-//                                                          ^^^^^^ comment.block.documentation
-//                                                          ^^^ punctuation.definition.comment.begin
-//                                                              ^^ punctuation.definition.comment.end
-//                                                                     ^^^^^^ comment.block.documentation
-//                                                                     ^^^ punctuation.definition.comment.begin
-//                                                                         ^^ punctuation.definition.comment.end
-//                                                                              ^^^^^^ comment.block.documentation
-//                                                                              ^^^ punctuation.definition.comment.begin
-//                                                                                  ^^ punctuation.definition.comment.end
-//                                                                                       ^^^^^^ comment.block.documentation
-//                                                                                       ^^^ punctuation.definition.comment.begin
-//                                                                                           ^^ punctuation.definition.comment.end
-//                                                                                                       ^^^^^^ comment.block.documentation
-//                                                                                                       ^^^ punctuation.definition.comment.begin
-//                                                                                                           ^^ punctuation.definition.comment.end
 
     "full-mapping-with-block-comment-with-no-content": { /**/ "a": 1, /**/ "b" /**/ : /**/ 2 /**/ , "c": 3 /**/ },
 //                                                       ^^^^ comment.block
