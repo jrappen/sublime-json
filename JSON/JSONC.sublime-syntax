@@ -108,8 +108,8 @@ contexts:
 
   comment-line:
     - match: (//).*$\n?
+      scope: comment.line.double-slash.jsonc
       captures:
-        0: comment.line.double-slash.jsonc
         1: punctuation.definition.comment.jsonc
 
   comment-doc-block:
