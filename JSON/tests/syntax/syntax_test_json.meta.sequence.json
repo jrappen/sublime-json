@@ -40,6 +40,7 @@
 //         ^ constant.numeric.value
 //          ^ punctuation.definition.sequence.end
 //           ^ punctuation.separator.sequence
+
     {},
 //  ^^ meta.mapping
 
