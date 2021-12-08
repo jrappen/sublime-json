@@ -112,6 +112,7 @@ contexts:
       push: comment-line-content
 
   comment-line-content:
+    - meta_include_prototype: false
     - meta_scope: comment.line.double-slash.jsonc
     - match: \n
       pop: 1

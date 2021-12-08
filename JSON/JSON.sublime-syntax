@@ -168,8 +168,14 @@ contexts:
     - include: comment-block
 
   comment-line:
-    - match: //.*$\n?
-      scope: invalid.illegal.comment.json
+    - match: //
+      push: comment-line-content
+
+  comment-line-content:
+    - meta_include_prototype: false
+    - meta_scope: invalid.illegal.comment.json
+    - match: \n
+      pop: 1
 
   comment-block:
     - match: /\*
