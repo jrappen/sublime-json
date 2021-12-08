@@ -117,19 +117,6 @@ contexts:
     - match: \n
       pop: 1
 
-  comment-doc-block:
-    - match: /\*\*(?!/)
-      scope: punctuation.definition.comment.begin.jsonc
-      push: comment-doc-block-content
-
-  comment-doc-block-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.block.documentation.jsonc
-    - include: comment-block-end
-    - match: ^\s*(\*)(?!/)
-      captures:
-        1: punctuation.definition.comment.jsonc
-
   comment-block:
     - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
