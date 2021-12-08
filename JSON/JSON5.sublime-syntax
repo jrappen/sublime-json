@@ -81,7 +81,7 @@ variables:
   identifier_part: (?:[_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]|{{identifier_escape}})
   identifier_break: (?!{{identifier_part}})
 
-  identifier_name: (?:{{identifier_start}}{{identifier_part}}*{{identifier_break}})
+  # identifier_name: (?:{{identifier_start}}{{identifier_part}}*{{identifier_break}})
 
 
 contexts:
