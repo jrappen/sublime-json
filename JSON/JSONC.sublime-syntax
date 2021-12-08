@@ -107,10 +107,14 @@ contexts:
 ####[ Comments ]########################################################################################################
 
   comment-line:
-    - match: (//).*$\n?
-      scope: comment.line.double-slash.jsonc
-      captures:
-        1: punctuation.definition.comment.jsonc
+    - match: //
+      scope: punctuation.definition.comment.jsonc
+      push: comment-line-content
+
+  comment-line-content:
+    - meta_scope: comment.line.double-slash.jsonc
+    - match: \n
+      pop: 1
 
   comment-doc-block:
     - match: /\*\*(?!/)
