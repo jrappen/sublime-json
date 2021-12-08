@@ -1,0 +1,116 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html#ver-dev
+#       https://www.sublimetext.com/docs/syntax.html#testing:ver-dev
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/JSONL.sublime-syntax
+#
+name: JSONL
+scope: source.json.jsonl
+version: 2
+
+file_extensions:
+  - jsonl
+    # https://jsonlines.org/
+    # https://jsonlines.org/examples/
+    # https://jsonlines.org/on_the_web/
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bjsonl\b .*? -\*-  # editorconfig
+  )
+
+
+####{ Contexts }########################################################################################################
+
+contexts:
+
+  prototype:
+    - include: comments
+
+  main:
+    - include: any
+
+  any:
+    - include: structures
+    - include: values
+
+  structures:
+    - include: objects
+    - include: arrays
+
+  values:
+    - include: constants
+    - include: numbers
+    - include: strings
+
+  eol-pop:
+    - match: '$\n?'
+      pop: 1
+
+  ##[ Comments ]########################################################################################################
+
+  comments:
+    - meta_include_prototype: false
+    - include: comment-line
+    - include: comment-doc-block
+    - include: comment-block
+
+  comment-line:
+    - meta_include_prototype: false
+    - match: '//'
+      scope: invalid.illegal.comment.jsonl
+      push:
+        - meta_content_scope: invalid.illegal.comment.jsonl
+        - meta_include_prototype: false
+        - include: eol-pop
+
+  comment-doc-block:
+    - meta_include_prototype: false
+    - match: '/\*\*(?!/)'
+      scope: invalid.illegal.comment.jsonl
+      push:
+        - meta_content_scope: invalid.illegal.comment.jsonl
+        - meta_include_prototype: false
+        - include: comment-block-end
+        - match: '^\s*(\*)(?!/)'
+          captures:
+            1: invalid.illegal.comment.jsonl
+
+  comment-block:
+    - meta_include_prototype: false
+    - match: '/\*'
+      scope: invalid.illegal.comment.jsonl
+      push:
+        - meta_content_scope: invalid.illegal.comment.jsonl
+        - meta_include_prototype: false
+        - include: comment-block-end
+
+  comment-block-end:
+    - meta_include_prototype: false
+    - match: '\*/'
+      scope: invalid.illegal.comment.jsonl
+      pop: 1
+
+  ##[ Values ]##########################################################################################################
+
+  constants:
+    - include: Packages/JSON/JSON.sublime-syntax#constants
+
+  numbers:
+    - include: Packages/JSON/JSON.sublime-syntax#numbers
+
+  strings:
+    - include: Packages/JSON/JSON.sublime-syntax#strings
+
+  ##[ Sequence ]##########################################################################################################
+
+
+
+  ##[ Mapping ]##########################################################################################################
+
+
