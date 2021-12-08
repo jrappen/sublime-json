@@ -98,7 +98,7 @@ file_extensions:
 
 first_line_match: |-
   (?xi:
-    ^ \s* // .*? -\*- .*? \bjsonc\b .*? -\*-  # editorconfig
+    ^ \s* // .*? -\*- .*? \bjsonc\b .*? -\*-                                    # editorconfig
   )
 
 

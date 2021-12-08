@@ -63,7 +63,7 @@ file_extensions:
 
 first_line_match: |-
   (?xi:
-    ^ \s* // .*? -\*- .*? \bjson5\b .*? -\*-  # editorconfig
+    ^ \s* // .*? -\*- .*? \bjson5\b .*? -\*-                                    # editorconfig
   )
 
 
