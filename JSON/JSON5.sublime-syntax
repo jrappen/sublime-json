@@ -81,7 +81,7 @@ variables:
   identifier_part: (?:[_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]|{{identifier_escape}})
   identifier_break: (?!{{identifier_part}})
 
-  # identifier_name: (?:{{identifier_start}}{{identifier_part}}*{{identifier_break}})
+  identifier_name: (?:{{identifier_start}}{{identifier_part}}*{{identifier_break}})
 
 
 contexts:
@@ -227,7 +227,11 @@ contexts:
     - match: \'
       scope: punctuation.definition.string.begin.json5
       push: mapping-key-single-quoted
-    - match: (?={{identifier_start}})
+
+    # looking ahead at `identifier_start` would've been faster with possibly
+    # invalid matches, but we want to make sure we only match valid ecma
+    # `identifier_name`s as keys
+    - match: (?={{identifier_name}})
       push: mapping-key-ecma
 
   mapping-key-ecma:
