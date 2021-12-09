@@ -2,7 +2,6 @@
 
 
 - Using inheritance split up `JSON.sublime-syntax` into:
-    - `JSON (Basic).sublime-syntax` with `scope:source.json.basic`
     - `JSON.sublime-syntax` with `scope:source.json`
     - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
@@ -26,6 +25,7 @@
     - more escape chars for strings
     - ECMA identifierName as object keys (thanks to Thomas)
         - scoped as plain unquoted strings
+        - support string interpolation (thanks to deathaxe)
     - line continuation in strings (with tests thanks to Keith)
 - Objects:
     - Add `meta.toc-list` scope to top level object keys to add them to
