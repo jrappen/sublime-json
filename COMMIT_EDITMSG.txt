@@ -11,7 +11,8 @@
       flavor
 - JSON:
     - (correctly formatted) JSON code can now be prettified or minified
-      via the context menu or the command palette
+      via the context menu or the command palette. JSON code can optionally be
+      auto-prettified on pre save events.
     - highlight leading, trailing & multiple commas as invalid
     - only allow exactly one structure (object, array) or value
       (constant, number, string) at top level (thanks to Keith)
@@ -23,13 +24,13 @@
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
-    - ECMA identifierName as object keys (thanks to Thomas)
-        - scoped as plain unquoted strings
+    - ECMA identifierName as object keys (regexes thanks to Thomas)
+        - scoped as plain unquoted strings (thanks to Thomas)
         - support string interpolation (thanks to deathaxe)
     - line continuation in strings (with tests thanks to Keith)
 - Objects:
-    - Add `meta.toc-list` scope to top level object keys to add them to
-      the symbol list (also add tests, see below)
+    - Correctly scope top level object keys to add them to the symbol list (also
+      add tests, see below)
     - Highlighting speed improvements for empty objects (thanks to
       FichteFoll)
     - Make `mapping.*` contexts more modular
@@ -53,7 +54,9 @@
         - `json`, `jsonc` & `json5`
         - `mapping` (objects), `sequence` (arrays)
     - Add symbols tests for:
-        - scope: `meta.toc-list.json | meta.toc-list.json5`
+        - the following scope:
+          `source.json meta.mapping.key - meta.mapping meta.mapping`
+          (thanks to deathaxe)
         - languages: `json`, `jsonc` & `json5`
     - Fix tests for `meta.mapping meta.mapping.*`
 - Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
@@ -71,6 +74,10 @@ BREAKING CHANGES:
 - The `JSON.sublime-syntax` now marks comments as `invalid`, third party
   plugin authors should target `JSONC.sublime-syntax` instead to have
   the same user experience as before.
+- Top level keys in objects are now scoped as
+  `source.json meta.mapping.key - meta.mapping meta.mapping`.
+  Color scheme authors should add special highlighting for this to differentiate
+  them from lower level keys.
 
 
 - fix #285
