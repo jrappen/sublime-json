@@ -79,7 +79,10 @@ class JsoncPrettify(sublime_plugin.TextCommand):
             )
             status_msg('Prettified.')
         except Exception as e:
-            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
+            print_msg(
+                msg_header='Conversion failed due to error',
+                msg_body=f'{e}'
+            )
             status_msg('Prettifying failed. See console for details.')
             pass
 
@@ -122,7 +125,10 @@ class JsoncMinify(sublime_plugin.TextCommand):
             )
             status_msg('Minified.')
         except Exception as e:
-            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
+            print_msg(
+                msg_header='Conversion failed due to error',
+                msg_body=f'{e}'
+            )
             status_msg('Minifying failed. See console for details.')
             pass
 

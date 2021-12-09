@@ -44,7 +44,10 @@ def json2py(view: sublime.View) -> Any:
             parse_float=decimal.Decimal
         )
     except Exception as e:
-        print_msg(msg_header='Conversion failed due to error:', msg_body=f'{e}')
+        print_msg(
+            msg_header='Conversion failed due to error:',
+            msg_body=f'{e}'
+        )
     return None
 
 
@@ -72,7 +75,10 @@ def plugin_loaded(reload: bool = False) -> None:
             callback=lambda: plugin_loaded(reload=True)
         )
     except Exception as e:
-        print_msg(msg_header=f'Loading "{base_settings}" failed due to error', msg_body=f'{e}')
+        print_msg(
+            msg_header=f'Loading "{base_settings}" failed due to error',
+            msg_body=f'{e}'
+        )
 
     if reload:
         status_msg('Reloaded settings on change.')
@@ -153,7 +159,10 @@ class JsonPrettify(sublime_plugin.TextCommand):
             )
             status_msg('Prettified.')
         except Exception as e:
-            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
+            print_msg(
+                msg_header='Conversion failed due to error',
+                msg_body=f'{e}'
+            )
             status_msg('Prettifying failed. See console for details.')
             pass
 
@@ -191,7 +200,10 @@ class JsonMinify(sublime_plugin.TextCommand):
             )
             status_msg('Minified.')
         except Exception as e:
-            print_msg(msg_header='Conversion failed due to error', msg_body=f'{e}')
+            print_msg(
+                msg_header='Conversion failed due to error',
+                msg_body=f'{e}'
+            )
             status_msg('Minifying failed. See console for details.')
             pass
 
