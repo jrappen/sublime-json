@@ -94,7 +94,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
         try:
             if settings is None:
                 return
-            self._is_checked = settings.has(key=self._key)
+            self._is_checked = settings.get(key=self._key, default=False)
         except Exception:
             pass
 
@@ -114,16 +114,6 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
     def is_checked(self) -> bool:
         return self._is_checked
-
-    def is_visible(self) -> bool:
-        try:
-            view: Union[sublime.View, None] = self.window.active_view()
-            if view is None:
-                return False
-            return is_json(view)
-        except Exception as e:
-            print_msg('Error while trying to check if active view is JSON', msg_body=f'{e}')
-        return False
 
 
 class JsonAutoPrettifyListener(sublime_plugin.EventListener):

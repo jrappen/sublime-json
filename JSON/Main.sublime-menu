@@ -27,8 +27,7 @@
                             },
                             {
                                 "command": "json_toggle_auto_prettify",
-                                "caption": "JSON: Automatically prettify before saving",
-                                "checkbox": false
+                                "caption": "JSON: Automatically prettify before saving"
                             },
                             {
                                 "caption": "JSONC: Minify",
