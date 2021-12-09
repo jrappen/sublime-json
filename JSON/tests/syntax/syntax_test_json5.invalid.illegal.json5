@@ -49,9 +49,29 @@
 //                                                                     ^^ invalid.illegal.unrecognized-string-escape
 //                                                                     ^^^ - constant.character.escape
 
-    'unrecognized-string-escape-unicode-symbol-upper-case': '\X00'
+    'unrecognized-string-escape-unicode-symbol-upper-case': '\X00',
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
 //                                                          ^^^^^^ meta.mapping.value meta.string string.quoted.single
 //                                                           ^^ invalid.illegal.unrecognized-string-escape
 //                                                           ^^^^ - constant.character.escape
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    'expected-language-constant-Infinity': -infinity,
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                         ^^^^^^^^^ meta.mapping.value meta.number.float.decimal
+//                                         ^ constant.numeric.sign
+//                                          ^^^^^^^^ invalid.illegal.expected-language-constant
+
+    'expected-language-constant-NaN': -nan
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.single
+//                                    ^^^^ meta.mapping.value meta.number.float.decimal
+//                                    ^ constant.numeric.sign
+//                                     ^^^ invalid.illegal.expected-language-constant
 }
