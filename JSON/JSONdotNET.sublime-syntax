@@ -16,13 +16,8 @@ version: 2
 # https://www.sublimetext.com/docs/syntax.html#inheritance
 extends: Packages/JSON/JSON.sublime-syntax
 
-# file_extensions:
-  # - ...
-
 first_line_match: |-
   (?xi:
     ^ \s* // .*? -\*- .*? \bjson\.net\b .*? -\*-                                    # editorconfig
   )
-
-
-contexts: {}
+  
