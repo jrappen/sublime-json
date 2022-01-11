@@ -8,8 +8,12 @@
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONdotNET.sublime-syntax
+#   Date formatting:
+#       https://www.iso.org/standard/70907.html (Basic rules)
+#       https://www.iso.org/standard/70908.html (Extensions)
+#       https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 #
-name: JSONdotNET
+name: 'JSON .NET'
 scope: source.json.jsondotnet
 version: 2
 
