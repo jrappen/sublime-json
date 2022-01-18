@@ -24,3 +24,30 @@ first_line_match: |-
   (?xi:
     ^ \s* // .*? -\*- .*? \bjson\.net\b .*? -\*-                                    # editorconfig
   )
+
+
+contexts:
+
+  string:
+    - meta_append: true
+    - include: datetime-string
+
+  datetime-string:
+    - match: |-
+        (?x:
+          (\")
+          (
+            \d{4} [-] \d{2} [-] \d{2}
+            [Tt]
+            \d{2} [:] \d{2} [:] \d{2}
+            (?:
+              Z | [-+] \d{1,2} (?: [:]\d{1,2})?
+            )?
+          )
+          (\")
+        )
+      scope: meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+      captures:
+        1: punctuation.definition.string.begin.jsondotnet
+        2: constant.other.timestamp.jsondotnet
+        3: punctuation.definition.string.end.jsondotnet
