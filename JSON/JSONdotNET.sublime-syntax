@@ -29,7 +29,7 @@ first_line_match: |-
 contexts:
 
   string:
-    - meta_append: true
+    - meta_prepend: true
     - include: datetime-string
 
   datetime-string:
