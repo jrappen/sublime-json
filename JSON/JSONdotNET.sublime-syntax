@@ -51,3 +51,18 @@ contexts:
         1: punctuation.definition.string.begin.jsondotnet
         2: constant.other.timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet
+    - match: |-
+        (?x:
+          (\")
+          (
+            \/Date\(
+            \d+
+            \)\/
+          )
+          (\")
+        )
+      scope: meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+      captures:
+        1: punctuation.definition.string.begin.jsondotnet
+        2: constant.other.timestamp.jsondotnet
+        3: punctuation.definition.string.end.jsondotnet
