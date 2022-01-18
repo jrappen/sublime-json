@@ -1,0 +1,11 @@
+// SYNTAX TEST "Packages/JSON/JSONdotNet.sublime-syntax"
+
+// <- source.json.jsondotnet
+
+{
+    "key": "2000-01-01T00:00:00Z"
+//         ^^^^^^^^^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+//         ^ punctuation.definition.string.begin.jsondotnet
+//          ^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//                              ^ punctuation.definition.string.end.jsondotnet
+}
