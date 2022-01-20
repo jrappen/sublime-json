@@ -5,6 +5,7 @@
     - `JSON.sublime-syntax` with `scope:source.json`
     - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
+    - `JSONdotNET.sublime-syntax` with `scope:source.json.jsondotnet`
 - Add many more file extensions for `JSON` & `JSONC`:
     - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
@@ -28,6 +29,8 @@
         - scoped as plain unquoted strings (thanks to Thomas)
         - support string interpolation (thanks to deathaxe)
     - line continuation in strings (with tests thanks to Keith)
+- JSON.NET:
+    - support requested by Keith, built with feedback from Michael
 - Objects:
     - Correctly scope top level object keys to add them to the symbol list (also
       add tests, see below)
