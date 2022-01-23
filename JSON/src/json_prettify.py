@@ -20,7 +20,7 @@ from typing import (
 PKG_NAME: str = __package__.split('.')[0]
 settings: Union[sublime.Settings, None] = None
 base_settings: str = 'JSON.sublime-settings'
-base_scope: str = 'source.json - (source.json.jsonc | source.json.json5)'
+base_scope: str = 'source.json - (source.json.jsonc | source.json.json5 | source.json.jsondotnet)'
 
 
 def status_msg(msg: str = '') -> None:
