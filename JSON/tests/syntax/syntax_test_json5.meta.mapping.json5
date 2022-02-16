@@ -114,7 +114,7 @@
 //                                ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
 //                                ^ - meta.mapping meta.mapping.value
 //                                  ^^^ meta.mapping.value meta.mapping.key
-//                                     ^ meta.mapping.value meta.mapping punctuation.separator.mapping.key-value
+//                                     ^ meta.mapping.value meta.mapping punctuation.separator.key-value
 //                                       ^ meta.mapping.value meta.mapping.value
 //                                        ^ meta.mapping.value meta.mapping punctuation.separator.sequence
 //                                          ^^^ meta.mapping.value meta.mapping.key
