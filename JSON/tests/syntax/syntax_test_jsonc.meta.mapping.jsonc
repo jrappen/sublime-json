@@ -13,7 +13,7 @@
 
     "meta-mapping-value-number": 0,
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
-//                             ^ meta.mapping punctuation.separatorkey-value
+//                             ^ meta.mapping punctuation.separator.key-value
 //                               ^ meta.mapping.value - meta.mapping.json meta.mapping.value
 //                                ^ meta.mapping punctuation.separator.sequence
 
@@ -84,7 +84,7 @@
 //                                ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
 //                                ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
 //                                  ^^^ meta.mapping.value meta.mapping.key
-//                                     ^ meta.mapping.value meta.mapping punctuation.separator.mapping.key-value
+//                                     ^ meta.mapping.value meta.mapping punctuation.separator.key-value
 //                                       ^ meta.mapping.value meta.mapping.value
         ,
 //     ^ - invalid
