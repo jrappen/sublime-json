@@ -32,7 +32,7 @@
 
     [1, 2
 //  ^ meta.sequence.list punctuation.definition.sequence.begin
-//    ^ meta.sequence.list
+//    ^ meta.sequence.list meta.sequence.list punctuation.separator.sequence
         ,
 //     ^ - invalid
 //      ^ meta.sequence.list punctuation.separator.sequence
@@ -45,23 +45,26 @@
 //   ^ meta.sequence.list punctuation.separator.sequence
 
     {},
-//  ^^ meta.mapping
+//  ^^ meta.sequence.list meta.mapping
 
     { },
-//  ^^^ meta.mapping
+//  ^^^ meta.sequence.list meta.mapping
 
     { "a": 1, "b": 2
-//  ^^^^^^^^^^^^^^^^ meta.mapping
-//       ^ meta.mapping punctuation.separator.mapping.key-value
-//          ^ meta.mapping punctuation.separator.mapping.pair
+//  ^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
+//       ^ meta.mapping punctuation.separator.key-value
+//          ^ meta.mapping punctuation.separator.sequence
         ,
 //     ^ - invalid
-//      ^ meta.mapping punctuation.separator.mapping.pair
+//      ^ meta.mapping punctuation.separator.sequence
         "c": 3
+
+    ,
+//  ^ meta.mapping punctuation.separator.sequence
     }
 
     ,
-//  ^ punctuation.separator.sequence
+//  ^ meta.sequence.list punctuation.separator.sequence
 //  ^ - invalid.illegal.unexpected-separator
 ]
 // <- meta.sequence.list punctuation.definition.sequence.end
