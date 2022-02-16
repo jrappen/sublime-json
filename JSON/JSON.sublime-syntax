@@ -196,6 +196,7 @@ contexts:
     - match: \b(?:false|true)\b
       scope: constant.language.boolean.json
       pop: 1
+
     # when erroneously containing upper case letters
     - match: \b(?i:null)\b
       scope: invalid.illegal.expected-lower-case-null.json
@@ -220,10 +221,8 @@ contexts:
           (
             {{pos_integer_decimal}}
             (?:
-              # 1.1 1.1e1 1.1e-1 1.1e+1
-              (\.)\d+ {{exponent}}?
-              # 1e1 1+e1 1-e1
-            | {{exponent}}
+              (\.)\d+ {{exponent}}?                                             # 1.1 1.1e1 1.1e-1 1.1e+1
+              | {{exponent}}                                                    # 1e1 1+e1 1-e1
             )
           )
         )
