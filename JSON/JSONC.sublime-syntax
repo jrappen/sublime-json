@@ -8,7 +8,7 @@
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONC.sublime-syntax
-#
+
 name: JSONC
 scope: source.json.jsonc
 version: 2

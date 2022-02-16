@@ -89,6 +89,7 @@ BREAKING CHANGES:
 - address #2430 using sort-order (as requested by deathaxe)
 - address #2852 to fix scopes of curly braces & square brackets in
   `JSON` (thanks to Thomas)
+- address #3228 to fix `punctuation.separator` scopes
 - address sublimehq/sublime_text#3154 and add symbol tests
 
 

@@ -10,6 +10,6 @@
     /**/: "test"
 // ^ - string.quoted.double
 //  ^^^^ meta.mapping comment.block
-//      ^ punctuation.separator.mapping.key-value
+//      ^ meta.mapping punctuation.separator.key-value
 //        ^^^^^^ meta.mapping.value meta.string string.quoted.double
 }

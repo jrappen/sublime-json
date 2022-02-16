@@ -5,7 +5,7 @@
 {
     "c": "c"
             , ,
-//          ^ meta.mapping punctuation.separator.mapping.pair
+//          ^ meta.mapping punctuation.separator.sequence
 //            ^ meta.mapping invalid.illegal.expected-mapping-key
 
     "d": { "d": },
