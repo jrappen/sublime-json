@@ -118,6 +118,10 @@ contexts:
       pop: 1
 
   comment-block:
+    # empty block comments
+    - match: /\*\*+/
+      scope: comment.block.empty.jsonc punctuation.definition.comment.jsonc
+    # normal block comments
     - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
       push: comment-block-content

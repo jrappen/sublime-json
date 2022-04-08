@@ -21,6 +21,7 @@
     - highlight some files by default as `JSONC` (as decided by Jon
       in #285)
     - highlight leading & multiple commas as invalid, trailing as valid
+    - scope empty block comments as such
 - JSON5:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
