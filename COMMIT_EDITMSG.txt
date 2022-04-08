@@ -22,6 +22,7 @@
       in #285)
     - highlight leading & multiple commas as invalid, trailing as valid
     - scope empty block comments as such
+    - support syntax based folding of ST4131+, compare #3291
 - JSON5:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
