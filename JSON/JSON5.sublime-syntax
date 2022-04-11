@@ -109,19 +109,16 @@ contexts:
         2: constant.numeric.value.json5
         3: punctuation.separator.decimal.json5
         4: punctuation.separator.decimal.json5
-      pop: 1
     - match: ([-+]?)(Infinity)
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.language.infinity.json5
-      pop: 1
     - match: ([-+]?)(NaN)
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: constant.language.nan.json5
-      pop: 1
 
     # when erroneously containing wrongly cased letters
     - match: ([-+]?)(?i:(infinity))
@@ -129,13 +126,11 @@ contexts:
       captures:
         1: constant.numeric.sign.json5
         2: invalid.illegal.expected-language-constant.json5
-      pop: 1
     - match: ([-+]?)(?i:(nan))
       scope: meta.number.float.decimal.json5
       captures:
         1: constant.numeric.sign.json5
         2: invalid.illegal.expected-language-constant.json5
-      pop: 1
 
   integer:
     - meta_prepend: true
@@ -147,7 +142,6 @@ contexts:
       captures:
         1: constant.numeric.sign.json5
         2: constant.numeric.value.json5
-      pop: 1
 
   hexadecimal-integer:
     - match: ([-+]?)(0[xX])(\h+)
@@ -156,7 +150,6 @@ contexts:
         1: constant.numeric.sign.json5
         2: constant.numeric.base.json5
         3: constant.numeric.value.json5
-      pop: 1
 
 ####[ Strings ]#########################################################################################################
 
