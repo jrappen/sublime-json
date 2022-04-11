@@ -18,7 +18,7 @@
     - only allow exactly one structure (object, array) or value
       (constant, number, string) at top level (thanks to Keith)
 - JSONC:
-    - highlight some files by default as `JSONC` (as decided by Jon
+    - highlight some files by default as `JSONC` (as decided by @jskinner
       in #285)
     - highlight leading & multiple commas as invalid, trailing as valid
     - scope empty block comments as such
@@ -27,30 +27,30 @@
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
-    - ECMA identifierName as object keys (regexes thanks to Thomas)
-        - scoped as plain unquoted strings (thanks to Thomas)
-        - support string interpolation (thanks to deathaxe)
-    - line continuation in strings (with tests thanks to Keith)
+    - ECMA identifierName as object keys (regexes thanks to @Thom1729)
+        - scoped as plain unquoted strings (thanks to @Thom1729)
+        - support string interpolation (thanks to @deathaxe)
+    - line continuation in strings (with tests thanks to @keith-hall)
 - JSON.NET:
-    - support requested by Keith, built with feedback from Michael
+    - support requested by @keith-hall, built with feedback from @michaelblyons
 - Objects:
     - Correctly scope top level object keys to add them to the symbol list (also
       add tests, see below)
     - Highlighting speed improvements for empty objects (thanks to
-      FichteFoll)
+      @FichteFoll)
     - Make `mapping.*` contexts more modular
 - Arrays:
     - Highlighting speed improvements for empty arrays (thanks to
-      FichteFoll)
+      @FichteFoll)
 - Numbers:
     - Correctly scope number signs with `constant.numeric.sign` instead
       of `keyword.operator.arithmetic`
-    - Significantly improve number highlighting (thanks to deathaxe)
+    - Significantly improve number highlighting (thanks to @deathaxe)
 - Syntaxes:
     - Make use of newer syntax features including those only available
       in `version: 2` syntaxes
-    - Make use of `variables` (with optimizations provided by deathaxe
-      and regex patterns provided by Thomas)
+    - Make use of `variables` (with optimizations provided by @deathaxe
+      and regex patterns provided by @Thom1729)
 - Tests:
     - Significantly extend tests to cover more parts of the syntaxes
       defined.
@@ -86,11 +86,11 @@ BREAKING CHANGES:
 
 
 - fix #285
-- address #481 to remove incompatible regex patterns according to Will
-- address #757 to fix line comments for `JSONC` (thanks to Keith)
-- address #2430 using sort-order (as requested by deathaxe)
+- address #481 to remove incompatible regex patterns according to @wbond
+- address #757 to fix line comments for `JSONC` (thanks to @keith-hall)
+- address #2430 using sort-order (as requested by @deathaxe)
 - address #2852 to fix scopes of curly braces & square brackets in
-  `JSON` (thanks to Thomas)
+  `JSON` (thanks to @Thom1729)
 - address #3228 to fix `punctuation.separator` scopes, compare #3270
 - address sublimehq/sublime_text#3154 and add symbol tests
 
