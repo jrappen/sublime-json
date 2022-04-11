@@ -146,15 +146,12 @@ contexts:
 
 ####[ Helpers ]#########################################################################################################
 
-  any:
+  any-value:
     - include: objects
     - include: arrays
     - include: constants
     - include: numbers
     - include: strings
-
-  any-value:
-    - include: any
     - include: else-pop
 
   invalid-remainder:
@@ -200,19 +197,15 @@ contexts:
   valid-constants:
     - match: \b(?:null)\b
       scope: constant.language.null.json
-      pop: 1
     - match: \b(?:false|true)\b
       scope: constant.language.boolean.json
-      pop: 1
 
   invalid-constants:
     # when erroneously containing upper case letters
     - match: \b(?i:null)\b
       scope: invalid.illegal.expected-lower-case-null.json
-      pop: 1
     - match: \b(?i:false|true)\b
       scope: invalid.illegal.expected-lower-case-boolean.json
-      pop: 1
 
 ####[ Numbers ]#########################################################################################################
 
@@ -241,7 +234,6 @@ contexts:
         2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
         4: punctuation.separator.decimal.json
-      pop: 1
 
   integer:
     - include: decimal-integer
@@ -253,7 +245,6 @@ contexts:
         1: constant.numeric.sign.json
         2: invalid.illegal.numeric-sign.json
         3: constant.numeric.value.json
-      pop: 1
 
 ####[ Strings ]#########################################################################################################
 
@@ -343,7 +334,7 @@ contexts:
     - include: array-item
 
   array-item:
-    - include: any
+    - include: any-value
     - include: invalid-array-separator
 
   invalid-array-separator:
