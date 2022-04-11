@@ -19,6 +19,7 @@ file_extensions:
     # https://datatracker.ietf.org/doc/html/rfc7159
     # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
+hidden_file_extensions:
   - .bowerrc
     # Bower
     # https://bower.io/docs/config/

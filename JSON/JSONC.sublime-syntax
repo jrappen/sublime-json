@@ -19,39 +19,20 @@ extends: Packages/JSON/JSON.sublime-syntax
 file_extensions:
   - jsonc
 
-  - sublime-build
-    # https://www.sublimetext.com/docs/build_systems.html
-
-  - sublime-color-scheme
-    # https://www.sublimetext.com/docs/color_schemes.html
-
+  - sublime-build                                                               # https://www.sublimetext.com/docs/build_systems.html
+  - sublime-color-scheme                                                        # https://www.sublimetext.com/docs/color_schemes.html
   - sublime-commands
-
-  - sublime-completions
-    # https://www.sublimetext.com/docs/completions.html
-
-  - sublime-keymap
-    # https://www.sublimetext.com/docs/key_bindings.html
-
+  - sublime-completions                                                         # https://www.sublimetext.com/docs/completions.html
+  - sublime-keymap                                                              # https://www.sublimetext.com/docs/key_bindings.html
   - sublime-macro
-
-  - sublime-menu
-    # https://www.sublimetext.com/docs/menus.html
-
+  - sublime-menu                                                                # https://www.sublimetext.com/docs/menus.html
   - sublime-mousemap
+  - sublime-project                                                             # https://www.sublimetext.com/docs/projects.html
+  - sublime-settings                                                            # https://www.sublimetext.com/docs/settings.html
+  - sublime-theme                                                               # https://www.sublimetext.com/docs/themes.html
+  - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
 
-  - sublime-project
-    # https://www.sublimetext.com/docs/projects.html
-
-  - sublime-settings
-    # https://www.sublimetext.com/docs/settings.html
-
-  - sublime-theme
-    # https://www.sublimetext.com/docs/themes.html
-
-  - sublime-workspace
-    # https://www.sublimetext.com/docs/projects.html
-
+hidden_file_extensions:
   - .ember-cli
 
   - .eslintrc

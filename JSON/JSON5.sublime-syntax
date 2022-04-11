@@ -17,12 +17,12 @@ version: 2
 extends: Packages/JSON/JSONC.sublime-syntax
 
 file_extensions:
-
   - json5
     # https://json5.org/
     # https://spec.json5.org/#summary-of-features
     # https://262.ecma-international.org/5.1/
 
+hidden_file_extensions:
   - .babelrc
     # Babel.js File-relative Configuration
     # https://babeljs.io/docs/en/config-files
