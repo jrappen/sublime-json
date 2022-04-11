@@ -26,18 +26,20 @@ first_line_match: |-
     ^ \s* // .*? -\*- .*? \bjson\.net\b .*? -\*-                                    # editorconfig
   )
 
+########################################################################################################################
 
 contexts:
 
 ####[ Strings ]#########################################################################################################
 
-  string:
+  strings:
     - meta_prepend: true
     - include: datetime-string
 
   datetime-string:
 
-    # for date strings of json.Net v4.5+ with an ISO Date like "2000-01-01T00:00:00Z"
+    # for date strings of json.Net v4.5+ with an ISO Date
+    # like "2000-01-01T00:00:00Z"
     - match: |-
         (?x:
           (\")
@@ -57,7 +59,8 @@ contexts:
         2: constant.other.timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet
 
-    # for date strings (of the old discontinued format) erroneously containing double escapes "\/Date(1234)\/"
+    # for date strings (of the old discontinued format) erroneously containing double escapes
+    # like "\/Date(1234)\/"
     - match: |-
         (?x:
           (\")
@@ -79,7 +82,8 @@ contexts:
         4: invalid.illegal.double-escape.jsondotnet
         5: punctuation.definition.string.end.jsondotnet
 
-    # the old discontinued format "/Date(1234)/"
+    # the old discontinued format
+    # like "/Date(1234)/"
     - match: |-
         (?x:
           (\")

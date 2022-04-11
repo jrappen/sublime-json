@@ -130,6 +130,7 @@ variables:
   exponent: (?:[eE][-+]?\d+)
   pos_integer_decimal: (?:0|[1-9]\d*)
 
+########################################################################################################################
 
 contexts:
 
@@ -142,18 +143,18 @@ contexts:
         - invalid-remainder
         - any-value
 
-####[ Top level ]#######################################################################################################
+####[ Helpers ]#########################################################################################################
+
+  any:
+    - include: objects
+    - include: arrays
+    - include: constants
+    - include: numbers
+    - include: strings
 
   any-value:
     - include: any
     - include: else-pop
-
-  any:
-    - include: object
-    - include: array
-    - include: constant
-    - include: number
-    - include: string
 
   invalid-remainder:
     - match: '[,:]'
@@ -191,7 +192,11 @@ contexts:
 
 ####[ Constants ]#######################################################################################################
 
-  constant:
+  constants:
+    - include: valid-constants
+    - include: invalid-constants
+
+  valid-constants:
     - match: \b(?:null)\b
       scope: constant.language.null.json
       pop: 1
@@ -199,6 +204,7 @@ contexts:
       scope: constant.language.boolean.json
       pop: 1
 
+  invalid-constants:
     # when erroneously containing upper case letters
     - match: \b(?i:null)\b
       scope: invalid.illegal.expected-lower-case-null.json
@@ -209,7 +215,7 @@ contexts:
 
 ####[ Numbers ]#########################################################################################################
 
-  number:
+  numbers:
     - include: float
     - include: integer
 
@@ -250,7 +256,7 @@ contexts:
 
 ####[ Strings ]#########################################################################################################
 
-  string:
+  strings:
     - include: double-quoted-string
 
   double-quoted-string:
@@ -302,7 +308,7 @@ contexts:
 
 ####[ Sequences ]#######################################################################################################
 
-  array:
+  arrays:
     - match: \[
       scope: punctuation.definition.sequence.begin.json
       set:
@@ -320,12 +326,12 @@ contexts:
     - match: (?=,)
       branch_point: array-separators
       branch:
-        - array-separator
-        - illegal-separator
+        - valid-array-separator
+        - invalid-array-separator
     - match: (?=\S)
       push: array-item
 
-  array-separator:
+  valid-array-separator:
     - match: ','
       scope: punctuation.separator.sequence.json
       set: array-expect-value
@@ -337,14 +343,19 @@ contexts:
 
   array-item:
     - include: any
-    - include: illegal-separator
+    - include: invalid-array-separator
+
+  invalid-array-separator:
+    - match: ','
+      scope: invalid.illegal.unexpected-separator.json
+    - include: else-pop
 
 ####[ Mappings ]########################################################################################################
 
   # FIXME: leading separators
   # FIXME: trailing commas
 
-  object:
+  objects:
     - match: \{
       scope: punctuation.definition.mapping.begin.json
       set: object-body
@@ -395,13 +406,6 @@ contexts:
     - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
       scope: invalid.illegal.expected-mapping-separator.json
       pop: 1
-
-####[ Illegals ]########################################################################################################
-
-  illegal-separator:
-    - match: ','
-      scope: invalid.illegal.unexpected-separator.json
-    - include: else-pop
 
 ####[ Prototypes ]######################################################################################################
 
