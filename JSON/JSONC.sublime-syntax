@@ -119,8 +119,11 @@ contexts:
 
   comment-block:
     # empty block comments
-    - match: /\*\*+/
-      scope: comment.block.empty.jsonc punctuation.definition.comment.jsonc
+    - match: (/\*)\**(\*/)
+      scope: comment.block.empty.jsonc
+      captures:
+        1: punctuation.definition.comment.begin.jsonc
+        2: punctuation.definition.comment.end.jsonc
     # normal block comments
     - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
