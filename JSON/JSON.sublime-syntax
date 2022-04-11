@@ -178,6 +178,8 @@ contexts:
       pop: 1
 
   comment-block:
+    - match: /\*\*+/
+      scope: invalid.illegal.comment.json
     - match: /\*
       push: comment-block-content
 
