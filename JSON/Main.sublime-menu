@@ -26,8 +26,8 @@
                                 "command": "json_prettify"
                             },
                             {
-                                "command": "json_toggle_auto_prettify",
-                                "caption": "JSON: Automatically prettify before saving"
+                                "caption": "JSON: Automatically prettify before saving",
+                                "command": "json_toggle_auto_prettify"
                             },
                             {
                                 "caption": "JSONC: Minify",
@@ -97,7 +97,7 @@
                                 "children":
                                 [
                                     {
-                                        "caption": "Changelog",
+                                        "caption": "Changelog (default packages / JSON only)",
                                         "command": "open_url",
                                         "args":
                                         {
