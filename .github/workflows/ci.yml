@@ -27,7 +27,7 @@ on:
 
 jobs:
   run_syntax_tests:
-    name: Test on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
+    name: Test on ${{ matrix.sublime-channel }} Build
     runs-on: ubuntu-latest
     timeout-minutes: 15 # default is 6 hours!
     continue-on-error: ${{ matrix.optional }}
