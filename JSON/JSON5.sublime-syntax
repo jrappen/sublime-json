@@ -68,6 +68,8 @@ first_line_match: |-
 
 variables:
 
+  #   Boost documentation:
+  #       https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
   #   Unicode documentation:
   #       https://www.unicode.org/versions/latest/
   #       https://www.unicode.org/Public/UCD/latest/ucd/
