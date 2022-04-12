@@ -142,20 +142,26 @@ contexts:
     - match: (?=\S)
       push:
         - invalid-remainder
-        - any-value
+        - any-else-pop
 
 ####[ Helpers ]#########################################################################################################
 
   any:
+    - include: structures
+    - include: values
+
+  any-else-pop:
+    - include: any
+    - include: else-pop
+
+  structures:
     - include: objects
     - include: arrays
+
+  values:
     - include: constants
     - include: numbers
     - include: strings
-
-  any-value:
-    - include: any
-    - include: else-pop
 
   invalid-remainder:
     - match: '[,:]'
@@ -176,8 +182,7 @@ contexts:
   comment-line-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
-    - match: \n
-      pop: 1
+    - include: eol-pop
 
   comment-block:
     - match: /\*\*+/
@@ -394,7 +399,7 @@ contexts:
     - match: (?=\S)
       set:
         - mapping-value
-        - any-value
+        - any-else-pop
 
   mapping-value:
     - clear_scopes: 1
@@ -412,4 +417,8 @@ contexts:
 
   else-pop:
     - match: (?=\S)
+      pop: 1
+
+  eol-pop:
+    - match: '$\n?'
       pop: 1
