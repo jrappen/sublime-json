@@ -24,20 +24,20 @@ first_line_match: |-
     ^ \s* // .*? -\*- .*? \bjsonl\b .*? -\*-  # editorconfig
   )
 
+variables:
+  exponent: (?:[eE][-+]?\d+)
+  pos_integer_decimal: (?:0|[1-9]\d*)
 
-####{ Contexts }########################################################################################################
+########################################################################################################################
 
 contexts:
 
-  prototype:
-    - include: comments
-
   main:
-    - include: any
-
-  any:
+    - include: comments
     - include: structures
     - include: values
+
+####[ Helpers ]#########################################################################################################
 
   structures:
     - include: objects
@@ -55,62 +55,111 @@ contexts:
   ##[ Comments ]########################################################################################################
 
   comments:
-    - meta_include_prototype: false
     - include: comment-line
     - include: comment-doc-block
     - include: comment-block
 
   comment-line:
-    - meta_include_prototype: false
-    - match: '//'
+    - match: |-
+        (?x:                                                                    # comment.line.double-slash
+          (?://)                                                                # punctuation.definition.comment
+          (?:[^\n]*)
+        )
       scope: invalid.illegal.comment.jsonl
-      push:
-        - meta_content_scope: invalid.illegal.comment.jsonl
-        - meta_include_prototype: false
-        - include: eol-pop
 
   comment-doc-block:
-    - meta_include_prototype: false
-    - match: '/\*\*(?!/)'
+    - match: |-
+        (?x:                                                                    # comment.block.documentation
+          (?:/\*\*)                                                             # punctuation.definition.comment.begin
+          (?:(?!\*/|\n)*)
+          (?:\*/)                                                               # punctuation.definition.comment.end
+        )
       scope: invalid.illegal.comment.jsonl
-      push:
-        - meta_content_scope: invalid.illegal.comment.jsonl
-        - meta_include_prototype: false
-        - include: comment-block-end
-        - match: '^\s*(\*)(?!/)'
-          captures:
-            1: invalid.illegal.comment.jsonl
 
   comment-block:
-    - meta_include_prototype: false
-    - match: '/\*'
+    - match: |-
+        (?x:                                                                    # comment.block
+          (?:/\*)                                                               # punctuation.definition.comment.begin
+          (?:(?!\*/|\n)*)
+          (?:\*/)                                                               # punctuation.definition.comment.end
+        )
       scope: invalid.illegal.comment.jsonl
-      push:
-        - meta_content_scope: invalid.illegal.comment.jsonl
-        - meta_include_prototype: false
-        - include: comment-block-end
 
-  comment-block-end:
-    - meta_include_prototype: false
-    - match: '\*/'
-      scope: invalid.illegal.comment.jsonl
-      pop: 1
-
-  ##[ Values ]##########################################################################################################
+####[ Constants ]#######################################################################################################
 
   constants:
-    - include: Packages/JSON/JSON.sublime-syntax#constants
+    - include: valid-constants
+    - include: invalid-constants
+
+  valid-constants:
+    - match: \b(?:null)\b
+      scope: constant.language.null.jsonl
+    - match: \b(?:false|true)\b
+      scope: constant.language.boolean.jsonl
+
+  invalid-constants:
+    # when erroneously containing upper case letters
+    - match: \b(?i:null)\b
+      scope: invalid.illegal.expected-lower-case-null.jsonl
+    - match: \b(?i:false|true)\b
+      scope: invalid.illegal.expected-lower-case-boolean.jsonl
+
+####[ Numbers ]#########################################################################################################
 
   numbers:
-    - include: Packages/JSON/JSON.sublime-syntax#numbers
+    - include: float
+    - include: integer
+
+  float:
+    - include: decimal-float
+
+  decimal-float:
+    - match: |-
+        (?x:
+          (?:(-)|(\+))?
+          (
+            {{pos_integer_decimal}}
+            (?:
+              (\.)\d+ {{exponent}}?                                             # 1.1 1.1e1 1.1e-1 1.1e+1
+              | {{exponent}}                                                    # 1e1 1+e1 1-e1
+            )
+          )
+        )
+      scope: meta.number.float.decimal.jsonl
+      captures:
+        1: constant.numeric.sign.jsonl
+        2: invalid.illegal.numeric-sign.jsonl
+        3: constant.numeric.value.jsonl
+        4: punctuation.separator.decimal.jsonl
+
+  integer:
+    - include: decimal-integer
+
+  decimal-integer:
+    - match: (?:(-)|(\+))?({{pos_integer_decimal}})
+      scope: meta.number.integer.decimal.jsonl
+      captures:
+        1: constant.numeric.sign.jsonl
+        2: invalid.illegal.numeric-sign.jsonl
+        3: constant.numeric.value.jsonl
+
+####[ Strings ]#########################################################################################################
+
+  # FIXME: fix this context
 
   strings:
     - include: Packages/JSON/JSON.sublime-syntax#strings
 
-  ##[ Sequence ]##########################################################################################################
+  ##[ Sequence ]########################################################################################################
 
+  # FIXME: fix this context
 
+  arrays:
+    - include: Packages/JSON/JSON.sublime-syntax#arrays
 
-  ##[ Mapping ]##########################################################################################################
+  ##[ Mapping ]#########################################################################################################
 
+  # FIXME: fix this context
 
+  objects:
+    - include: Packages/JSON/JSON.sublime-syntax#objects
