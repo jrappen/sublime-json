@@ -3,8 +3,9 @@
 
 - Using inheritance split up `JSON.sublime-syntax` into:
     - `JSON.sublime-syntax` with `scope:source.json`
-    - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
+    - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
+    - `JSONL.sublime-syntax` with `scope:source.json.jsonl`
     - `JSONdotNET.sublime-syntax` with `scope:source.json.jsondotnet`
 - Add many more file extensions for `JSON` & `JSONC`:
     - add doc links to extensions where applicable as a reference to be
@@ -62,7 +63,7 @@
         - the following scope:
           `source.json meta.mapping.key - meta.mapping meta.mapping`
           (thanks to deathaxe)
-        - languages: `json`, `jsonc` & `json5`
+        - languages: `json`, `json5`, `jsonc` & `jsonl`
     - Fix tests for `meta.mapping meta.mapping.*`
 - Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
   code blocks into `json`, `jsonc` & `json5` to behave similarly to
