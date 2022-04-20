@@ -57,7 +57,7 @@
       defined.
     - Split original test file into logical parts
     - Add indentation tests for:
-        - `json`, `jsonc` & `json5`
+        - `json`, `json5` & `jsonc`
         - `mapping` (objects), `sequence` (arrays)
     - Add symbols tests for:
         - the following scope:
@@ -66,7 +66,7 @@
         - languages: `json`, `json5`, `jsonc` & `jsonl`
     - Fix tests for `meta.mapping meta.mapping.*`
 - Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
-  code blocks into `json`, `jsonc` & `json5` to behave similarly to
+  code blocks into `json`, `json5` & `jsonc` to behave similarly to
   `GitHub Flavored Markdown`
 
 
