@@ -86,9 +86,12 @@ BREAKING CHANGES:
 
 
 - fix #285
+- address #421 (thanks to @FichteFoll)
 - address #481 to remove incompatible regex patterns according to @wbond
 - address #757 to fix line comments for `JSONC` (thanks to @keith-hall)
 - address #2430 using sort-order (as requested by @deathaxe)
+- address #2711 with regards to `constant.language.null`
+  vs. `constant.language.empty` (thanks to @FichteFoll)
 - address #2852 to fix scopes of curly braces & square brackets in
   `JSON` (thanks to @Thom1729)
 - address #3228 to fix `punctuation.separator` scopes, compare #3270
