@@ -5,9 +5,6 @@
 	<string>source.json.json5</string>
 	<key>settings</key>
 	<dict>
-		<key>indentationFoldingEnabled</key>
-		<false/>
-		<!-- define syntax based folding rules for Sublime Text Build 4131 and later -->
 		<key>foldScopes</key>
 		<array>
 			<dict>
