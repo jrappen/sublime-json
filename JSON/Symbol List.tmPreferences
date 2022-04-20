@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json meta.mapping.key - meta.mapping meta.mapping</string>
+	<string>source.json meta.mapping.key - meta.mapping meta.mapping - meta.sequence meta.mapping</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
