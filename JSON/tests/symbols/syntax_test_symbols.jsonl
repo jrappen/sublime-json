@@ -1,0 +1,7 @@
+// SYNTAX TEST "Packages/JSON/JSONL.sublime-syntax"
+
+// <- source.json.jsonl
+
+{   "key": "value", "key-two": { "key-two-one": "value", "key-two-two": "value" } }
+//  @@@@@ definition
+//                  @@@@@@@@@ definition
