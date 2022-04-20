@@ -9,7 +9,7 @@
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONL.sublime-syntax
 #
-name: JSONL
+name: JSONL (newline-delimited JSON)
 scope: source.json.jsonl
 version: 2
 
