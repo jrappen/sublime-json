@@ -2,19 +2,13 @@
 
 // <- source.json - source.json.jsonc
 
-
-
-//  NOTE:
-//
-//  "key-one" and "key-two" are keys within an object within an array,
-//  not top-level keys within an array,
-//  so we do NOT mark them in this test file with "@@@ definition"
-
-
-
 [
     {
         "key-one": "value",
+//      @@@@@@@@@ none
+//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
         "key-two": "value"
+//      @@@@@@@@@ none
+//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
     }
 ]
