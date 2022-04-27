@@ -11,4 +11,5 @@
 
     "null": null
 //          ^^^^ constant.language.null
+//          ^^^^ - constant.language.empty
 }

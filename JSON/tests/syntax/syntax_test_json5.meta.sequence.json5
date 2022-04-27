@@ -14,6 +14,7 @@
 
     null,
 //  ^^^^ constant.language.null
+//  ^^^^ - constant.language.empty
 
     0,
 //  ^ meta.number.integer.decimal constant.numeric.value
