@@ -3,8 +3,8 @@
 // <- source.json - source.json.jsonc
 
 // comment
-// <- invalid.illegal.comment - invalid.illegal.cooment invalid.illegal.comment
- // <- invalid.illegal.comment - invalid.illegal.cooment invalid.illegal.comment
-//^^^^^^^^ invalid.illegal.comment - invalid.illegal.cooment invalid.illegal.comment
+// <- invalid.illegal.comment - invalid.illegal.comment invalid.illegal.comment
+ // <- invalid.illegal.comment - invalid.illegal.comment invalid.illegal.comment
+//^^^^^^^^ invalid.illegal.comment - invalid.illegal.comment invalid.illegal.comment
 
 "testing use of meta_content_scope vs meta_scope"
