@@ -59,8 +59,8 @@ contexts:
         2: constant.other.timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet
 
-    # for date strings (of the old discontinued format) erroneously containing double escapes
-    # like "\/Date(1234)\/"
+    # for date strings (of the old discontinued format) erroneously containing
+    # double escapes like "\/Date(1234)\/"
     - match: |-
         (?x:
           (\")
@@ -82,8 +82,7 @@ contexts:
         4: invalid.illegal.double-escape.jsondotnet
         5: punctuation.definition.string.end.jsondotnet
 
-    # the old discontinued format
-    # like "/Date(1234)/"
+    # the old discontinued format like "/Date(1234)/"
     - match: |-
         (?x:
           (\")
