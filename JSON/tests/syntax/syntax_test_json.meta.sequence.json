@@ -26,13 +26,13 @@
 //  ^^^^^^^ string.quoted.double
 
     [],
-//  ^^ meta.sequence.list
+//  ^^ meta.sequence.list meta.sequence.list
 
     [ ],
-//  ^^^ meta.sequence.list
+//  ^^^ meta.sequence.list meta.sequence.list
 
     [1, 2, 3],
-//  ^^^^^^^^^ meta.sequence.list
+//  ^^^^^^^^^ meta.sequence.list meta.sequence.list
 //  ^ punctuation.definition.sequence.begin
 //   ^ constant.numeric.value
 //    ^ punctuation.separator.sequence
