@@ -1,0 +1,10 @@
+//  Packages/JSON/JSONL.sublime-settings
+//  Settings - Syntax Specific (Default)
+//
+//  This file is being maintained at:
+//      https://github.com/sublimehq/Packages/blob/master/JSON/JSONL.sublime-settings
+
+
+{
+    "default_extension": "jsonl"
+}

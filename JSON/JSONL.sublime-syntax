@@ -1,0 +1,165 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html#ver-dev
+#       https://www.sublimetext.com/docs/syntax.html#testing:ver-dev
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/JSONL.sublime-syntax
+#
+name: JSONL (newline-delimited JSON)
+scope: source.json.jsonl
+version: 2
+
+file_extensions:
+  - jsonl
+    # https://jsonlines.org/
+    # https://jsonlines.org/examples/
+    # https://jsonlines.org/on_the_web/
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bjsonl\b .*? -\*-  # editorconfig
+  )
+
+variables:
+  exponent: (?:[eE][-+]?\d+)
+  pos_integer_decimal: (?:0|[1-9]\d*)
+
+########################################################################################################################
+
+contexts:
+
+  main:
+    - include: comments
+    - include: structures
+    - include: values
+
+####[ Helpers ]#########################################################################################################
+
+  structures:
+    - include: objects
+    - include: arrays
+
+  values:
+    - include: constants
+    - include: numbers
+    - include: strings
+
+  eol-pop:
+    - match: '$\n?'
+      pop: 1
+
+  ##[ Comments ]########################################################################################################
+
+  comments:
+    - include: comment-line
+    - include: comment-doc-block
+    - include: comment-block
+
+  comment-line:
+    - match: |-
+        (?x:                                                                    # comment.line.double-slash
+          (?://)                                                                # punctuation.definition.comment
+          (?:[^\n]*)
+        )
+      scope: invalid.illegal.comment.jsonl
+
+  comment-doc-block:
+    - match: |-
+        (?x:                                                                    # comment.block.documentation
+          (?:/\*\*)                                                             # punctuation.definition.comment.begin
+          (?:(?!\*/|\n)*)
+          (?:\*/)                                                               # punctuation.definition.comment.end
+        )
+      scope: invalid.illegal.comment.jsonl
+
+  comment-block:
+    - match: |-
+        (?x:                                                                    # comment.block
+          (?:/\*)                                                               # punctuation.definition.comment.begin
+          (?:(?!\*/|\n)*)
+          (?:\*/)                                                               # punctuation.definition.comment.end
+        )
+      scope: invalid.illegal.comment.jsonl
+
+####[ Constants ]#######################################################################################################
+
+  constants:
+    - include: valid-constants
+    - include: invalid-constants
+
+  valid-constants:
+    - match: \b(?:null)\b
+      scope: constant.language.null.jsonl
+    - match: \b(?:false|true)\b
+      scope: constant.language.boolean.jsonl
+
+  invalid-constants:
+    # when erroneously containing upper case letters
+    - match: \b(?i:null)\b
+      scope: invalid.illegal.expected-lower-case-null.jsonl
+    - match: \b(?i:false|true)\b
+      scope: invalid.illegal.expected-lower-case-boolean.jsonl
+
+####[ Numbers ]#########################################################################################################
+
+  numbers:
+    - include: float
+    - include: integer
+
+  float:
+    - include: decimal-float
+
+  decimal-float:
+    - match: |-
+        (?x:
+          (?:(-)|(\+))?
+          (
+            {{pos_integer_decimal}}
+            (?:
+              (\.)\d+ {{exponent}}?                                             # 1.1 1.1e1 1.1e-1 1.1e+1
+              | {{exponent}}                                                    # 1e1 1+e1 1-e1
+            )
+          )
+        )
+      scope: meta.number.float.decimal.jsonl
+      captures:
+        1: constant.numeric.sign.jsonl
+        2: invalid.illegal.numeric-sign.jsonl
+        3: constant.numeric.value.jsonl
+        4: punctuation.separator.decimal.jsonl
+
+  integer:
+    - include: decimal-integer
+
+  decimal-integer:
+    - match: (?:(-)|(\+))?({{pos_integer_decimal}})
+      scope: meta.number.integer.decimal.jsonl
+      captures:
+        1: constant.numeric.sign.jsonl
+        2: invalid.illegal.numeric-sign.jsonl
+        3: constant.numeric.value.jsonl
+
+####[ Strings ]#########################################################################################################
+
+  # FIXME: fix this context
+
+  strings:
+    - include: Packages/JSON/JSON.sublime-syntax#strings
+
+  ##[ Sequence ]########################################################################################################
+
+  # FIXME: fix this context
+
+  arrays:
+    - include: Packages/JSON/JSON.sublime-syntax#arrays
+
+  ##[ Mapping ]#########################################################################################################
+
+  # FIXME: fix this context
+
+  objects:
+    - include: Packages/JSON/JSON.sublime-syntax#objects
