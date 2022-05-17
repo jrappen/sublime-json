@@ -5,22 +5,63 @@
 {
     _keyOne: "value",
 //  @@@@@@@ definition
+//  ^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
 
     $keyTwo: "value",
 //  @@@@@@@ definition
+//  ^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
 
     \u1234keyThree: "value",
 //  @@@@@@@@@@@@@@ definition
+//  ^^^^^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
 
     "key-four": "value",
 //  @@@@@@@@@@ definition
+//  ^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
 
     'key-five': 'value',
 //  @@@@@@@@@@ definition
+//  ^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
 
-    "key-six": { "key-three-one": "value", "key-three-two": "value" },
+    "key-six":
 //  @@@@@@@@@ definition
+//  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+    {
+        _keyThreeOne: "value",
+//      @@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        $keyThreeTwo: "value",
+//      @@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        \u1234keyThreeThree: "value",
+//      @@@@@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        "key-three-four": "value",
+//      @@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        'key-three-five': "value"
+//      @@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+    },
 
-    'key-seven': { 'key-four-one': 'value', 'key-four-two': 'value' }
+    'key-seven':
 //  @@@@@@@@@@@ definition
+//  ^^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+    {
+        _keyFourOne: 'value',
+//      @@@@@@@@@@@ none
+//      ^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        $keyFourTwo: 'value',
+//      @@@@@@@@@@@ none
+//      ^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        \u1234keyFourThree: 'value',
+//      @@@@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        "key-four-four": 'value',
+//      @@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        'key-four-five': 'value'
+//      @@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+    }
 }
