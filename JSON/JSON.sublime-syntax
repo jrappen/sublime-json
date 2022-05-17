@@ -169,6 +169,16 @@ contexts:
     - match: '[^,:\s]+'
       scope: invalid.illegal.unexpected-code-after-first-structure-or-value.json
 
+####[ Prototypes ]######################################################################################################
+
+  else-pop:
+    - match: (?=\S)
+      pop: 1
+
+  eol-pop:
+    - match: '$\n?'
+      pop: 1
+
 ####[ Comments ]########################################################################################################
 
   comments:
@@ -411,14 +421,4 @@ contexts:
       pop: 1
     - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
       scope: invalid.illegal.expected-mapping-separator.json
-      pop: 1
-
-####[ Prototypes ]######################################################################################################
-
-  else-pop:
-    - match: (?=\S)
-      pop: 1
-
-  eol-pop:
-    - match: '$\n?'
       pop: 1
