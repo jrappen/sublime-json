@@ -27,41 +27,41 @@
 //  @@@@@@@@@ definition
 //  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
     {
-        _keyThreeOne: "value",
-//      @@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        $keyThreeTwo: "value",
-//      @@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        \u1234keyThreeThree: "value",
-//      @@@@@@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        "key-three-four": "value",
-//      @@@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        'key-three-five': "value"
-//      @@@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        _keySixOne: "value",
+//      @@@@@@@@@@ none
+//      ^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        $keySixTwo: "value",
+//      @@@@@@@@@@ none
+//      ^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        \u1234keySixThree: "value",
+//      @@@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        "key-six-four": "value",
+//      @@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        'key-six-five': "value"
+//      @@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
     },
 
     'key-seven':
 //  @@@@@@@@@@@ definition
 //  ^^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
     {
-        _keyFourOne: 'value',
-//      @@@@@@@@@@@ none
-//      ^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        $keyFourTwo: 'value',
-//      @@@@@@@@@@@ none
-//      ^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        \u1234keyFourThree: 'value',
-//      @@@@@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        "key-four-four": 'value',
-//      @@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
-        'key-four-five': 'value'
-//      @@@@@@@@@@@@@@@ none
-//      ^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        _keySevenOne: 'value',
+//      @@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        $keySevenTwo: 'value',
+//      @@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        \u1234keySevenThree: 'value',
+//      @@@@@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        "key-seven-four": 'value',
+//      @@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+        'key-seven-five': 'value'
+//      @@@@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
     }
 }
