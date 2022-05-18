@@ -1,5 +1,7 @@
 // SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
 
+// <- source.json - (source.json.jsonc | source.json.json5)
+
 { }{ }
 // <- meta.mapping.json punctuation.definition.mapping.begin.json
  // <- meta.mapping.json
