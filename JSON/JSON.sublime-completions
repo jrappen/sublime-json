@@ -1,0 +1,27 @@
+{
+    "scope": "source.json",
+    "completions":
+    [
+        {
+            "trigger": "true",
+            "contents": "true",
+            "annotation": "constant.language",
+            "kind": ["snippet", "s", "Snippet"],
+            "details": "literal JSON constant"
+        },
+        {
+            "trigger": "false",
+            "contents": "false",
+            "annotation": "constant.language",
+            "kind": ["snippet", "s", "Snippet"],
+            "details": "literal JSON constant"
+        },
+        {
+            "trigger": "null",
+            "contents": "null",
+            "annotation": "constant.language",
+            "kind": ["snippet", "s", "Snippet"],
+            "details": "literal JSON constant"
+        }
+    ]
+}
