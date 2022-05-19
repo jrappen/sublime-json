@@ -130,6 +130,9 @@ first_line_match: |-
 variables:
   exponent: (?:[eE][-+]?\d+)
   pos_integer_decimal: (?:0|[1-9]\d*)
+  html_entity: '&([a-zA-Z0-9]+|#\d+|#[Xx]\h+);'
+  email_domain: '[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?'
+  email_user: '[a-zA-Z0-9.!#$%&''*+/=?^_`{|}~-]+'
 
 ########################################################################################################################
 
@@ -289,8 +292,95 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
     - include: double-quoted-string-escape-characters
+    - include: links
     - match: \n
       scope: invalid.illegal.unclosed-string.json
+      pop: 1
+
+  links:
+    - include: autolink-email
+    - include: autolink-inet
+
+  autolink-email:
+    - match: |-
+        (?x:
+          (<)
+          (
+            (?:mailto(:))?
+            {{email_user}}
+            (@)
+            {{email_domain}}(?:\.{{email_domain}})*
+          )
+          (>)
+        )
+      scope: meta.link.email.json
+      captures:
+        1: punctuation.definition.link.begin.json
+        2: markup.underline.link.json
+        3: punctuation.separator.path.json
+        4: punctuation.separator.path.json
+        5: punctuation.definition.link.end.json
+    - match: |-
+        (?x:
+          [\w.+-]+
+          (@)
+          [\w-]+(?:\.(?:(?![._-][\W])[\w_-])+)+(?![_-])
+        )
+      scope: |-
+        meta.link.email.json
+        markup.underline.link.json
+      captures:
+        1: punctuation.separator.path.json
+
+  autolink-inet:
+    - match: <(?=[[:alpha:]][[:alnum:].+-]+:)
+      scope: punctuation.definition.link.begin.json
+      push:
+        - autolink-inet-angled-content
+        - link-url-scheme-separator
+    - match: (?:(?:https|http|ftp)(://)|www\.)[\w-]+
+      captures:
+        1: punctuation.separator.path.json
+      push: autolink-inet-unquoted-content
+
+  autolink-inet-angled-content:
+    - meta_scope: meta.link.inet.json
+    - meta_content_scope: markup.underline.link.json
+    - match: \>
+      scope: punctuation.definition.link.end.json
+      pop: 1
+    - match: (?=\s)
+      pop: 1
+    - include: autolink-inet-common
+
+  autolink-inet-unquoted-content:
+    - meta_scope: |-
+        meta.link.inet.json
+        markup.underline.link.json
+    - match: (?=(?:\)|(?:{{html_entity}})*)[?!.,:*_~]*[\s<])
+      pop: 1
+    - include: autolink-inet-common
+
+  autolink-inet-group:
+    - match: \)
+      pop: 1
+    - match: (?=(?:{{html_entity}})*[?!.,:*_~]*[\s<])
+      pop: 1
+    - include: autolink-inet-common
+
+  autolink-inet-common:
+    - match: \(
+      push: autolink-inet-group
+    - match: '[/&?#]'
+      scope: punctuation.separator.path.json
+    - match: (%)\h{2}
+      scope: constant.character.escape.url.json
+      captures:
+        1: punctuation.definition.escape.json
+
+  link-url-scheme-separator:
+    - match: ':/{,2}'
+      scope: punctuation.separator.path.json
       pop: 1
 
   double-quoted-string-escape-characters:
