@@ -11,8 +11,8 @@
 //                           ^ - punctuation.definition.string.end
 
     /* comment 'not a string' */
-//  ^^ comment.block punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
+//  ^^ comment.block punctuation.definition.comment.begin
 //             ^^^^^^^^^^^^^^ - meta.string string.quoted.single
 //             ^ - punctuation.definition.string.begin
 //                          ^ - punctuation.definition.string.end
@@ -20,6 +20,7 @@
 
     /* comment
     'not a string' */
+//  ^^^^^^^^^^^^^^^^^ comment.block
 //  ^^^^^^^^^^^^^^ - meta.string string.quoted.single
 //  ^ - punctuation.definition.string.begin
 //               ^ - punctuation.definition.string.end

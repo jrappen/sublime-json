@@ -24,7 +24,7 @@
 //                                    ^^^^^^^^^ meta.number.float.decimal
 //                                    ^ constant.numeric.sign
 //                                     ^^^^^^^^ constant.language.infinity
-    "constant-language-infinity-neg": -Infinity,
+    "constant-language-infinity-neg": -Infinity
 //                                    ^^^^^^^^^ meta.number.float.decimal
 //                                    ^ constant.numeric.sign
 //                                     ^^^^^^^^ constant.language.infinity
