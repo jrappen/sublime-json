@@ -294,8 +294,10 @@ contexts:
       pop: 1
 
   double-quoted-string-escape-characters:
-    - match: \\\"
+    - match: (\\)\"
       scope: constant.character.escape.double-quote.json                        # quotation mark
+      captures:
+        1: punctuation.definition.escape.json
     - include: string-escape-characters
 
   string-escape-characters:
@@ -303,23 +305,39 @@ contexts:
     - include: invalid-string-escape-characters
 
   valid-string-escape-characters:
-    - match: \\\\
+    - match: (\\)\\
       scope: constant.character.escape.back-slash.json                          # reverse solidus
-    - match: \\\/
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)\/
       scope: constant.character.escape.forward-slash.json                       # solidus
-    - match: \\b
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)b
       scope: constant.character.escape.backspace.json
-    - match: \\f
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)f
       scope: constant.character.escape.form-feed.json
-    - match: \\n
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)n
       scope: constant.character.escape.newline.json                             # linefeed
-    - match: \\r
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)r
       scope: constant.character.escape.carriage-return.json
-    - match: \\t
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)t
       scope: constant.character.escape.horizontal-tab.json
-    - match: \\u[0-9a-fA-F]{4}
+      captures:
+        1: punctuation.definition.escape.json
+    - match: (\\)u[0-9a-fA-F]{4}
       scope: |-
         constant.character.escape.unicode-symbol.basic-multilingual-plane.json
+      captures:
+        1: punctuation.definition.escape.json
 
   invalid-string-escape-characters:
     - match: \\.
