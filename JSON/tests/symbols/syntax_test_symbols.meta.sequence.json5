@@ -4,19 +4,19 @@
 
 [
     {
-        "key-one": "value",
-//      @@@@@@@@@ none
-//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
-        "key-two": "value"
-//      @@@@@@@@@ none
-//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
+        "key-one-one": "value",
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
+        "key-one-two": "value"
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
     },
     {
-        'key-one': 'value',
-//      @@@@@@@@@ none
-//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
-        'key-two': 'value'
-//      @@@@@@@@@ none
-//      ^^^^^^^^^ meta.sequence.list meta.mapping.key
+        'key-two-one': 'value',
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
+        'key-two-two': 'value'
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
     }
 ]
