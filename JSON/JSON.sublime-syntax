@@ -282,7 +282,9 @@ contexts:
 
   double-quoted-string-content:
     - meta_include_prototype: false
-    - meta_scope: meta.string.json string.quoted.double.json
+    - meta_scope: |-
+        meta.string.json
+        string.quoted.double.json
     - match: \"
       scope: punctuation.definition.string.end.json
       pop: 1
@@ -293,7 +295,7 @@ contexts:
 
   double-quoted-string-escape-characters:
     - match: \\\"
-      scope: constant.character.escape.double-quote.json
+      scope: constant.character.escape.double-quote.json                        # quotation mark
     - include: string-escape-characters
 
   string-escape-characters:
@@ -302,9 +304,9 @@ contexts:
 
   valid-string-escape-characters:
     - match: \\\\
-      scope: constant.character.escape.back-slash.json
+      scope: constant.character.escape.back-slash.json                          # reverse solidus
     - match: \\\/
-      scope: constant.character.escape.forward-slash.json
+      scope: constant.character.escape.forward-slash.json                       # solidus
     - match: \\b
       scope: constant.character.escape.backspace.json
     - match: \\f
@@ -316,7 +318,8 @@ contexts:
     - match: \\t
       scope: constant.character.escape.horizontal-tab.json
     - match: \\u[0-9a-fA-F]{4}
-      scope: constant.character.escape.unicode-symbol.basic-multilingual-plane.json
+      scope: |-
+        constant.character.escape.unicode-symbol.basic-multilingual-plane.json
 
   invalid-string-escape-characters:
     - match: \\.
@@ -394,7 +397,10 @@ contexts:
   mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: meta.mapping.key.json meta.string.json string.quoted.double.json
+    - meta_scope: |-
+        meta.mapping.key.json
+        meta.string.json
+        string.quoted.double.json
     - include: double-quoted-string-content
 
   mapping-separator:

@@ -173,7 +173,9 @@ contexts:
 
   single-quoted-string-content:
     - meta_include_prototype: false
-    - meta_scope: meta.string.json5 string.quoted.single.json5
+    - meta_scope: |-
+        meta.string.json5
+        string.quoted.single.json5
     - match: \'
       scope: punctuation.definition.string.end.json5
       pop: 1
@@ -236,12 +238,18 @@ contexts:
   mapping-key-ecma:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: meta.mapping.key.json5 meta.string.json5 string.unquoted.plain.json5
+    - meta_scope: |-
+        meta.mapping.key.json5
+        meta.string.json5
+        string.unquoted.plain.json5
     - match: '{{identifier_break}}'
       pop: 1
 
   mapping-key-single-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: meta.mapping.key.json5 meta.string.json5 string.quoted.single.json5
+    - meta_scope: |-
+        meta.mapping.key.json5
+        meta.string.json5
+        string.quoted.single.json5
     - include: single-quoted-string-content
