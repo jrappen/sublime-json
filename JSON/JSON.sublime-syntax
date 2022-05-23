@@ -285,7 +285,7 @@ contexts:
 
   double-quoted-string-content:
     - meta_include_prototype: false
-    - meta_scope: |-
+    - meta_scope: >-
         meta.string.json
         string.quoted.double.json
     - match: \"
@@ -326,7 +326,7 @@ contexts:
           (@)
           [\w-]+(?:\.(?:(?![._-][\W])[\w_-])+)+(?![_-])
         )
-      scope: |-
+      scope: >-
         meta.link.email.json
         markup.underline.link.json
       captures:
@@ -354,7 +354,7 @@ contexts:
     - include: autolink-inet-common
 
   autolink-inet-unquoted-content:
-    - meta_scope: |-
+    - meta_scope: >-
         meta.link.inet.json
         markup.underline.link.json
     - match: (?=(?:\)|(?:{{html_entity}})*)[?!.,:*_~]*[\s<])
@@ -505,7 +505,7 @@ contexts:
   mapping-key-double-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: |-
+    - meta_scope: >-
         meta.mapping.key.json
         meta.string.json
         string.quoted.double.json

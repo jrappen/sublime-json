@@ -173,7 +173,7 @@ contexts:
 
   single-quoted-string-content:
     - meta_include_prototype: false
-    - meta_scope: |-
+    - meta_scope: >-
         meta.string.json5
         string.quoted.single.json5
     - match: \'
@@ -238,7 +238,7 @@ contexts:
   mapping-key-ecma:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: |-
+    - meta_scope: >-
         meta.mapping.key.json5
         meta.string.json5
         string.unquoted.plain.json5
@@ -248,7 +248,7 @@ contexts:
   mapping-key-single-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
-    - meta_scope: |-
+    - meta_scope: >-
         meta.mapping.key.json5
         meta.string.json5
         string.quoted.single.json5
