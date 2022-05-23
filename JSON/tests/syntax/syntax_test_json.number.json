@@ -1,6 +1,6 @@
-// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
 
-// <- source.json.jsonc
+// <- source.json
 
 {
     "zero": 0,
