@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json - (source.json.json-dotnet | source.json.json5 | source.json.jsonc)</string>
+	<string>source.json.json-dotnet</string>
 	<key>settings</key>
 	<dict>
 		<key>indentationFoldingEnabled</key>
