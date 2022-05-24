@@ -18,46 +18,34 @@
                         "children":
                         [
                             {
-                                "caption": "JSON: Minify",
-                                "command": "json_minify"
-                            },
-                            {
-                                "caption": "JSON: Prettify",
-                                "command": "json_prettify"
-                            },
-                            {
-                                "caption": "JSON: Automatically prettify before saving",
-                                "command": "json_toggle_auto_prettify"
-                            },
-                            {
-                                "caption": "JSONC: Minify",
-                                "command": "jsonc_minify"
-                            },
-                            {
-                                "caption": "JSONC: Prettify",
-                                "command": "jsonc_prettify"
-                            },
-                            { "caption": "-" },
-
-                            //  entries at this level above may be hidden depending
-                            //  upon the current view's syntax
-
-                            {
-                                "caption": "JSON: Settings - Syntax Specific",
-                                "command": "edit_settings",
-                                "args":
-                                {
-                                    "base_file": "${packages}/JSON/JSON.sublime-settings",
-                                    "default": "{\n\t$0\n}\n"
-                                }
-                            },
-                            { "caption": "-" },
-                            {
-                                "caption": "Documentation",
+                                "caption": "JSON",
                                 "children":
                                 [
                                     {
-                                        "caption": "JSON: Specs",
+                                        "caption": "Minify",
+                                        "command": "json_minify"
+                                    },
+                                    {
+                                        "caption": "Prettify",
+                                        "command": "json_prettify"
+                                    },
+                                    { "caption": "-" },
+                                    {
+                                        "caption": "Automatically prettify before saving",
+                                        "command": "json_toggle_auto_prettify"
+                                    },
+                                    {
+                                        "caption": "Settings - Syntax Specific",
+                                        "command": "edit_settings",
+                                        "args":
+                                        {
+                                            "base_file": "${packages}/JSON/JSON.sublime-settings",
+                                            "default": "{\n\t$0\n}\n"
+                                        }
+                                    },
+                                    { "caption": "-" },
+                                    {
+                                        "caption": "Documentation: Specs",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -65,7 +53,7 @@
                                         }
                                     },
                                     {
-                                        "caption": "JSON: RFC 7159",
+                                        "caption": "Documentation: RFC 7159",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -73,16 +61,35 @@
                                         }
                                     },
                                     {
-                                        "caption": "JSON: ECMA 404",
+                                        "caption": "Documentation: ECMA 404",
                                         "command": "open_url",
                                         "args":
                                         {
                                             "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
                                         }
-                                    },
-                                    { "caption": "-" },
+                                    }
+                                ]
+                            },
+                            {
+                                "caption": "JSONC (JSON with Comments)",
+                                "children":
+                                [
                                     {
-                                        "caption": "JSON5: Specs",
+                                        "caption": "Minify",
+                                        "command": "jsonc_minify"
+                                    },
+                                    {
+                                        "caption": "Prettify",
+                                        "command": "jsonc_prettify"
+                                    }
+                                ]
+                            },
+                            {
+                                "caption": "JSON5",
+                                "children":
+                                [
+                                    {
+                                        "caption": "Documentation: Specs",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -97,7 +104,7 @@
                                 "children":
                                 [
                                     {
-                                        "caption": "Changelog (default packages / JSON only)",
+                                        "caption": "Changelog (Packages/JSON)",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -105,7 +112,7 @@
                                         }
                                     },
                                     {
-                                        "caption": "Report an issue",
+                                        "caption": "Report a (JSON package) issue",
                                         "command": "open_url",
                                         "args":
                                         {
