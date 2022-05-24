@@ -424,7 +424,7 @@ contexts:
       captures:
         1: punctuation.definition.escape.json
     - match: (\\)u[0-9a-fA-F]{4}
-      scope: |-
+      scope: >-
         constant.character.escape.unicode-symbol.basic-multilingual-plane.json
       captures:
         1: punctuation.definition.escape.json
