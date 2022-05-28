@@ -8,11 +8,11 @@
 import sublime
 import sublime_plugin
 
+from __future__ import annotations
 import collections
 import decimal
 import json
 from typing import (
-    Any,
     Union
 )
 
@@ -33,7 +33,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
     print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
 
 
-def json2py(view: sublime.View) -> Any:
+def json2py(view: sublime.View) -> sublime.Value:
     old_contents: str = view.substr(
         x=whole_view(view)
     )
@@ -145,7 +145,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: Any = json2py(self.view)
+            json_as_python: sublime.Value = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit_token,
@@ -185,7 +185,7 @@ class JsonMinify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: Any = json2py(self.view)
+            json_as_python: sublime.Value = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit_token,

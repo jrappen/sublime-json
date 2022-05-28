@@ -8,10 +8,8 @@
 import sublime
 import sublime_plugin
 
+from __future__ import annotations
 import json
-from typing import (
-    Any
-)
 
 
 PKG_NAME: str = __package__.split('.')[0]
@@ -28,7 +26,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
     print(f'JSONC: {msg_header}:\n\n{msg_body}\n\n')
 
 
-def json2py(view: sublime.View) -> Any:
+def json2py(view: sublime.View) -> sublime.Value:
     old_contents: str = view.substr(
         x=whole_view(view)
     )
@@ -66,7 +64,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                 title='JSONC: Prettify'                                         # only shown on Windows
             ):
                 return
-            json_as_python = json2py(self.view)
+            json_as_python: sublime.Value = json2py(self.view)
             self.view.replace(
                 edit_token,
                 r=whole_view(self.view),
@@ -111,7 +109,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
                 title='JSONC: Minify'                                           # only shown on Windows
             ):
                 return
-            json_as_python = json2py(self.view)
+            json_as_python: sublime.Value = json2py(self.view)
             self.view.replace(
                 edit_token,
                 r=whole_view(self.view),
