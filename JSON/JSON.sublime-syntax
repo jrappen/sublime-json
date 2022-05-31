@@ -32,10 +32,6 @@ hidden_file_extensions:
     # JavaScript Code Style Configuration
     # https://jscs-dev.github.io
 
-  - .jsfmtrc
-    # jsfmt Configuration
-    # https://github.com/rdio/jsfmt
-
   - .markdownlintrc
     # https://github.com/DavidAnson/markdownlint
 

@@ -35,6 +35,10 @@ file_extensions:
 hidden_file_extensions:
   - .ember-cli
 
+  - .esformatter
+    # esformatter: ECMAScript code formatter
+    # https://github.com/millermedeiros/esformatter
+
   - .eslintrc
     # ESLint Configuration
     # https://eslint.org/docs/user-guide/configuring/
@@ -50,6 +54,10 @@ hidden_file_extensions:
   - .htmlhintrc
     # HTMLHint Configuration
     # https://htmlhint.com/docs/user-guide/configuration
+
+  - .jsfmtrc
+    # jsfmt: For formatting, searching and re-writing JavaScript
+    # https://github.com/rdio/jsfmt#formatting
 
   - .jshintrc
     # JSHint
