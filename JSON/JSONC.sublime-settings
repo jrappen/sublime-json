@@ -6,5 +6,6 @@
 
 
 {
+    "auto_complete_selector": "source.json.jsonc meta.mapping.value, source.json.jsonc meta.sequence.list",
     "default_extension": "jsonc"
 }

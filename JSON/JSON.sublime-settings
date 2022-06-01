@@ -6,6 +6,7 @@
 
 
 {
+    "auto_complete_selector": "source.json meta.mapping.value, source.json meta.sequence.list",
     "default_extension": "json",
 
     //  whether `on_pre_save_async` events auto-trigger the `json_prettify` command
