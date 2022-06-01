@@ -5,10 +5,11 @@
 #       https://github.com/sublimehq/Packages/blob/master/JSON/src/json_prettify.py
 
 
+from __future__ import annotations
+
 import sublime
 import sublime_plugin
 
-from __future__ import annotations
 import collections
 import decimal
 import json

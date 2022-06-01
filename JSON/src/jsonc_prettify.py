@@ -5,10 +5,11 @@
 #       https://github.com/sublimehq/Packages/blob/master/JSON/src/jsonc_prettify.py
 
 
+from __future__ import annotations
+
 import sublime
 import sublime_plugin
 
-from __future__ import annotations
 import json
 
 
