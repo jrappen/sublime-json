@@ -11,10 +11,11 @@ import sublime
 import sublime_plugin
 
 import json
+import typing
 
 
-PKG_NAME: str = __package__.split('.')[0]
-base_scope: str = 'source.json.jsonc'
+PKG_NAME: typing.Final[str] = __package__.split('.')[0]
+base_scope: typing.Final[str] = 'source.json.jsonc'
 
 
 def status_msg(msg: str = '') -> None:
@@ -28,7 +29,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
 
 
 def json2py(view: sublime.View) -> sublime.Value:
-    old_contents: str = view.substr(
+    old_contents: typing.Final[str] = view.substr(
         x=whole_view(view)
     )
     return sublime.decode_value(
@@ -52,7 +53,7 @@ def is_jsonc(view: sublime.View) -> bool:
 
 class JsoncPrettify(sublime_plugin.TextCommand):
 
-    def run(self, edit_token: sublime.Edit, auto: bool = False) -> None:
+    def run(self, edit_token: sublime.Edit, auto: typing.Optional[bool] = False) -> None:
         """
         Attempt to prettify the current view's JSONC contents. Print errors to
         the console when it fails.
@@ -65,7 +66,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                 title='JSONC: Prettify'                                         # only shown on Windows
             ):
                 return
-            json_as_python: sublime.Value = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
             self.view.replace(
                 edit_token,
                 r=whole_view(self.view),
@@ -97,7 +98,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
 
 class JsoncMinify(sublime_plugin.TextCommand):
 
-    def run(self, edit_token: sublime.Edit, auto: bool = False) -> None:
+    def run(self, edit_token: sublime.Edit, auto: typing.Optional[bool] = False) -> None:
         """
         Attempt to minify the current view's JSONC contents. Print errors to
         the console when it fails.
@@ -110,7 +111,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
                 title='JSONC: Minify'                                           # only shown on Windows
             ):
                 return
-            json_as_python: sublime.Value = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
             self.view.replace(
                 edit_token,
                 r=whole_view(self.view),

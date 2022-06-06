@@ -5,7 +5,11 @@
 #       https://github.com/sublimehq/Packages/blob/master/JSON/main.py
 
 
+from __future__ import annotations
+
 import sublime
+
+import typing
 
 from .src import *
 

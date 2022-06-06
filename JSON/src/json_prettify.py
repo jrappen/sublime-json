@@ -13,15 +13,13 @@ import sublime_plugin
 import collections
 import decimal
 import json
-from typing import (
-    Union
-)
+import typing
 
 
-PKG_NAME: str = __package__.split('.')[0]
-settings: Union[sublime.Settings, None] = None
-base_settings: str = 'JSON.sublime-settings'
-base_scope: str = 'source.json - (source.json.json-dotnet | source.json.json5 | source.json.jsonc)'
+PKG_NAME: typing.Final[str] = __package__.split('.')[0]
+settings: typing.Union[sublime.Settings, None] = None
+base_settings: typing.Final[str] = 'JSON.sublime-settings'
+base_scope: typing.Final[str] = 'source.json - (source.json.json-dotnet | source.json.json5 | source.json.jsonc)'
 
 
 def status_msg(msg: str = '') -> None:
@@ -35,7 +33,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
 
 
 def json2py(view: sublime.View) -> sublime.Value:
-    old_contents: str = view.substr(
+    old_contents: typing.Final[str] = view.substr(
         x=whole_view(view)
     )
     try:
@@ -66,7 +64,7 @@ def is_json(view: sublime.View) -> bool:
     )
 
 
-def plugin_loaded(reload: bool = False) -> None:
+def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
     try:
         global settings
         settings = sublime.load_settings(base_name=base_settings)
@@ -93,7 +91,7 @@ def plugin_unloaded() -> None:
 class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
     _is_checked: bool = False
-    _key: str = 'json.auto_prettify'
+    _key: typing.Final[str] = 'json.auto_prettify'
 
     def __init__(self, window: sublime.Window) -> None:
         self.window: sublime.Window = window
@@ -125,7 +123,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
 class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 
-    _key: str = 'json.auto_prettify'
+    _key: typing.Final[str] = 'json.auto_prettify'
 
     def on_pre_save_async(self, view) -> None:
         if not is_json(view):
@@ -146,7 +144,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: sublime.Value = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit_token,
@@ -186,7 +184,7 @@ class JsonMinify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: sublime.Value = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
             if json_as_python is None: return
             self.view.replace(
                 edit_token,
