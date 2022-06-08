@@ -10,10 +10,10 @@ from __future__ import annotations
 import sublime
 import sublime_plugin
 
-import collections
-import decimal
-import json
-import typing
+import collections                                                              # https://docs.python.org/3.8/library/collections.html
+import decimal                                                                  # https://docs.python.org/3.8/library/decimal.html
+import json                                                                     # https://docs.python.org/3.8/library/json.html
+import typing                                                                   # https://docs.python.org/3.8/library/typing.html
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
