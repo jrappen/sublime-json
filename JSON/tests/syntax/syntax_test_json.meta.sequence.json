@@ -7,10 +7,10 @@
 // <- meta.sequence.list punctuation.definition.sequence.begin
 
     true,
-//  ^^^^ constant.language.boolean
+//  ^^^^ constant.language.boolean.true
 
     false,
-//  ^^^^^ constant.language.boolean
+//  ^^^^^ constant.language.boolean.false
 
     null,
 //  ^^^^ constant.language.null

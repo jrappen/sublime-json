@@ -243,8 +243,11 @@ contexts:
     - match: \b(?:null)\b
       scope: constant.language.null.json
       pop: 1
-    - match: \b(?:false|true)\b
-      scope: constant.language.boolean.json
+    - match: \b(?:false)\b
+      scope: constant.language.boolean.false.json
+      pop: 1
+    - match: \b(?:true)\b
+      scope: constant.language.boolean.true.json
       pop: 1
 
   invalid-constants:

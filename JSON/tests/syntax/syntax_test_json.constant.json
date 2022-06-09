@@ -4,10 +4,10 @@
 
 [
     false,
-//  ^^^^^ constant.language.boolean
+//  ^^^^^ constant.language.boolean.false
 
     true,
-//  ^^^^ constant.language.boolean
+//  ^^^^ constant.language.boolean.true
 
     null
 //  ^^^^ constant.language.null
