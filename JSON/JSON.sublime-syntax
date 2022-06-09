@@ -320,7 +320,7 @@ contexts:
       pop: 1
     - include: double-quoted-string-escape-characters
     - include: links
-    - match: \n
+    - match: '$\n?'
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
