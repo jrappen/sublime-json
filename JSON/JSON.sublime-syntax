@@ -132,16 +132,16 @@ variables:
     )
   pos_integer_decimal: |-
     (?x:
-      0|
-      [1-9]\d*
+      0
+      | [1-9]\d*
     )
   html_entity: |-
     (?x:
       &
       (?:
-        [a-zA-Z0-9]+|
-        \#\d+|
-        \#[Xx]\h+
+        [a-zA-Z0-9]+
+        | \#\d+
+        | \#[Xx]\h+
       )
       ;
     )
