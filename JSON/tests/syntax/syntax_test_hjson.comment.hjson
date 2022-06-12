@@ -1,0 +1,10 @@
+// SYNTAX TEST "Packages/JSON/HJSON.sublime-syntax"
+
+// <- source.json.hjson
+
+{
+    #  comment # comment
+//  ^^^^^^^^^^^^^^^^^^^^ comment.line.hash
+//  ^ comment.line.hash punctuation.definition.comment
+//             ^^^^^^^^^ - comment.line comment.line
+}
