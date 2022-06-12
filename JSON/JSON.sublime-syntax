@@ -209,14 +209,20 @@ contexts:
 ####[ Comments ]########################################################################################################
 
   comments:
-    - include: comment-line
+    - include: valid-comments
+    - include: invalid-comments
+
+  valid-comments: []
+
+  invalid-comments:
+    - include: comment-line-double-slash
     - include: comment-block
 
-  comment-line:
+  comment-line-double-slash:
     - match: //
-      push: comment-line-content
+      push: comment-line-double-slash-content
 
-  comment-line-content:
+  comment-line-double-slash-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
     - include: eol-pop

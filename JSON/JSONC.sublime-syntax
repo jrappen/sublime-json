@@ -96,12 +96,18 @@ contexts:
 
 ####[ Comments ]########################################################################################################
 
-  comment-line:
+  valid-comments:
+    - include: comment-line-double-slash
+    - include: comment-block
+
+  invalid-comments: []
+
+  comment-line-double-slash:
     - match: //
       scope: punctuation.definition.comment.jsonc
-      push: comment-line-content
+      push: comment-line-double-slash-content
 
-  comment-line-content:
+  comment-line-double-slash-content:
     - meta_include_prototype: false
     - meta_scope: comment.line.double-slash.jsonc
     - include: eol-pop
