@@ -1,0 +1,48 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html#ver-dev
+#       https://www.sublimetext.com/docs/syntax.html#testing:ver-dev
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/HJSON.sublime-syntax
+
+name: HJSON
+scope: source.json.hjson
+version: 2
+
+# https://www.sublimetext.com/docs/syntax.html#inheritance
+extends: Packages/JSON/JSONC.sublime-syntax
+
+file_extensions:
+  - hjson
+    # Hjson
+    # https://hjson.github.io/
+    # https://github.com/hjson/hjson-py/tree/master/hjson/tests
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bhjson\b .*? -\*-                                    # editorconfig
+  )
+
+########################################################################################################################
+
+contexts:
+
+####[ Comments ]########################################################################################################
+
+  valid-comments:
+    - meta_prepend: true
+    - include: comment-line-hash
+
+  comment-line-hash:
+    - match: \#
+      scope: punctuation.definition.comment.hjson
+      push: comment-line-hash-content
+
+  comment-line-hash-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.line.hash.hjson
+    - include: eol-pop
