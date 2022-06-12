@@ -1,5 +1,5 @@
 {
-    "scope": "source.json meta.mapping.value, source.json meta.sequence.list",
+    "scope": "source.json - meta.mapping.key, source.json meta.mapping.value, source.json meta.sequence.list",
     "completions":
     [
         {
