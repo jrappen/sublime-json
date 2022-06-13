@@ -37,9 +37,9 @@ contexts:
 
   strings:
     - meta_prepend: true
-    - include: datetime-string
+    - include: datetime-strings
 
-  datetime-string:
+  datetime-strings:
 
     # for date strings of json.Net v4.5+ with an ISO Date
     # like "2000-01-01T00:00:00Z"

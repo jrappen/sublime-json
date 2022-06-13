@@ -484,12 +484,12 @@ contexts:
     - match: (?=,)
       branch_point: array-separators
       branch:
-        - valid-array-separator
-        - invalid-array-separator
+        - valid-array-separators
+        - invalid-array-separators
     - match: (?=\S)
       push: array-item
 
-  valid-array-separator:
+  valid-array-separators:
     - match: ','
       scope: punctuation.separator.sequence.json
       set: array-expect-value
@@ -501,9 +501,9 @@ contexts:
 
   array-item:
     - include: any
-    - include: invalid-array-separator
+    - include: invalid-array-separators
 
-  invalid-array-separator:
+  invalid-array-separators:
     - match: ','
       scope: invalid.illegal.unexpected-separator.json
     - include: else-pop
