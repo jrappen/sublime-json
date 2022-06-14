@@ -6,5 +6,5 @@
 
 
 {
-    "auto_complete_selector": "source.json.json-dotnet meta.mapping.value, source.json.json-dotnet meta.sequence.list"
+    "auto_complete_selector": "source.json.json-dotnet - meta.mapping.key, source.json.json-dotnet meta.mapping.value, source.json.json-dotnet meta.sequence.list"
 }
