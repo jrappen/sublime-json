@@ -19,7 +19,8 @@ scope: source.json.json-dotnet
 version: 2
 
 # https://www.sublimetext.com/docs/syntax.html#inheritance
-extends: Packages/JSON/JSON.sublime-syntax
+# intra-package-links can be relative
+extends: JSON.sublime-syntax
 
 hidden_file_extensions:
   - json-dotnet                                                                 # for syntax tests
