@@ -215,23 +215,26 @@ contexts:
   valid-comments: []
 
   invalid-comments:
-    - include: comment-line-double-slash
-    - include: comment-block
+    - include: line-comments
+    - include: block-comments
 
-  comment-line-double-slash:
+  line-comments:
+    - include: line-comment-double-slash
+
+  line-comment-double-slash:
     - match: //
-      push: comment-line-double-slash-content
+      push: line-comment-double-slash-content
 
-  comment-line-double-slash-content:
+  line-comment-double-slash-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
     - include: eol-pop
 
-  comment-block:
+  block-comments:
     - match: /\*
-      push: comment-block-content
+      push: block-comment-content
 
-  comment-block-content:
+  block-comment-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
     - match: \*/
@@ -266,10 +269,10 @@ contexts:
 ####[ Numbers ]#########################################################################################################
 
   numbers:
-    - include: float
-    - include: integer
+    - include: floats
+    - include: integers
 
-  float:
+  floats:
     - include: decimal-float
 
   decimal-float:
@@ -292,7 +295,7 @@ contexts:
         4: punctuation.separator.decimal.json
       pop: 1
 
-  integer:
+  integers:
     - include: decimal-integer
 
   decimal-integer:
@@ -323,12 +326,12 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
     - include: double-quoted-string-escape-characters
-    - include: links
+    - include: link
     - match: \n
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
-  links:
+  link:
     - include: autolink-email
     - include: autolink-inet
 

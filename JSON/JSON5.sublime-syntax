@@ -160,7 +160,7 @@ contexts:
         2: invalid.illegal.expected-language-constant.json5
       pop: 1
 
-  integer:
+  integers:
     - meta_prepend: true
     - include: hexadecimal-integer
 

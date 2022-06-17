@@ -97,22 +97,25 @@ contexts:
 ####[ Comments ]########################################################################################################
 
   valid-comments:
-    - include: comment-line-double-slash
-    - include: comment-block
+    - include: line-comments
+    - include: block-comments
 
   invalid-comments: []
 
-  comment-line-double-slash:
+  line-comments:
+    - include: line-comment-double-slash
+
+  line-comment-double-slash:
     - match: //
       scope: punctuation.definition.comment.jsonc
-      push: comment-line-double-slash-content
+      push: line-comment-double-slash-content
 
-  comment-line-double-slash-content:
+  line-comment-double-slash-content:
     - meta_include_prototype: false
     - meta_scope: comment.line.double-slash.jsonc
     - include: eol-pop
 
-  comment-block:
+  block-comments:
     # empty block comments
     - match: (/\*)\**(\*/)
       scope: comment.block.empty.jsonc
@@ -122,14 +125,14 @@ contexts:
     # normal block comments
     - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
-      push: comment-block-content
+      push: block-comment-content
 
-  comment-block-content:
+  block-comment-content:
     - meta_include_prototype: false
     - meta_scope: comment.block.jsonc
-    - include: comment-block-end
+    - include: block-comment-end
 
-  comment-block-end:
+  block-comment-end:
     - match: \*/
       scope: punctuation.definition.comment.end.jsonc
       pop: 1
