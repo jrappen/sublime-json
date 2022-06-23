@@ -4,43 +4,6 @@
 
 
 [
-// <- meta.sequence.list punctuation.definition.sequence.begin
-
-    true,
-//  ^^^^ constant.language.boolean.true
-
-    false,
-//  ^^^^^ constant.language.boolean.false
-
-    null,
-//  ^^^^ constant.language.null
-//  ^^^^ - constant.language.empty
-
-    0,
-//  ^ meta.number.integer.decimal constant.numeric.value
-
-    0.0,
-//  ^^^ meta.number.float.decimal constant.numeric.value
-
-    "value",
-//  ^^^^^^^ string.quoted.double
-
-    [],
-//  ^^ meta.sequence.list meta.sequence.list
-
-    [ ],
-//  ^^^ meta.sequence.list meta.sequence.list
-
-    [1, 2, 3],
-//  ^^^^^^^^^ meta.sequence.list meta.sequence.list
-//  ^ punctuation.definition.sequence.begin
-//   ^ constant.numeric.value
-//    ^ punctuation.separator.sequence
-//      ^ constant.numeric.value
-//       ^ punctuation.separator.sequence
-//         ^ constant.numeric.value
-//          ^ punctuation.definition.sequence.end
-//           ^ punctuation.separator.sequence
 
     {},
 //  ^^ meta.mapping
@@ -52,4 +15,3 @@
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping
 
 ]
-// <- meta.sequence.list punctuation.definition.sequence.end

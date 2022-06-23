@@ -1,6 +1,6 @@
-// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
 
-// <- source.json - (source.json.json-dotnet | source.json.json5 | source.json.jsonc)
+// <- source.json.jsonc
 
 [
     Null,
