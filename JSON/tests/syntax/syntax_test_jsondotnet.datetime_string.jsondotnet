@@ -1,0 +1,37 @@
+// SYNTAX TEST "Packages/JSON/JSONdotNET.sublime-syntax"
+
+// <- source.json.jsondotnet
+
+{
+    "key-one": "2000-01-01T00:00:00Z",
+//             ^^^^^^^^^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+//             ^ punctuation.definition.string.begin.jsondotnet
+//              ^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//                                  ^ punctuation.definition.string.end.jsondotnet
+
+    "key-two": "start 2000-01-01T00:00:00Z end",
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string.json string.quoted.double.json
+//             ^ punctuation.definition.string.begin.json
+//                    ^^^^^^^^^^^^^^^^^^^^ - constant.other.timestamp.jsondotnet
+//                                            ^ punctuation.definition.string.end.json
+
+    "key-three": "/Date(1234)/",
+//               ^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+//               ^ punctuation.definition.string.begin.jsondotnet
+//                ^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//                            ^ punctuation.definition.string.end.jsondotnet
+
+    "key-four": "start /Date(1234)/ end",
+//              ^^^^^^^^^^^^^^^^^^^^^^^^ meta.string.json string.quoted.double.json
+//              ^ punctuation.definition.string.begin.json
+//                     ^^^^^^^^^^^^ - constant.other.timestamp.jsondotnet
+//                                     ^ punctuation.definition.string.end.json
+
+    "key-five": "\/Date(1234)\/"
+//              ^^^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
+//              ^ punctuation.definition.string.begin.jsondotnet
+//               ^^^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//               ^ invalid.illegal.double-escape.jsondotnet
+//                           ^ invalid.illegal.double-escape.jsondotnet
+//                             ^ punctuation.definition.string.end.jsondotnet
+}

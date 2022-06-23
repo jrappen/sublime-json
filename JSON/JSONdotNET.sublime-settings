@@ -1,0 +1,10 @@
+//  Packages/JSON/JSONdotNET.sublime-settings
+//  Settings - Syntax Specific (Default)
+//
+//  This file is being maintained at:
+//      https://github.com/sublimehq/Packages/blob/master/JSON/JSONdotNET.sublime-settings
+
+
+{
+    "auto_complete_selector": "source.json.jsondotnet - meta.mapping.key, source.json.jsondotnet meta.mapping.value, source.json.jsondotnet meta.sequence.list"
+}

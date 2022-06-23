@@ -5,7 +5,7 @@
     - `JSON.sublime-syntax` with `scope:source.json`
     - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
-    - `JSON_dotNET.sublime-syntax` with `scope:source.json.json-dotnet`
+    - `JSONdotNET.sublime-syntax` with `scope:source.json.jsondotnet`
 - Add many more file extensions for `JSON` & `JSONC`:
     - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
