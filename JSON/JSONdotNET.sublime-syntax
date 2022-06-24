@@ -42,7 +42,7 @@ contexts:
 
   datetime-strings:
 
-    # for date strings of json.Net v4.5+ with an ISO Date
+    # datetime strings of json.Net v4.5+ with an ISO Date
     # like "2000-01-01T00:00:00Z"
     - match: |-
         (?x:
@@ -65,8 +65,8 @@ contexts:
         2: constant.other.timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet
 
-    # for date strings (of the old discontinued format) erroneously containing
-    # double escapes like "\/Date(1234)\/"
+    # datetime strings in the deprecated format
+    # erroneously containing double escapes like "\/Date(1234)\/"
     - match: |-
         (?x:
           (\")
@@ -85,12 +85,12 @@ contexts:
         string.quoted.double.datetime.jsondotnet
       captures:
         1: punctuation.definition.string.begin.jsondotnet
-        2: constant.other.timestamp.jsondotnet
+        2: invalid.deprecated.constant-other-timestamp.jsondotnet
         3: invalid.illegal.double-escape.jsondotnet
         4: invalid.illegal.double-escape.jsondotnet
         5: punctuation.definition.string.end.jsondotnet
 
-    # the old discontinued format like "/Date(1234)/"
+    # datetime strings in the deprecated format: "/Date(1234)/"
     - match: |-
         (?x:
           (\")
@@ -106,5 +106,5 @@ contexts:
         string.quoted.double.datetime.jsondotnet
       captures:
         1: punctuation.definition.string.begin.jsondotnet
-        2: constant.other.timestamp.jsondotnet
+        2: invalid.deprecated.constant-other-timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet

@@ -18,7 +18,7 @@
     "key-three": "/Date(1234)/",
 //               ^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
 //               ^ punctuation.definition.string.begin.jsondotnet
-//                ^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//                ^^^^^^^^^^^^ invalid.deprecated.constant-other-timestamp.jsondotnet
 //                            ^ punctuation.definition.string.end.jsondotnet
 
     "key-four": "start /Date(1234)/ end",
@@ -30,7 +30,7 @@
     "key-five": "\/Date(1234)\/"
 //              ^^^^^^^^^^^^^^^^ meta.string.jsondotnet string.quoted.double.datetime.jsondotnet
 //              ^ punctuation.definition.string.begin.jsondotnet
-//               ^^^^^^^^^^^^^^ constant.other.timestamp.jsondotnet
+//               ^^^^^^^^^^^^^^ invalid.deprecated.constant-other-timestamp.jsondotnet
 //               ^ invalid.illegal.double-escape.jsondotnet
 //                           ^ invalid.illegal.double-escape.jsondotnet
 //                             ^ punctuation.definition.string.end.jsondotnet
