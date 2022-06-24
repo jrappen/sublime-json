@@ -444,29 +444,48 @@
     [
         "Firstname Lastname test@test.com",
     //                      ^^^^^^^^^^^^^ meta.link.email markup.underline.link
+    //                          ^ punctuation.separator.path
 
         "Firstname Lastname test+test@test.com",
     //                      ^^^^^^^^^^^^^^^^^^ meta.link.email markup.underline.link
+    //                               ^ punctuation.separator.path
 
         "Firstname Lastname <test@test.com>",
     //                      ^^^^^^^^^^^^^^^ meta.link.email
+    //                      ^ punctuation.definition.link.begin
     //                       ^^^^^^^^^^^^^ markup.underline.link
+    //                           ^ punctuation.separator.path
+    //                                    ^ punctuation.definition.link.end
 
         "Firstname Lastname <test+test@test.com>",
     //                      ^^^^^^^^^^^^^^^^^^^^ meta.link.email
+    //                      ^ punctuation.definition.link.begin
     //                       ^^^^^^^^^^^^^^^^^^ markup.underline.link
+    //                                ^ punctuation.separator.path
+    //                                         ^ punctuation.definition.link.end
 
         "Firstname Lastname <mailto:test@test.com>",
     //                      ^^^^^^^^^^^^^^^^^^^^^^ meta.link.email
+    //                      ^ punctuation.definition.link.begin
     //                       ^^^^^^^^^^^^^^^^^^^^ markup.underline.link
+    //                             ^ punctuation.separator.path
+    //                                  ^ punctuation.separator.path
+    //                                           ^ punctuation.definition.link.end
 
         "Firstname Lastname <mailto:test+test@test.com>",
     //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.link.email
+    //                      ^ punctuation.definition.link.begin
     //                       ^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link
+    //                             ^ punctuation.separator.path
+    //                                       ^ punctuation.separator.path
+    //                                                ^ punctuation.definition.link.end
 
         "Firstname Lastname <foo#bar?@mail.test.com>"
     //                      ^^^^^^^^^^^^^^^^^^^^^^^^ meta.link.email
+    //                      ^ punctuation.definition.link.begin
     //                       ^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link
+    //                               ^ punctuation.separator.path
+    //                                             ^ punctuation.definition.link.end
     ],
 
 
