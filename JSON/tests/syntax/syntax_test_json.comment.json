@@ -3,6 +3,11 @@
 // <- source.json - (source.json.jsondotnet | source.json.json5 | source.json.jsonc)
 
     // comment
-//  ^^^^^^^^^^ invalid.illegal.comment - invalid.illegal.comment invalid.illegal.comment
+//  ^^^^^^^^^^ invalid.illegal.comment
+//  ^^^^^^^^^^ - invalid.illegal.comment invalid.illegal.comment
 
 "testing use of meta_content_scope vs meta_scope"
+
+    // comment
+//  ^^^^^^^^^^ invalid.illegal.comment
+//  ^^^^^^^^^^ - invalid.illegal.unexpected-code

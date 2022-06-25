@@ -3,8 +3,8 @@
 // <- source.json.jsonc
 
     [ ][ ]
-//  ^^^ meta.sequence.list.json
-//  ^ punctuation.definition.sequence.begin.json
-//    ^ punctuation.definition.sequence.end.json
-//     ^ invalid.illegal.unexpected-code-after-first-structure-or-value.json
-//       ^ invalid.illegal.unexpected-code-after-first-structure-or-value.json
+//  ^^^ meta.sequence.list
+//  ^ punctuation.definition.sequence.begin
+//    ^ punctuation.definition.sequence.end
+//     ^ invalid.illegal.unexpected-code
+//       ^ invalid.illegal.unexpected-code

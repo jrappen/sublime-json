@@ -8,19 +8,12 @@
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONdotNET.sublime-syntax
-#
-#   Date formatting:
-#       https://www.iso.org/standard/70907.html (Basic rules)
-#       https://www.iso.org/standard/70908.html (Extensions)
-#       https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 
 name: 'JSON.NET'
 scope: source.json.jsondotnet
 version: 2
 
-# https://www.sublimetext.com/docs/syntax.html#inheritance
-# intra-package-links can be relative
-extends: JSON.sublime-syntax
+extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
 
 hidden_file_extensions:
   - jsondotnet                                                                  # for syntax tests
@@ -38,19 +31,23 @@ contexts:
 
   strings:
     - meta_prepend: true
-    - include: datetime-strings
 
-  datetime-strings:
+    - include: double-quoted-string-with-datetime
 
-    # datetime strings of json.Net v4.5+ with an ISO Date
-    # like "2000-01-01T00:00:00Z"
+  double-quoted-string-with-datetime:
+
+    #   Date formatting:
+    #       https://www.iso.org/standard/70907.html (Basic rules)
+    #       https://www.iso.org/standard/70908.html (Extensions)
+    #       https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+
     - match: |-
         (?x:
           (\")
-          (
-            \d{4} [-] \d{2} [-] \d{2}
+          (                                                                     # json.NET v4.5+ / ISO DateTime like "2000-01-01T00:00:00Z"
+            \d{4} [-] [0-1]\d [-] [0-3]\d
             [Tt]
-            \d{2} [:] \d{2} [:] \d{2}
+            [0-2]\d [:] [0-5]\d [:] [0-5]\d
             (?:
               Z | [-+] \d{1,2} (?: [:]\d{1,2})?
             )?
@@ -65,18 +62,12 @@ contexts:
         2: constant.other.timestamp.jsondotnet
         3: punctuation.definition.string.end.jsondotnet
 
-    # datetime strings in the deprecated format
-    # erroneously containing double escapes like "\/Date(1234)\/"
     - match: |-
         (?x:
           (\")
           (
-            (\\)
-            \/Date\(
-            \d+
-            \)
-            (\\)
-            \/
+            (\\)\/Date\(\d+\)(\\)\/                                             # when erroneously containing double escapes
+            | \/Date\(\d+\)\/                                                   # datetime strings in the deprecated format
           )
           (\")
         )
@@ -89,22 +80,3 @@ contexts:
         3: invalid.illegal.double-escape.jsondotnet
         4: invalid.illegal.double-escape.jsondotnet
         5: punctuation.definition.string.end.jsondotnet
-
-    # datetime strings in the deprecated format: "/Date(1234)/"
-    - match: |-
-        (?x:
-          (\")
-          (
-            \/Date\(
-            \d+
-            \)\/
-          )
-          (\")
-        )
-      scope: >-
-        meta.string.jsondotnet
-        string.quoted.double.datetime.jsondotnet
-      captures:
-        1: punctuation.definition.string.begin.jsondotnet
-        2: invalid.deprecated.constant-other-timestamp.jsondotnet
-        3: punctuation.definition.string.end.jsondotnet
