@@ -6,21 +6,36 @@
             "trigger": "true",
             "contents": "true",
             "annotation": "constant.language.boolean",
-            "kind": ["snippet", "s", "Snippet"],
+            "kind":
+            [
+                "snippet",
+                "s",
+                "Snippet"
+            ],
             "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
         },
         {
             "trigger": "false",
             "contents": "false",
             "annotation": "constant.language.boolean",
-            "kind": ["snippet", "s", "Snippet"],
+            "kind":
+            [
+                "snippet",
+                "s",
+                "Snippet"
+            ],
             "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
         },
         {
             "trigger": "null",
             "contents": "null",
             "annotation": "constant.language.null",
-            "kind": ["snippet", "s", "Snippet"],
+            "kind":
+            [
+                "snippet",
+                "s",
+                "Snippet"
+            ],
             "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
         }
     ]
