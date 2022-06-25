@@ -17,6 +17,7 @@ file_extensions:
   - json
     # https://www.json.org/json-en.html
     # https://datatracker.ietf.org/doc/html/rfc7159
+    # https://datatracker.ietf.org/doc/html/rfc8259
     # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
 
 hidden_file_extensions:

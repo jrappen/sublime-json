@@ -45,7 +45,7 @@
                                     },
                                     { "caption": "-" },
                                     {
-                                        "caption": "Documentation: Specs",
+                                        "caption": "JSON Specs",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -53,7 +53,7 @@
                                         }
                                     },
                                     {
-                                        "caption": "Documentation: RFC 7159",
+                                        "caption": "IETF RFC 7159",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -61,7 +61,15 @@
                                         }
                                     },
                                     {
-                                        "caption": "Documentation: ECMA 404",
+                                        "caption": "IETF RFC 8259",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://datatracker.ietf.org/doc/html/rfc8259"
+                                        }
+                                    },
+                                    {
+                                        "caption": "ECMA 404 (2nd Edition, Dec 2017)",
                                         "command": "open_url",
                                         "args":
                                         {
