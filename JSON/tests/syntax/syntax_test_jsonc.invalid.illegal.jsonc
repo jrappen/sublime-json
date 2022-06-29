@@ -5,17 +5,14 @@
 {
     "c": "c"
             , ,
-//          ^ meta.mapping punctuation.separator.sequence
-//            ^ meta.mapping invalid.illegal.expected-mapping-key
+//            ^ invalid.illegal.expected-mapping-key
 
     "d": { "d": },
-//             ^ meta.mapping.value meta.mapping invalid.illegal.expected-mapping-value
-//              ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
+//             ^ invalid.illegal.expected-mapping-value
 
     "e": { "e":
      },
 //  ^ invalid.illegal.expected-mapping-value
-//   ^ punctuation.definition.mapping.end
 
     [],
 //  ^^^ invalid.illegal.expected-mapping-key

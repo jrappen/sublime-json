@@ -3,13 +3,14 @@
 
 - Using inheritance split up `JSON.sublime-syntax` into:
     - `JSON.sublime-syntax` with `scope:source.json`
+    - `JSONdotNET.sublime-syntax` with `scope:source.json.jsondotnet`
     - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
     - `JSON5.sublime-syntax` with `scope:source.json.json5`
-    - `JSON_dotNET.sublime-syntax` with `scope:source.json.json-dotnet`
 - Add many more file extensions for `JSON` & `JSONC`:
     - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
       flavor
+
 - JSON:
     - Make use of newer syntax features including those only available
       in `version: 2` syntaxes
@@ -20,11 +21,15 @@
     - (correctly formatted) JSON code can now be prettified or minified
       via the context menu or the command palette. JSON code can
       optionally be auto-prettified on pre save events.
-    - highlight leading, trailing & multiple commas as invalid
+    - highlight the following as invalid:
+        - leading commas
+        - trailing commas
+        - multiple commas
     - only allow exactly one structure (object, array) or value
       (constant, number, string) at top level (thanks to @keith-hall)
-    - links (`meta.link.inet`) and email addresses (`meta.link.email`) are
-      scoped the same as in Markdown (thanks to @deathaxe)
+- JSON.NET:
+    - support requested by @keith-hall,
+      built with feedback from @michaelblyons
 - JSONC:
     - highlight some files by default as `JSONC` (as decided by
       @jskinner in sublimehq/Packages#285)
@@ -40,9 +45,24 @@
         - scoped as plain unquoted strings (thanks to @Thom1729)
         - support string interpolation (thanks to @deathaxe)
     - line continuation in strings (with tests thanks to @keith-hall)
-- JSON.NET:
-    - support requested by @keith-hall,
-      built with feedback from @michaelblyons
+    - highlight the following as invalid:
+        - multiple commas
+
+- Numbers:
+    - Correctly scope number signs with `constant.numeric.sign` instead
+      of `keyword.operator.arithmetic`
+    - Significantly improve number highlighting (thanks to @deathaxe)
+      to catch more typos while typing and mark illegal formatting as
+      such
+    - highlight the following as invalid:
+        - numeric sign of explicitly positive numbers (for JSON,
+          JSON.NET & JSONC)
+        - whitespace between numeric sign and numeric value in numbers
+        - leading decimal separators in numbers (for JSON, JSON.NET &
+          JSONC)
+        - trailing decimal separators in numbers (for JSON, JSON.NET &
+          JSONC)
+        - leading zeros in numbers
 - Objects:
     - Highlighting speed improvements for empty objects (thanks to
       @FichteFoll)
@@ -50,13 +70,10 @@
 - Arrays:
     - Highlighting speed improvements for empty arrays (thanks to
       @FichteFoll)
-- Numbers:
-    - Correctly scope number signs with `constant.numeric.sign` instead
-      of `keyword.operator.arithmetic`
-    - Significantly improve number highlighting (thanks to @deathaxe)
+
 - Completions:
-    - completions have been added for language constants, including kind info
-      and details (with links to docs)
+    - completions have been added for language constants, including kind
+      info and details (with links to docs)
         - `null`, `false`, `true` for JSON
         - `Infinity` and `NaN` for JSON5
 - Settings:
@@ -73,8 +90,8 @@
         - `json`, `json5` & `jsonc`
         - `mapping` (objects), `sequence` (arrays)
     - Add symbols tests for:
-        - top-level keys of object structures (thanks to deathaxe)
-        - languages: `json`, `json5` & `jsonc`
+        - top-level keys of object structures (thanks to @deathaxe)
+        - languages: `json`, `jsonc` & `json5`
     - Fix tests for `meta.mapping meta.mapping.*`
 - Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
   code blocks into `json`, `json5` & `jsonc` to behave similarly to
@@ -99,13 +116,15 @@ BREAKING CHANGES:
 
 - fix sublimehq/Packages#285
 - address sublimehq/Packages#421 (thanks to @FichteFoll)
-- address sublimehq/Packages#481 to remove incompatible regex patterns according
-  to @wbond
-- address sublimehq/Packages#757 to fix line comments for `JSONC` (thanks to
-  @keith-hall)
-- address sublimehq/Packages#2430 using sort-order (as requested by @deathaxe)
-- address sublimehq/Packages#2711 with regards to `constant.language.null`
-  vs. `constant.language.empty` (thanks to @FichteFoll)
+- address sublimehq/Packages#481 to remove incompatible regex patterns
+  according to @wbond
+- address sublimehq/Packages#757 to fix line comments for `JSONC`
+  (thanks to @keith-hall)
+- address sublimehq/Packages#2430 using sort-order (as requested by
+  @deathaxe)
+- address sublimehq/Packages#2711 with regards to
+  `constant.language.null` vs. `constant.language.empty` (thanks to
+  @FichteFoll)
 - address sublimehq/Packages#2852 to fix scopes of curly braces & square
   brackets in `JSON` (thanks to @Thom1729)
 - address sublimehq/Packages#3228 to fix `punctuation.separator` scopes,

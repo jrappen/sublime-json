@@ -13,77 +13,64 @@ name: JSONC
 scope: source.json.jsonc
 version: 2
 
-# https://www.sublimetext.com/docs/syntax.html#inheritance
-extends: Packages/JSON/JSON.sublime-syntax
+extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
 
 file_extensions:
   - jsonc
 
-  - sublime-build                       # https://www.sublimetext.com/docs/build_systems.html
-  - sublime-color-scheme                # https://www.sublimetext.com/docs/color_schemes.html
+  - sublime-build                                                               # https://www.sublimetext.com/docs/build_systems.html
+  - sublime-color-scheme                                                        # https://www.sublimetext.com/docs/color_schemes.html
   - sublime-commands
-  - sublime-completions                 # https://www.sublimetext.com/docs/completions.html
-  - sublime-keymap                      # https://www.sublimetext.com/docs/key_bindings.html
+  - sublime-completions                                                         # https://www.sublimetext.com/docs/completions.html
+  - sublime-keymap                                                              # https://www.sublimetext.com/docs/key_bindings.html
   - sublime-macro
-  - sublime-menu                        # https://www.sublimetext.com/docs/menus.html
+  - sublime-menu                                                                # https://www.sublimetext.com/docs/menus.html
   - sublime-mousemap
-  - sublime-project                     # https://www.sublimetext.com/docs/projects.html
-  - sublime-settings                    # https://www.sublimetext.com/docs/settings.html
-  - sublime-theme                       # https://www.sublimetext.com/docs/themes.html
-  - sublime-workspace                   # https://www.sublimetext.com/docs/projects.html
+  - sublime-project                                                             # https://www.sublimetext.com/docs/projects.html
+  - sublime-settings                                                            # https://www.sublimetext.com/docs/settings.html
+  - sublime-theme                                                               # https://www.sublimetext.com/docs/themes.html
+  - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
 
 hidden_file_extensions:
   - .ember-cli
 
-  - .esformatter
+  - .esformatter                                                                # https://github.com/millermedeiros/esformatter
     # esformatter: ECMAScript code formatter
-    # https://github.com/millermedeiros/esformatter
 
-  - .eslintrc
+  - .eslintrc                                                                   # https://eslint.org/docs/user-guide/configuring/
     # ESLint Configuration
-    # https://eslint.org/docs/user-guide/configuring/
 
-  - .eslintrc.json
+  - .eslintrc.json                                                              # https://eslint.org/docs/user-guide/configuring/
     # ESLint Configuration
-    # https://eslint.org/docs/user-guide/configuring/
 
-  - .hintrc
+  - .hintrc                                                                     # https://webhint.io/docs/user-guide/configuring-webhint/summary/
     # Webhint Configuration
-    # https://webhint.io/docs/user-guide/configuring-webhint/summary/
 
-  - .htmlhintrc
+  - .htmlhintrc                                                                 # https://htmlhint.com/docs/user-guide/configuration
     # HTMLHint Configuration
-    # https://htmlhint.com/docs/user-guide/configuration
 
-  - .jsfmtrc
+  - .jsfmtrc                                                                    # https://github.com/rdio/jsfmt#formatting
     # jsfmt: For formatting, searching and re-writing JavaScript
-    # https://github.com/rdio/jsfmt#formatting
 
-  - .jshintrc
+  - .jshintrc                                                                   # https://www.jshint.com/docs/#options
     # JSHint
-    # https://www.jshint.com/docs/#options
 
-  - .jslintrc
+  - .jslintrc                                                                   # https://www.jslint.com/lint.html
     # JSLint's implementation of JSHint
-    # https://www.jslint.com/lint.html
 
-  - .stylintrc
+  - .stylintrc                                                                  # https://github.com/SimenB/stylint
     # stylint Configuration
-    # https://github.com/SimenB/stylint
 
-  - .swcrc
+  - .swcrc                                                                      # https://swc.rs/docs/configuring-swc
     # swc Configuration
-    # https://swc.rs/docs/configuring-swc
 
-  - eslintrc.json
+  - eslintrc.json                                                               # https://eslint.org/docs/user-guide/configuring/
     # ESLint Configuration
-    # https://eslint.org/docs/user-guide/configuring/
 
   - languagebabel
 
-  - tsconfig.json
+  - tsconfig.json                                                               # https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
     # TypeScript Configuration
-    # https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
 first_line_match: |-
   (?xi:
@@ -97,44 +84,39 @@ contexts:
 ####[ Comments ]########################################################################################################
 
   valid-comments:
-    - include: comment-line-double-slash
-    - include: comment-block
+    - include: line-comments
+    - include: block-comments
 
   invalid-comments: []
 
-  comment-line-double-slash:
+  line-comments:
+    - include: line-comment-double-slash
+
+  line-comment-double-slash:
     - match: //
       scope: punctuation.definition.comment.jsonc
-      push: comment-line-double-slash-content
+      push: line-comment-double-slash-content
 
-  comment-line-double-slash-content:
+  line-comment-double-slash-content:
     - meta_include_prototype: false
     - meta_scope: comment.line.double-slash.jsonc
+
     - include: eol-pop
 
-  comment-block:
-    # empty block comments
-    - match: (/\*)\**(\*/)
-      scope: comment.block.empty.jsonc
-      captures:
-        1: punctuation.definition.comment.begin.jsonc
-        2: punctuation.definition.comment.end.jsonc
-    # normal block comments
-    - match: /\*
+  block-comments:
+    - match: /\*                                                                # normal block comments
       scope: punctuation.definition.comment.begin.jsonc
-      push: comment-block-content
+      push: block-comment-content
 
-  comment-block-content:
+  block-comment-content:
     - meta_include_prototype: false
     - meta_scope: comment.block.jsonc
-    - include: comment-block-end
 
-  comment-block-end:
     - match: \*/
       scope: punctuation.definition.comment.end.jsonc
       pop: 1
 
-####[ Sequences ]#######################################################################################################
+####[ Structures ][ Arrays ]############################################################################################
 
   array-separators:
     - match: ','

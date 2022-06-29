@@ -1,0 +1,897 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.json.jsonc
+
+[
+// <- meta.sequence.list punctuation.definition.sequence.begin
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ COMMENTS ][ LINE COMMENTS ]/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //  comment // comment
+//  ^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^^^^^ - comment.line comment.line
+
+    //  comment /** comment */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^^^^^^^^^ - comment.block
+//              ^^^ - punctuation.definition.comment.begin
+//                          ^^ - punctuation.definition.comment.end
+
+    //  comment /* comment */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^^^^^^^^ - comment.block
+//              ^^ - punctuation.definition.comment.begin
+//                         ^^ - punctuation.definition.comment.end
+
+    //  comment /** */
+//  ^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^ - comment.block
+//              ^^ - punctuation.definition.comment.begin
+//                  ^^ - punctuation.definition.comment.end
+
+    //  comment /* */
+//  ^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^ - comment.block
+//              ^^ - punctuation.definition.comment.begin
+//                 ^^ - punctuation.definition.comment.end
+
+    //  comment /***/
+//  ^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^ - comment.block
+//              ^^ - punctuation.definition.comment.begin
+//                 ^^ - punctuation.definition.comment.end
+
+    //  comment /**/
+//  ^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^ - comment.block
+//              ^^ - punctuation.definition.comment.begin
+//                ^^ - punctuation.definition.comment.end
+
+    //  comment "not a string"
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^ comment.line.double-slash punctuation.definition.comment
+//              ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//              ^ - punctuation.definition.string.begin
+//                           ^ - punctuation.definition.string.end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ COMMENTS ][ BLOCK COMMENTS ]////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /**/
+//  ^^^^ comment.block
+//  ^^ punctuation.definition.comment.begin
+//    ^^ punctuation.definition.comment.end
+
+    /***/
+//  ^^^^^ comment.block
+//  ^^ punctuation.definition.comment.begin
+//     ^^ punctuation.definition.comment.end
+
+    /* */
+//  ^^^^^ comment.block
+//  ^^ punctuation.definition.comment.begin
+//     ^^ punctuation.definition.comment.end
+
+    /* comment // comment */
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
+//             ^^^^^^^^^^^^^ - comment.line
+//                        ^^ comment.block punctuation.definition.comment.end
+
+    /* comment /* comment */
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
+//             ^^^^^^^^^^^^^ - comment.block comment.block
+//                        ^^ comment.block punctuation.definition.comment.end
+//                        ^^ - comment.block comment.block punctuation.definition.comment.end
+
+    /* comment /**/
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^ comment.block
+//             ^^^^ - comment.block comment.block
+//               ^^ comment.block punctuation.definition.comment.end
+//               ^^ - comment.block comment.block punctuation.definition.comment.end
+
+    /* comment /***/
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^ comment.block
+//             ^^^^^ - comment.block comment.block
+//                ^^ comment.block punctuation.definition.comment.end
+//                ^^ - comment.block comment.block punctuation.definition.comment.end
+
+    /* comment "not a string" */
+//  ^^ comment.block punctuation.definition.comment.begin
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
+//             ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//             ^ - punctuation.definition.string.begin
+//                          ^ - punctuation.definition.string.end
+//                            ^^ comment.block punctuation.definition.comment.end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ ARRAYS ]////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [],
+//  ^^ meta.sequence.list meta.sequence.list
+
+    [ ],
+//  ^^^ meta.sequence.list meta.sequence.list
+
+    [1, 2, 3],
+//  ^^^^^^^^^ meta.sequence.list meta.sequence.list
+//  ^ punctuation.definition.sequence.begin
+//   ^ constant.numeric.value
+//    ^ punctuation.separator.sequence
+//      ^ constant.numeric.value
+//       ^ punctuation.separator.sequence
+//         ^ constant.numeric.value
+//          ^ punctuation.definition.sequence.end
+//           ^ punctuation.separator.sequence
+
+    [1, 2
+//  ^ meta.sequence.list punctuation.definition.sequence.begin
+//    ^ meta.sequence.list meta.sequence.list punctuation.separator.sequence
+        ,
+//     ^ - invalid
+//      ^ meta.sequence.list punctuation.separator.sequence
+        "three",
+//      ^^^^^^^  string.quoted.double - meta.mapping.key
+//             ^ punctuation.separator.sequence
+//             ^ - invalid.illegal.unexpected-separator
+    ],
+//  ^ meta.sequence.list punctuation.definition.sequence.end
+//   ^ meta.sequence.list punctuation.separator.sequence
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ OBJECTS ]///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    {},
+//  ^^ meta.sequence.list meta.mapping
+
+    { },
+//  ^^^ meta.sequence.list meta.mapping
+
+    { "a": 1, "b": 2, "c": 3 },
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
+//  ^ meta.mapping punctuation.definition.mapping.begin
+//    ^^^ meta.mapping.key meta.string string.quoted.double
+//       ^ meta.mapping punctuation.separator.key-value
+//         ^ meta.mapping.value meta.number.integer.decimal constant.numeric.value
+//          ^ meta.mapping punctuation.separator.sequence
+//                           ^ meta.mapping punctuation.definition.mapping.end
+
+    {
+//  ^ meta.mapping punctuation.definition.mapping.begin
+
+        "meta-mapping-value-constant": null,
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
+//                                   ^ meta.mapping punctuation.separator.key-value
+//                                     ^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
+//                                         ^ meta.mapping punctuation.separator.sequence
+
+        "meta-mapping-value-number": 0,
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
+//                                 ^ meta.mapping punctuation.separator.key-value
+//                                   ^ meta.mapping.value - meta.mapping.json meta.mapping.value
+//                                    ^ meta.mapping punctuation.separator.sequence
+
+        "meta-mapping-value-string": "value",
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
+//                                 ^ meta.mapping punctuation.separator.key-value
+//                                   ^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
+//                                          ^ meta.mapping punctuation.separator.sequence
+
+        "meta-mapping-value-sequence-empty": [],
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                         ^ meta.mapping punctuation.separator.key-value
+//                                           ^^ meta.mapping.value
+//                                           ^^ - meta.mapping meta.mapping.value
+//                                           ^^ meta.mapping.value meta.sequence.list
+//                                           ^ punctuation.definition.sequence.begin
+//                                            ^ punctuation.definition.sequence.end
+
+        "meta-mapping-value-sequence-empty-with-space": [ ],
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                                    ^ meta.mapping punctuation.separator.key-value
+//                                                      ^^^ meta.mapping.value
+//                                                      ^^^ - meta.mapping meta.mapping.value
+//                                                      ^^^ meta.mapping.value meta.sequence.list
+//                                                      ^ punctuation.definition.sequence.begin
+//                                                        ^ punctuation.definition.sequence.end
+
+        "meta-mapping-value-sequence": [1, 2
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
+//                                   ^ meta.mapping punctuation.separator.key-value
+//                                     ^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
+//                                     ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.begin
+//                                       ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
+            ,
+//         ^ - invalid
+//          ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
+            3
+        ],
+//      ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.end
+//       ^ meta.mapping punctuation.separator.sequence
+
+        "meta-mapping-value-mapping-empty": {},
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                        ^ meta.mapping punctuation.separator.key-value
+//                                          ^^ meta.mapping.value
+//                                          ^^ - meta.mapping meta.mapping.value
+//                                          ^^ meta.mapping.value meta.mapping
+//                                          ^ punctuation.definition.mapping.begin
+//                                           ^ punctuation.definition.mapping.end
+
+        "meta-mapping-value-mapping-empty-with-space": { },
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                                   ^ meta.mapping punctuation.separator.key-value
+//                                                     ^^^ meta.mapping.value
+//                                                     ^^^ - meta.mapping meta.mapping.value
+//                                                     ^^^ meta.mapping.value meta.mapping
+//                                                     ^ punctuation.definition.mapping.begin
+//                                                       ^ punctuation.definition.mapping.end
+//                                                        ^ meta.mapping punctuation.separator.sequence
+
+        "meta-mapping-value-mapping": { "a": 1
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
+//                                  ^ meta.mapping punctuation.separator.key-value
+//                                    ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
+//                                    ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
+//                                      ^^^ meta.mapping.value meta.mapping.key
+//                                         ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//                                           ^ meta.mapping.value meta.mapping.value
+            ,
+//         ^ - invalid
+//          ^ meta.mapping.value meta.mapping punctuation.separator.sequence
+            "b": 2
+//          ^^^ meta.mapping.value meta.mapping.key
+//             ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//               ^ meta.mapping.value meta.mapping.value
+
+            ,
+//          ^ meta.mapping.value punctuation.separator.sequence
+        }
+//      ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
+
+        ,
+//      ^ meta.mapping punctuation.separator.sequence
+    },
+//  ^ meta.mapping punctuation.definition.mapping.end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ CONSTANTS ]/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        false,
+//      ^^^^^ constant.language.boolean.false
+        true,
+//      ^^^^ constant.language.boolean.true
+        null,
+//      ^^^^ constant.language.null
+//      ^^^^ - constant.language.empty
+        False,
+//      ^^^^^ invalid.illegal.expected-boolean-constant
+        True,
+//      ^^^^ invalid.illegal.expected-boolean-constant
+        Null,
+//      ^^^^ invalid.illegal.expected-language-constant
+        FALSE,
+//      ^^^^^ invalid.illegal.expected-boolean-constant
+        TRUE,
+//      ^^^^ invalid.illegal.expected-boolean-constant
+        NULL
+//      ^^^^ invalid.illegal.expected-language-constant
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ]///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        0,                                                                      // zero
+//      ^ meta.number.integer.decimal
+//      ^ constant.numeric.value
+
+        -0,                                                                     // negative-zero
+//      ^^ meta.number.integer.decimal
+//      ^ constant.numeric.sign
+//       ^ constant.numeric.value
+
+        9,                                                                      // integer
+//      ^ meta.number.integer.decimal
+//      ^ constant.numeric.value
+
+        -9,                                                                     // negative-integer
+//      ^^ meta.number.integer.decimal
+//      ^ constant.numeric.sign
+//       ^ constant.numeric.value
+
+        0.0,                                                                    // float-zero
+//      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -0.0,                                                                   // float-negative-zero
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        0.0e0,                                                                  // float-zero-with-zero-exponent
+//      ^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        0.0e-0,                                                                 // float-zero-with-negative-zero-exponent
+//      ^^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -0.0e0,                                                                 // float-negative-zero-with-zero-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        -0.0e-0,                                                                // float-negative-zero-with-negative-zero-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        0e0,                                                                    // float-zero-no-fraction-with-zero-exponent
+//      ^^^ meta.number.float.decimal constant.numeric.value
+
+        -0e0,                                                                   // float-negative-zero-no-fraction-with-zero-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+
+        0e-0,                                                                   // float-zero-no-fraction-with-negative-zero-exponent
+//      ^^^^ meta.number.float.decimal constant.numeric.value
+
+        -0e-0,                                                                  // float-negative-zero-no-fraction-with-negative-zero-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+
+        0.0e9,                                                                  // float-zero-with-exponent
+//      ^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        0.0e-9,                                                                 // float-zero-with-negative-exponent
+//      ^^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -0.0e9,                                                                 // float-negative-zero-with-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        -0.0e-9,                                                                // float-negative-zero-with-negative-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        0e9,                                                                    // float-zero-no-fraction-with-exponent
+//      ^^^ meta.number.float.decimal constant.numeric.value
+
+        -0e9,                                                                   // float-negative-zero-no-fraction-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+
+        0e-9,                                                                   // float-zero-no-fraction-with-negative-exponent
+//      ^^^^ meta.number.float.decimal constant.numeric.value
+
+        -0e-9,                                                                  // float-negative-zero-no-fraction-with-negative-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+
+        9.0,                                                                    // float
+//      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -9.0,                                                                   // float-negative
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        9.0e0,                                                                  // float-with-zero-exponent
+//      ^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        9.0e-0,                                                                 // float-with-negative-zero-exponent
+//      ^^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -9.0e0,                                                                 // float-negative-with-zero-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        -9.0e-0,                                                                // float-negative-with-negative-zero-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        9e0,                                                                    // float-no-fraction-with-zero-exponent
+//      ^^^ meta.number.float.decimal constant.numeric.value
+
+        -9e0,                                                                   // float-negative-no-fraction-with-zero-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+
+        9e-0,                                                                   // float-no-fraction-with-negative-zero-exponent
+//      ^^^^ meta.number.float.decimal constant.numeric.value
+
+        -9e-0,                                                                  // float-negative-no-fraction-with-negative-zero-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+
+        9.0e9,                                                                  // float-with-exponent
+//      ^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        9.0e-9,                                                                 // float-with-negative-exponent
+//      ^^^^^^ meta.number.float.decimal constant.numeric.value
+//       ^ punctuation.separator.decimal
+
+        -9.0e9,                                                                 // float-negative-with-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        -9.0e-9,                                                                // float-negative-with-negative-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        9e9,                                                                    // float-no-fraction-with-exponent
+//      ^^^ meta.number.float.decimal constant.numeric.value
+
+        -9e9,                                                                   // float-negative-no-fraction-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ constant.numeric.value
+
+        9e-9,                                                                   // float-no-fraction-with-negative-exponent
+//      ^^^^ meta.number.float.decimal constant.numeric.value
+
+        -9e-9                                                                   // float-negative-no-fraction-with-negative-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL LEADING ZERO ]///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        09,                                                                     // integer-with-illegal-leading-zero
+//      ^^ meta.number.integer.decimal
+//      ^^ constant.numeric.value
+//      ^ invalid.illegal.leading-zero
+
+        -09                                                                     // negative-integer-with-illegal-leading-zero
+//      ^^^ meta.number.integer.decimal
+//      ^ constant.numeric.sign
+//       ^^ constant.numeric.value
+//       ^ invalid.illegal.leading-zero
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL WHITESPACE ]/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        - 0,                                                                    // negative-zero-with-illegal-whitespace
+//      ^^^ meta.number.integer.decimal
+//      ^ constant.numeric.sign
+//       ^ invalid.illegal.whitespace
+//        ^ constant.numeric.value
+
+        - 9                                                                      // negative-integer-with-illegal-whitespace
+//      ^^^ meta.number.integer.decimal
+//      ^ constant.numeric.sign
+//       ^ invalid.illegal.whitespace
+//        ^ constant.numeric.value
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL NUMERIC SIGNS ]//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        +0,                                                                     // explicitly-positive-zero
+//      ^^ meta.number.integer.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^ constant.numeric.value
+
+        +9,                                                                     // explicitly-positive-integer
+//      ^^ meta.number.integer.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^ constant.numeric.value
+
+        +0.0,                                                                   // float-explicitly-positive-zero
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +0.0e0,                                                                 // float-explicitly-positive-zero-with-zero-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +0.0e-0,                                                                // float-explicitly-positive-zero-with-negative-zero-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +0e0,                                                                   // float-explicitly-positive-zero-no-fraction-with-zero-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+
+        +0e-0,                                                                  // float-explicitly-positive-zero-no-fraction-with-negative-zero-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^ constant.numeric.value
+
+        +0.0e9,                                                                 // float-explicitly-positive-zero-with-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +0.0e-9,                                                                // float-explicitly-positive-zero-with-negative-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +0e9,                                                                   // float-explicitly-positive-zero-no-fraction-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+
+        +0e-9,                                                                  // float-explicitly-positive-zero-no-fraction-with-negative-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^ constant.numeric.value
+
+        +9.0,                                                                   // float-explicitly-positive
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +9.0e0,                                                                 // float-explicitly-positive-with-zero-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +9.0e-0,                                                                // float-explicitly-positive-with-negative-zero-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +9e0,                                                                   // float-explicitly-positive-no-fraction-with-zero-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+
+        +9e-0,                                                                  // float-explicitly-positive-no-fraction-with-negative-zero-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^ constant.numeric.value
+
+        +9.0e9,                                                                 // float-explicitly-positive-with-exponent
+//      ^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +9.0e-9,                                                                // float-explicitly-positive-with-negative-exponent
+//      ^^^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^^^ constant.numeric.value
+//        ^ punctuation.separator.decimal
+
+        +9e9,                                                                   // float-explicitly-positive-no-fraction-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^ constant.numeric.value
+
+        +9e-9                                                                   // float-explicitly-positive-no-fraction-with-negative-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^^^^ constant.numeric.value
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL WHITESPACE + ILLEGAL NUMERIC SIGNS ]/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        + 0,                                                                    // explicitly-positive-zero-with-illegal-whitespace
+//      ^^^ meta.number.integer.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^ invalid.illegal.whitespace
+//        ^ constant.numeric.value
+
+        + 9                                                                      // explicitly-positive-integer-with-illegal-whitespace
+//      ^^^ meta.number.integer.decimal
+//      ^ invalid.illegal.numeric-sign
+//       ^ invalid.illegal.whitespace
+//        ^ constant.numeric.value
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL LEADING SEPARATOR ]//////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        .0,                                                                     // float-with-leading-separator-followed-by-zero
+//      ^^ meta.number.float.decimal
+//      ^^ constant.numeric.value
+//      ^ invalid.illegal.decimal-separator
+
+        .9,                                                                     // float-with-leading-separator-followed-by-nonzero
+//      ^^ meta.number.float.decimal
+//      ^^ constant.numeric.value
+//      ^ invalid.illegal.decimal-separator
+
+        -.0,                                                                    // negative-zero-float-with-leading-separator
+//      ^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+
+        -.9                                                                     // negative-float-with-leading-separator
+//      ^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ NUMBERS ][ ILLEGAL TRAILING SEPARATOR ]/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        0.,                                                                     // zero-float-with-trailing-separator
+//      ^^ meta.number.float.decimal
+//      ^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+
+        9.,                                                                     // float-with-trailing-separator
+//      ^^ meta.number.float.decimal
+//      ^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+
+        -0.,                                                                    // negative-zero-float-with-trailing-separator
+//      ^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^ constant.numeric.value
+//        ^ invalid.illegal.decimal-separator
+
+        -9.                                                                     // negative-float-with-trailing-separator
+//      ^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^ constant.numeric.value
+//        ^ invalid.illegal.decimal-separator
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ STRINGS ]///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    "value",
+//  ^^^^^^^ string.quoted.double
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ STRINGS ][ ESCAPE CHARACTERS ]//////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        "\"",                                                                   // double quote
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.double-quote
+//       ^ punctuation.definition.escape
+
+        "\\",                                                                   // back slash
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.back-slash
+//       ^ punctuation.definition.escape
+
+        "\/",                                                                   // forward slash, solidus
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.forward-slash
+//       ^ punctuation.definition.escape
+
+        "\b",                                                                   // backspace
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.backspace
+//       ^ punctuation.definition.escape
+
+        "\f",                                                                   // form feed
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.form-feed
+//       ^ punctuation.definition.escape
+
+        "\n",                                                                   // new line, linefeed
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.newline
+//       ^ punctuation.definition.escape
+
+        "\r",                                                                   // carriage return
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.carriage-return
+//       ^ punctuation.definition.escape
+
+        "\t",                                                                   // tab
+//      ^^^^ meta.string string.quoted.double
+//       ^^ constant.character.escape.horizontal-tab
+//       ^ punctuation.definition.escape
+
+        "\u12345",                                                              // unicode symbol: basic multilingual plane
+//      ^^^^^^^^^ meta.string string.quoted.double
+//       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+//       ^ punctuation.definition.escape
+//             ^ string - constant.character.escape
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ STRINGS ][ UNRECOGNIZED ESCAPE CHARACTERS ]/////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        "\.",                                                                   // unrecognized-string-escape
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\B",                                                                   // unrecognized-string-escape-upper-case-b
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\F",                                                                   // unrecognized-string-escape-upper-case-f
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\N",                                                                   // unrecognized-string-escape-upper-case-n
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\R",                                                                   // unrecognized-string-escape-upper-case-r
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\T",                                                                   // unrecognized-string-escape-upper-case-t
+//      ^^^^ meta.string string.quoted.double
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^ - constant.character.escape
+
+        "\u123",                                                                // unrecognized-string-escape-unicode-symbol-too-short
+//      ^^^^^^^ meta.string string.quoted.double
+//       ^^^^^ - constant.character.escape
+//       ^^ invalid.illegal.unrecognized-string-escape
+
+        "\U123",                                                                // unrecognized-string-escape-unicode-symbol-upper-case-and-too-short
+//      ^^^^^^^ meta.string string.quoted.double
+//       ^^^^^ - constant.character.escape
+//       ^^ invalid.illegal.unrecognized-string-escape
+
+        "\U1234"                                                                // unrecognized-string-escape-unicode-symbol-upper-case
+//      ^^^^^^^^ meta.string string.quoted.double
+//       ^^^^^^ - constant.character.escape
+//       ^^ invalid.illegal.unrecognized-string-escape
+    ],
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ STRINGS ][ NO COMMENTS]/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [
+        "ke//y",
+//      ^^^^^^^ meta.string string.quoted.double
+//         ^^^^^ - comment.line
+
+        "ke// y",
+//      ^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^^ - comment.line
+
+        "ke/***/y",
+//      ^^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^ - comment.block
+
+        "ke/** */y",
+//      ^^^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^^ - comment.block
+
+        "ke/**/y",
+//      ^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^ - comment.block
+
+        "ke/* */y"
+//      ^^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^ - comment.block
+    ]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//[ ARRAYS ][ TRAILING COMMAS ]/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    ,
+//  ^ meta.sequence.list punctuation.separator.sequence
+//  ^ - invalid.illegal.unexpected-separator
+]
+// <- meta.sequence.list punctuation.definition.sequence.end

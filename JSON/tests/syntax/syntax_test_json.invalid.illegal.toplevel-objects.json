@@ -2,9 +2,9 @@
 
 // <- source.json - (source.json.jsondotnet | source.json.json5 | source.json.jsonc)
 
-    5, 5
-//   ^ invalid.illegal.unexpected-separator
+    { }{ }
+//  ^^^ meta.mapping
+//  ^ punctuation.definition.mapping.begin
+//    ^ punctuation.definition.mapping.end
 //     ^ invalid.illegal.unexpected-code
-
-    // comment
-//  ^^^^^^^^^^ invalid.illegal.comment - invalid.illegal.unexpected-code
+//       ^ invalid.illegal.unexpected-code

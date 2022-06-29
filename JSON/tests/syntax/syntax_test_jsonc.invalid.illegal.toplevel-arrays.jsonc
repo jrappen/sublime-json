@@ -1,0 +1,10 @@
+// SYNTAX TEST "Packages/JSON/JSONC.sublime-syntax"
+
+// <- source.json.jsonc
+
+    [ ][ ]
+//  ^^^ meta.sequence.list
+//  ^ punctuation.definition.sequence.begin
+//    ^ punctuation.definition.sequence.end
+//     ^ invalid.illegal.unexpected-code
+//       ^ invalid.illegal.unexpected-code

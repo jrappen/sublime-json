@@ -6,6 +6,6 @@
 
 
 {
-    "auto_complete_selector": "source.json.json5 meta.mapping.value, source.json.json5 meta.sequence.list",
+    "auto_complete_selector": "source.json.json5 - meta.mapping.key, source.json.json5 meta.mapping.value, source.json.json5 meta.sequence.list",
     "default_extension": "json5"
 }

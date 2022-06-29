@@ -1,0 +1,61 @@
+// SYNTAX TEST "Packages/JSON/JSONdotNET.sublime-syntax"
+
+// <- source.json.jsondotnet
+
+{
+    "key-one": "2000-01-01T00:00:00Z",
+//             ^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//             ^ punctuation.definition.string.begin
+//              ^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp
+//                                  ^ punctuation.definition.string.end
+
+    "key-two": "2000-01-01T00:00:00+1",
+//             ^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//             ^ punctuation.definition.string.begin
+//              ^^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp
+//                                   ^ punctuation.definition.string.end
+
+    "key-three": "2000-01-01T00:00:00-1",
+//               ^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//               ^ punctuation.definition.string.begin
+//                ^^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp
+//                                     ^ punctuation.definition.string.end
+
+    "key-four": "2000-01-01T00:00:00+23:59",
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//              ^ punctuation.definition.string.begin
+//               ^^^^^^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp
+//                                        ^ punctuation.definition.string.end
+
+    "key-five": "2000-01-01T00:00:00-23:59",
+//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//              ^ punctuation.definition.string.begin
+//               ^^^^^^^^^^^^^^^^^^^^^^^^^ constant.other.timestamp
+//                                        ^ punctuation.definition.string.end
+
+    "key-six": "start 2000-01-01T00:00:00Z end",
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double
+//             ^ punctuation.definition.string.begin
+//                    ^^^^^^^^^^^^^^^^^^^^ - constant.other.timestamp
+//                                            ^ punctuation.definition.string.end
+
+    "key-seven": "/Date(1234)/",
+//               ^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//               ^ punctuation.definition.string.begin
+//                ^^^^^^^^^^^^ invalid.deprecated.constant-other-timestamp
+//                            ^ punctuation.definition.string.end
+
+    "key-eight": "start /Date(1234)/ end",
+//               ^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double
+//               ^ punctuation.definition.string.begin
+//                      ^^^^^^^^^^^^ - constant.other.timestamp
+//                                      ^ punctuation.definition.string.end
+
+    "key-nine": "\/Date(1234)\/"
+//              ^^^^^^^^^^^^^^^^ meta.string string.quoted.double.datetime
+//              ^ punctuation.definition.string.begin
+//               ^^^^^^^^^^^^^^ invalid.deprecated.constant-other-timestamp
+//               ^ invalid.illegal.double-escape
+//                           ^ invalid.illegal.double-escape
+//                             ^ punctuation.definition.string.end,
+}
