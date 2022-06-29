@@ -13,14 +13,11 @@ name: HJSON
 scope: source.json.hjson
 version: 2
 
-# https://www.sublimetext.com/docs/syntax.html#inheritance
-extends: Packages/JSON/JSONC.sublime-syntax
+extends: JSONC.sublime-syntax                                                   # https://www.sublimetext.com/docs/syntax.html#inheritance
 
 file_extensions:
-  - hjson
-    # Hjson
-    # https://hjson.github.io/
-    # https://github.com/hjson/hjson-py/tree/master/hjson/tests
+  - hjson                                                                       # https://hjson.github.io/
+    # Hjson                                                                     # https://github.com/hjson/hjson-py/tree/master/hjson/tests
 
 first_line_match: |-
   (?xi:
@@ -33,16 +30,18 @@ contexts:
 
 ####[ Comments ]########################################################################################################
 
-  valid-comments:
+  line-comments:
     - meta_prepend: true
+
     - include: comment-line-hash
 
-  comment-line-hash:
+  line-comment-hash:
     - match: \#
       scope: punctuation.definition.comment.hjson
-      push: comment-line-hash-content
+      push: line-comment-hash-content
 
-  comment-line-hash-content:
+  line-comment-hash-content:
     - meta_include_prototype: false
     - meta_scope: comment.line.hash.hjson
+
     - include: eol-pop
