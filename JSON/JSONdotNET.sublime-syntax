@@ -3,8 +3,8 @@
 #   YAML Documentation:
 #       https://yaml.org/spec/1.2/spec.html
 #   Sublime Text Documentation:
-#       https://www.sublimetext.com/docs/syntax.html#ver-dev
-#       https://www.sublimetext.com/docs/syntax.html#testing:ver-dev
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONdotNET.sublime-syntax

@@ -1,0 +1,57 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/HJSON.sublime-syntax
+
+name: HJSON
+scope: source.json.hjson
+version: 2
+
+extends: JSONC.sublime-syntax                                                   # https://www.sublimetext.com/docs/syntax.html#inheritance
+
+file_extensions:
+  - hjson                                                                       # https://hjson.github.io/
+    # Hjson                                                                     # https://github.com/hjson/hjson-py/tree/master/hjson/tests
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bhjson\b .*? -\*-                                    # editorconfig
+  )
+
+########################################################################################################################
+
+contexts:
+
+####[ Comments ]########################################################################################################
+
+  line-comments:
+    - meta_prepend: true
+
+    - include: line-comment-hash
+
+  line-comment-hash:
+    - match: \#
+      scope: punctuation.definition.comment.hjson
+      push: line-comment-hash-content
+
+  line-comment-hash-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.line.hash.hjson
+
+    - include: eol-pop
+
+  # TODO: single-quoted keys and strings
+
+  # TODO: unquoted keys
+
+  # TODO: unquoted strings, also regex
+
+  # TODO: multi-line strings
+
+  # TODO: line end instead of comma in objects after a key-value-pair's value
