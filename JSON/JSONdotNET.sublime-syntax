@@ -49,7 +49,8 @@ contexts:
             [Tt]
             [0-2]\d [:] [0-5]\d [:] [0-5]\d
             (?:
-              Z | [-+] \d{1,2} (?: [:]\d{1,2})?
+              Z                                                                 # zulu hour, military term for UTC time-zone
+            | [-+] \d{1,2} (?: [:]\d{1,2})?
             )?
           )
           (\")
@@ -67,7 +68,7 @@ contexts:
           (\")
           (
             (\\)\/Date\(\d+\)(\\)\/                                             # when erroneously containing double escapes
-            | \/Date\(\d+\)\/                                                   # datetime strings in the deprecated format
+          |     \/Date\(\d+\)    \/                                             # datetime strings in the deprecated format
           )
           (\")
         )

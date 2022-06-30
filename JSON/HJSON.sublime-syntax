@@ -35,6 +35,7 @@ contexts:
 
     - include: line-comment-hash
 
+  # FIXME: check whether line must be empty before hash
   line-comment-hash:
     - match: \#
       scope: punctuation.definition.comment.hjson

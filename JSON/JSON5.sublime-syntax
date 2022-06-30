@@ -70,21 +70,21 @@ variables:
     (?x:
       \\u
       (?:
-        \h{4}|
-        \{\h+\}
+        \h{4}
+      | \{\h+\}
       )
     )
 
   identifier_start: |-
     (?x:
-      [_$\p{L}\p{Nl}]|
-      {{identifier_escape}}
+      [_$\p{L}\p{Nl}]
+    | {{identifier_escape}}
     )
 
   identifier_part: |-
     (?x:
-      [_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]|
-      {{identifier_escape}}
+      [_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]
+    | {{identifier_escape}}
     )
 
   identifier_break: |-
@@ -94,7 +94,9 @@ variables:
 
   identifier_name: |-
     (?x:
-      {{identifier_start}}{{identifier_part}}*{{identifier_break}}
+      {{identifier_start}}
+      {{identifier_part}}*
+      {{identifier_break}}
     )
 
 ########################################################################################################################
@@ -115,13 +117,13 @@ contexts:
           (
             (?:
               (0+)? [1-9] \d*
-              | 0
+            | 0
             )
             (?:
               (\.) \d* {{exponent}}?                                            # 1. 1.e1 1.e-1 1.e+1 1.1 1.1e1 1.1e-1 1.1e+1
-              | {{exponent}}                                                    # 1e1 1e-1 1e+1
+            | {{exponent}}                                                      # 1e1 1e-1 1e+1
             )
-            | (\.) \d+ {{exponent}}?                                            # .1 .1e1 .1e-1 .1e+1
+          | (\.) \d+ {{exponent}}?                                              # .1 .1e1 .1e-1 .1e+1
           )
         )
       scope: meta.number.float.decimal.json5
@@ -170,7 +172,7 @@ contexts:
           )?
           (
             (0+)? [1-9] \d*
-            | 0
+          | 0
           )
         )
       scope: meta.number.integer.decimal.json5
@@ -263,7 +265,14 @@ contexts:
   invalid-string-escape-characters:
     - meta_prepend: true
 
-    - match: ([^\\])(?:\x{2028}|\x{2029})
+    - match: |-
+        (?x:
+          ([^\\])
+          (?:
+            \x{2028}
+          | \x{2029}
+          )
+        )
       captures:
         1: invalid.illegal.expected-backslash-char.json5
 
