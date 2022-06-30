@@ -3,9 +3,15 @@
 // <- source.json.hjson
 
 {
-    "key": "value"
+    "key-one": "value-one",
 
     # comment
-//  ^^^^^^^^^ comment.line.hash.hjson
-//  ^ comment.line.hash punctuation.definition.comment.hjson
+//  ^^^^^^^^^ comment.line.hash
+//  ^ comment.line.hash punctuation.definition.comment
+
+    "key-two": '''
+    value-two'''
+//  ^^^^^^^^^^^^ meta.mapping.value
+//  ^^^^^^^^^^^^ meta.string string.quoted.single.multiline
+//           ^^^ punctuation.definition.string.end
 }

@@ -28,14 +28,21 @@ first_line_match: |-
 
 contexts:
 
+  # TODO: single-quoted keys and strings
+
+  # TODO: unquoted keys
+
+  # TODO: unquoted strings, also regex
+
+  # TODO: line end instead of comma in objects after a key-value-pair's value
+
 ####[ Comments ]########################################################################################################
 
   line-comments:
-    - meta_prepend: true
+    - meta_append: true
 
     - include: line-comment-hash
 
-  # FIXME: check whether line must be empty before hash
   line-comment-hash:
     - match: \#
       scope: punctuation.definition.comment.hjson
@@ -47,12 +54,29 @@ contexts:
 
     - include: eol-pop
 
-  # TODO: single-quoted keys and strings
+####[ Values ][ Strings ]###############################################################################################
 
-  # TODO: unquoted keys
+  strings:
+    - meta_prepend: true
 
-  # TODO: unquoted strings, also regex
+    - include: three-single-quotes-multiline-string
 
-  # TODO: multi-line strings
+  three-single-quotes-multiline-string:
+    - match: "'''"
+      scope: punctuation.definition.string.begin.hjson
+      set: three-single-quotes-multiline-string-content
 
-  # TODO: line end instead of comma in objects after a key-value-pair's value
+  three-single-quotes-multiline-string-content:
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.string.hjson
+        string.quoted.single.multiline.hjson
+
+    - match: "'''"
+      scope: punctuation.definition.string.end.hjson
+      pop: 1
+
+    - include: three-single-quotes-multiline-string-escape-characters
+
+  three-single-quotes-multiline-string-escape-characters:
+    - include: string-escape-characters
