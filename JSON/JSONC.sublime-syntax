@@ -81,6 +81,10 @@ first_line_match: |-
 
 contexts:
 
+  # TODO: allow empty content?
+
+  # TODO: allow JSDoc comments?                                                 https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+
 ####[ Comments ]########################################################################################################
 
   valid-comments:

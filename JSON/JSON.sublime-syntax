@@ -432,6 +432,7 @@ contexts:
 ####[ Structures ][ Objects ]###########################################################################################
 
   # FIXME: leading separators
+
   # FIXME: trailing commas
 
   objects:

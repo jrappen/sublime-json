@@ -101,7 +101,7 @@ variables:
 
 contexts:
 
-  # TODO: check valid whitespace chars: https://spec.json5.org/#white-space
+  # TODO: check valid whitespace chars                                          # https://spec.json5.org/#white-space
 
 ####[ Values ][ Numbers ]###############################################################################################
 
