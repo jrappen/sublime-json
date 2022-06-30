@@ -1,0 +1,30 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/GeoJSON.sublime-syntax
+
+name: 'GeoJSON'
+scope: source.json.geojson
+version: 2
+
+extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
+
+file_extensions:
+  - geojson                                                                     # https://geojson.org/
+                                                                                # https://datatracker.ietf.org/wg/geojson/charter/
+                                                                                # https://tools.ietf.org/html/rfc7946
+
+first_line_match: |-
+  (?xi:
+    ^ \s* // .*? -\*- .*? \bgeojson\b .*? -\*-                                  # editorconfig
+  )
+
+########################################################################################################################
+
+contexts:
