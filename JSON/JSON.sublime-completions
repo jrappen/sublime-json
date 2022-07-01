@@ -6,37 +6,22 @@
             "trigger": "true",
             "contents": "true",
             "annotation": "constant.language.boolean",
-            "kind":
-            [
-                "snippet",
-                "s",
-                "Snippet"
-            ],
-            "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://spec.json5.org/#summary-of-features\">JSON</a>: literal <code>constant</code>"
         },
         {
             "trigger": "false",
             "contents": "false",
             "annotation": "constant.language.boolean",
-            "kind":
-            [
-                "snippet",
-                "s",
-                "Snippet"
-            ],
-            "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://spec.json5.org/#summary-of-features\">JSON</a>: literal <code>constant</code>"
         },
         {
             "trigger": "null",
             "contents": "null",
             "annotation": "constant.language.null",
-            "kind":
-            [
-                "snippet",
-                "s",
-                "Snippet"
-            ],
-            "details": "literal <a href=\"https://spec.json5.org/#summary-of-features\">JSON</a> constant"
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://spec.json5.org/#summary-of-features\">JSON</a>: literal <code>constant</code>"
         }
     ]
 }
