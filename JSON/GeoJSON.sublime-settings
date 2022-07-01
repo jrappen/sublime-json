@@ -1,0 +1,11 @@
+//  Packages/JSON/GeoJSON.sublime-settings
+//  Settings - Syntax Specific (Default)
+//
+//  This file is being maintained at:
+//      https://github.com/sublimehq/Packages/blob/master/JSON/GeoJSON.sublime-settings
+
+
+{
+    "auto_complete_selector": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value, source.json.geojson meta.sequence.list",
+    "default_extension": "geojson"
+}
