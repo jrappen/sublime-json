@@ -1,0 +1,69 @@
+{
+    "scope": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value, source.json.geojson meta.sequence.list",
+    "completions":
+    [
+        {
+            "trigger": "Point",
+            "contents": "Point",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "MultiPoint",
+            "contents": "MultiPoint",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "LineString",
+            "contents": "LineString",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "MultiLineString",
+            "contents": "MultiLineString",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "Polygon",
+            "contents": "Polygon",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "MultiPolygon",
+            "contents": "MultiPolygon",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "GeometryCollection",
+            "contents": "GeometryCollection",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "Feature",
+            "contents": "Feature",
+            "annotation": "GeoJSON Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
+        },
+        {
+            "trigger": "FeatureCollection",
+            "contents": "FeatureCollection",
+            "annotation": "GeoJSON Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
+        }
+    ]
+}
