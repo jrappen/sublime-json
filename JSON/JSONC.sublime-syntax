@@ -83,7 +83,7 @@ contexts:
 
   # TODO: allow empty content?
 
-  # TODO: allow JSDoc comments?                                                 https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+  # TODO: JSDoc comments? https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
 
 ####[ Comments ]########################################################################################################
 
@@ -108,7 +108,7 @@ contexts:
     - include: eol-pop
 
   block-comments:
-    - match: /\*                                                                # normal block comments
+    - match: /\*
       scope: punctuation.definition.comment.begin.jsonc
       push: block-comment-content
 
