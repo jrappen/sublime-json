@@ -10,8 +10,15 @@
 //  ^ comment.line.hash punctuation.definition.comment
 
     "key-two": '''
-    value-two'''
+    value-two''',
 //  ^^^^^^^^^^^^ meta.mapping.value
 //  ^^^^^^^^^^^^ meta.string string.quoted.single.multiline
 //           ^^^ punctuation.definition.string.end
+
+    'key-three': 'value \' three'
+//  ^^^^^^^^^^^ meta.mapping.key
+//  ^^^^^^^^^^^ meta.string string.quoted.single
+//               ^^^^^^^^^^^^^^^^ meta.mapping.value
+//               ^^^^^^^^^^^^^^^^ meta.string string.quoted.single
+//                      ^^ constant.character.escape.single-quote
 }
