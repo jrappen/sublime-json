@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json</string>
+	<string>source.json - (source.json.hjson | source.json.json5)</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
