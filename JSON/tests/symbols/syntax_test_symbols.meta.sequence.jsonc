@@ -3,10 +3,14 @@
 // <- source.json.jsonc
 
 [
+
+// <- meta.sequence.list
+
     {
         "key-one": "value",
 //      @@@@@@@@@ none
 //      ^^^^^^^^^ meta.sequence.list meta.mapping.key
+
         "key-two": "value"
 //      @@@@@@@@@ none
 //      ^^^^^^^^^ meta.sequence.list meta.mapping.key

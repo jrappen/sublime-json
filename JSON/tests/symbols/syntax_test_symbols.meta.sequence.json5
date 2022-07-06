@@ -3,18 +3,24 @@
 // <- source.json.json5
 
 [
+
+// <- meta.sequence.list
+
     {
         "key-one-one": "value",
 //      @@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
-        "key-one-two": "value"
+
+        "key-one-two": 'value'
 //      @@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
     },
+
     {
-        'key-two-one': 'value',
+        'key-two-one': "value",
 //      @@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key
+
         'key-two-two': 'value'
 //      @@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^ meta.sequence.list meta.mapping.key

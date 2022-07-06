@@ -1,0 +1,49 @@
+// SYNTAX TEST "Packages/JSON/HJSON.sublime-syntax"
+
+// <- source.json.hjson
+
+{
+    "key-one": "value",
+//  @@@@@@@@@ definition
+//  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    "key-two": 'value',
+//  @@@@@@@@@ definition
+//  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    'key-three': "value",
+//  @@@@@@@@@@@ definition
+//  ^^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    'key-four': 'value',
+//  @@@@@@@@@@ definition
+//  ^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    "key-five":
+//  @@@@@@@@@@ definition
+//  ^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    {
+        "key-five-one": "value",
+//      @@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
+        'key-five-two': 'value'
+//      @@@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
+    },
+    "key-six":
+//  @@@@@@@@@ definition
+//  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
+
+    {
+        "key-six-one": "value",
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
+        'key-six-two': 'value'
+//      @@@@@@@@@@@@@ none
+//      ^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+    }
+}

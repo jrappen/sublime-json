@@ -30,15 +30,19 @@
         _keySixOne: "value",
 //      @@@@@@@@@@ none
 //      ^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         $keySixTwo: "value",
 //      @@@@@@@@@@ none
 //      ^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         \u1234keySixThree: "value",
 //      @@@@@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         "key-six-four": "value",
 //      @@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         'key-six-five': "value"
 //      @@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
@@ -51,15 +55,19 @@
         _keySevenOne: 'value',
 //      @@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         $keySevenTwo: 'value',
 //      @@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         \u1234keySevenThree: 'value',
 //      @@@@@@@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         "key-seven-four": 'value',
 //      @@@@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
+
         'key-seven-five': 'value'
 //      @@@@@@@@@@@@@@@@ none
 //      ^^^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
