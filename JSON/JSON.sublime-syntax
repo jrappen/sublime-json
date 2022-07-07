@@ -256,8 +256,8 @@ contexts:
           )?
           (
             (?:
-              (0+)? [1-9] \d*
-            | 0
+              (0+)? [1-9] \d*                                                   # non-zero with (invalid) leading zeros
+            | 0                                                                 # zero
             )
             (?:
               (\.) \d+ {{exponent}}?                                            # 1.1 1.1e1 1.1e-1 1.1e+1
@@ -293,8 +293,8 @@ contexts:
             (\s+)?
           )?
           (
-            (0+)? [1-9] \d*
-          | 0
+            (0+)? [1-9] \d*                                                     # non-zero with (invalid) leading zeros
+          | 0                                                                   # zero
           )
         )
       scope: meta.number.integer.decimal.json
