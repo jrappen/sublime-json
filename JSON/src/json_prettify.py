@@ -19,7 +19,7 @@ import typing                                                                   
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
 settings: typing.Union[sublime.Settings, None] = None
 base_settings: typing.Final[str] = 'JSON.sublime-settings'
-base_scope: typing.Final[str] = 'source.json - (source.json.jsondotnet | source.json.json5 | source.json.jsonc)'
+base_scope: typing.Final[str] = 'source.json - (source.json.geojson | source.json.hjson | source.json.json5 | source.json.jsonc | source.json.jsondotnet)'
 
 
 def status_msg(msg: str = '') -> None:
