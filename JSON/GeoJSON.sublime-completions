@@ -5,7 +5,7 @@
 
 
 {
-    "scope": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value, source.json.geojson meta.sequence.list",
+    "scope": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value",
     "completions":
     [
         {
