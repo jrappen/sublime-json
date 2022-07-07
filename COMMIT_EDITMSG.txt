@@ -121,7 +121,7 @@ Language specific changes:
 Thanks to these people who provided feedback:
 
 - Ashwin Shenoy
-- Jack Cherng
+- Jack F. Cherng
 - Janos Wortmann
 - Jon Skinner
 - FichteFoll
