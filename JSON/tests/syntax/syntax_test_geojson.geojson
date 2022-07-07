@@ -161,7 +161,7 @@
                ]
            ]
        ]
-   }
+   },
 //  2d bbox member on Feature
    {
        "type": "Feature",
