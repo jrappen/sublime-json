@@ -278,7 +278,7 @@ contexts:
 
 ####[ Structures ][ Objects ]###########################################################################################
 
-  mapping-key:
+  valid-mapping-keys:
     - meta_append: true
 
     - match: \'

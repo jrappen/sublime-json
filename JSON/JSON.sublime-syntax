@@ -460,16 +460,22 @@ contexts:
       scope: punctuation.definition.mapping.end.json
       pop: 1
 
-    - include: mapping-key
-    - include: mapping-separator
+    - include: mapping-keys
+    - include: mapping-separators
 
     - match: '[^\s\}]'
       scope: invalid.illegal.expected-mapping-key.json
 
-  mapping-key:
+  mapping-keys:
+    - include: valid-mapping-keys
+    - include: invalid-mapping-keys
+
+  valid-mapping-keys:
     - match: \"
       scope: punctuation.definition.string.begin.json
       push: mapping-key-double-quoted
+
+  invalid-mapping-keys: []
 
   mapping-key-double-quoted:
     - clear_scopes: 1
@@ -481,10 +487,16 @@ contexts:
 
     - include: double-quoted-string-content
 
-  mapping-separator:
+  mapping-separators:
+    - include: valid-mapping-separators
+    - include: invalid-mapping-separators
+
+  valid-mapping-separators:
     - match: ':'
       scope: punctuation.separator.key-value.json
       push: mapping-expect-value
+
+  invalid-mapping-separators: []
 
   mapping-expect-value:
     - match: ',|\s?(?=\})'

@@ -123,6 +123,12 @@ contexts:
 ####[ Structures ][ Arrays ]############################################################################################
 
   array-separators:
+    - include: valid-array-separators
+    - include: invalid-array-separators
+
+  valid-array-separators:
     - match: ','
       scope: punctuation.separator.sequence.jsonc
       push: array-item
+
+  invalid-array-separators: []
