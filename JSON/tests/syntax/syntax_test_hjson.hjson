@@ -2,23 +2,36 @@
 
 // <- source.json.hjson
 
-{
-    "key-one": "value-one",
+[
+    "string",
+
+
+//[ Comments ]//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     # comment
 //  ^^^^^^^^^ comment.line.hash
 //  ^ comment.line.hash punctuation.definition.comment
 
-    "key-two": '''
-    value-two''',
-//  ^^^^^^^^^^^^ meta.mapping.value
-//  ^^^^^^^^^^^^ meta.string string.quoted.single.multiline
-//           ^^^ punctuation.definition.string.end
 
-    'key-three': 'value \' three'
-//  ^^^^^^^^^^^ meta.mapping.key
-//  ^^^^^^^^^^^ meta.string string.quoted.single
-//               ^^^^^^^^^^^^^^^^ meta.mapping.value
-//               ^^^^^^^^^^^^^^^^ meta.string string.quoted.single
-//                      ^^ constant.character.escape.single-quote
-}
+//[ Strings ][ thrice single-quoted multiline ]/////////////////////////////////////////////////////////////////////////
+
+
+    '''
+//  ^^^ punctuation.definition.string.begin
+    value''',
+//  ^^^^^^^^ string.quoted.single.multiline
+//       ^^^ punctuation.definition.string.end
+
+
+//[ Strings ][ single-quoted ]//////////////////////////////////////////////////////////////////////////////////////////
+
+
+    'string \' one',
+//  ^^^^^^^^^^^^^^^ string.quoted.single
+//          ^^ string.quoted.single constant.character.escape.single-quote
+
+    'string # no comment'
+//  ^^^^^^^^^^^^^^^^^^^^^ string.quoted.single
+//          ^^^^^^^^^^^^^ string.quoted.single - comment
+]
