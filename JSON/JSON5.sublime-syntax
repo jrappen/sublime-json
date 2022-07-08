@@ -136,6 +136,7 @@ contexts:
         6: punctuation.separator.decimal.json5
       pop: 1
 
+    # when spelled correctly
     - match: ([-+]?)(Infinity)
       scope: meta.number.float.decimal.json5
       captures:
@@ -143,6 +144,7 @@ contexts:
         2: constant.language.infinity.json5
       pop: 1
 
+    # when spelled correctly
     - match: ([-+]?)(NaN)
       scope: meta.number.float.decimal.json5
       captures:
@@ -150,7 +152,7 @@ contexts:
         2: constant.language.nan.json5
       pop: 1
 
-    # when erroneously containing wrongly cased letters
+    # when spelled wrong (i.e. upper case vs. lower case & vice versa)
     - match: ([-+]?)(?i:(infinity|nan))
       scope: meta.number.float.decimal.json5
       captures:
@@ -291,6 +293,16 @@ contexts:
     - match: (?={{identifier_name}})
       push: mapping-key-ecma
 
+  mapping-key-single-quoted:
+    - clear_scopes: 1
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.mapping.key.json5
+        meta.string.json5
+        string.quoted.single.json5
+
+    - include: single-quoted-string-content
+
   mapping-key-ecma:
     - clear_scopes: 1
     - meta_include_prototype: false
@@ -301,13 +313,3 @@ contexts:
 
     - match: '{{identifier_break}}'
       pop: 1
-
-  mapping-key-single-quoted:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.mapping.key.json5
-        meta.string.json5
-        string.quoted.single.json5
-
-    - include: single-quoted-string-content

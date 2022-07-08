@@ -499,7 +499,13 @@ contexts:
   invalid-mapping-separators: []
 
   mapping-expect-value:
-    - match: ',|\s?(?=\})'
+    - match: |-
+        (?x:
+          (?:
+            ,
+          | \s? (?=\})
+          )
+        )
       scope: invalid.illegal.expected-mapping-value.json
       pop: 1
 
