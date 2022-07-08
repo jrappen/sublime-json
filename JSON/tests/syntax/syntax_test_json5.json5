@@ -83,19 +83,19 @@
 //                                   ^ meta.mapping.value
 //                                   ^ - meta.mapping meta.mapping.value
 
-        'meta-mapping-value-string': "value",
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
-//                                 ^ meta.mapping punctuation.separator.key-value
-//                                   ^^^^^^^ meta.mapping.value
-//                                   ^^^^^^^ - meta.mapping meta.mapping.value
+        'meta-mapping-value-string-double-quoted': "value",
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                               ^ meta.mapping punctuation.separator.key-value
+//                                                 ^^^^^^^ meta.mapping.value
+//                                                 ^^^^^^^ - meta.mapping meta.mapping.value
 
-        'meta-mapping-value-string': 'value',
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
-//                                 ^ meta.mapping punctuation.separator.key-value
-//                                   ^^^^^^^ meta.mapping.value
-//                                   ^^^^^^^ - meta.mapping meta.mapping.value
+        'meta-mapping-value-string-single-quoted': 'value',
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                               ^ meta.mapping punctuation.separator.key-value
+//                                                 ^^^^^^^ meta.mapping.value
+//                                                 ^^^^^^^ - meta.mapping meta.mapping.value
 
         'meta-mapping-value-sequence-empty': [],
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
@@ -144,37 +144,37 @@
 //                                                     ^ punctuation.definition.mapping.begin
 //                                                       ^ punctuation.definition.mapping.end
 
-        'meta-mapping-value-mapping': { "a": 1, "b": 2 },
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
-//                                  ^ meta.mapping punctuation.separator.key-value
-//                                    ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
-//                                    ^ - meta.mapping meta.mapping.value
-//                                      ^^^ meta.mapping.value meta.mapping.key
-//                                         ^ meta.mapping.value meta.mapping punctuation.separator.key-value
-//                                           ^ meta.mapping.value meta.mapping.value
-//                                            ^ meta.mapping.value meta.mapping punctuation.separator.sequence
-//                                              ^^^ meta.mapping.value meta.mapping.key
-//                                                 ^ meta.mapping.value meta.mapping punctuation.separator.key-value
-//                                                   ^ meta.mapping.value meta.mapping.value
-//                                                     ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
-//                                                     ^ - meta.mapping meta.mapping.value
+        'meta-mapping-value-mapping-double': { "a": 1, "b": 2 },
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                         ^ meta.mapping punctuation.separator.key-value
+//                                           ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
+//                                           ^ - meta.mapping meta.mapping.value
+//                                             ^^^ meta.mapping.value meta.mapping.key
+//                                                ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//                                                  ^ meta.mapping.value meta.mapping.value
+//                                                   ^ meta.mapping.value meta.mapping punctuation.separator.sequence
+//                                                     ^^^ meta.mapping.value meta.mapping.key
+//                                                        ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//                                                          ^ meta.mapping.value meta.mapping.value
+//                                                            ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
+//                                                            ^ - meta.mapping meta.mapping.value
 
-        'meta-mapping-value-mapping': { 'a': 1, 'b': 2 }
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
-//                                  ^ meta.mapping punctuation.separator.key-value
-//                                    ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
-//                                    ^ - meta.mapping meta.mapping.value
-//                                      ^^^ meta.mapping.value meta.mapping.key
-//                                         ^ meta.mapping.value meta.mapping punctuation.separator.key-value
-//                                           ^ meta.mapping.value meta.mapping.value
-//                                            ^ meta.mapping.value meta.mapping punctuation.separator.sequence
-//                                              ^^^ meta.mapping.value meta.mapping.key
-//                                                 ^ meta.mapping.value meta.mapping punctuation.separator.key-value
-//                                                   ^ meta.mapping.value meta.mapping.value
-//                                                     ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
-//                                                     ^ - meta.mapping meta.mapping.value
+        'meta-mapping-value-mapping-single': { 'a': 1, 'b': 2 }
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.mapping meta.mapping.key
+//                                         ^ meta.mapping punctuation.separator.key-value
+//                                           ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
+//                                           ^ - meta.mapping meta.mapping.value
+//                                             ^^^ meta.mapping.value meta.mapping.key
+//                                                ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//                                                  ^ meta.mapping.value meta.mapping.value
+//                                                   ^ meta.mapping.value meta.mapping punctuation.separator.sequence
+//                                                     ^^^ meta.mapping.value meta.mapping.key
+//                                                        ^ meta.mapping.value meta.mapping punctuation.separator.key-value
+//                                                          ^ meta.mapping.value meta.mapping.value
+//                                                            ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
+//                                                            ^ - meta.mapping meta.mapping.value
     },
 
 

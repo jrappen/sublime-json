@@ -792,7 +792,7 @@
 //       ^^ constant.character.escape.horizontal-tab
 //       ^ punctuation.definition.escape
 
-        "\u12345",                                                              // unicode symbol: basic multilingual plane
+        "\u12345"                                                               // unicode symbol: basic multilingual plane
 //      ^^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
 //       ^ punctuation.definition.escape
