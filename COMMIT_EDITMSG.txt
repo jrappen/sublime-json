@@ -143,10 +143,9 @@ BREAKING CHANGES:
 - The `JSON.sublime-syntax` now marks comments as `invalid`, third party
   plugin authors should instead target `JSONC.sublime-syntax` to keep
   the user experience as-is.
-- Indexed symbols (i.e. top-level keys in JSON object structures) are
-  scoped as `source.json meta.mapping.key - (meta.mapping.value meta.mapping.key | meta.sequence.list meta.mapping.key)`.
-  Color scheme authors should add special highlighting to differentiate
-  them from other keys.
+- Only top-level keys in JSON files containing a single object structure are
+  indexed symbols. Color scheme authors should add special highlighting to
+  differentiate them from other keys. Compare the `Symbol List` metadata file.
 
 References:
 
