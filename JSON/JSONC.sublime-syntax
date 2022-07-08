@@ -122,13 +122,10 @@ contexts:
 
 ####[ Structures ][ Arrays ]############################################################################################
 
-  array-separators:
-    - include: valid-array-separators
-    - include: invalid-array-separators
-
-  valid-array-separators:
+  array-separators:                                                             # no branching anymore
     - match: ','
       scope: punctuation.separator.sequence.jsonc
       push: array-item
 
-  invalid-array-separators: []
+  valid-array-separators: []                                                    # branch from base syntax not needed anymore
+  array-expect-value: []
