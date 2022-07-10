@@ -40,7 +40,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    { 'a': 1, 'b': 2, 'c': 3 },
+    { 'a': 1, 'b': 2, 'c': 3 },                                                 // object key with single-quoted string
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping
 
     {
@@ -183,7 +183,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    ['a', 'b', 'c'],
+    ['a', 'b', 'c'],                                                            // single-quoted string values
 //  ^^^^^^^^^^^^^^^ meta.sequence.list meta.sequence.list
 //  ^ punctuation.definition.sequence.begin
 //   ^^^ string.quoted.single
@@ -242,11 +242,24 @@
         '\v',                                                                   // escape-character-vertical-tab
 //       ^^ constant.character.escape.vertical-tab
 
-        '\0',                                                                   // escape-character-null
+        '\00',                                                                  // escape-character-null must not be followed by zero
 //       ^^ constant.character.escape.null
+//         ^ invalid.illegal.unexpected-digit-character
 
         '\x00',                                                                 // escape-character-unicode-symbol-basic
 //       ^^^^ constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement
+
+        '\x0',                                                                  // unrecognized-string-escape-unicode-symbol-too-short
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^^ - constant.character.escape
+
+        '\X0',                                                                  // unrecognized-string-escape-unicode-symbol-upper-case-too-short
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^^ - constant.character.escape
+
+        '\X00',                                                                 // unrecognized-string-escape-unicode-symbol-upper-case
+//       ^^ invalid.illegal.unrecognized-string-escape
+//       ^^^^ - constant.character.escape
 
         '\u0000\u0000',                                                         // escape-character-unicode-symbol-utf16-surrogate-pair
 //       ^^^^^^^^^^^^ constant.character.escape.unicode-symbol.utf16-surrogate-pair
@@ -262,8 +275,18 @@
                                                                                 // escape-character-paragraph-separator
         '\ 
 //       ^^ constant.character.escape.paragraph-separator \
-        '
+        ',
 //     ^ meta.string string.quoted.single
+
+        'x ',                                                                   // expected-backslash-char-line-separator
+//      ^^^^ meta.string string.quoted.single
+//       ^ invalid.illegal.expected-backslash-char
+//        ^ - constant.character.escape.line-separator
+
+    'x '                                                                        // expected-backslash-char-paragraph-separator
+//  ^^^^ meta.string string.quoted.single
+//   ^ invalid.illegal.expected-backslash-char
+//    ^ - constant.character.escape.paragraph-separator
     ],
 
 
@@ -283,6 +306,10 @@
 //      ^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^ constant.language.nan
+        -nan,
+//      ^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^ invalid.illegal.expected-language-constant
 
         Infinity,                                                               // constant-language-infinity
 //      ^^^^^^^^ meta.number.float.decimal constant.language.infinity
@@ -290,10 +317,14 @@
 //      ^^^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^^^ constant.language.infinity
-        -Infinity                                                               // constant-language-infinity-neg
+        -Infinity,                                                              // constant-language-infinity-neg
 //      ^^^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^^^ constant.language.infinity
+        -infinity
+//      ^^^^^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^^^^^ invalid.illegal.expected-language-constant
     ],
 
 
