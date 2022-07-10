@@ -3,27 +3,6 @@
 // <- source.json.jsonc
 
 {
-    /* comment
-    // comment */
-//  ^^^^^^^^^^^^^ - comment.line
-//             ^^ comment.block punctuation.definition.comment.end
-
-    /* comment
-    /* comment */
-//  ^^^^^^^^^^^^^ - comment.block comment.block
-//             ^^ comment.block punctuation.definition.comment.end
-//             ^^ - comment.block comment.block punctuation.definition.comment.end
-
-    /* comment
-    "not a string" */
-//  ^^^^^^^^^^^^^^ - meta.string string.quoted.double
-//  ^ - punctuation.definition.string.begin
-//               ^ - punctuation.definition.string.end
-//                 ^^ comment.block punctuation.definition.comment.end
-
-
-
-
 
     /*
      * comment
@@ -31,10 +10,6 @@
 //   ^ - punctuation.definition.comment
      * comment
      */
-
-
-
-
 
     "empty-sequence-with-line-comment": [
         // line comment
@@ -56,10 +31,6 @@
 //                                         ^^^^^ comment.block
 //                                         ^^ punctuation.definition.comment.begin
 //                                            ^^ punctuation.definition.comment.end
-
-
-
-
 
     "full-sequence-with-line-comment": [
         // line comment

@@ -17,7 +17,7 @@
 //              ^^^^^^^^^^ - comment.line comment.line
 
     //  comment /** comment */
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^^^^^^^^^ - comment.block
 //              ^^^ - punctuation.definition.comment.begin
@@ -31,14 +31,14 @@
 //                         ^^ - punctuation.definition.comment.end
 
     //  comment /** */
-//  ^^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^^ - comment.block
 //              ^^ - punctuation.definition.comment.begin
 //                  ^^ - punctuation.definition.comment.end
 
     //  comment /* */
-//  ^^^^^^^^^^^^^^^^ comment.line.double-slash
+//  ^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
 //              ^^^^^ - comment.block
 //              ^^ - punctuation.definition.comment.begin
@@ -61,7 +61,8 @@
     //  comment "not a string"
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash
 //  ^^ comment.line.double-slash punctuation.definition.comment
-//              ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//              ^^^^^^^^^^^^^^ - meta.string
+//              ^^^^^^^^^^^^^^ - string.quoted.double
 //              ^ - punctuation.definition.string.begin
 //                           ^ - punctuation.definition.string.end
 
@@ -116,11 +117,30 @@
     /* comment "not a string" */
 //  ^^ comment.block punctuation.definition.comment.begin
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block
-//             ^^^^^^^^^^^^^^ - meta.string string.quoted.double
+//             ^^^^^^^^^^^^^^ - meta.string
+//             ^^^^^^^^^^^^^^ - string.quoted.double
 //             ^ - punctuation.definition.string.begin
 //                          ^ - punctuation.definition.string.end
 //                            ^^ comment.block punctuation.definition.comment.end
 
+    /* comment
+    // comment */
+//  ^^^^^^^^^^^^^ - comment.line
+//             ^^ comment.block punctuation.definition.comment.end
+
+    /* comment
+    /* comment */
+//  ^^^^^^^^^^^^^ - comment.block comment.block
+//             ^^ comment.block punctuation.definition.comment.end
+//             ^^ - comment.block comment.block punctuation.definition.comment.end
+
+    /* comment
+    "not a string" */
+//  ^^^^^^^^^^^^^^ - meta.string
+//  ^^^^^^^^^^^^^^ - string.quoted.double
+//  ^ - punctuation.definition.string.begin
+//               ^ - punctuation.definition.string.end
+//                 ^^ comment.block punctuation.definition.comment.end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //[ ARRAYS ]////////////////////////////////////////////////////////////////////////////////////////////////////////////
