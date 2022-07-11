@@ -7,19 +7,25 @@
 	<dict>
 		<key>foldScopes</key>
 		<array>
-			<dict>
+			<dict><!-- STRINGS -->
+				<key>begin</key>
+				<string>punctuation.definition.string.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.string.end</string>
+			</dict>
+			<dict><!-- COMMENTS -->
 				<key>begin</key>
 				<string>punctuation.definition.comment.begin</string>
 				<key>end</key>
 				<string>punctuation.definition.comment.end</string>
 			</dict>
-			<dict>
+			<dict><!-- OBJECTS -->
 				<key>begin</key>
 				<string>punctuation.definition.mapping.begin</string>
 				<key>end</key>
 				<string>punctuation.definition.mapping.end</string>
 			</dict>
-			<dict>
+			<dict><!-- ARRAYS -->
 				<key>begin</key>
 				<string>punctuation.definition.sequence.begin</string>
 				<key>end</key>
