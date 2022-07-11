@@ -81,8 +81,6 @@ contexts:
     - include: string-escape-characters
 
   single-quoted-string:
-    # TODO: check indentation rules for single quoted strings
-
     - match: \'
       scope: punctuation.definition.string.begin.hjson
       set: single-quoted-string-content

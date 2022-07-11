@@ -202,8 +202,6 @@ contexts:
     - include: single-quoted-string
 
   single-quoted-string:
-    # TODO: check indentation rules for single quoted strings
-
     - match: \'
       scope: punctuation.definition.string.begin.json5
       set: single-quoted-string-content
