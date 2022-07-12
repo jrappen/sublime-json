@@ -54,10 +54,6 @@ hidden_file_extensions:
   - css.map
     # CSS Source Map
 
-  - geojson                                                                     # https://geojson.org
-    # JSON for geographic data structures                                       # https://datatracker.ietf.org/wg/geojson/charter/
-                                                                                # https://datatracker.ietf.org/doc/html/rfc7946
-
   - gltf                                                                        # https://www.khronos.com/gltf
     # glTF Runtime 3D asset delivery
 
