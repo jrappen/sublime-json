@@ -1,0 +1,53 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-constant-language-ieee754.sublime-syntax
+
+name: json-constant-language-ieee754
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+contexts:
+
+####[ Values ][ Numbers ]###############################################################################################
+
+  decimal-float:
+    - meta_append: true
+    - include: decimal-float-language
+
+  decimal-float-language:
+    # when spelled correctly
+    - match: ([-+]?)(Infinity)
+      scope: meta.number.float.decimal.json
+      captures:
+        1: constant.numeric.sign.json
+        2: constant.language.infinity.json
+      pop: 1
+
+    # when spelled correctly
+    - match: ([-+]?)(NaN)
+      scope: meta.number.float.decimal.json
+      captures:
+        1: constant.numeric.sign.json
+        2: constant.language.nan.json
+      pop: 1
+
+    # when spelled wrong (i.e. upper case vs. lower case & vice versa)
+    - match: ([-+]?)(?i:(infinity|nan))
+      scope: meta.number.float.decimal.json
+      captures:
+        1: constant.numeric.sign.json
+        2: invalid.illegal.expected-language-constant.json
+      pop: 1

@@ -1,0 +1,56 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-string-quoted-single.sublime-syntax
+
+name: json-string-quoted-single
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+contexts:
+
+####[ Values ][ Strings ]###############################################################################################
+
+  strings:
+    - meta_prepend: true
+
+    - include: single-quoted-string
+
+  single-quoted-string:
+    - match: \'
+      scope: punctuation.definition.string.begin.json
+      set: single-quoted-string-content
+
+  single-quoted-string-content:
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.string.json
+        string.quoted.single.json
+
+    - match: \'
+      scope: punctuation.definition.string.end.json
+      pop: 1
+
+    - include: single-quoted-string-escape-characters
+
+    - match: \n
+      scope: invalid.illegal.unclosed-string.json
+      pop: 1
+
+  single-quoted-string-escape-characters:
+    - match: \\\'
+      scope: constant.character.escape.single-quote.json                        # quotation mark
+
+    - include: string-escape-characters

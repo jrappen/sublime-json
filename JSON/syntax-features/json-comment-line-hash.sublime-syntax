@@ -1,0 +1,40 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-comment-line-hash.sublime-syntax
+
+name: json-comment-line-hash
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+contexts:
+
+####[ Comments ]########################################################################################################
+
+  line-comments:
+    - meta_append: true
+
+    - include: line-comment-hash
+
+  line-comment-hash:
+    - match: \#
+      scope: punctuation.definition.comment.json
+      push: line-comment-hash-content
+
+  line-comment-hash-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.line.hash.json
+
+    - include: eol-pop

@@ -13,7 +13,8 @@ name: 'GeoJSON'
 scope: source.json.geojson
 version: 2
 
-extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
 
 file_extensions:
   - geojson                                                                     # https://geojson.org/

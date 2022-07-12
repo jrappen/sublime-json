@@ -13,7 +13,11 @@ name: HJSON
 scope: source.json.hjson
 version: 2
 
-extends: JSONC.sublime-syntax                                                   # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/syntax-features/json-comment.sublime-syntax
+  - Packages/JSON/syntax-features/json-comment-line-hash.sublime-syntax
+  - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
+  - Packages/JSON/syntax-features/json-string-quoted-single.sublime-syntax
 
 file_extensions:
   - hjson                                                                       # https://hjson.github.io/
@@ -34,31 +38,12 @@ contexts:
 
   # TODO: line end instead of comma in objects after a key-value-pair's value
 
-####[ Comments ]########################################################################################################
-
-  line-comments:
-    - meta_append: true
-
-    - include: line-comment-hash
-
-  line-comment-hash:
-    - match: \#
-      scope: punctuation.definition.comment.hjson
-      push: line-comment-hash-content
-
-  line-comment-hash-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.line.hash.hjson
-
-    - include: eol-pop
-
 ####[ Values ][ Strings ]###############################################################################################
 
   strings:
     - meta_prepend: true
 
     - include: thrice-single-quoted-multiline-string
-    - include: single-quoted-string
 
   thrice-single-quoted-multiline-string:
     - match: "'''"
@@ -78,33 +63,6 @@ contexts:
     - include: thrice-single-quoted-multiline-string-escape-characters
 
   thrice-single-quoted-multiline-string-escape-characters:
-    - include: string-escape-characters
-
-  single-quoted-string:
-    - match: \'
-      scope: punctuation.definition.string.begin.hjson
-      set: single-quoted-string-content
-
-  single-quoted-string-content:
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.string.hjson
-        string.quoted.single.hjson
-
-    - match: \'
-      scope: punctuation.definition.string.end.hjson
-      pop: 1
-
-    - include: single-quoted-string-escape-characters
-
-    - match: \n
-      scope: invalid.illegal.unclosed-string.hjson
-      pop: 1
-
-  single-quoted-string-escape-characters:
-    - match: \\\'
-      scope: constant.character.escape.single-quote.hjson
-
     - include: string-escape-characters
 
 ####[ Structures ][ Objects ]###########################################################################################

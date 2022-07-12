@@ -13,7 +13,9 @@ name: JSONC
 scope: source.json.jsonc
 version: 2
 
-extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/syntax-features/json-comment.sublime-syntax
+  - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
 
 file_extensions:
   - jsonc
@@ -79,53 +81,8 @@ first_line_match: |-
 
 ########################################################################################################################
 
-contexts:
+contexts: {}
 
   # TODO: allow empty content?
 
   # TODO: JSDoc comments? https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
-
-####[ Comments ]########################################################################################################
-
-  valid-comments:
-    - include: line-comments
-    - include: block-comments
-
-  invalid-comments: []
-
-  line-comments:
-    - include: line-comment-double-slash
-
-  line-comment-double-slash:
-    - match: //
-      scope: punctuation.definition.comment.jsonc
-      push: line-comment-double-slash-content
-
-  line-comment-double-slash-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.line.double-slash.jsonc
-
-    - include: eol-pop
-
-  block-comments:
-    - match: /\*
-      scope: punctuation.definition.comment.begin.jsonc
-      push: block-comment-content
-
-  block-comment-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.block.jsonc
-
-    - match: \*/
-      scope: punctuation.definition.comment.end.jsonc
-      pop: 1
-
-####[ Structures ][ Arrays ]############################################################################################
-
-  array-separators:                                                             # no branching anymore
-    - match: ','
-      scope: punctuation.separator.sequence.jsonc
-      push: array-item
-
-  valid-array-separators: []                                                    # branch from base syntax not needed anymore
-  array-expect-value: []

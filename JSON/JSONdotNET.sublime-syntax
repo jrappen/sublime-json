@@ -13,7 +13,8 @@ name: 'JSON.NET'
 scope: source.json.jsondotnet
 version: 2
 
-extends: JSON.sublime-syntax                                                    # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
 
 hidden_file_extensions:
   - jsondotnet                                                                  # for syntax tests

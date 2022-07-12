@@ -3,196 +3,204 @@
 // <- source.json.geojson
 
 [
-//  Geometry types
-    {
-    //  {"type": "Point", "coordinates": [lon, lat, alt]}
-        "type": "Point",
-        "coordinates": [30.0, 10.0]
-    },
-    {
-        "type": "LineString",
-        "coordinates": [
-            [30.0, 10.0], [10.0, 30.0], [40.0, 40.0]
-        ]
-    },
-    {
-    //  no holes
-        "type": "Polygon",
-        "coordinates": [
-            [[30.0, 10.0], [40.0, 40.0], [20.0, 40.0], [10.0, 20.0], [30.0, 10.0]]
-        ]
-    },
-    {
-    //  with holes
-        "type": "Polygon",
-        "coordinates": [
-            [[35.0, 10.0], [45.0, 45.0], [15.0, 40.0], [10.0, 20.0], [35.0, 10.0]],
-            [[20.0, 30.0], [35.0, 35.0], [30.0, 20.0], [20.0, 30.0]]
-        ]
-    },
-    {
-        "type": "MultiPoint",
-        "coordinates": [
-            [10.0, 40.0], [40.0, 30.0], [20.0, 20.0], [30.0, 10.0]
-        ]
-    },
-    {
-        "type": "MultiLineString",
-        "coordinates": [
-            [[10.0, 10.0], [20.0, 20.0], [10.0, 40.0]],
-            [[40.0, 40.0], [30.0, 30.0], [40.0, 20.0], [30.0, 10.0]]
-        ]
-    },
-    {
-        "type": "MultiPolygon",
-        "coordinates": [
-            [
-                [[30.0, 20.0], [45.0, 40.0], [10.0, 40.0], [30.0, 20.0]]
-            ],
-            [
-                [[15.0, 5.0], [40.0, 10.0], [10.0, 20.0], [5.0, 10.0], [15.0, 5.0]]
+    [
+    //  Geometry types
+        {
+            //  {"type": "Point", "coordinates": [lon, lat, alt]}
+            "type": "Point",
+            "coordinates": [30.0, 10.0]
+        },
+        {
+            "type": "LineString",
+            "coordinates": [
+                [30.0, 10.0], [10.0, 30.0], [40.0, 40.0]
             ]
-        ]
-    },
-    {
-        "type": "MultiPolygon",
-        "coordinates": [
-            [
-                [[40.0, 40.0], [20.0, 45.0], [45.0, 30.0], [40.0, 40.0]]
-            ],
-            [
-                [[20.0, 35.0], [10.0, 30.0], [10.0, 10.0], [30.0, 5.0], [45.0, 20.0], [20.0, 35.0]],
-                [[30.0, 20.0], [20.0, 15.0], [20.0, 25.0], [30.0, 20.0]]
+        },
+        {
+            //  no holes
+            "type": "Polygon",
+            "coordinates": [
+                [[30.0, 10.0], [40.0, 40.0], [20.0, 40.0], [10.0, 20.0], [30.0, 10.0]]
             ]
-        ]
-    },
-    {
-        "type": "GeometryCollection",
-        "geometries": [
-            {
-                "type": "Point",
-                "coordinates": [40.0, 10.0]
-            }, {
-                "type": "LineString",
-                "coordinates": [
-                    [10.0, 10.0], [20.0, 20.0], [10.0, 40.0]
+        },
+        {
+            //  with holes
+            "type": "Polygon",
+            "coordinates": [
+                [[35.0, 10.0], [45.0, 45.0], [15.0, 40.0], [10.0, 20.0], [35.0, 10.0]],
+                [[20.0, 30.0], [35.0, 35.0], [30.0, 20.0], [20.0, 30.0]]
+            ]
+        },
+        {
+            "type": "MultiPoint",
+            "coordinates": [
+                [10.0, 40.0], [40.0, 30.0], [20.0, 20.0], [30.0, 10.0]
+            ]
+        },
+        {
+            "type": "MultiLineString",
+            "coordinates": [
+                [[10.0, 10.0], [20.0, 20.0], [10.0, 40.0]],
+                [[40.0, 40.0], [30.0, 30.0], [40.0, 20.0], [30.0, 10.0]]
+            ]
+        },
+        {
+            "type": "MultiPolygon",
+            "coordinates": [
+                [
+                    [[30.0, 20.0], [45.0, 40.0], [10.0, 40.0], [30.0, 20.0]]
+                ], [
+                    [[15.0, 5.0], [40.0, 10.0], [10.0, 20.0], [5.0, 10.0], [15.0, 5.0]]
                 ]
-            }, {
-                "type": "Polygon",
-                "coordinates": [
+            ]
+        },
+        {
+            "type": "MultiPolygon",
+            "coordinates": [
+                [
                     [[40.0, 40.0], [20.0, 45.0], [45.0, 30.0], [40.0, 40.0]]
+                ], [
+                    [[20.0, 35.0], [10.0, 30.0], [10.0, 10.0], [30.0, 5.0], [45.0, 20.0], [20.0, 35.0]],
+                    [[30.0, 20.0], [20.0, 15.0], [20.0, 25.0], [30.0, 20.0]]
                 ]
-            }
-        ]
-    },
-//  GeoJSON types
-    {
-       "type": "FeatureCollection",
-       "features": [{
-           "type": "Feature",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [102.0, 0.5]
-           },
-           "properties": {
-               "prop0": "value0"
-           }
-       }, {
-           "type": "Feature",
-           "geometry": {
-               "type": "LineString",
-               "coordinates": [
-                   [102.0, 0.0],
-                   [103.0, 1.0],
-                   [104.0, 0.0],
-                   [105.0, 1.0]
+            ]
+        },
+        {
+            "type": "GeometryCollection",
+            "geometries": [
+                {
+                    "type": "Point",
+                    "coordinates": [40.0, 10.0]
+                }, {
+                    "type": "LineString",
+                    "coordinates": [
+                        [10.0, 10.0], [20.0, 20.0], [10.0, 40.0]
+                    ]
+                }, {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [[40.0, 40.0], [20.0, 45.0], [45.0, 30.0], [40.0, 40.0]]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    //  GeoJSON types
+    [
+        {
+            "type": "FeatureCollection",
+            "features":
+            [{
+               "type": "Feature",
+               "geometry": {
+                   "type": "Point",
+                   "coordinates": [102.0, 0.5]
+               },
+               "properties": {
+                   "prop0": "value0"
+               }
+           }, {
+               "type": "Feature",
+               "geometry": {
+                   "type": "LineString",
+                   "coordinates": [
+                       [102.0, 0.0],
+                       [103.0, 1.0],
+                       [104.0, 0.0],
+                       [105.0, 1.0]
+                   ]
+               },
+               "properties": {
+                   "prop0": "value0",
+                   "prop1": 0.0
+               }
+           }, {
+               "type": "Feature",
+               "geometry": {
+                   "type": "Polygon",
+                   "coordinates": [
+                       [
+                           [100.0, 0.0],
+                           [101.0, 0.0],
+                           [101.0, 1.0],
+                           [100.0, 1.0],
+                           [100.0, 0.0]
+                       ]
+                   ]
+               },
+               "properties": {
+                   "prop0": "value0",
+                   "prop1": {
+                       "this": "that"
+                   }
+                }
+            }]
+       },
+
+        //  Antimeridian Cutting
+       {
+           "type": "MultiLineString",
+           "coordinates": [
+               [
+                   [170.0, 45.0], [180.0, 45.0]
+               ], [
+                   [-180.0, 45.0], [-170.0, 45.0]
                ]
-           },
-           "properties": {
-               "prop0": "value0",
-               "prop1": 0.0
-           }
-       }, {
+           ]
+       },
+       {
+           "type": "MultiPolygon",
+           "coordinates": [
+               [
+                   [
+                       [180.0, 40.0], [180.0, 50.0], [170.0, 50.0],
+                       [170.0, 40.0], [180.0, 40.0]
+                   ]
+               ],
+               [
+                   [
+                       [-170.0, 40.0], [-170.0, 50.0], [-180.0, 50.0],
+                       [-180.0, 40.0], [-170.0, 40.0]
+                   ]
+               ]
+           ]
+       },
+
+        //  2d bbox member on Feature
+       {
            "type": "Feature",
+           "bbox": [-10.0, -10.0, 10.0, 10.0],
            "geometry": {
                "type": "Polygon",
                "coordinates": [
                    [
-                       [100.0, 0.0],
-                       [101.0, 0.0],
-                       [101.0, 1.0],
-                       [100.0, 1.0],
-                       [100.0, 0.0]
+                       [-10.0, -10.0],
+                       [10.0, -10.0],
+                       [10.0, 10.0],
+                       [-10.0, -10.0]
                    ]
                ]
-           },
-           "properties": {
-               "prop0": "value0",
-               "prop1": {
-                   "this": "that"
-               }
            }
-       }]
-   },
-//  Antimeridian Cutting
-   {
-       "type": "MultiLineString",
-       "coordinates": [
-           [
-               [170.0, 45.0], [180.0, 45.0]
-           ], [
-               [-180.0, 45.0], [-170.0, 45.0]
+           //...
+       },
+
+        //  2d bbox member on FeatureCollection
+       {
+           "type": "FeatureCollection",
+           "bbox": [100.0, 0.0, 105.0, 1.0],
+           "features": [
+                //...
            ]
-       ]
-   },
-   {
-       "type": "MultiPolygon",
-       "coordinates": [
-           [
-               [
-                   [180.0, 40.0], [180.0, 50.0], [170.0, 50.0],
-                   [170.0, 40.0], [180.0, 40.0]
-               ]
-           ],
-           [
-               [
-                   [-170.0, 40.0], [-170.0, 50.0], [-180.0, 50.0],
-                   [-180.0, 40.0], [-170.0, 40.0]
-               ]
-           ]
-       ]
-   },
-//  2d bbox member on Feature
-   {
-       "type": "Feature",
-       "bbox": [-10.0, -10.0, 10.0, 10.0],
-       "geometry": {
-           "type": "Polygon",
-           "coordinates": [
-               [
-                   [-10.0, -10.0],
-                   [10.0, -10.0],
-                   [10.0, 10.0],
-                   [-10.0, -10.0]
-               ]
+       },
+
+        //  3d bbox member with a depth of 100 meters
+       {
+           "type": "FeatureCollection",
+           "bbox": [100.0, 0.0, -100.0, 105.0, 1.0, 0.0],
+           "features": [
+                //...
            ]
        }
-       //...
-   },
-//  2d bbox member on FeatureCollection
-   {
-       "type": "FeatureCollection",
-       "bbox": [100.0, 0.0, 105.0, 1.0],
-       "features": [
-       //...
-       ]
-   },
-//  3d bbox member with a depth of 100 meters
-   {
-       "type": "FeatureCollection",
-       "bbox": [100.0, 0.0, -100.0, 105.0, 1.0, 0.0],
-       "features": [
-       //...
-       ]
-   }
+    ]
 ]
