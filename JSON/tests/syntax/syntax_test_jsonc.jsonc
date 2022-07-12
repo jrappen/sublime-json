@@ -804,10 +804,22 @@
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.horizontal-tab
 
-        "\u12345"                                                               // unicode symbol: basic multilingual plane
+        "\u12345",                                                              // unicode symbol: basic multilingual plane
 //      ^^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
 //             ^ string - constant.character.escape
+
+        "\u0000",                                                               // unicode symbol: basic multilingual plane
+//      ^^^^^^^^ meta.string string.quoted.double
+//       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+
+        "\uffff",                                                               // unicode symbol: basic multilingual plane
+//      ^^^^^^^^ meta.string string.quoted.double
+//       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+
+        "\uFFFF"                                                                // unicode symbol: basic multilingual plane
+//      ^^^^^^^^ meta.string string.quoted.double
+//       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
     ],
 
 
