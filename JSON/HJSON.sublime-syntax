@@ -41,7 +41,7 @@ contexts:
 ####[ Values ][ Strings ]###############################################################################################
 
   strings:
-    - meta_prepend: true
+    - meta_prepend: true                                                        # prepend to match multiline strings first
 
     - include: thrice-single-quoted-multiline-string
 
