@@ -47,17 +47,17 @@ contexts:
 
   thrice-single-quoted-multiline-string:
     - match: "'''"
-      scope: punctuation.definition.string.begin.hjson
+      scope: punctuation.definition.string.begin.json
       set: thrice-single-quoted-multiline-string-content
 
   thrice-single-quoted-multiline-string-content:
     - meta_include_prototype: false
     - meta_scope: >-
-        meta.string.hjson
-        string.quoted.single.multiline.hjson
+        meta.string.json
+        string.quoted.single.multiline.json
 
     - match: "'''"
-      scope: punctuation.definition.string.end.hjson
+      scope: punctuation.definition.string.end.json
       pop: 1
 
     - include: thrice-single-quoted-multiline-string-escape-characters

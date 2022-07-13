@@ -57,12 +57,12 @@ contexts:
           (\")
         )
       scope: >-
-        meta.string.jsondotnet
-        string.quoted.double.datetime.jsondotnet
+        meta.string.json
+        string.quoted.double.datetime.json
       captures:
-        1: punctuation.definition.string.begin.jsondotnet
-        2: constant.other.timestamp.jsondotnet
-        3: punctuation.definition.string.end.jsondotnet
+        1: punctuation.definition.string.begin.json
+        2: constant.other.timestamp.json
+        3: punctuation.definition.string.end.json
 
     - match: |-
         (?x:
@@ -74,11 +74,11 @@ contexts:
           (\")
         )
       scope: >-
-        meta.string.jsondotnet
-        string.quoted.double.datetime.jsondotnet
+        meta.string.json
+        string.quoted.double.datetime.json
       captures:
-        1: punctuation.definition.string.begin.jsondotnet
-        2: invalid.deprecated.constant-other-timestamp.jsondotnet
-        3: invalid.illegal.double-escape.jsondotnet
-        4: invalid.illegal.double-escape.jsondotnet
-        5: punctuation.definition.string.end.jsondotnet
+        1: punctuation.definition.string.begin.json
+        2: invalid.deprecated.constant-other-timestamp.json
+        3: invalid.illegal.double-escape.json
+        4: invalid.illegal.double-escape.json
+        5: punctuation.definition.string.end.json

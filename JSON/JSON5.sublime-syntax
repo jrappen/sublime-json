@@ -131,14 +131,14 @@ contexts:
           | (\.) \d+ {{exponent}}?                                              # .1 .1e1 .1e-1 .1e+1
           )
         )
-      scope: meta.number.float.decimal.json5
+      scope: meta.number.float.decimal.json
       captures:
-        1: constant.numeric.sign.json5
-        2: invalid.illegal.whitespace.json5
-        3: constant.numeric.value.json5
-        4: invalid.illegal.leading-zero.json5
-        5: punctuation.separator.decimal.json5
-        6: punctuation.separator.decimal.json5
+        1: constant.numeric.sign.json
+        2: invalid.illegal.whitespace.json
+        3: constant.numeric.value.json
+        4: invalid.illegal.leading-zero.json
+        5: punctuation.separator.decimal.json
+        6: punctuation.separator.decimal.json
       pop: 1
 
   decimal-integer-basic:
@@ -153,12 +153,12 @@ contexts:
           | 0
           )
         )
-      scope: meta.number.integer.decimal.json5
+      scope: meta.number.integer.decimal.json
       captures:
-        1: constant.numeric.sign.json5
-        2: invalid.illegal.whitespace.json5
-        3: constant.numeric.value.json5
-        4: invalid.illegal.leading-zero.json5
+        1: constant.numeric.sign.json
+        2: invalid.illegal.whitespace.json
+        3: constant.numeric.value.json
+        4: invalid.illegal.leading-zero.json
       pop: 1
 
 ####[ Values ][ Strings ]###############################################################################################
@@ -168,34 +168,34 @@ contexts:
 
     - match: ((\\)\x{2028})(.*)$\n?
       captures:
-        1: constant.character.escape.line-separator.json5
-        2: punctuation.separator.continuation.line.json5
-        3: invalid.illegal.expected-eol-after-line-continuation.json5
+        1: constant.character.escape.line-separator.json
+        2: punctuation.separator.continuation.line.json
+        3: invalid.illegal.expected-eol-after-line-continuation.json
 
     - match: ((\\)\x{2029})(.*)$\n?
       captures:
-        1: constant.character.escape.paragraph-separator.json5
-        2: punctuation.separator.continuation.line.json5
-        3: invalid.illegal.expected-eol-after-line-continuation.json5
+        1: constant.character.escape.paragraph-separator.json
+        2: punctuation.separator.continuation.line.json
+        3: invalid.illegal.expected-eol-after-line-continuation.json
 
     - match: (\\)$\n?
       captures:
-        1: punctuation.separator.continuation.line.json5
+        1: punctuation.separator.continuation.line.json
 
     - match: \\v
-      scope: constant.character.escape.vertical-tab.json5
+      scope: constant.character.escape.vertical-tab.json
 
     - match: (\\0)([0-9])?
       captures:
-        1: constant.character.escape.null.json5
-        2: invalid.illegal.unexpected-digit-character.json5
+        1: constant.character.escape.null.json
+        2: invalid.illegal.unexpected-digit-character.json
 
     - match: \\x[0-9a-fA-F]{2}
       scope: >-
-        constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json5
+        constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json
 
     - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
-      scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json5
+      scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json
 
   invalid-string-escape-characters:
     - meta_prepend: true
@@ -209,7 +209,7 @@ contexts:
           )
         )
       captures:
-        1: invalid.illegal.expected-backslash-char.json5
+        1: invalid.illegal.expected-backslash-char.json
 
 ####[ Structures ][ Objects ]###########################################################################################
 
@@ -226,9 +226,9 @@ contexts:
     - clear_scopes: 1
     - meta_include_prototype: false
     - meta_scope: >-
-        meta.mapping.key.json5
-        meta.string.json5
-        string.unquoted.plain.json5
+        meta.mapping.key.json
+        meta.string.json
+        string.unquoted.plain.json
 
     - match: '{{identifier_break}}'
       pop: 1
