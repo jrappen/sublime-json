@@ -1,0 +1,58 @@
+name: download
+
+on:
+  push:
+    branches:
+      - 'main'
+    tags-ignore:
+      - '*'
+
+jobs:
+  download:
+    name: Create download
+    runs-on: ubuntu-latest
+    timeout-minutes: 15 # default is 6 hours!
+    steps:
+
+      - name: Git config (global)
+        run: |
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global init.defaultBranch main
+      - name: Git checkout
+        uses: actions/checkout@master
+
+      - name: Zip packages
+        run: |
+          # remove (some) subdirectories in root directory
+          find . -maxdepth 1 -mindepth 1 -type d -name '.git' -exec rm -r '{}' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -name '.github' -exec rm -r '{}' ';'
+          # remove (some) files in root directory
+          find . -maxdepth 1 -mindepth 1 -type f -name '.gitattributes' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name '.gitignore' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name 'COMMIT_EDITMSG.txt' -delete
+          # remove tests
+          find . -type f -name '**/syntax_test_*' -delete
+          find . -type d -name '**/tests' -exec rm -r '{}' ';'
+          # remove empty dirs
+          find . -empty -type d -exec rm -r '{}' ';'
+          # zip packages into root
+          find . -maxdepth 1 -mindepth 1 -type d -exec cd '{}' ';' -exec zip -r '{}.sublime-package' './' -x '**/tests **/syntax_test_*' ';' -exec cd '..' ';' -exec mv '{}/{}.sublime-package' './' ';'
+          # cleanup, now that packages are zipped
+          find . -maxdepth 1 -mindepth 1 -type d -exec rm -r '{}' ';'
+        shell: bash
+
+      - name: Deploy packages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          allow_empty_commit: false
+          build_dir: ./
+          commit_message: Zip packages
+          # fqdn: null
+          # keep_history: false
+          target_branch: download
+          verbose: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
