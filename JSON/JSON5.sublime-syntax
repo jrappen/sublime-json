@@ -216,25 +216,11 @@ contexts:
   valid-mapping-keys:
     - meta_append: true
 
-    - match: \'
-      scope: punctuation.definition.string.begin.json5
-      push: mapping-key-single-quoted
-
     # looking ahead at `identifier_start` would've been faster with possibly
     # invalid matches, but we want to make sure we only match valid ecma
     # `identifier_name`s as keys
     - match: (?={{identifier_name}})
       push: mapping-key-ecma
-
-  mapping-key-single-quoted:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.mapping.key.json5
-        meta.string.json5
-        string.quoted.single.json5
-
-    - include: single-quoted-string-content
 
   mapping-key-ecma:
     - clear_scopes: 1

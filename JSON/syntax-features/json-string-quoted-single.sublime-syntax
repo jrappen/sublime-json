@@ -24,7 +24,7 @@ contexts:
 ####[ Values ][ Strings ]###############################################################################################
 
   strings:
-    - meta_prepend: true
+    - meta_append: true
 
     - include: single-quoted-string
 
@@ -54,3 +54,22 @@ contexts:
       scope: constant.character.escape.single-quote.json                        # quotation mark
 
     - include: string-escape-characters
+
+####[ Structures ][ Objects ]###########################################################################################
+
+  valid-mapping-keys:
+    - meta_append: true
+
+    - match: \'
+      scope: punctuation.definition.string.begin.json
+      push: mapping-key-single-quoted
+
+  mapping-key-single-quoted:
+    - clear_scopes: 1
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.mapping.key.json
+        meta.string.json
+        string.quoted.single.json
+
+    - include: single-quoted-string-content

@@ -64,22 +64,3 @@ contexts:
 
   thrice-single-quoted-multiline-string-escape-characters:
     - include: string-escape-characters
-
-####[ Structures ][ Objects ]###########################################################################################
-
-  valid-mapping-keys:
-    - meta_append: true
-
-    - match: \'
-      scope: punctuation.definition.string.begin.hjson
-      push: mapping-key-single-quoted
-
-  mapping-key-single-quoted:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.mapping.key.hjson
-        meta.string.hjson
-        string.quoted.single.hjson
-
-    - include: single-quoted-string-content
