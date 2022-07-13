@@ -1,6 +1,6 @@
 // SYNTAX TEST reindent "Packages/JSON/JSON.sublime-syntax"
 
-// <- source.json - (source.json.jsondotnet | source.json.json5 | source.json.jsonc)
+// <- source.json - (source.json.geojson | source.json.hjson | source.json.json5 | source.json.jsonc | source.json.jsondotnet)
 
 [
     [
