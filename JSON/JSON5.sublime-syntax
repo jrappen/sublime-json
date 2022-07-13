@@ -17,6 +17,7 @@ extends:                                                                        
   - Packages/JSON/syntax-features/json-comment.sublime-syntax
   - Packages/JSON/syntax-features/json-constant-language-ieee754.sublime-syntax
   - Packages/JSON/syntax-features/json-integer-hexadecimal.sublime-syntax
+  - Packages/JSON/syntax-features/json-meta-mapping-key-ecma.sublime-syntax
   - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
   - Packages/JSON/syntax-features/json-string-quoted-single.sublime-syntax
 
@@ -57,52 +58,6 @@ first_line_match: |-
   (?xi:
     ^ \s* // .*? -\*- .*? \bjson5\b .*? -\*-                                    # editorconfig
   )
-
-########################################################################################################################
-
-#   Boost documentation:
-#       https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
-#       https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/format/boost_format_syntax.html
-#   Unicode documentation:
-#       https://www.unicode.org/versions/latest/
-#       https://www.unicode.org/Public/UCD/latest/ucd/
-#   Oniguruma documentation:
-#       https://github.com/kkos/oniguruma/blob/master/doc/RE
-#       https://github.com/kkos/oniguruma/blob/master/doc/UNICODE_PROPERTIES
-
-variables:
-  identifier_escape: |-
-    (?x:
-      \\u
-      (?:
-        \h{4}
-      | \{\h+\}
-      )
-    )
-
-  identifier_start: |-
-    (?x:
-      [_$\p{L}\p{Nl}]
-    | {{identifier_escape}}
-    )
-
-  identifier_part: |-
-    (?x:
-      [_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]
-    | {{identifier_escape}}
-    )
-
-  identifier_break: |-
-    (?x:
-      (?!{{identifier_part}})
-    )
-
-  identifier_name: |-
-    (?x:
-      {{identifier_start}}
-      {{identifier_part}}*
-      {{identifier_break}}
-    )
 
 ########################################################################################################################
 
@@ -210,25 +165,3 @@ contexts:
         )
       captures:
         1: invalid.illegal.expected-backslash-char.json
-
-####[ Structures ][ Objects ]###########################################################################################
-
-  valid-mapping-keys:
-    - meta_append: true
-
-    # looking ahead at `identifier_start` would've been faster with possibly
-    # invalid matches, but we want to make sure we only match valid ecma
-    # `identifier_name`s as keys
-    - match: (?={{identifier_name}})
-      push: mapping-key-ecma
-
-  mapping-key-ecma:
-    - clear_scopes: 1
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.mapping.key.json
-        meta.string.json
-        string.unquoted.plain.json
-
-    - match: '{{identifier_break}}'
-      pop: 1

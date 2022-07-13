@@ -1,0 +1,90 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-meta-mapping-key-ecma.sublime-syntax
+
+name: json-meta-mapping-key-ecma
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+#   Boost documentation:
+#       https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
+#       https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/format/boost_format_syntax.html
+#   Unicode documentation:
+#       https://www.unicode.org/versions/latest/
+#       https://www.unicode.org/Public/UCD/latest/ucd/
+#   Oniguruma documentation:
+#       https://github.com/kkos/oniguruma/blob/master/doc/RE
+#       https://github.com/kkos/oniguruma/blob/master/doc/UNICODE_PROPERTIES
+
+variables:
+  identifier_escape: |-
+    (?x:
+      \\u
+      (?:
+        \h{4}
+      | \{\h+\}
+      )
+    )
+
+  identifier_start: |-
+    (?x:
+      [_$\p{L}\p{Nl}]
+    | {{identifier_escape}}
+    )
+
+  identifier_part: |-
+    (?x:
+      [_$\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]
+    | {{identifier_escape}}
+    )
+
+  identifier_break: |-
+    (?x:
+      (?!{{identifier_part}})
+    )
+
+  identifier_name: |-
+    (?x:
+      {{identifier_start}}
+      {{identifier_part}}*
+      {{identifier_break}}
+    )
+
+########################################################################################################################
+
+contexts:
+
+####[ Structures ][ Objects ]###########################################################################################
+
+  valid-mapping-keys:
+    - meta_append: true
+
+    # looking ahead at `identifier_start` would've been faster with possibly
+    # invalid matches, but we want to make sure we only match valid ecma
+    # `identifier_name`s as keys
+    - match: (?={{identifier_name}})
+      push: mapping-key-ecma
+
+  mapping-key-ecma:
+    - clear_scopes: 1
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.mapping.key.json
+        meta.string.json
+        string.unquoted.plain.json
+
+    - match: '{{identifier_break}}'
+      pop: 1
