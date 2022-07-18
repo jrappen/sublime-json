@@ -40,12 +40,12 @@ contexts:
 
     - include: eol-pop
 
-  block-comment-standard:
+  block-comment-basic:
     - match: /\*
       scope: punctuation.definition.comment.begin.json
-      push: block-comment-standard-content
+      push: block-comment-basic-content
 
-  block-comment-standard-content:
+  block-comment-basic-content:
     - meta_include_prototype: false
     - meta_scope: comment.block.json
 
