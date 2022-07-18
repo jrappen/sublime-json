@@ -14,7 +14,7 @@
       flavor
 
 
-Changes regarding JSON Values:
+Syntax changes:
 
 - Numbers:
     - Correctly scope number signs with `constant.numeric.sign` instead
@@ -31,10 +31,6 @@ Changes regarding JSON Values:
         - trailing decimal separators in numbers (for JSON, JSON.NET &
           JSONC)
         - leading zeros in numbers
-
-
-Changes regarding JSON Structures:
-
 - Objects:
     - Highlighting speed improvements for empty objects (thanks to
       FichteFoll)
@@ -68,9 +64,6 @@ Metadata changes:
         - top-level keys of object structures (thanks to deathaxe)
         - languages: `json`, `jsonc` & `json5`
     - Fix tests for `meta.mapping meta.mapping.*`
-- Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
-  code blocks into `json`, `json5` & `jsonc` to behave similarly to
-  `GitHub Flavored Markdown`
 
 
 Language specific changes:
@@ -118,7 +111,14 @@ Language specific changes:
         - multiple commas
 
 
-Thanks to these people who provided feedback:
+Changes to other languages:
+
+- Leave `JSON` headers in `Markdown` as `json` only, but split up fenced
+  code blocks into `json`, `json5` & `jsonc` to behave similarly to
+  `GitHub Flavored Markdown`
+
+
+Thanks to these people who provided valuable feedback:
 
 - Ashwin Shenoy
 - Jack F. Cherng
