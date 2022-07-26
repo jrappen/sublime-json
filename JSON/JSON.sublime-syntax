@@ -81,9 +81,6 @@ hidden_file_extensions:
   - tfstate.backup                                                              # https://www.terraform.io/docs/language/state/index.html
     # Hashicorp Terraform State
 
-  - topojson                                                                    # https://github.com/topojson/topojson-specification
-    # TopoJSON, an extension to GeoJSON
-
   - ts.map
     # TypeScript Source Map
 

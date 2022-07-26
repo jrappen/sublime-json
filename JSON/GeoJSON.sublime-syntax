@@ -21,6 +21,10 @@ file_extensions:
                                                                                 # https://datatracker.ietf.org/wg/geojson/charter/
                                                                                 # https://tools.ietf.org/html/rfc7946
 
+hidden_file_extensions:
+  - topojson                                                                    # https://github.com/topojson/topojson-specification
+    # TopoJSON, an extension to GeoJSON
+
 first_line_match: |-
   (?xi:
     ^ \s* // .*? -\*- .*? \bgeojson\b .*? -\*-                                  # editorconfig
