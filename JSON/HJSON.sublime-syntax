@@ -23,6 +23,10 @@ file_extensions:
   - hjson                                                                       # https://hjson.github.io/
     # Hjson, a (human-readable) user interface for JSON                         # https://github.com/hjson/hjson-py/tree/master/hjson/tests
 
+hidden_file_extensions:
+  - zappa_settings.json                                                         # https://github.com/zappa/Zappa
+    # Serverless Python                                                         # https://github.com/zappa/Zappa/tree/master/tests
+
 first_line_match: |-
   (?xi:
     ^ \s* // .*? -\*- .*? \bhjson\b .*? -\*-                                    # editorconfig
