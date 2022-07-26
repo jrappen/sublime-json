@@ -225,11 +225,13 @@ contexts:
   invalid-constants:
     # when erroneously containing upper case letters
     - match: |-
-        \b(?i:
-          (false)
-        | (true)
-        | (null)
-        )\b
+        (?xi:
+          \b(?:
+            (false)
+          | (true)
+          | (null)
+          )\b
+        )
       captures:
         1: invalid.illegal.expected-boolean-constant.json
         2: invalid.illegal.expected-boolean-constant.json
