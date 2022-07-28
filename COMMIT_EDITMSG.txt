@@ -1,21 +1,24 @@
 [JSON] Rewrite syntax
 
+The JSON syntax was split up using inheritance into:
 
-- Using inheritance split up `JSON.sublime-syntax` into:
-    - `JSON.sublime-syntax` with `scope:source.json`
-    - `GeoJSON.sublime-syntax` with `scope:source.json.geojson`
-    - `JSONdotNET.sublime-syntax` with `scope:source.json.jsondotnet`
-    - `JSONC.sublime-syntax` with `scope:source.json.jsonc`
-    - `HJSON.sublime-syntax` with `scope:source.json.hjson`
-    - `JSON5.sublime-syntax` with `scope:source.json.json5`
-- Add many more file extensions for `JSON` & `JSONC`:
-    - add doc links to extensions where applicable as a reference to be
-      able to more quickly verify that they (still) use said syntax
-      flavor
+```text
+.
+└─ JSON.sublime-syntax                  # source.json
+   ├─ GeoJSON.sublime-syntax            # source.json.geojson
+   ├─ JSONdotNET.sublime-syntax         # source.json.jsondotnet
+   └─ JSONC.sublime-syntax              # source.json.jsonc
+      ├─ HJSON.sublime-syntax           # source.json.hjson
+      └─ JSON5.sublime-syntax           # source.json.json5
+```
 
 
 Syntax changes:
 
+- Add many more file extensions:
+    - add doc links to extensions where applicable as a reference to be
+      able to more quickly verify that they (still) use said syntax
+      flavor
 - Numbers:
     - Correctly scope number signs with `constant.numeric.sign` instead
       of `keyword.operator.arithmetic`
@@ -138,14 +141,19 @@ BREAKING CHANGES:
 - JSON does not have values that can be set via an inline calculation
   with the help of operators, but only simple number values. Scopes for
   number signs have changed from being `keyword.operator.arithmetic` to
-  `constant.numeric.sign`. Color scheme authors should add this, should
-  it be missing.
-- The `JSON.sublime-syntax` now marks comments as `invalid`, third party
-  plugin authors should instead target `JSONC.sublime-syntax` to keep
-  the user experience as-is.
-- Only top-level keys in JSON files containing a single object structure are
-  indexed symbols. Color scheme authors should add special highlighting to
-  differentiate them from other keys. Compare the `Symbol List` metadata file.
+  `constant.numeric.sign`.
+  > Note
+  > Color scheme authors should add this, should it be missing.
+- The `JSON.sublime-syntax` now marks comments as `invalid`.
+  > Note
+  > Third party plugin authors should instead target
+  > `JSONC.sublime-syntax` to keep the user experience as-is.
+- Only top-level keys in JSON files containing a single object structure
+  are indexed symbols.
+  > Note
+  > Color scheme authors should add special highlighting to
+  > differentiate them from other keys. Compare the `Symbol List`
+  > metadata file.
 
 References:
 
