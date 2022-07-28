@@ -19,7 +19,7 @@ import typing                                                                   
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
 settings: typing.Union[sublime.Settings, None] = None
 base_settings: typing.Final[str] = 'Preferences.sublime-settings'
-base_scope: typing.Final[str] = 'source.json - (source.json.geojson | source.json.hjson | source.json.json5 | source.json.jsonc | source.json.jsondotnet)'
+base_scope: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
 
 
 def status_msg(msg: str = '') -> None:
@@ -90,16 +90,14 @@ def plugin_unloaded() -> None:
 
 class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
-    _is_checked: bool = False
-    _key: typing.Final[str] = 'json.auto_prettify'
+    __is_checked: bool = False
+    __key: typing.Final[str] = 'json.auto_prettify'
 
     def __init__(self, window: sublime.Window) -> None:
-        self.window: sublime.Window = window
-
         try:
             if settings is None:
                 return
-            self._is_checked = settings.get(key=self._key, default=False)
+            self.__is_checked = settings.get(key=self.__key, default=False)
         except Exception:
             pass
 
@@ -108,29 +106,29 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
             global settings
             if settings is None:
                 return
-            if self._is_checked:
-                settings.erase(key=self._key)                                   # remove the override (true) of the default (false)
+            if self.__is_checked:
+                settings.erase(key=self.__key)                                  # remove the override (true) of the default (false)
             else:
-                settings.set(key=self._key, value=True)
+                settings.set(key=self.__key, value=True)
             sublime.save_settings(base_name=base_settings)
-            self._is_checked = not self._is_checked                             # toggle
+            self.__is_checked = not self.__is_checked                           # toggle
         except Exception:
             pass
 
     def is_checked(self) -> bool:
-        return self._is_checked
+        return self.__is_checked
 
 
 class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 
-    _key: typing.Final[str] = 'json.auto_prettify'
+    __key: typing.Final[str] = 'json.auto_prettify'
 
     def on_pre_save_async(self, view) -> None:
         if not is_json(view):
             return
         if settings is None:
             return
-        if not settings.get(key=self._key, default=False):
+        if not settings.get(key=self.__key, default=False):
             return
         view.run_command(cmd='json_prettify')
 
