@@ -22,6 +22,7 @@ file_extensions:
 
   - sublime-build                                                               # https://www.sublimetext.com/docs/build_systems.html
   - sublime-color-scheme                                                        # https://www.sublimetext.com/docs/color_schemes.html
+  - hidden-color-scheme
   - sublime-commands
   - sublime-completions                                                         # https://www.sublimetext.com/docs/completions.html
   - sublime-keymap                                                              # https://www.sublimetext.com/docs/key_bindings.html
@@ -31,6 +32,7 @@ file_extensions:
   - sublime-project                                                             # https://www.sublimetext.com/docs/projects.html
   - sublime-settings                                                            # https://www.sublimetext.com/docs/settings.html
   - sublime-theme                                                               # https://www.sublimetext.com/docs/themes.html
+  - hidden-theme
   - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
 
 hidden_file_extensions:
