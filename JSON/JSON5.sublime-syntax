@@ -27,32 +27,34 @@ file_extensions:
                                                                                 # https://262.ecma-international.org/5.1/
 
 hidden_file_extensions:
-  - .babelrc                                                                    # https://babeljs.io/docs/en/config-files
-    # Babel.js File-relative Configuration
+  - .babelrc                                                                    # Babel.js File-relative Configuration
+                                                                                # https://babeljs.io/docs/en/config-files
 
-  - .babelrc.json                                                               # https://babeljs.io/docs/en/config-files
-    # Babel.js File-relative Configuration
+  - .babelrc.json                                                               # Babel.js File-relative Configuration
+                                                                                # https://babeljs.io/docs/en/config-files
 
-  - .jupyterlab-settings                                                        # https://jupyterlab.readthedocs.io/en/stable/user/directories.html?highlight=json5#jupyterlab-user-settings-directory
-    # JupyterLab User Settings
+  - .jupyterlab-settings                                                        # JupyterLab User Settings
+                                                                                # https://jupyterlab.readthedocs.io/en/stable/user/directories.html?highlight=json5#jupyterlab-user-settings-directory
 
-  - .parcelrc                                                                   # https://parceljs.org/features/plugins/#.parcelrc
-    # parcel Bundler Configuration                                              # https://github.com/parcel-bundler/parcel
+  - .parcelrc                                                                   # parcel Bundler Configuration
+                                                                                # https://parceljs.org/features/plugins/#.parcelrc
+                                                                                # https://github.com/parcel-bundler/parcel
 
-  - .postcssrc.json                                                             # https://postcss.org
-    # PostCSS Configuration
+  - .postcssrc.json                                                             # PostCSS Configuration
+                                                                                # https://postcss.org
 
-  - babel.config.json                                                           # https://babeljs.io/docs/en/config-files
-    # Babel.js Project-wide Configuration
+  - babel.config.json                                                           # Babel.js Project-wide Configuration
+                                                                                # https://babeljs.io/docs/en/config-files
 
-  - next.config.json                                                            # https://nextjs.org/docs/api-reference/next.config.js/introduction
-    # Vercel Next.js Configuration
+  - next.config.json                                                            # Vercel Next.js Configuration
+                                                                                # https://nextjs.org/docs/api-reference/next.config.js/introduction
 
-  - nextrc.json                                                                 # https://nextjs.org/docs/api-reference/next.config.js/introduction
-    # Vercel Next.js Configuration
+  - nextrc.json                                                                 # Vercel Next.js Configuration
+                                                                                # https://nextjs.org/docs/api-reference/next.config.js/introduction
 
-  - techdocs_metadata.json                                                      # https://backstage.io/docs/features/techdocs/techdocs-overview
-    # Spotify's @backstage/techdocs_common Configuration                        # https://github.com/backstage/backstage/tree/master/packages/techdocs-common
+  - techdocs_metadata.json                                                      # Spotify's @backstage/techdocs_common Configuration
+                                                                                # https://backstage.io/docs/features/techdocs/techdocs-overview
+                                                                                # https://github.com/backstage/backstage/tree/master/packages/techdocs-common
 
 first_line_match: |-
   (?xi:

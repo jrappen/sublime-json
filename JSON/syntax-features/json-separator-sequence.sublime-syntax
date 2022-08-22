@@ -29,4 +29,5 @@ contexts:
       push: array-item
 
   valid-array-separators: []                                                    # branch from base syntax not needed anymore
+
   array-expect-value: []

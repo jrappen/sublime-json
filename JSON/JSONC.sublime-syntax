@@ -36,45 +36,47 @@ file_extensions:
   - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
 
 hidden_file_extensions:
-  - .ember-cli
+  - .ember-cli                                                                  # Ember.js Command Line Utility
+                                                                                # https://cli.emberjs.com/
+                                                                                # https://github.com/ember-cli/ember-cli
 
-  - .esformatter                                                                # https://github.com/millermedeiros/esformatter
-    # esformatter: ECMAScript code formatter
+  - .esformatter                                                                # esformatter: ECMAScript code formatter
+                                                                                # https://github.com/millermedeiros/esformatter
 
-  - .eslintrc                                                                   # https://eslint.org/docs/user-guide/configuring/
-    # ESLint Configuration
+  - .eslintrc                                                                   # ESLint Configuration
+                                                                                # https://eslint.org/docs/user-guide/configuring/
 
-  - .eslintrc.json                                                              # https://eslint.org/docs/user-guide/configuring/
-    # ESLint Configuration
+  - .eslintrc.json                                                              # ESLint Configuration
+                                                                                # https://eslint.org/docs/user-guide/configuring/
 
-  - .hintrc                                                                     # https://webhint.io/docs/user-guide/configuring-webhint/summary/
-    # Webhint Configuration
+  - .hintrc                                                                     # Webhint Configuration
+                                                                                # https://webhint.io/docs/user-guide/configuring-webhint/summary/
 
-  - .htmlhintrc                                                                 # https://htmlhint.com/docs/user-guide/configuration
-    # HTMLHint Configuration
+  - .htmlhintrc                                                                 # HTMLHint Configuration
+                                                                                # https://htmlhint.com/docs/user-guide/configuration
 
-  - .jsfmtrc                                                                    # https://github.com/rdio/jsfmt#formatting
-    # jsfmt: For formatting, searching and re-writing JavaScript
+  - .jsfmtrc                                                                    # jsfmt: For formatting, searching and re-writing JavaScript
+                                                                                # https://github.com/rdio/jsfmt#formatting
 
-  - .jshintrc                                                                   # https://www.jshint.com/docs/#options
-    # JSHint
+  - .jshintrc                                                                   # JSHint
+                                                                                # https://www.jshint.com/docs/#options
 
-  - .jslintrc                                                                   # https://www.jslint.com/lint.html
-    # JSLint's implementation of JSHint
+  - .jslintrc                                                                   # JSLint's implementation of JSHint
+                                                                                # https://www.jslint.com/lint.html
 
-  - .stylintrc                                                                  # https://github.com/SimenB/stylint
-    # stylint Configuration
+  - .stylintrc                                                                  # stylint Configuration
+                                                                                # https://github.com/SimenB/stylint
 
-  - .swcrc                                                                      # https://swc.rs/docs/configuring-swc
-    # swc Configuration
+  - .swcrc                                                                      # swc Configuration
+                                                                                # https://swc.rs/docs/configuring-swc
 
-  - eslintrc.json                                                               # https://eslint.org/docs/user-guide/configuring/
-    # ESLint Configuration
+  - eslintrc.json                                                               # ESLint Configuration
+                                                                                # https://eslint.org/docs/user-guide/configuring/
 
   - languagebabel
 
-  - tsconfig.json                                                               # https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
-    # TypeScript Configuration
+  - tsconfig.json                                                               # TypeScript Configuration
+                                                                                # https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
 first_line_match: |-
   (?xi:

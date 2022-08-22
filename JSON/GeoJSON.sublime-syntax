@@ -22,8 +22,8 @@ file_extensions:
                                                                                 # https://tools.ietf.org/html/rfc7946
 
 hidden_file_extensions:
-  - topojson                                                                    # https://github.com/topojson/topojson-specification
-    # TopoJSON, an extension to GeoJSON
+  - topojson                                                                    # TopoJSON, an extension to GeoJSON
+                                                                                # https://github.com/topojson/topojson-specification
 
 first_line_match: |-
   (?xi:

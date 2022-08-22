@@ -21,74 +21,70 @@ file_extensions:
                                                                                 # https://www.iso.org/standard/71616.html
 
 hidden_file_extensions:
-  - .bowerrc                                                                    # https://bower.io/docs/config/
-    # Bower
+  - .bowerrc                                                                    # Bower
+                                                                                # https://bower.io/docs/config/
 
-  - .htmlhintrc                                                                 # https://htmlhint.com/docs/user-guide/getting-started
-    # HTML hint
+  - .htmlhintrc                                                                 # HTML hint
+                                                                                # https://htmlhint.com/docs/user-guide/getting-started
 
-  - .jscsrc                                                                     # https://jscs-dev.github.io
-    # JavaScript Code Style Configuration
+  - .jscsrc                                                                     # JavaScript Code Style Configuration
+                                                                                # https://jscs-dev.github.io
 
   - .markdownlintrc                                                             # https://github.com/DavidAnson/markdownlint
 
-  - .tern-config                                                                # https://ternjs.net/doc/manual.html#server
-    # Tern.js Server Configuration
+  - .tern-config                                                                # Tern.js Server Configuration
+                                                                                # https://ternjs.net/doc/manual.html#server
 
-  - .tern-project                                                               # https://ternjs.net/doc/manual.html#configuration
-    # Tern.js Project Configuration
+  - .tern-project                                                               # Tern.js Project Configuration
+                                                                                # https://ternjs.net/doc/manual.html#configuration
 
-  - .watchmanconfig                                                             # https://facebook.github.io/watchman/docs/config.html
-    # Facebook Watchman
-    # root specific configuration file
+  - .watchmanconfig                                                             # Facebook Watchman
+                                                                                # root specific configuration file
+                                                                                # https://facebook.github.io/watchman/docs/config.html
 
-  - Pipfile.lock                                                                # https://github.com/pypa/pipfile
-    # Pipfile
+  - Pipfile.lock                                                                # Pipfile
+                                                                                # https://github.com/pypa/pipfile
 
-  - avsc                                                                        # https://github.com/mtth/avsc
-    # Pure JavaScript implementation of the Avro specification
+  - avsc                                                                        # Pure JavaScript implementation of the Avro specification
+                                                                                # https://github.com/mtth/avsc
 
-  - composer.lock                                                               # https://getcomposer.org/doc/01-basic-usage.md
-    # Composer lock file
+  - composer.lock                                                               # Composer lock file
+                                                                                # https://getcomposer.org/doc/01-basic-usage.md
 
-  - css.map
-    # CSS Source Map
+  - css.map                                                                     # CSS Source Map
 
-  - gltf                                                                        # https://www.khronos.com/gltf
-    # glTF Runtime 3D asset delivery
+  - gltf                                                                        # glTF Runtime 3D asset delivery
+                                                                                # https://www.khronos.com/gltf
 
-  - har
-    # HTTP Archive Format
+  - har                                                                         # HTTP Archive Format
 
-  - ipynb                                                                       # https://jupyter.org/documentation
-    # Jupyter Notebook, formerly known as iPython Notebook
+  - ipynb                                                                       # Jupyter Notebook, formerly known as iPython Notebook
+                                                                                # https://jupyter.org/documentation
 
-  - js.map
-    # JavaScript Source Map
+  - js.map                                                                      # JavaScript Source Map
 
-  - jsonld                                                                      # https://json-ld.org
-    # JSON for Linking Data
+  - jsonld                                                                      # JSON for Linking Data
+                                                                                # https://json-ld.org
 
-  - ldjson                                                                      # https://json-ld.org
-    # JSON for Linking Data
+  - ldjson                                                                      # JSON for Linking Data
+                                                                                # https://json-ld.org
 
-  - schema                                                                      # https://json-schema.org/learn
-    # JSON Schema
+  - schema                                                                      # JSON Schema
+                                                                                # https://json-schema.org/learn
 
-  - tfstate                                                                     # https://www.terraform.io/docs/language/state/index.html
-    # Hashicorp Terraform State
+  - tfstate                                                                     # Hashicorp Terraform State
+                                                                                # https://www.terraform.io/docs/language/state/index.html
 
-  - tfstate.backup                                                              # https://www.terraform.io/docs/language/state/index.html
-    # Hashicorp Terraform State
+  - tfstate.backup                                                              # Hashicorp Terraform State
+                                                                                # https://www.terraform.io/docs/language/state/index.html
 
-  - ts.map
-    # TypeScript Source Map
+  - ts.map                                                                      # TypeScript Source Map
 
-  - webapp                                                                      # https://developer.mozilla.org/en-US/docs/Web/Manifest
-    # Web app manifests
+  - webapp                                                                      # Web app manifests
+                                                                                # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
-  - webmanifest                                                                 # https://developer.mozilla.org/en-US/docs/Web/Manifest
-    # Web app manifests
+  - webmanifest                                                                 # Web app manifests
+                                                                                # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
 first_line_match: |-
   (?xi:
