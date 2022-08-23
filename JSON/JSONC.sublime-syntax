@@ -14,8 +14,8 @@ scope: source.json.jsonc
 version: 2
 
 extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
-  - Packages/JSON/syntax-features/json-comment.sublime-syntax
-  - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-comment.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
 
 file_extensions:
   - jsonc

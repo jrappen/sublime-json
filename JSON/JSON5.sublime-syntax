@@ -14,12 +14,12 @@ scope: source.json.json5
 version: 2
 
 extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
-  - Packages/JSON/syntax-features/json-comment.sublime-syntax
-  - Packages/JSON/syntax-features/json-constant-language-ieee754.sublime-syntax
-  - Packages/JSON/syntax-features/json-integer-hexadecimal.sublime-syntax
-  - Packages/JSON/syntax-features/json-meta-mapping-key-ecma.sublime-syntax
-  - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
-  - Packages/JSON/syntax-features/json-string-quoted-single.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-comment.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-constant-language-ieee754.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-integer-hexadecimal.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-meta-mapping-key-ecma.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-string-quoted-single.sublime-syntax
 
 file_extensions:
   - json5                                                                       # https://json5.org/

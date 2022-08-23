@@ -7,7 +7,7 @@
 #       https://www.sublimetext.com/docs/syntax.html#testing
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-meta-mapping-key-ecma.sublime-syntax
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-meta-mapping-key-ecma.sublime-syntax
 
 name: json-meta-mapping-key-ecma
 scope: source.json

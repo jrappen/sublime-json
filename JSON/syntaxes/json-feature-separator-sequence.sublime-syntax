@@ -7,9 +7,9 @@
 #       https://www.sublimetext.com/docs/syntax.html#testing
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-comment-line-hash.sublime-syntax
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
 
-name: json-comment-line-hash
+name: json-separator-sequence
 scope: source.json
 version: 2
 hidden: true
@@ -21,20 +21,13 @@ extends:                                                                        
 
 contexts:
 
-####[ Comments ]########################################################################################################
+####[ Structures ][ Arrays ]############################################################################################
 
-  line-comments:
-    - meta_append: true
+  array-separators:                                                             # no branching anymore
+    - match: ','
+      scope: punctuation.separator.sequence.json
+      push: array-item
 
-    - include: line-comment-hash
+  valid-array-separators: []                                                    # branch from base syntax not needed anymore
 
-  line-comment-hash:
-    - match: \#
-      scope: punctuation.definition.comment.json
-      push: line-comment-hash-content
-
-  line-comment-hash-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.line.hash.json
-
-    - include: eol-pop
+  array-expect-value: []

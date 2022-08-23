@@ -1,0 +1,54 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-comment.sublime-syntax
+
+name: json-comment
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+contexts:
+
+####[ Comments ]########################################################################################################
+
+  valid-comments:
+    - include: line-comments
+    - include: block-comments
+
+  invalid-comments: []
+
+  line-comment-double-slash:
+    - match: //
+      scope: punctuation.definition.comment.json
+      push: line-comment-double-slash-content
+
+  line-comment-double-slash-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.line.double-slash.json
+
+    - include: eol-pop
+
+  block-comment-basic:
+    - match: /\*
+      scope: punctuation.definition.comment.begin.json
+      push: block-comment-basic-content
+
+  block-comment-basic-content:
+    - meta_include_prototype: false
+    - meta_scope: comment.block.json
+
+    - match: \*/
+      scope: punctuation.definition.comment.end.json
+      pop: 1

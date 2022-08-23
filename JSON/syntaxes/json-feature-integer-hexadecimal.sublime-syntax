@@ -7,7 +7,7 @@
 #       https://www.sublimetext.com/docs/syntax.html#testing
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-integer-hexadecimal.sublime-syntax
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-integer-hexadecimal.sublime-syntax
 
 name: json-integer-hexadecimal
 scope: source.json

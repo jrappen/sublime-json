@@ -14,10 +14,10 @@ scope: source.json.hjson
 version: 2
 
 extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
-  - Packages/JSON/syntax-features/json-comment.sublime-syntax
-  - Packages/JSON/syntax-features/json-comment-line-hash.sublime-syntax         # requires json-comment
-  - Packages/JSON/syntax-features/json-separator-sequence.sublime-syntax
-  - Packages/JSON/syntax-features/json-string-quoted-single.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-comment.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-comment-line-hash.sublime-syntax        # requires "json-feature-comment"
+  - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-string-quoted-single.sublime-syntax
 
 file_extensions:
   - hjson                                                                       # Hjson, a (human-readable) user interface for JSON

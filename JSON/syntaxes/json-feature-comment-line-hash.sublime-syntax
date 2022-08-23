@@ -7,9 +7,9 @@
 #       https://www.sublimetext.com/docs/syntax.html#testing
 #       https://www.sublimetext.com/docs/scope_naming.html
 #   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntax-features/json-comment.sublime-syntax
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-comment-line-hash.sublime-syntax
 
-name: json-comment
+name: json-comment-line-hash
 scope: source.json
 version: 2
 hidden: true
@@ -23,32 +23,18 @@ contexts:
 
 ####[ Comments ]########################################################################################################
 
-  valid-comments:
-    - include: line-comments
-    - include: block-comments
+  line-comments:
+    - meta_append: true
 
-  invalid-comments: []
+    - include: line-comment-hash
 
-  line-comment-double-slash:
-    - match: //
+  line-comment-hash:
+    - match: \#
       scope: punctuation.definition.comment.json
-      push: line-comment-double-slash-content
+      push: line-comment-hash-content
 
-  line-comment-double-slash-content:
+  line-comment-hash-content:
     - meta_include_prototype: false
-    - meta_scope: comment.line.double-slash.json
+    - meta_scope: comment.line.hash.json
 
     - include: eol-pop
-
-  block-comment-basic:
-    - match: /\*
-      scope: punctuation.definition.comment.begin.json
-      push: block-comment-basic-content
-
-  block-comment-basic-content:
-    - meta_include_prototype: false
-    - meta_scope: comment.block.json
-
-    - match: \*/
-      scope: punctuation.definition.comment.end.json
-      pop: 1
