@@ -5,7 +5,7 @@
 #       https://github.com/sublimehq/Packages/blob/master/JSON/src/json_prettify.py
 
 
-from __future__ import annotations
+from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
 
 import sublime
 import sublime_plugin
@@ -23,16 +23,43 @@ base_scope: typing.Final[str] = 'source.json - (source.json.hjson | source.json.
 
 
 def status_msg(msg: str = '') -> None:
+    """
+    Prefixes status messages in the status bar with the package name.
+
+    :param msg:
+        The message.
+    """
+
     if msg == '': return
-    sublime.status_message(f'{PKG_NAME}: {msg}')
+    sublime.status_message(msg=f'{PKG_NAME}: {msg}')
 
 
 def print_msg(msg_header: str = '', msg_body: str = '') -> None:
+    """
+    Prefixes messages for the built-in Sublime Console with the package name.
+
+    :param msg_header:
+        Header for the first line of the message.
+
+    :param msg_body:
+        Message body.
+    """
+
     if msg_body == '': return
     print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
 
 
 def json2py(view: sublime.View) -> sublime.Value:
+    """
+    Converts JSON to a Python object.
+
+    :param view:
+        The view from which to extract the contents.
+
+    :return:
+        A Python object with the same contents.
+    """
+
     old_contents: typing.Final[str] = view.substr(
         x=whole_view(view)
     )
@@ -51,6 +78,16 @@ def json2py(view: sublime.View) -> sublime.Value:
 
 
 def whole_view(view: sublime.View) -> sublime.Region:
+    """
+    Get the whole view as a region.
+
+    :param view:
+        The view from which to get the region.
+
+    :return:
+        The whole view as a region.
+    """
+
     return sublime.Region(
         a=0,
         b=view.size()
@@ -58,6 +95,16 @@ def whole_view(view: sublime.View) -> sublime.Region:
 
 
 def is_json(view: sublime.View) -> bool:
+    """
+    Checks a match against a JSON base scope.
+
+    :param view:
+        The view to match.
+
+    :return:
+        A match against a JSON base scope.
+    """
+
     return view.match_selector(
         pt=0,
         selector=base_scope
@@ -80,7 +127,7 @@ def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
         )
 
     if reload:
-        status_msg('Reloaded settings on change.')
+        status_msg(msg='Reloaded settings on change.')
 
 
 def plugin_unloaded() -> None:
@@ -142,11 +189,11 @@ class JsonPrettify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
             if json_as_python is None: return
             self.view.replace(
-                edit_token,
-                r=whole_view(self.view),
+                edit=edit_token,
+                r=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
@@ -154,20 +201,20 @@ class JsonPrettify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg('Prettified.')
+            status_msg(msg='Prettified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg('Prettifying failed. See console for details.')
+            status_msg(msg='Prettifying failed. See console for details.')
             pass
 
     def is_enabled(self) -> bool:
-        return is_json(self.view)
+        return is_json(view=self.view)
 
     def is_visible(self) -> bool:
-        return is_json(self.view)
+        return is_json(view=self.view)
 
     def description(self) -> str:
         return 'Prettify JSON'
@@ -177,16 +224,16 @@ class JsonMinify(sublime_plugin.TextCommand):
 
     def run(self, edit_token: sublime.Edit) -> None:
         """
-        Attempt to minify the current view's JSON contents. Print errors to
-        the console when it fails.
+        Attempt to minify the current view's JSON contents. Print errors to the
+        console when it fails.
         """
 
         try:
-            json_as_python: typing.Final[sublime.Value] = json2py(self.view)
+            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
             if json_as_python is None: return
             self.view.replace(
-                edit_token,
-                r=whole_view(self.view),
+                edit=edit_token,
+                r=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
@@ -195,20 +242,20 @@ class JsonMinify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg('Minified.')
+            status_msg(msg='Minified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg('Minifying failed. See console for details.')
+            status_msg(msg='Minifying failed. See console for details.')
             pass
 
     def is_enabled(self) -> bool:
-        return is_json(self.view)
+        return is_json(view=self.view)
 
     def is_visible(self) -> bool:
-        return is_json(self.view)
+        return is_json(view=self.view)
 
     def description(self) -> str:
         return 'Minify JSON'
