@@ -882,28 +882,28 @@
 
 
     [
-        "ke//y",
-//      ^^^^^^^ meta.string string.quoted.double
-//         ^^^^^ - comment.line
+        "va//lue",
+//      ^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^^^ - comment.line
 
-        "ke// y",
-//      ^^^^^^^^ meta.string string.quoted.double
-//         ^^^^^^ - comment.line
-
-        "ke/***/y",
+        "va// lue",
 //      ^^^^^^^^^^ meta.string string.quoted.double
+//         ^^^^^^^^ - comment.line
+
+        "va/***/lue",
+//      ^^^^^^^^^^^^ meta.string string.quoted.double
 //         ^^^^^ - comment.block
 
-        "ke/** */y",
-//      ^^^^^^^^^^^ meta.string string.quoted.double
+        "va/** */lue",
+//      ^^^^^^^^^^^^^ meta.string string.quoted.double
 //         ^^^^^^ - comment.block
 
-        "ke/**/y",
-//      ^^^^^^^^^ meta.string string.quoted.double
+        "va/**/lue",
+//      ^^^^^^^^^^^ meta.string string.quoted.double
 //         ^^^^ - comment.block
 
-        "ke/* */y"
-//      ^^^^^^^^^^ meta.string string.quoted.double
+        "va/* */lue"
+//      ^^^^^^^^^^^^ meta.string string.quoted.double
 //         ^^^^^ - comment.block
     ]
 
