@@ -97,7 +97,7 @@
                                 "children":
                                 [
                                     {
-                                        "caption": "Documentation: Specs",
+                                        "caption": "JSON5 Specs",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -112,7 +112,7 @@
                                 "children":
                                 [
                                     {
-                                        "caption": "Changelog (Packages/JSON)",
+                                        "caption": "View JSON package changelog (via GitHub)",
                                         "command": "open_url",
                                         "args":
                                         {
@@ -120,11 +120,11 @@
                                         }
                                     },
                                     {
-                                        "caption": "Report a (JSON package) issue",
+                                        "caption": "Report a JSON package issue (via GitHub)",
                                         "command": "open_url",
                                         "args":
                                         {
-                                            "url": "https://github.com/sublimehq/Packages/issues"
+                                            "url": "https://github.com/sublimehq/Packages/issues?q=JSON+is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
                                         }
                                     }
                                 ]
