@@ -193,7 +193,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
             if json_as_python is None: return
             self.view.replace(
                 edit=edit_token,
-                r=whole_view(view=self.view),
+                region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
@@ -233,7 +233,7 @@ class JsonMinify(sublime_plugin.TextCommand):
             if json_as_python is None: return
             self.view.replace(
                 edit=edit_token,
-                r=whole_view(view=self.view),
+                region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,

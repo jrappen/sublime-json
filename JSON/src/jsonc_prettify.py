@@ -116,7 +116,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
             json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
-                r=whole_view(view=self.view),
+                region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,
@@ -161,7 +161,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
             json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
-                r=whole_view(view=self.view),
+                region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=json_as_python,
                     allow_nan=False,

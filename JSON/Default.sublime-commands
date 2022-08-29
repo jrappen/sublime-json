@@ -7,22 +7,22 @@
 [
     // visible only with JSON syntax highlighting
     {
-        "caption": "JSON: Minify JSON",
+        "caption": "JSON: Minify",
         "command": "json_minify"
     },
     {
-        "caption": "JSON: Prettify JSON",
+        "caption": "JSON: Prettify",
         "command": "json_prettify"
     },
 
 
     // visible only with JSONC syntax highlighting
     {
-        "caption": "JSONC: Minify JSONC",
+        "caption": "JSONC: Minify",
         "command": "jsonc_minify"
     },
     {
-        "caption": "JSONC: Prettify JSONC",
+        "caption": "JSONC: Prettify",
         "command": "jsonc_prettify"
     }
 ]
