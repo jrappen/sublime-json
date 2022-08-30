@@ -49,7 +49,7 @@ jobs:
         with:
           allow_empty_commit: false
           build_dir: ./
-          commit_message: Zip packages
+          commit_message: publish package
           # fqdn: null
           # keep_history: false
           target_branch: download
