@@ -107,7 +107,7 @@ variables:
   exponent: |-
     (?x:
       [eE]
-      [-+]?
+      [-+]??
       \d+
     )
 
@@ -254,11 +254,11 @@ contexts:
               (-)
             | (\+)
             )
-            (\s+)?
+            (\s+)??
           )?
           (
             (?:
-              (0+)? [1-9] \d*                                                   # non-zero with (invalid) leading zeros
+              (0+)?? [1-9] \d*                                                  # non-zero with (invalid) leading zeros
             | 0                                                                 # zero
             )
             (?:
@@ -295,10 +295,10 @@ contexts:
               (-)
             | (\+)
             )
-            (\s+)?
+            (\s+)??
           )?
           (
-            (0+)? [1-9] \d*                                                     # non-zero with (invalid) leading zeros
+            (0+)?? [1-9] \d*                                                    # non-zero with (invalid) leading zeros
           | 0                                                                   # zero
           )
         )

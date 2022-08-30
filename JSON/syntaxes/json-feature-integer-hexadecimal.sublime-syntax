@@ -29,7 +29,7 @@ contexts:
     - include: hexadecimal-integer
 
   hexadecimal-integer:
-    - match: ([-+]?)(0[xX])(\h+)
+    - match: ([-+]??)(0[xX])(\h+)
       scope: meta.number.integer.hexadecimal.json
       captures:
         1: constant.numeric.sign.json
