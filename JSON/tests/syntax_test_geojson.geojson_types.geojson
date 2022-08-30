@@ -7,73 +7,75 @@
         {
             "type": "FeatureCollection",
             "features":
-            [{
-               "type": "Feature",
-               "geometry": {
-                   "type": "Point",
-                   "coordinates": [102.0, 0.5]
-               },
-               "properties": {
-                   "prop0": "value0"
-               }
-           }, {
-               "type": "Feature",
-               "geometry": {
-                   "type": "LineString",
-                   "coordinates": [
-                       [102.0, 0.0],
-                       [103.0, 1.0],
-                       [104.0, 0.0],
-                       [105.0, 1.0]
-                   ]
-               },
-               "properties": {
-                   "prop0": "value0",
-                   "prop1": 0.0
-               }
-           }, {
-               "type": "Feature",
-               "geometry": {
-                   "type": "Polygon",
-                   "coordinates": [
-                       [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]
-                   ]
-               },
-               "properties": {
-                   "prop0": "value0",
-                   "prop1": {
-                       "this": "that"
+            [
+                {
+                   "type": "Feature",
+                   "geometry": {
+                       "type": "Point",
+                       "coordinates": [102.0, 0.5]
+                   },
+                   "properties": {
+                       "prop0": "value0"
                    }
-                }
-            }]
-       },
-
-       {
-            "comment": "anti-meridian cutting",
-           "type": "MultiLineString",
-           "coordinates": [
-               [[170.0, 45.0], [180.0, 45.0]],
-               [[-180.0, 45.0], [-170.0, 45.0]]
+                }, {
+                   "type": "Feature",
+                   "geometry": {
+                       "type": "LineString",
+                       "coordinates": [
+                           [102.0, 0.0],
+                           [103.0, 1.0],
+                           [104.0, 0.0],
+                           [105.0, 1.0]
+                       ]
+                   },
+                   "properties": {
+                       "prop0": "value0",
+                       "prop1": 0.0
+                   }
+                }, {
+                   "type": "Feature",
+                   "geometry": {
+                       "type": "Polygon",
+                       "coordinates": [
+                           [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]
+                       ]
+                   },
+                   "properties": {
+                       "prop0": "value0",
+                       "prop1": {
+                           "this": "that"
+                       }
+                   }
+               }
            ]
-       },
-       {
-            "comment": "anti-meridian cutting",
-           "type": "MultiPolygon",
-           "coordinates": [
-               [
-                   [[180.0, 40.0], [180.0, 50.0], [170.0, 50.0], [170.0, 40.0], [180.0, 40.0]]
-               ],
-               [
-                   [[-170.0, 40.0], [-170.0, 50.0], [-180.0, 50.0], [-180.0, 40.0], [-170.0, 40.0]]
-               ]
-           ]
-       },
+        },
 
-       {
+        {
+            "comment": "anti-meridian cutting",
+            "type": "MultiLineString",
+            "coordinates": [
+                [[170.0, 45.0], [180.0, 45.0]],
+                [[-180.0, 45.0], [-170.0, 45.0]]
+            ]
+        },
+        {
+            "comment": "anti-meridian cutting",
+            "type": "MultiPolygon",
+            "coordinates": [
+                [
+                    [[180.0, 40.0], [180.0, 50.0], [170.0, 50.0], [170.0, 40.0], [180.0, 40.0]]
+                ],
+                [
+                    [[-170.0, 40.0], [-170.0, 50.0], [-180.0, 50.0], [-180.0, 40.0], [-170.0, 40.0]]
+                ]
+            ]
+        },
+
+        {
             "comment": "2d bbox",
-           "type": "Feature",
-           "bbox": [-10.0, -10.0, 10.0, 10.0],
-           "geometry": {
+            "type": "Feature",
+            "bbox": [-10.0, -10.0, 10.0, 10.0],
+            "geometry": {
                "type": "Polygon",
                "coordinates": [
                    [[-10.0, -10.0], [10.0, -10.0], [10.0, 10.0], [-10.0, -10.0]]
@@ -82,19 +84,19 @@
        },
 
        {
-            "comment": "2d bbox",
-           "type": "FeatureCollection",
-           "bbox": [100.0, 0.0, 105.0, 1.0],
-           "features": [
-           ]
-       },
+        "comment": "2d bbox",
+        "type": "FeatureCollection",
+        "bbox": [100.0, 0.0, 105.0, 1.0],
+        "features": [
+        ]
+    },
 
-       {
-            "comment": "3d bbox",
-           "type": "FeatureCollection",
-           "bbox": [100.0, 0.0, -100.0, 105.0, 1.0, 0.0],
-           "features": [
-           ]
-       }
-    ]
+    {
+        "comment": "3d bbox",
+        "type": "FeatureCollection",
+        "bbox": [100.0, 0.0, -100.0, 105.0, 1.0, 0.0],
+        "features": [
+        ]
+    }
+]
 ]
