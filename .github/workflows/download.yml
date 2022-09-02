@@ -6,6 +6,7 @@ on:
       - 'main'
     tags-ignore:
       - '*'
+  workflow_dispatch:
 
 jobs:
   download:
@@ -33,11 +34,13 @@ jobs:
           find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name 'COMMIT_EDITMSG.txt' -delete
           # remove tests
-          find . -type f -name '**/syntax_test_*' -delete
-          find . -type d -name '**/tests' -exec rm -r '{}' ';'
+          find . -type f -path '**/syntax_test_*' -delete
+          find . -type d -path '**/tests' -exec rm -r '{}' ';'
           # remove empty dirs
           find . -empty -type d -exec rm -r '{}' ';'
           # zip packages into root
+          ls -lR
+          wait -f
           find . -maxdepth 1 -mindepth 1 -type d -exec cd '{}' ';' -exec zip -r '{}.sublime-package' './' -x '**/tests **/syntax_test_*' ';' -exec cd '..' ';' -exec mv '{}/{}.sublime-package' './' ';'
           # cleanup, now that packages are zipped
           find . -maxdepth 1 -mindepth 1 -type d -exec rm -r '{}' ';'
