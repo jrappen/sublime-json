@@ -20,30 +20,29 @@ jobs:
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git config --global user.name 'github-actions[bot]'
           git config --global init.defaultBranch main
+
+      # https://github.com/actions/checkout
       - name: Git checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: Zip packages
         run: |
           # remove (some) subdirectories in root directory
-          find . -maxdepth 1 -mindepth 1 -type d -name '.git' -exec rm -r '{}' ';'
-          find . -maxdepth 1 -mindepth 1 -type d -name '.github' -exec rm -r '{}' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -name '.git' -exec rm -rf '{}' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -name '.github' -exec rm -rf '{}' ';'
           # remove (some) files in root directory
           find . -maxdepth 1 -mindepth 1 -type f -name '.gitattributes' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name '.gitignore' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name 'COMMIT_EDITMSG.txt' -delete
-          # remove tests
-          find . -type f -path '**/syntax_test_*' -delete
-          find . -type d -path '**/tests' -exec rm -r '{}' ';'
+          # remove test files & directories
+          find . -depth -type f -path '**/syntax_test_*' -delete -o -type d -path '**/tests' -exec rm -rf '{}' ';'
           # remove empty dirs
-          find . -empty -type d -exec rm -r '{}' ';'
+          find . -depth -type d -empty -exec rm -rf '{}' ';'
           # zip packages into root
-          ls -lR
-          wait -f
-          find . -maxdepth 1 -mindepth 1 -type d -exec cd '{}' ';' -exec zip -r '{}.sublime-package' './' -x '**/tests **/syntax_test_*' ';' -exec cd '..' ';' -exec mv '{}/{}.sublime-package' './' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -exec sh -c 'cd $1; zip -r "$1.sublime-package" "./" -x "tests/*" "**/syntax_test_*"; cd ..; mv "$1/$1.sublime-package" "./";' -- '{}' ';'
           # cleanup, now that packages are zipped
-          find . -maxdepth 1 -mindepth 1 -type d -exec rm -r '{}' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -exec rm -rf '{}' ';'
         shell: bash
 
       - name: Deploy packages
