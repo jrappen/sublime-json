@@ -6,6 +6,9 @@ on:
       - 'main'
     tags-ignore:
       - '*'
+    paths:
+      - 'JSON/*'
+      - '.github/workflows/download.yml'
   workflow_dispatch:
 
 jobs:
