@@ -45,7 +45,7 @@ jobs:
           # zip packages into root
           find . -maxdepth 1 -mindepth 1 -type d -exec sh -c 'cd $1; zip -q -r "$1.sublime-package" "./" -x "tests/*" "**/syntax_test_*"; cd ..; mv "$1/$1.sublime-package" "./";' -- '{}' ';'
           # cleanup, now that packages are zipped
-          find . -maxdepth 1 -mindepth 1 -type d -exec rm -rf '{}' ';'
+          find . -depth -maxdepth 1 -mindepth 1 -type d -exec rm -rf '{}' ';'
         shell: bash
 
       - name: Deploy packages
