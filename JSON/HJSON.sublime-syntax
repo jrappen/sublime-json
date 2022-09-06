@@ -18,6 +18,7 @@ extends:                                                                        
   - Packages/JSON/syntaxes/json-feature-comment-line-hash.sublime-syntax        # requires "json-feature-comment"
   - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
   - Packages/JSON/syntaxes/json-feature-string-quoted-single.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-string-quoted-single-multiline.sublime-syntax
 
 file_extensions:
   - hjson                                                                       # Hjson, a (human-readable) user interface for JSON
@@ -36,37 +37,10 @@ first_line_match: |-
 
 ########################################################################################################################
 
-contexts:
+contexts: {}
 
   # TODO: unquoted keys
 
   # TODO: unquoted strings, also regex
 
   # TODO: line end instead of comma in objects after a key-value-pair's value
-
-####[ Values ][ Strings ]###############################################################################################
-
-  strings:
-    - meta_prepend: true                                                        # prepend to match multiline strings first
-
-    - include: thrice-single-quoted-multiline-string
-
-  thrice-single-quoted-multiline-string:
-    - match: "'''"
-      scope: punctuation.definition.string.begin.json
-      set: thrice-single-quoted-multiline-string-content
-
-  thrice-single-quoted-multiline-string-content:
-    - meta_include_prototype: false
-    - meta_scope: >-
-        meta.string.json
-        string.quoted.single.multiline.json
-
-    - match: "'''"
-      scope: punctuation.definition.string.end.json
-      pop: 1
-
-    - include: thrice-single-quoted-multiline-string-escape-characters
-
-  thrice-single-quoted-multiline-string-escape-characters:
-    - include: string-escape-characters

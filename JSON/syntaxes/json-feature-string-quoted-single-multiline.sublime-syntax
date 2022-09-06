@@ -1,0 +1,49 @@
+%YAML 1.2
+---
+#   YAML Documentation:
+#       https://yaml.org/spec/1.2/spec.html
+#   Sublime Text Documentation:
+#       https://www.sublimetext.com/docs/syntax.html
+#       https://www.sublimetext.com/docs/syntax.html#testing
+#       https://www.sublimetext.com/docs/scope_naming.html
+#   This file is being maintained at:
+#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-string-quoted-single-multiline.sublime-syntax
+
+name: json-string-quoted-single-multiline
+scope: source.json
+version: 2
+hidden: true
+
+extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+  - Packages/JSON/JSON.sublime-syntax
+
+########################################################################################################################
+
+contexts:
+
+####[ Values ][ Strings ]###############################################################################################
+
+  strings:
+    - meta_prepend: true                                                        # prepend to match multiline strings first
+
+    - include: single-quoted-multiline-string
+
+  single-quoted-multiline-string:
+    - match: "'''"
+      scope: punctuation.definition.string.begin.json
+      set: single-quoted-multiline-string-content
+
+  single-quoted-multiline-string-content:
+    - meta_include_prototype: false
+    - meta_scope: >-
+        meta.string.json
+        string.quoted.single.multiline.json
+
+    - match: "'''"
+      scope: punctuation.definition.string.end.json
+      pop: 1
+
+    - include: single-quoted-multiline-string-escape-characters
+
+  single-quoted-multiline-string-escape-characters:
+    - include: string-escape-characters
