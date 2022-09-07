@@ -1,7 +1,9 @@
-# Test repository for JSON-plugin for SublimeHQ products
+# JSON-plugin for SublimeHQ products
 
 > [![ci](https://github.com/jrappen/sublime-json/actions/workflows/ci.yml/badge.svg)](https://github.com/jrappen/sublime-json/actions/workflows/ci.yml)
 > [![download](https://github.com/jrappen/sublime-json/actions/workflows/download.yml/badge.svg)](https://github.com/jrappen/sublime-json/actions/workflows/download.yml)
+
+> This repository is used for testing.
 
 ## Download package
 
