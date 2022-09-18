@@ -7,8 +7,8 @@
 
 from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
 
-import sublime
-import sublime_plugin
+import sublime                                                                  # EXECUTABLE_DIR/Lib/python38/sublime.py
+import sublime_plugin                                                           # EXECUTABLE_DIR/Lib/python38/sublime_plugin.py
 
 import json                                                                     # https://docs.python.org/3.8/library/json.html
 import typing                                                                   # https://docs.python.org/3.8/library/typing.html
