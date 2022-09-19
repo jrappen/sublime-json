@@ -64,6 +64,17 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v3
 
+      - name: Clean up
+        run: |
+          # remove (some) subdirectories in root directory
+          find . -maxdepth 1 -mindepth 1 -type d -name '.git' -exec rm -rf '{}' ';'
+          find . -maxdepth 1 -mindepth 1 -type d -name '.github' -exec rm -rf '{}' ';'
+          # remove (some) files in root directory
+          find . -maxdepth 1 -mindepth 1 -type f -name '.gitattributes' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name '.gitignore' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
+        shell: bash
+
       - name: Get binary for Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
         run: |
           wget -O st_syntax_tests.tar.xz https://download.sublimetext.com/st_syntax_tests_build_${{ matrix.sublime-build }}_x64.tar.xz
