@@ -7,7 +7,7 @@
 
 ## Download package
 
-> [![Download](https://img.shields.io/static/v1?label=download&message=JSON.sublime-package&color=brightgreen)](https://github.com/jrappen/sublime-json/raw/download/JSON.sublime-package)
+> [![Download](https://img.shields.io/static/v1?label=download&message=JSON.sublime-package&color=brightgreen)](https://github.com/jrappen/sublime-json/blob/download/JSON.sublime-package?raw=true)
 
 ## Known issues
 
