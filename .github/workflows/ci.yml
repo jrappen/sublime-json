@@ -44,7 +44,7 @@ jobs:
 
           # latest dev
           - sublime-channel: dev
-            sublime-build: 4134
+            sublime-build: 4136
             optional: false
 
           # first build with the latest changes to the syntax engine in core
@@ -56,8 +56,8 @@ jobs:
 
       - name: Git config (global)
         run: |
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git config --global init.defaultBranch main
 
       # https://github.com/actions/checkout
