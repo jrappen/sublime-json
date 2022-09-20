@@ -49,7 +49,7 @@ jobs:
 
           # first build with the latest changes to the syntax engine in core
           # - sublime-channel: dev
-          #   sublime-build: 4095
+          #   sublime-build: 4131
           #   optional: true
 
     steps:
