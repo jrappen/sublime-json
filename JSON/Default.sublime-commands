@@ -1,9 +1,3 @@
-//  Packages/JSON/Default.sublime-commands
-//
-//  This file is being maintained at:
-//      https://github.com/sublimehq/Packages/blob/master/JSON/Default.sublime-commands
-
-
 [
     // visible only with JSON syntax highlighting
     {

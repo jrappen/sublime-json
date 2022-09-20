@@ -1,9 +1,3 @@
-//  Packages/JSON/completions/GeoJSON.sublime-completions
-//
-//  This file is being maintained at:
-//      https://github.com/sublimehq/Packages/blob/master/JSON/completions/GeoJSON.sublime-completions
-
-
 {
     "scope": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value",
     "completions":

@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/src/json_prettify.py
-
 
 from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
 
@@ -111,7 +108,9 @@ def is_json(view: sublime.View) -> bool:
     )
 
 
-def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
+def plugin_loaded(
+    reload: typing.Optional[bool] = False
+) -> None:
     try:
         global settings
         settings = sublime.load_settings(base_name=base_settings)

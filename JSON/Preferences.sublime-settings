@@ -1,9 +1,3 @@
-//  Packages/JSON/Preferences.sublime-settings
-//
-//  This file is being maintained at:
-//      https://github.com/sublimehq/Packages/blob/master/JSON/Preferences.sublime-settings
-
-
 {
     //  whether `on_pre_save_async` events auto-trigger the `json_prettify` command
     "json.auto_prettify": false

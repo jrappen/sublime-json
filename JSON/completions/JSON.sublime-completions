@@ -1,9 +1,3 @@
-//  Packages/JSON/completions/JSON.sublime-completions
-//
-//  This file is being maintained at:
-//      https://github.com/sublimehq/Packages/blob/master/JSON/completions/JSON.sublime-completions
-
-
 {
     "scope": "source.json - meta.mapping.key, source.json meta.mapping.value, source.json meta.sequence.list",
     "completions":

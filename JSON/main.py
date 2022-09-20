@@ -1,18 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/main.py
-
 
 from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
 
 
-import sublime
+################################################################################
 
 
 import sys
-
 
 prefix = __package__ + "."
 for module_name in [
@@ -24,11 +20,14 @@ for module_name in [
 prefix = None
 
 
+################################################################################
+
+
 from .src import *
 
 
 def plugin_loaded() -> None:
-    json_prettify.plugin_loaded()
+    json_prettify.plugin_loaded(reload=False)
 
 
 def plugin_unloaded() -> None:
