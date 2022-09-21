@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json - (source.json.hjson | source.json.json5)</string>
+	<string>source.json.jsondotnet</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
@@ -26,6 +26,27 @@
 				^(.*\*/)?\s*\].*$
 			)
 		</string>
+		<key>foldScopes</key>
+		<array>
+			<dict><!-- STRINGS -->
+				<key>begin</key>
+				<string>punctuation.definition.string.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.string.end</string>
+			</dict>
+			<dict><!-- OBJECTS -->
+				<key>begin</key>
+				<string>punctuation.definition.mapping.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.mapping.end</string>
+			</dict>
+			<dict><!-- ARRAYS -->
+				<key>begin</key>
+				<string>punctuation.definition.sequence.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.sequence.end</string>
+			</dict>
+		</array>
 		<key>increaseIndentPattern</key>
 		<string>(?x)
 			# When an object is opened, but not closed
@@ -60,6 +81,8 @@
 		</string>
 		<key>indentSquareBrackets</key>
 		<true/>
+		<key>indentationFoldingEnabled</key>
+		<false/>
 	</dict>
 </dict>
 </plist>

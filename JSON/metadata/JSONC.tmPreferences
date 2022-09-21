@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+	<key>scope</key>
+	<string>source.json.jsonc</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>(?x)
+			# When an object is closed, but not opened
+			(
+				^
+				(
+					# Consume strings
+					"(?:[^"\\]|\\.)*"
+					|
+					# Consume all chars that don't start a string, comment or
+					# open an object on this line
+					[^"/{\n]
+				)*
+				\}.*$
+			)
+			|
+			# When an array is closed by itself on a line (interacts with indentSquareBrackets)
+			(
+				^(.*\*/)?\s*\].*$
+			)
+		</string>
+		<key>foldScopes</key>
+		<array>
+			<dict><!-- STRINGS -->
+				<key>begin</key>
+				<string>punctuation.definition.string.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.string.end</string>
+			</dict>
+			<dict><!-- COMMENTS -->
+				<key>begin</key>
+				<string>punctuation.definition.comment.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.comment.end</string>
+			</dict>
+			<dict><!-- OBJECTS -->
+				<key>begin</key>
+				<string>punctuation.definition.mapping.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.mapping.end</string>
+			</dict>
+			<dict><!-- ARRAYS -->
+				<key>begin</key>
+				<string>punctuation.definition.sequence.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.sequence.end</string>
+			</dict>
+		</array>
+		<key>increaseIndentPattern</key>
+		<string>(?x)
+			# When an object is opened, but not closed
+			(
+				^.*\{
+				(
+					# Consume strings
+					"(?:[^"\\]|\\.)*"
+					|
+					# Consume all chars that don't start a string, comment or
+					# end the object that was opened on this line
+					[^"/}]
+				)*
+				# Stop matching at the end of the line, or once we hit a comment
+				($|/[/*])
+			)
+			|
+			# When an array is opened, but not closed
+			(
+				^.*\[
+				(
+					# Consume strings
+					"(?:[^"\\]|\\.)*"
+					|
+					# Consume all chars that don't start a string, comment or
+					# end the array that was opened on this line
+					[^"/\]]
+				)*
+				# Stop matching at the end of the line, or once we hit a comment
+				($|/[/*])
+			)
+		</string>
+		<key>indentSquareBrackets</key>
+		<true/>
+		<key>indentationFoldingEnabled</key>
+		<false/>
+		<key>shellVariables</key>
+		<array>
+			<dict>
+				<key>name</key><string>TM_COMMENT_START</string>
+				<key>value</key><string>// </string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_START_2</string>
+				<key>value</key><string>/*</string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_END_2</string>
+				<key>value</key><string>*/</string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_DISABLE_INDENT_2</string>
+				<key>value</key><string>yes</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

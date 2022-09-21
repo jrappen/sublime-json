@@ -29,6 +29,33 @@
 				^(.*\*/)?\s*\].*$
 			)
 		</string>
+		<key>foldScopes</key>
+		<array>
+			<dict><!-- STRINGS -->
+				<key>begin</key>
+				<string>punctuation.definition.string.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.string.end</string>
+			</dict>
+			<dict><!-- COMMENTS -->
+				<key>begin</key>
+				<string>punctuation.definition.comment.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.comment.end</string>
+			</dict>
+			<dict><!-- OBJECTS -->
+				<key>begin</key>
+				<string>punctuation.definition.mapping.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.mapping.end</string>
+			</dict>
+			<dict><!-- ARRAYS -->
+				<key>begin</key>
+				<string>punctuation.definition.sequence.begin</string>
+				<key>end</key>
+				<string>punctuation.definition.sequence.end</string>
+			</dict>
+		</array>
 		<key>increaseIndentPattern</key>
 		<string>(?x)
 			# When an object is opened, but not closed
@@ -69,6 +96,31 @@
 		</string>
 		<key>indentSquareBrackets</key>
 		<true/>
+		<key>indentationFoldingEnabled</key>
+		<false/>
+		<key>shellVariables</key>
+		<array>
+			<dict>
+				<key>name</key><string>TM_COMMENT_START</string>
+				<key>value</key><string>// </string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_START_2</string>
+				<key>value</key><string># </string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_START_3</string>
+				<key>value</key><string>/*</string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_END_3</string>
+				<key>value</key><string>*/</string>
+			</dict>
+			<dict>
+				<key>name</key><string>TM_COMMENT_DISABLE_INDENT_3</string>
+				<key>value</key><string>yes</string>
+			</dict>
+		</array>
 	</dict>
 </dict>
 </plist>
