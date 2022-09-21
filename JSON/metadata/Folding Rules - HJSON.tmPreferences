@@ -5,6 +5,8 @@
 	<string>source.json.hjson</string>
 	<key>settings</key>
 	<dict>
+		<key>indentationFoldingEnabled</key>
+		<false/>
 		<key>foldScopes</key>
 		<array>
 			<dict><!-- STRINGS -->
