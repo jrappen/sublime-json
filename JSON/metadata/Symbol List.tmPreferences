@@ -2,7 +2,7 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json meta.mapping.key - (meta.mapping.value meta.mapping.key | meta.sequence.list meta.mapping.key)</string>
+	<string><![CDATA[source.json meta.mapping.key - (meta.mapping.value meta.mapping.key | meta.sequence.list meta.mapping.key)]]></string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

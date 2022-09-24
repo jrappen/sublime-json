@@ -2,11 +2,11 @@
 <plist version="1.0">
 <dict>
 	<key>scope</key>
-	<string>source.json.hjson</string>
+	<string><![CDATA[source.json.hjson]]></string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>(?x)
+		<string><![CDATA[(?x)
 			# When an object is closed, but not opened
 			(
 				^
@@ -28,7 +28,7 @@
 			(
 				^(.*\*/)?\s*\].*$
 			)
-		</string>
+		]]></string>
 		<key>foldScopes</key>
 		<array>
 			<dict><!-- STRINGS -->
@@ -57,7 +57,7 @@
 			</dict>
 		</array>
 		<key>increaseIndentPattern</key>
-		<string>(?x)
+		<string><![CDATA[(?x)
 			# When an object is opened, but not closed
 			(
 				^.*\{
@@ -93,7 +93,7 @@
 				# Stop matching at the end of the line, or once we hit a comment
 				($|/[/*])
 			)
-		</string>
+		]]></string>
 		<key>indentSquareBrackets</key>
 		<true/>
 		<key>indentationFoldingEnabled</key>
