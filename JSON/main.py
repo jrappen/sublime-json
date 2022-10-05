@@ -8,7 +8,7 @@ from __future__ import annotations                                              
 ################################################################################
 
 
-import sys
+import sys                                                                      # https://docs.python.org/3.8/library/sys.html
 
 prefix = __package__ + "."
 for module_name in [
@@ -24,11 +24,3 @@ prefix = None
 
 
 from .src import *
-
-
-def plugin_loaded() -> None:
-    json_prettify.plugin_loaded(reload=False)
-
-
-def plugin_unloaded() -> None:
-    json_prettify.plugin_unloaded()
