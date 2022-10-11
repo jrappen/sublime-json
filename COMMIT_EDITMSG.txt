@@ -13,6 +13,13 @@ The JSON syntax was split up using inheritance into:
 ```
 
 
+Python source changes:
+
+- use `py3.8`
+- add ability to prettify & minify both JSON & JSONC
+- add ability to auto-prettify JSON
+
+
 Syntax changes:
 
 - Add many more file extensions:
@@ -160,7 +167,7 @@ References:
 - fix sublimehq/Packages#285
 - address sublimehq/Packages#421 (thanks to FichteFoll)
 - address sublimehq/Packages#481 to remove incompatible regex patterns
-  according to Will Bond
+  (according to Will Bond)
 - address sublimehq/Packages#757 to fix line comments for `JSONC`
   (thanks to Keith Hall)
 - address sublimehq/Packages#2430 using sort-order (as requested by
