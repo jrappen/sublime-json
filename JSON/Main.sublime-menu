@@ -40,36 +40,42 @@
                                     },
                                     { "caption": "-" },
                                     {
-                                        "caption": "JSON Specs",
-                                        "command": "open_url",
-                                        "args":
-                                        {
-                                            "url": "https://www.json.org/json-en.html"
-                                        }
-                                    },
-                                    {
-                                        "caption": "IETF RFC 7159",
-                                        "command": "open_url",
-                                        "args":
-                                        {
-                                            "url": "https://datatracker.ietf.org/doc/html/rfc7159"
-                                        }
-                                    },
-                                    {
-                                        "caption": "IETF RFC 8259",
-                                        "command": "open_url",
-                                        "args":
-                                        {
-                                            "url": "https://datatracker.ietf.org/doc/html/rfc8259"
-                                        }
-                                    },
-                                    {
-                                        "caption": "ECMA 404 (2nd Edition, Dec 2017)",
-                                        "command": "open_url",
-                                        "args":
-                                        {
-                                            "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
-                                        }
+                                        "caption": "JSON Documentation",
+                                        "children":
+                                        [
+                                            {
+                                                "caption": "JSON Specs",
+                                                "command": "open_url",
+                                                "args":
+                                                {
+                                                    "url": "https://www.json.org/json-en.html"
+                                                }
+                                            },
+                                            {
+                                                "caption": "IETF RFC 7159",
+                                                "command": "open_url",
+                                                "args":
+                                                {
+                                                    "url": "https://datatracker.ietf.org/doc/html/rfc7159"
+                                                }
+                                            },
+                                            {
+                                                "caption": "IETF RFC 8259",
+                                                "command": "open_url",
+                                                "args":
+                                                {
+                                                    "url": "https://datatracker.ietf.org/doc/html/rfc8259"
+                                                }
+                                            },
+                                            {
+                                                "caption": "ECMA 404 (2nd Edition, Dec 2017)",
+                                                "command": "open_url",
+                                                "args":
+                                                {
+                                                    "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
+                                                }
+                                            }
+                                        ]
                                     }
                                 ]
                             },
