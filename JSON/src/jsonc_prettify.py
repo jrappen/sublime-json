@@ -12,7 +12,7 @@ import typing                                                                   
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
-base_scope: typing.Final[str] = 'source.json.jsonc'
+BASE_SCOPE: typing.Final[str] = 'source.json.jsonc'
 
 
 def status_msg(msg: str = '') -> None:
@@ -53,11 +53,11 @@ def json2py(view: sublime.View) -> sublime.Value:
         A Python object with the same contents but without comments.
     """
 
-    old_contents: typing.Final[str] = view.substr(
+    OLD_CONTENTS: typing.Final[str] = view.substr(
         x=whole_view(view)
     )
     return sublime.decode_value(
-        data=old_contents
+        data=OLD_CONTENTS
     )
 
 
@@ -91,7 +91,7 @@ def is_jsonc(view: sublime.View) -> bool:
 
     return view.match_selector(
         pt=0,
-        selector=base_scope
+        selector=BASE_SCOPE
     )
 
 
@@ -110,12 +110,12 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                 title='JSONC: Prettify'                                         # only shown on Windows
             ):
                 return
-            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
-                    obj=json_as_python,
+                    obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=4,
                     sort_keys=True
@@ -155,12 +155,12 @@ class JsoncMinify(sublime_plugin.TextCommand):
                 title='JSONC: Minify'                                           # only shown on Windows
             ):
                 return
-            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
-                    obj=json_as_python,
+                    obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=None,
                     separators=(',', ':'),

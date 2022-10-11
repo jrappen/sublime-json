@@ -13,10 +13,11 @@ import json                                                                     
 import typing                                                                   # https://docs.python.org/3.8/library/typing.html
 
 
+BASE_SCOPE: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
+BASE_SETTINGS: typing.Final[str] = 'Preferences.sublime-settings'
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
+
 settings: typing.Union[sublime.Settings, None] = None
-base_settings: typing.Final[str] = 'Preferences.sublime-settings'
-base_scope: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
 
 
 def status_msg(msg: str = '') -> None:
@@ -57,12 +58,12 @@ def json2py(view: sublime.View) -> sublime.Value:
         A Python object with the same contents.
     """
 
-    old_contents: typing.Final[str] = view.substr(
+    OLD_CONTENTS: typing.Final[str] = view.substr(
         x=whole_view(view)
     )
     try:
         return json.loads(                                                      # https://docs.python.org/3.8/library/json.html#json.loads
-            s=old_contents,
+            s=OLD_CONTENTS,
             object_pairs_hook=collections.OrderedDict,
             parse_float=decimal.Decimal
         )
@@ -104,7 +105,7 @@ def is_json(view: sublime.View) -> bool:
 
     return view.match_selector(
         pt=0,
-        selector=base_scope
+        selector=BASE_SCOPE
     )
 
 
@@ -113,7 +114,7 @@ def plugin_loaded(
 ) -> None:
     try:
         global settings
-        settings = sublime.load_settings(base_name=base_settings)
+        settings = sublime.load_settings(base_name=BASE_SETTINGS)
         settings.clear_on_change(tag='reload')
         settings.add_on_change(
             tag='reload',
@@ -121,7 +122,7 @@ def plugin_loaded(
         )
     except Exception as e:
         print_msg(
-            msg_header=f'Loading "{base_settings}" failed due to error',
+            msg_header=f'Loading "{BASE_SETTINGS}" failed due to error',
             msg_body=f'{e}'
         )
 
@@ -137,13 +138,13 @@ def plugin_unloaded() -> None:
 class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
     __is_checked: bool = False
-    __key: typing.Final[str] = 'json.auto_prettify'
+    __KEY: typing.Final[str] = 'json.auto_prettify'
 
     def __init__(self, window: sublime.Window) -> None:
         try:
             if settings is None:
                 return
-            self.__is_checked = settings.get(key=self.__key, default=False)
+            self.__is_checked = settings.get(key=self.__KEY, default=False)
         except Exception:
             pass
 
@@ -153,10 +154,10 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
             if settings is None:
                 return
             if self.__is_checked:
-                settings.erase(key=self.__key)                                  # remove the override (true) of the default (false)
+                settings.erase(key=self.__KEY)                                  # remove the override (true) of the default (false)
             else:
-                settings.set(key=self.__key, value=True)
-            sublime.save_settings(base_name=base_settings)
+                settings.set(key=self.__KEY, value=True)
+            sublime.save_settings(base_name=BASE_SETTINGS)
             self.__is_checked = not self.__is_checked                           # toggle
         except Exception:
             pass
@@ -167,14 +168,14 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
 
 class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 
-    __key: typing.Final[str] = 'json.auto_prettify'
+    __KEY: typing.Final[str] = 'json.auto_prettify'
 
     def on_pre_save_async(self, view) -> None:
         if not is_json(view):
             return
         if settings is None:
             return
-        if not settings.get(key=self.__key, default=False):
+        if not settings.get(key=self.__KEY, default=False):
             return
         view.run_command(cmd='json_prettify')
 
@@ -188,13 +189,13 @@ class JsonPrettify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
-            if json_as_python is None: return
+            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
-                    obj=json_as_python,
+                    obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=4,
                     sort_keys=True
@@ -228,13 +229,13 @@ class JsonMinify(sublime_plugin.TextCommand):
         """
 
         try:
-            json_as_python: typing.Final[sublime.Value] = json2py(view=self.view)
-            if json_as_python is None: return
+            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
                 text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
-                    obj=json_as_python,
+                    obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=None,
                     separators=(',', ':'),
