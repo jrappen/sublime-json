@@ -10,6 +10,9 @@ import sublime_plugin                                                           
 import json                                                                     # https://docs.python.org/3.8/library/json.html
 import typing                                                                   # https://docs.python.org/3.8/library/typing.html
 
+if typing.TYPE_CHECKING:
+    import sublime_types                                                        # EXECUTABLE_DIR/Lib/python38/sublime_types.py
+
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
 BASE_SCOPE: typing.Final[str] = 'source.json.jsonc'
@@ -42,7 +45,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
     print(f'JSONC: {msg_header}:\n\n{msg_body}\n\n')
 
 
-def json2py(view: sublime.View) -> sublime.Value:
+def json2py(view: sublime.View) -> sublime_types.Value:
     """
     Converts JSONC to a Python object, removing comments.
 
@@ -110,7 +113,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                 title='JSONC: Prettify'                                         # only shown on Windows
             ):
                 return
-            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[sublime_types.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
@@ -155,7 +158,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
                 title='JSONC: Minify'                                           # only shown on Windows
             ):
                 return
-            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[sublime_types.Value] = json2py(view=self.view)
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),

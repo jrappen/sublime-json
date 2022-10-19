@@ -12,6 +12,9 @@ import decimal                                                                  
 import json                                                                     # https://docs.python.org/3.8/library/json.html
 import typing                                                                   # https://docs.python.org/3.8/library/typing.html
 
+if typing.TYPE_CHECKING:
+    import sublime_types                                                        # EXECUTABLE_DIR/Lib/python38/sublime_types.py
+
 
 BASE_SCOPE: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
 BASE_SETTINGS: typing.Final[str] = 'Preferences.sublime-settings'
@@ -47,7 +50,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
     print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
 
 
-def json2py(view: sublime.View) -> sublime.Value:
+def json2py(view: sublime.View) -> typing.Union[sublime_types.Value, None]:
     """
     Converts JSON to a Python object.
 
@@ -189,7 +192,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
         """
 
         try:
-            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[typing.Union[sublime_types.Value, None]] = json2py(view=self.view)
             if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
@@ -229,7 +232,7 @@ class JsonMinify(sublime_plugin.TextCommand):
         """
 
         try:
-            JSON_PY_OBJ: typing.Final[sublime.Value] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[typing.Union[sublime_types.Value, None]] = json2py(view=self.view)
             if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
