@@ -36,9 +36,11 @@ file_extensions:
   - sublime-settings                                                            # https://www.sublimetext.com/docs/settings.html
   - sublime-theme                                                               # https://www.sublimetext.com/docs/themes.html
   - hidden-theme
-  - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
 
 hidden_file_extensions:
+  - sublime-workspace                                                           # https://www.sublimetext.com/docs/projects.html
+  - sublime_session
+
   - .ember-cli                                                                  # Ember.js Command Line Utility
                                                                                 # https://cli.emberjs.com/
                                                                                 # https://github.com/ember-cli/ember-cli
