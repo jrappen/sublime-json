@@ -13,10 +13,18 @@
     // visible only with JSONC syntax highlighting
     {
         "caption": "JSONC: Minify",
-        "command": "jsonc_minify"
+        "command": "jsonc_minify",
+        "args":
+        {
+            "force": true
+        }
     },
     {
         "caption": "JSONC: Prettify",
-        "command": "jsonc_prettify"
+        "command": "jsonc_prettify",
+        "args":
+        {
+            "force": true
+        }
     }
 ]

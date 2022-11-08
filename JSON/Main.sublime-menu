@@ -85,11 +85,19 @@
                                 [
                                     {
                                         "caption": "Minify",
-                                        "command": "jsonc_minify"
+                                        "command": "jsonc_minify",
+                                        "args":
+                                        {
+                                            "force": true
+                                        }
                                     },
                                     {
                                         "caption": "Prettify",
-                                        "command": "jsonc_prettify"
+                                        "command": "jsonc_prettify",
+                                        "args":
+                                        {
+                                            "force": true
+                                        }
                                     }
                                 ]
                             },

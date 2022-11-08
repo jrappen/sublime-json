@@ -1,120 +1,61 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.8
 # coding: utf-8
 
 
-from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
+from __future__ import annotations
 
-import sublime                                                                  # EXECUTABLE_DIR/Lib/python38/sublime.py
-import sublime_plugin                                                           # EXECUTABLE_DIR/Lib/python38/sublime_plugin.py
+import sublime
+import sublime_plugin
 
-import collections                                                              # https://docs.python.org/3.8/library/collections.html
-import decimal                                                                  # https://docs.python.org/3.8/library/decimal.html
-import json                                                                     # https://docs.python.org/3.8/library/json.html
-import typing                                                                   # https://docs.python.org/3.8/library/typing.html
+import collections
+import decimal
+import json
+import typing
 
 if typing.TYPE_CHECKING:
-    import sublime_types                                                        # EXECUTABLE_DIR/Lib/python38/sublime_types.py
+    import sublime_types
 
 
 BASE_SCOPE: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
 BASE_SETTINGS: typing.Final[str] = 'Preferences.sublime-settings'
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
 
-settings: typing.Union[sublime.Settings, None] = None
+settings: typing.Optional[sublime.Settings] = None
 
 
 def status_msg(msg: str = '') -> None:
-    """
-    Prefixes status messages in the status bar with the package name.
-
-    :param msg:
-        The message.
-    """
-
     if msg == '': return
     sublime.status_message(msg=f'{PKG_NAME}: {msg}')
 
 
 def print_msg(msg_header: str = '', msg_body: str = '') -> None:
-    """
-    Prefixes messages for the built-in Sublime Console with the package name.
-
-    :param msg_header:
-        Header for the first line of the message.
-
-    :param msg_body:
-        Message body.
-    """
-
     if msg_body == '': return
     print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
 
 
-def json2py(view: sublime.View) -> typing.Union[sublime_types.Value, None]:
-    """
-    Converts JSON to a Python object.
-
-    :param view:
-        The view from which to extract the contents.
-
-    :return:
-        A Python object with the same contents.
-    """
-
-    OLD_CONTENTS: typing.Final[str] = view.substr(
-        x=whole_view(view)
-    )
+def json2py(view: sublime.View) -> typing.Optional[sublime_types.Value]:
+    OLD_CONTENTS: typing.Final[str] = view.substr(x=whole_view(view))
     try:
-        return json.loads(                                                      # https://docs.python.org/3.8/library/json.html#json.loads
+        # https://docs.python.org/3.8/library/json.html#json.loads
+        return json.loads(
             s=OLD_CONTENTS,
             object_pairs_hook=collections.OrderedDict,
             parse_float=decimal.Decimal
         )
     except Exception as e:
-        print_msg(
-            msg_header='Conversion failed due to error:',
-            msg_body=f'{e}'
-        )
+        print_msg(msg_header='Conversion failed due to error:', msg_body=f'{e}')
     return None
 
 
 def whole_view(view: sublime.View) -> sublime.Region:
-    """
-    Get the whole view as a region.
-
-    :param view:
-        The view from which to get the region.
-
-    :return:
-        The whole view as a region.
-    """
-
-    return sublime.Region(
-        a=0,
-        b=view.size()
-    )
+    return sublime.Region(a=0, b=view.size())
 
 
 def is_json(view: sublime.View) -> bool:
-    """
-    Checks a match against a JSON base scope.
-
-    :param view:
-        The view to match.
-
-    :return:
-        A match against a JSON base scope.
-    """
-
-    return view.match_selector(
-        pt=0,
-        selector=BASE_SCOPE
-    )
+    return view.match_selector(pt=0, selector=BASE_SCOPE)
 
 
-def plugin_loaded(
-    reload: typing.Optional[bool] = False
-) -> None:
+def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
     try:
         global settings
         settings = sublime.load_settings(base_name=BASE_SETTINGS)
@@ -157,11 +98,13 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
             if settings is None:
                 return
             if self.__is_checked:
-                settings.erase(key=self.__KEY)                                  # remove the override (true) of the default (false)
+                # remove the override (true) of the default (false)
+                settings.erase(key=self.__KEY)
             else:
                 settings.set(key=self.__KEY, value=True)
             sublime.save_settings(base_name=BASE_SETTINGS)
-            self.__is_checked = not self.__is_checked                           # toggle
+            # toggle
+            self.__is_checked = not self.__is_checked
         except Exception:
             pass
 
@@ -174,9 +117,7 @@ class JsonAutoPrettifyListener(sublime_plugin.EventListener):
     __KEY: typing.Final[str] = 'json.auto_prettify'
 
     def on_pre_save_async(self, view) -> None:
-        if not is_json(view):
-            return
-        if settings is None:
+        if settings is None or not is_json(view):
             return
         if not settings.get(key=self.__KEY, default=False):
             return
@@ -186,18 +127,14 @@ class JsonAutoPrettifyListener(sublime_plugin.EventListener):
 class JsonPrettify(sublime_plugin.TextCommand):
 
     def run(self, edit_token: sublime.Edit) -> None:
-        """
-        Attempt to prettify the current view's JSON contents. Print errors to
-        the console when it fails.
-        """
-
         try:
-            JSON_PY_OBJ: typing.Final[typing.Union[sublime_types.Value, None]] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[typing.Optional[sublime_types.Value]] = json2py(view=self.view)
             if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
+                # https://docs.python.org/3.8/library/json.html#json.dumps
+                text=json.dumps(
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=4,
@@ -226,18 +163,14 @@ class JsonPrettify(sublime_plugin.TextCommand):
 class JsonMinify(sublime_plugin.TextCommand):
 
     def run(self, edit_token: sublime.Edit) -> None:
-        """
-        Attempt to minify the current view's JSON contents. Print errors to the
-        console when it fails.
-        """
-
         try:
-            JSON_PY_OBJ: typing.Final[typing.Union[sublime_types.Value, None]] = json2py(view=self.view)
+            JSON_PY_OBJ: typing.Final[typing.Optional[sublime_types.Value]] = json2py(view=self.view)
             if JSON_PY_OBJ is None: return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
+                # https://docs.python.org/3.8/library/json.html#json.dumps
+                text=json.dumps(
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=None,
