@@ -3,8 +3,8 @@
 // <- source.json - (source.json.geojson | source.json.hjson | source.json.json5 | source.json.jsonc | source.json.jsondotnet)
 
     5, 5
-//   ^ invalid.illegal.unexpected-separator
-//     ^ invalid.illegal.unexpected-code
+//   ^ invalid.illegal.expected-end-of-file
+//     ^ invalid.illegal.expected-end-of-file
 
     // comment
-//  ^^^^^^^^^^ invalid.illegal.comment - invalid.illegal.unexpected-code
+//  ^^^^^^^^^^ invalid.illegal.comment - invalid.illegal.expected-end-of-file

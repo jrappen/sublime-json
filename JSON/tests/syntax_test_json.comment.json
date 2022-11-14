@@ -10,4 +10,4 @@
 
     // comment
 //  ^^^^^^^^^^ invalid.illegal.comment
-//  ^^^^^^^^^^ - invalid.illegal.unexpected-code
+//  ^^^^^^^^^^ - invalid.illegal.expected-end-of-file

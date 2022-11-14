@@ -6,5 +6,5 @@
 //  ^^^ meta.sequence.list
 //  ^ punctuation.definition.sequence.begin
 //    ^ punctuation.definition.sequence.end
-//     ^ invalid.illegal.unexpected-code
-//       ^ invalid.illegal.unexpected-code
+//     ^ invalid.illegal.expected-end-of-file
+//       ^ invalid.illegal.expected-end-of-file

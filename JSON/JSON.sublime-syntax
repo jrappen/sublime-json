@@ -147,11 +147,8 @@ contexts:
     - include: strings
 
   invalid-remainder:
-    - match: '[,:]'
-      scope: invalid.illegal.unexpected-separator.json
-
-    - match: '[^,:\s]+'
-      scope: invalid.illegal.unexpected-code.json
+    - match: '[^\s]+'
+      scope: invalid.illegal.expected-end-of-file.json
 
 ####[ Prototypes ]######################################################################################################
 

@@ -6,4 +6,4 @@
 //  ^^^^^^^^ meta.string string.quoted.double
 //  ^ punctuation.definition.string.begin
 //         ^ punctuation.definition.string.end
-//          ^^^^^^^^ invalid.illegal.unexpected-code
+//          ^^^^^^^^ invalid.illegal.expected-end-of-file

@@ -6,5 +6,5 @@
 //  ^^^ meta.mapping
 //  ^ punctuation.definition.mapping.begin
 //    ^ punctuation.definition.mapping.end
-//     ^ invalid.illegal.unexpected-code
-//       ^ invalid.illegal.unexpected-code
+//     ^ invalid.illegal.expected-end-of-file
+//       ^ invalid.illegal.expected-end-of-file
