@@ -40,6 +40,7 @@
 
     "start 2000-01-01T00:00:00Z end",
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - string.quoted.double.datetime
 //  ^ punctuation.definition.string.begin
 //         ^^^^^^^^^^^^^^^^^^^^ - constant.other.timestamp
 //                                 ^ punctuation.definition.string.end
@@ -54,6 +55,7 @@
 
     "start /Date(1234)/ end",
 //  ^^^^^^^^^^^^^^^^^^^^^^^^ meta.string string.quoted.double
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ - string.quoted.double.datetime
 //  ^ punctuation.definition.string.begin
 //         ^^^^^^^^^^^^ - constant.other.timestamp
 //                         ^ punctuation.definition.string.end
