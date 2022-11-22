@@ -203,18 +203,8 @@ contexts:
 
   invalid-constants:
     # when erroneously containing upper case letters
-    - match: |-
-        (?xi:
-          \b(?:
-            (false)
-          | (true)
-          | (null)
-          )\b
-        )
-      captures:
-        1: invalid.illegal.expected-boolean-constant.json
-        2: invalid.illegal.expected-boolean-constant.json
-        3: invalid.illegal.expected-language-constant.json
+    - match: \b(?i:false|true|null)\b
+      scope: invalid.illegal.expected-language-constant.json
       pop: 1
 
 ####[ Values ][ Numbers ]###############################################################################################

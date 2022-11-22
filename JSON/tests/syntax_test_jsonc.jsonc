@@ -316,15 +316,15 @@
 //      ^^^^ constant.language.null
 //      ^^^^ - constant.language.empty
         False,
-//      ^^^^^ invalid.illegal.expected-boolean-constant
+//      ^^^^^ invalid.illegal.expected-language-constant
         True,
-//      ^^^^ invalid.illegal.expected-boolean-constant
+//      ^^^^ invalid.illegal.expected-language-constant
         Null,
 //      ^^^^ invalid.illegal.expected-language-constant
         FALSE,
-//      ^^^^^ invalid.illegal.expected-boolean-constant
+//      ^^^^^ invalid.illegal.expected-language-constant
         TRUE,
-//      ^^^^ invalid.illegal.expected-boolean-constant
+//      ^^^^ invalid.illegal.expected-language-constant
         NULL
 //      ^^^^ invalid.illegal.expected-language-constant
     ],
