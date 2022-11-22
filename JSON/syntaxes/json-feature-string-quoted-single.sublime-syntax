@@ -1,12 +1,5 @@
 %YAML 1.2
 ---
-#   YAML Documentation:
-#       https://yaml.org/spec/1.2/spec.html
-#   Sublime Text Documentation:
-#       https://www.sublimetext.com/docs/syntax.html
-#       https://www.sublimetext.com/docs/syntax.html#testing
-#       https://www.sublimetext.com/docs/scope_naming.html
-#
 #
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-string-quoted-single.sublime-syntax
@@ -17,7 +10,7 @@ scope: source.json
 version: 2
 hidden: true
 
-extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:
   - Packages/JSON/JSON.sublime-syntax
 
 ########################################################################################################################

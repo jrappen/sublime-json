@@ -1,12 +1,5 @@
 %YAML 1.2
 ---
-#   YAML Documentation:
-#       https://yaml.org/spec/1.2/spec.html
-#   Sublime Text Documentation:
-#       https://www.sublimetext.com/docs/syntax.html
-#       https://www.sublimetext.com/docs/syntax.html#testing
-#       https://www.sublimetext.com/docs/scope_naming.html
-#
 #
 #   This file is being maintained at:
 #       https://github.com/sublimehq/Packages/blob/master/JSON/JSONdotNET.sublime-syntax
@@ -16,7 +9,7 @@ name: 'JSON.NET'
 scope: source.json.jsondotnet
 version: 2
 
-extends:                                                                        # https://www.sublimetext.com/docs/syntax.html#inheritance
+extends:
   - Packages/JSON/syntaxes/json-feature-string-datetime.sublime-syntax
 
 hidden_file_extensions:
@@ -24,7 +17,7 @@ hidden_file_extensions:
 
 first_line_match: |-
   (?xi:
-    ^ \s* // .*? -\*- .*? \bjson\.net\b .*? -\*-                                # editorconfig
+    ^ \s* // .*? -\*- .*? \bjson\.net\b .*? -\*-
   )
 
 ########################################################################################################################
