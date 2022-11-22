@@ -12,7 +12,7 @@
 
     // visible only with JSONC syntax highlighting
     {
-        "caption": "JSONC: Minify",
+        "caption": "JSONC: Minify (while removing comments and trailing commas)",
         "command": "jsonc_minify",
         "args":
         {
@@ -20,7 +20,7 @@
         }
     },
     {
-        "caption": "JSONC: Prettify",
+        "caption": "JSONC: Prettify (while removing comments and trailing commas)",
         "command": "jsonc_prettify",
         "args":
         {
