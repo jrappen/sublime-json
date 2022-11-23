@@ -235,11 +235,11 @@ contexts:
             | 0                                                                 # zero
             )
             (?:
-              (\.) \d+ {{exponent}}?                                            # 1.1 1.1e1 1.1e-1 1.1e+1
-            | (\.) {{exponent}}?                                                # 1. 1.e1 1.e-1 1.e+1
-            | {{exponent}}                                                      # 1e1 1e-1 1e+1
+              (\.) \d+ ({{exponent}})?                                          # 1.1 1.1e1 1.1e-1 1.1e+1
+            | (\.) ({{exponent}})?                                              # 1. 1.e1 1.e-1 1.e+1
+            | ({{exponent}})                                                    # 1e1 1e-1 1e+1
             )
-          | (\.) \d+ {{exponent}}?                                              # .1 .1e1 .1e-1 .1e+1
+          | (\.) \d+ ({{exponent}})?                                            # .1 .1e1 .1e-1 .1e+1
           )
         )
       scope: meta.number.float.decimal.json
@@ -250,8 +250,12 @@ contexts:
         4: constant.numeric.value.json
         5: invalid.illegal.leading-zero.json
         6: punctuation.separator.decimal.json
-        7: invalid.illegal.decimal-separator.json
+        7: constant.numeric.value.exponent.json
         8: invalid.illegal.decimal-separator.json
+        9: constant.numeric.value.exponent.json
+        10: constant.numeric.value.exponent.json
+        11: invalid.illegal.decimal-separator.json
+        12: constant.numeric.value.exponent.json
       pop: 1
 
   integers:

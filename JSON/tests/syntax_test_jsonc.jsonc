@@ -367,74 +367,90 @@
         0.0e0,                                                                  // float-zero-with-zero-exponent
 //      ^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^ constant.numeric.value.exponent
 
         0.0e-0,                                                                 // float-zero-with-negative-zero-exponent
 //      ^^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^^ constant.numeric.value.exponent
 
         -0.0e0,                                                                 // float-negative-zero-with-zero-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         -0.0e-0,                                                                // float-negative-zero-with-negative-zero-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         0e0,                                                                    // float-zero-no-fraction-with-zero-exponent
 //      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^^ constant.numeric.value.exponent
 
         -0e0,                                                                   // float-negative-zero-no-fraction-with-zero-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         0e-0,                                                                   // float-zero-no-fraction-with-negative-zero-exponent
 //      ^^^^ meta.number.float.decimal constant.numeric.value
+//       ^^^ constant.numeric.value.exponent
 
         -0e-0,                                                                  // float-negative-zero-no-fraction-with-negative-zero-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         0.0e9,                                                                  // float-zero-with-exponent
 //      ^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^ constant.numeric.value.exponent
 
         0.0e-9,                                                                 // float-zero-with-negative-exponent
 //      ^^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^^ constant.numeric.value.exponent
 
         -0.0e9,                                                                 // float-negative-zero-with-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         -0.0e-9,                                                                // float-negative-zero-with-negative-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         0e9,                                                                    // float-zero-no-fraction-with-exponent
 //      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^^ constant.numeric.value.exponent
 
         -0e9,                                                                   // float-negative-zero-no-fraction-with-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         0e-9,                                                                   // float-zero-no-fraction-with-negative-exponent
 //      ^^^^ meta.number.float.decimal constant.numeric.value
+//       ^^^ constant.numeric.value.exponent
 
         -0e-9,                                                                  // float-negative-zero-no-fraction-with-negative-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         9.0,                                                                    // float
 //      ^^^ meta.number.float.decimal constant.numeric.value
@@ -449,74 +465,90 @@
         9.0e0,                                                                  // float-with-zero-exponent
 //      ^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^ constant.numeric.value.exponent
 
         9.0e-0,                                                                 // float-with-negative-zero-exponent
 //      ^^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^^ constant.numeric.value.exponent
 
         -9.0e0,                                                                 // float-negative-with-zero-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         -9.0e-0,                                                                // float-negative-with-negative-zero-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         9e0,                                                                    // float-no-fraction-with-zero-exponent
 //      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^^ constant.numeric.value.exponent
 
         -9e0,                                                                   // float-negative-no-fraction-with-zero-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         9e-0,                                                                   // float-no-fraction-with-negative-zero-exponent
 //      ^^^^ meta.number.float.decimal constant.numeric.value
+//       ^^^ constant.numeric.value.exponent
 
         -9e-0,                                                                  // float-negative-no-fraction-with-negative-zero-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         9.0e9,                                                                  // float-with-exponent
 //      ^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^ constant.numeric.value.exponent
 
         9.0e-9,                                                                 // float-with-negative-exponent
 //      ^^^^^^ meta.number.float.decimal constant.numeric.value
 //       ^ punctuation.separator.decimal
+//         ^^^ constant.numeric.value.exponent
 
         -9.0e9,                                                                 // float-negative-with-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         -9.0e-9,                                                                // float-negative-with-negative-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         9e9,                                                                    // float-no-fraction-with-exponent
 //      ^^^ meta.number.float.decimal constant.numeric.value
+//       ^^ constant.numeric.value.exponent
 
         -9e9,                                                                   // float-negative-no-fraction-with-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         9e-9,                                                                   // float-no-fraction-with-negative-exponent
 //      ^^^^ meta.number.float.decimal constant.numeric.value
+//       ^^^ constant.numeric.value.exponent
 
         -9e-9                                                                   // float-negative-no-fraction-with-negative-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
     ],
 
 
@@ -586,44 +618,52 @@
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         +0.0e-0,                                                                // float-explicitly-positive-zero-with-negative-zero-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         +0e0,                                                                   // float-explicitly-positive-zero-no-fraction-with-zero-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         +0e-0,                                                                  // float-explicitly-positive-zero-no-fraction-with-negative-zero-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         +0.0e9,                                                                 // float-explicitly-positive-zero-with-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         +0.0e-9,                                                                // float-explicitly-positive-zero-with-negative-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         +0e9,                                                                   // float-explicitly-positive-zero-no-fraction-with-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         +0e-9,                                                                  // float-explicitly-positive-zero-no-fraction-with-negative-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         +9.0,                                                                   // float-explicitly-positive
 //      ^^^^ meta.number.float.decimal
@@ -636,44 +676,52 @@
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         +9.0e-0,                                                                // float-explicitly-positive-with-negative-zero-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         +9e0,                                                                   // float-explicitly-positive-no-fraction-with-zero-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         +9e-0,                                                                  // float-explicitly-positive-no-fraction-with-negative-zero-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
 
         +9.0e9,                                                                 // float-explicitly-positive-with-exponent
 //      ^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^ constant.numeric.value.exponent
 
         +9.0e-9,                                                                // float-explicitly-positive-with-negative-exponent
 //      ^^^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^^^ constant.numeric.value
 //        ^ punctuation.separator.decimal
+//          ^^^ constant.numeric.value.exponent
 
         +9e9,                                                                   // float-explicitly-positive-no-fraction-with-exponent
 //      ^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^ constant.numeric.value
+//        ^^ constant.numeric.value.exponent
 
         +9e-9                                                                   // float-explicitly-positive-no-fraction-with-negative-exponent
 //      ^^^^^ meta.number.float.decimal
 //      ^ invalid.illegal.numeric-sign
 //       ^^^^ constant.numeric.value
+//        ^^^ constant.numeric.value.exponent
     ],
 
 
