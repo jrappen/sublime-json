@@ -17,14 +17,14 @@ extends:
   - Packages/JSON/syntaxes/json-feature-string-quoted-single-multiline.sublime-syntax
 
 file_extensions:
-  - hjson                                                                       # Hjson, a (human-readable) user interface for JSON
-                                                                                # https://hjson.github.io/
-                                                                                # https://github.com/hjson/hjson-py/tree/master/hjson/tests
+  - hjson                               # Hjson, a (human-readable) user interface for JSON
+                                        # https://hjson.github.io/
+                                        # https://github.com/hjson/hjson-py/tree/master/hjson/tests
 
 hidden_file_extensions:
-  - zappa_settings.json                                                         # Serverless Python
-                                                                                # https://github.com/zappa/Zappa
-                                                                                # https://github.com/zappa/Zappa/tree/master/tests
+  - zappa_settings.json                 # Serverless Python
+                                        # https://github.com/zappa/Zappa
+                                        # https://github.com/zappa/Zappa/tree/master/tests
 
 first_line_match: |-
   (?xi:

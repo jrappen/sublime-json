@@ -13,7 +13,7 @@ extends:
   - Packages/JSON/syntaxes/json-feature-string-datetime.sublime-syntax
 
 hidden_file_extensions:
-  - jsondotnet                                                                  # for syntax tests
+  - jsondotnet                          # for syntax tests
 
 first_line_match: |-
   (?xi:

@@ -10,77 +10,77 @@ scope: source.json
 version: 2
 
 file_extensions:
-  - json                                                                        # https://www.json.org/json-en.html
-                                                                                # https://tools.ietf.org/html/std90
-                                                                                # https://datatracker.ietf.org/doc/html/rfc8259
-                                                                                # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
-                                                                                # https://www.iso.org/standard/71616.html
+  - json                                # https://www.json.org/json-en.html
+                                        # https://tools.ietf.org/html/std90
+                                        # https://datatracker.ietf.org/doc/html/rfc8259
+                                        # https://www.ecma-international.org/publications-and-standards/standards/ecma-404/
+                                        # https://www.iso.org/standard/71616.html
 
 hidden_file_extensions:
-  - .bowerrc                                                                    # Bower
-                                                                                # https://bower.io/docs/config/
+  - .bowerrc                            # Bower
+                                        # https://bower.io/docs/config/
 
-  - .htmlhintrc                                                                 # HTML hint
-                                                                                # https://htmlhint.com/docs/user-guide/getting-started
+  - .htmlhintrc                         # HTML hint
+                                        # https://htmlhint.com/docs/user-guide/getting-started
 
-  - .jscsrc                                                                     # JavaScript Code Style Configuration
-                                                                                # https://jscs-dev.github.io
+  - .jscsrc                             # JavaScript Code Style Configuration
+                                        # https://jscs-dev.github.io
 
-  - .markdownlintrc                                                             # https://github.com/DavidAnson/markdownlint
+  - .markdownlintrc                     # https://github.com/DavidAnson/markdownlint
 
-  - .tern-config                                                                # Tern.js Server Configuration
-                                                                                # https://ternjs.net/doc/manual.html#server
+  - .tern-config                        # Tern.js Server Configuration
+                                        # https://ternjs.net/doc/manual.html#server
 
-  - .tern-project                                                               # Tern.js Project Configuration
-                                                                                # https://ternjs.net/doc/manual.html#configuration
+  - .tern-project                       # Tern.js Project Configuration
+                                        # https://ternjs.net/doc/manual.html#configuration
 
-  - .watchmanconfig                                                             # Facebook Watchman
-                                                                                # root specific configuration file
-                                                                                # https://facebook.github.io/watchman/docs/config.html
+  - .watchmanconfig                     # Facebook Watchman
+                                        # root specific configuration file
+                                        # https://facebook.github.io/watchman/docs/config.html
 
-  - Pipfile.lock                                                                # Pipfile
-                                                                                # https://github.com/pypa/pipfile
+  - Pipfile.lock                        # Pipfile
+                                        # https://github.com/pypa/pipfile
 
-  - avsc                                                                        # Pure JavaScript implementation of the Avro specification
-                                                                                # https://github.com/mtth/avsc
+  - avsc                                # Pure JavaScript implementation of the Avro specification
+                                        # https://github.com/mtth/avsc
 
-  - composer.lock                                                               # Composer lock file
-                                                                                # https://getcomposer.org/doc/01-basic-usage.md
+  - composer.lock                       # Composer lock file
+                                        # https://getcomposer.org/doc/01-basic-usage.md
 
-  - css.map                                                                     # CSS Source Map
+  - css.map                             # CSS Source Map
 
-  - gltf                                                                        # glTF Runtime 3D asset delivery
-                                                                                # https://www.khronos.com/gltf
+  - gltf                                # glTF Runtime 3D asset delivery
+                                        # https://www.khronos.com/gltf
 
-  - har                                                                         # HTTP Archive Format
+  - har                                 # HTTP Archive Format
 
-  - ipynb                                                                       # Jupyter Notebook, formerly known as iPython Notebook
-                                                                                # https://jupyter.org/documentation
+  - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
+                                        # https://jupyter.org/documentation
 
-  - js.map                                                                      # JavaScript Source Map
+  - js.map                              # JavaScript Source Map
 
-  - jsonld                                                                      # JSON for Linking Data
-                                                                                # https://json-ld.org
+  - jsonld                              # JSON for Linking Data
+                                        # https://json-ld.org
 
-  - ldjson                                                                      # JSON for Linking Data
-                                                                                # https://json-ld.org
+  - ldjson                              # JSON for Linking Data
+                                        # https://json-ld.org
 
-  - schema                                                                      # JSON Schema
-                                                                                # https://json-schema.org/learn
+  - schema                              # JSON Schema
+                                        # https://json-schema.org/learn
 
-  - tfstate                                                                     # Hashicorp Terraform State
-                                                                                # https://www.terraform.io/docs/language/state/index.html
+  - tfstate                             # Hashicorp Terraform State
+                                        # https://www.terraform.io/docs/language/state/index.html
 
-  - tfstate.backup                                                              # Hashicorp Terraform State
-                                                                                # https://www.terraform.io/docs/language/state/index.html
+  - tfstate.backup                      # Hashicorp Terraform State
+                                        # https://www.terraform.io/docs/language/state/index.html
 
-  - ts.map                                                                      # TypeScript Source Map
+  - ts.map                              # TypeScript Source Map
 
-  - webapp                                                                      # Web app manifests
-                                                                                # https://developer.mozilla.org/en-US/docs/Web/Manifest
+  - webapp                              # Web app manifests
+                                        # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
-  - webmanifest                                                                 # Web app manifests
-                                                                                # https://developer.mozilla.org/en-US/docs/Web/Manifest
+  - webmanifest                         # Web app manifests
+                                        # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
 first_line_match: |-
   (?xi:

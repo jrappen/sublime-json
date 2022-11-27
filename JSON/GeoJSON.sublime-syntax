@@ -13,13 +13,13 @@ extends:
   - Packages/JSON/JSON.sublime-syntax
 
 file_extensions:
-  - geojson                                                                     # https://geojson.org/
-                                                                                # https://datatracker.ietf.org/wg/geojson/charter/
-                                                                                # https://tools.ietf.org/html/rfc7946
+  - geojson                             # https://geojson.org/
+                                        # https://datatracker.ietf.org/wg/geojson/charter/
+                                        # https://tools.ietf.org/html/rfc7946
 
 hidden_file_extensions:
-  - topojson                                                                    # TopoJSON, an extension to GeoJSON
-                                                                                # https://github.com/topojson/topojson-specification
+  - topojson                            # TopoJSON, an extension to GeoJSON
+                                        # https://github.com/topojson/topojson-specification
 
 first_line_match: |-
   (?xi:
