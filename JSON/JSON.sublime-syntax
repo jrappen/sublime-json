@@ -110,39 +110,6 @@ contexts:
         - invalid-remainder
         - any-else-pop
 
-##[ Helpers ]###########################################################################################################
-
-  any:
-    - include: structures
-    - include: values
-
-  any-else-pop:
-    - include: any
-    - include: else-pop
-
-  structures:
-    - include: objects
-    - include: arrays
-
-  values:
-    - include: constants
-    - include: numbers
-    - include: strings
-
-  invalid-remainder:
-    - match: '[^\s]+'
-      scope: invalid.illegal.expected-end-of-file.json
-
-##[ Prototypes ]########################################################################################################
-
-  else-pop:
-    - match: (?=\S)
-      pop: 1
-
-  eol-pop:
-    - match: '$\n?'
-      pop: 1
-
 ##[ Comments ]##########################################################################################################
 
   comments:
@@ -491,4 +458,37 @@ contexts:
 
     - match: \s(?!/[/*])(?=[^\s,])|[^\s,]
       scope: invalid.illegal.expected-mapping-separator.json
+      pop: 1
+
+##[ Helpers ]###########################################################################################################
+
+  any:
+    - include: structures
+    - include: values
+
+  any-else-pop:
+    - include: any
+    - include: else-pop
+
+  structures:
+    - include: objects
+    - include: arrays
+
+  values:
+    - include: constants
+    - include: numbers
+    - include: strings
+
+  invalid-remainder:
+    - match: '[^\s]+'
+      scope: invalid.illegal.expected-end-of-file.json
+
+##[ Prototypes ]########################################################################################################
+
+  else-pop:
+    - match: (?=\S)
+      pop: 1
+
+  eol-pop:
+    - match: '$\n?'
       pop: 1
