@@ -63,7 +63,7 @@ contexts:
 
   # TODO: check valid whitespace chars                                          # https://spec.json5.org/#white-space
 
-##[ Values ][ Numbers ]#################################################################################################
+##[ Values / Numbers ]##################################################################################################
 
   decimal-float-basic:
     - match: |-
@@ -117,7 +117,7 @@ contexts:
         4: invalid.illegal.leading-zero.json
       pop: 1
 
-##[ Values ][ Strings ]#################################################################################################
+##[ Values / Strings ]##################################################################################################
 
   valid-string-escape-characters:
     - meta_prepend: true
