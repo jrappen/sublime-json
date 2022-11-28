@@ -90,7 +90,7 @@ first_line_match: |-
 ##[ Variables ]#########################################################################################################
 
 variables:
-  exponent: |-
+  numeric_exponent: |-
     (?x:
       [eE]
       [-+]??
@@ -202,11 +202,11 @@ contexts:
             | 0                                                                 # zero
             )
             (?:
-              (\.) \d+ ({{exponent}})?                                          # 1.1 1.1e1 1.1e-1 1.1e+1
-            | (\.) ({{exponent}})?                                              # 1. 1.e1 1.e-1 1.e+1
-            | ({{exponent}})                                                    # 1e1 1e-1 1e+1
+              (\.) \d+ ({{numeric_exponent}})?                                  # 1.1 1.1e1 1.1e-1 1.1e+1
+            | (\.) ({{numeric_exponent}})?                                      # 1. 1.e1 1.e-1 1.e+1
+            | ({{numeric_exponent}})                                            # 1e1 1e-1 1e+1
             )
-          | (\.) \d+ ({{exponent}})?                                            # .1 .1e1 .1e-1 .1e+1
+          | (\.) \d+ ({{numeric_exponent}})?                                    # .1 .1e1 .1e-1 .1e+1
           )
         )
       scope: meta.number.float.decimal.json
