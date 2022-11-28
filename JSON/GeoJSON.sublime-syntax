@@ -32,12 +32,7 @@ variables:
   geometry_type: |-
     (?x:
       (?:
-        MultiPoint
-      | Point
-      | MultiLineString
-      | LineString
-      | MultiPolygon
-      | Polygon
+        (?:Multi)?? (?:Point|LineString|Polygon)
       | GeometryCollection
       )
     )
@@ -45,8 +40,7 @@ variables:
     (?x:
       (?:
         {{geometry_type}}
-      | FeatureCollection
-      | Feature
+      | Feature (?:Collection)??
       )
     )
 
