@@ -24,12 +24,14 @@ settings: typing.Optional[sublime.Settings] = None
 
 
 def status_msg(msg: str = '') -> None:
-    if msg == '': return
+    if msg == '':
+        return
     sublime.status_message(msg=f'{PKG_NAME}: {msg}')
 
 
 def print_msg(msg_header: str = '', msg_body: str = '') -> None:
-    if msg_body == '': return
+    if msg_body == '':
+        return
     print(f'JSON: {msg_header}:\n\n{msg_body}\n\n')
 
 
@@ -85,28 +87,23 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
     __KEY: typing.Final[str] = 'json.auto_prettify'
 
     def __init__(self, window: sublime.Window) -> None:
-        try:
-            if settings is None:
-                return
-            self.__is_checked = settings.get(key=self.__KEY, default=False)
-        except Exception:
-            pass
+        if settings is None:
+            return
+        self.__is_checked = settings.get(key=self.__KEY, default=False)
 
     def run(self) -> None:
-        try:
-            global settings
-            if settings is None:
-                return
-            if self.__is_checked:
-                # remove the override (true) of the default (false)
-                settings.erase(key=self.__KEY)
-            else:
-                settings.set(key=self.__KEY, value=True)
-            sublime.save_settings(base_name=BASE_SETTINGS)
-            # toggle
-            self.__is_checked = not self.__is_checked
-        except Exception:
-            pass
+        global settings
+        if settings is None:
+            return
+        if self.__is_checked:
+            # remove the override (true) of the default (false)
+            # settings.erase(key=self.__KEY)
+            settings.set(key=self.__KEY, value=False)
+        else:
+            settings.set(key=self.__KEY, value=True)
+        sublime.save_settings(base_name=BASE_SETTINGS)
+        # toggle
+        self.__is_checked = not self.__is_checked
 
     def is_checked(self) -> bool:
         return self.__is_checked
@@ -129,7 +126,8 @@ class JsonPrettify(sublime_plugin.TextCommand):
     def run(self, edit_token: sublime.Edit) -> None:
         try:
             JSON_PY_OBJ: typing.Final[typing.Optional[sublime_types.Value]] = json2py(view=self.view)
-            if JSON_PY_OBJ is None: return
+            if JSON_PY_OBJ is None:
+                return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
@@ -141,14 +139,13 @@ class JsonPrettify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg(msg='Prettified.')
+            # status_msg(msg='Prettified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg(msg='Prettifying failed. See console for details.')
-            pass
+            status_msg(msg='Prettifying failed. (Main menu -> View -> Show console)')
 
     def is_enabled(self) -> bool:
         return is_json(view=self.view)
@@ -157,7 +154,7 @@ class JsonPrettify(sublime_plugin.TextCommand):
         return is_json(view=self.view)
 
     def description(self) -> str:
-        return 'Prettify JSON'
+        return 'Prettify'
 
 
 class JsonMinify(sublime_plugin.TextCommand):
@@ -165,7 +162,8 @@ class JsonMinify(sublime_plugin.TextCommand):
     def run(self, edit_token: sublime.Edit) -> None:
         try:
             JSON_PY_OBJ: typing.Final[typing.Optional[sublime_types.Value]] = json2py(view=self.view)
-            if JSON_PY_OBJ is None: return
+            if JSON_PY_OBJ is None:
+                return
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
@@ -178,14 +176,13 @@ class JsonMinify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg(msg='Minified.')
+            # status_msg(msg='Minified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg(msg='Minifying failed. See console for details.')
-            pass
+            status_msg(msg='Minifying failed. (Main menu -> View -> Show console)')
 
     def is_enabled(self) -> bool:
         return is_json(view=self.view)
@@ -194,4 +191,4 @@ class JsonMinify(sublime_plugin.TextCommand):
         return is_json(view=self.view)
 
     def description(self) -> str:
-        return 'Minify JSON'
+        return 'Minify'

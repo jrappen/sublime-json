@@ -19,12 +19,14 @@ BASE_SCOPE: typing.Final[str] = 'source.json.jsonc'
 
 
 def status_msg(msg: str = '') -> None:
-    if msg == '': return
+    if msg == '':
+        return
     sublime.status_message(msg=f'{PKG_NAME}: {msg}')
 
 
 def print_msg(msg_header: str = '', msg_body: str = '') -> None:
-    if msg_body == '': return
+    if msg_body == '':
+        return
     print(f'JSONC: {msg_header}:\n\n{msg_body}\n\n')
 
 
@@ -64,14 +66,13 @@ class JsoncPrettify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg('Prettified.')
+            # status_msg('Prettified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg(msg='Prettifying failed. See console for details.')
-            pass
+            status_msg(msg='Prettifying failed. (Main menu -> View -> Show console)')
 
     def is_enabled(self) -> bool:
         return is_jsonc(view=self.view)
@@ -80,7 +81,7 @@ class JsoncPrettify(sublime_plugin.TextCommand):
         return is_jsonc(view=self.view)
 
     def description(self) -> str:
-        return 'Prettify JSONC'
+        return 'Prettify'
 
 
 class JsoncMinify(sublime_plugin.TextCommand):
@@ -107,14 +108,13 @@ class JsoncMinify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            status_msg(msg='Minified.')
+            # status_msg(msg='Minified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
                 msg_body=f'{e}'
             )
-            status_msg(msg='Minifying failed. See console for details.')
-            pass
+            status_msg(msg='Minifying failed. (Main menu -> View -> Show console)')
 
     def is_enabled(self) -> bool:
         return is_jsonc(view=self.view)
@@ -123,4 +123,4 @@ class JsoncMinify(sublime_plugin.TextCommand):
         return is_jsonc(view=self.view)
 
     def description(self) -> str:
-        return 'Minify JSONC'
+        return 'Minify'
