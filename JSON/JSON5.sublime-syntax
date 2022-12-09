@@ -1,10 +1,5 @@
 %YAML 1.2
 ---
-#
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/JSON5.sublime-syntax
-
-
 name: JSON5
 scope: source.json.json5
 version: 2

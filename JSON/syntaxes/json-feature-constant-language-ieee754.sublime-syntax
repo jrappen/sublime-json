@@ -1,10 +1,5 @@
 %YAML 1.2
 ---
-#
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-constant-language-ieee754.sublime-syntax
-
-
 name: json-constant-language-ieee754
 scope: source.json
 version: 2

@@ -1,10 +1,5 @@
 %YAML 1.2
 ---
-#
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/syntaxes/json-feature-string-datetime.sublime-syntax
-
-
 name: json-string-datetime
 scope: source.json
 version: 2

@@ -1,10 +1,5 @@
 %YAML 1.2
 ---
-#
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/JSONC.sublime-syntax
-
-
 name: JSONC
 scope: source.json.jsonc
 version: 2

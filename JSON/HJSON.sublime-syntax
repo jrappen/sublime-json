@@ -1,10 +1,5 @@
 %YAML 1.2
 ---
-#
-#   This file is being maintained at:
-#       https://github.com/sublimehq/Packages/blob/master/JSON/HJSON.sublime-syntax
-
-
 name: HJSON
 scope: source.json.hjson
 version: 2
