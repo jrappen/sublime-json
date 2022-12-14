@@ -81,8 +81,6 @@
 		]]></string>
 		<key>indentSquareBrackets</key>
 		<true/>
-		<key>indentationFoldingEnabled</key>
-		<false/>
 	</dict>
 </dict>
 </plist>

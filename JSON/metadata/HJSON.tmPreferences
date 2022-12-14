@@ -96,8 +96,6 @@
 		]]></string>
 		<key>indentSquareBrackets</key>
 		<true/>
-		<key>indentationFoldingEnabled</key>
-		<false/>
 		<key>shellVariables</key>
 		<array>
 			<dict>
