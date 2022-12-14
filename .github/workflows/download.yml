@@ -36,8 +36,9 @@ jobs:
           # remove (some) files in root directory
           find . -maxdepth 1 -mindepth 1 -type f -name '.gitattributes' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name '.gitignore' -delete
-          find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
           find . -maxdepth 1 -mindepth 1 -type f -name 'COMMIT_EDITMSG.txt' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name 'CONTRIBUTING.md' -delete
+          find . -maxdepth 1 -mindepth 1 -type f -name 'README.md' -delete
           # remove test files & directories
           find . -depth -type f -path '**/syntax_test_*' -delete -o -type d -path '**/tests' -exec rm -rf '{}' ';'
           # remove empty dirs
