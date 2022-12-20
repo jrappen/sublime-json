@@ -52,13 +52,13 @@ first_line_match: |-
     ^ \s* // .*? -\*- .*? \bjson5\b .*? -\*-
   )
 
-##[ CONTEXTS ]##################################################################
+###[ CONTEXTS ]#################################################################
 
 contexts:
 
   # TODO: check valid whitespace chars                                          # https://spec.json5.org/#white-space
 
-##[ VALUES / NUMBERS ]##########################################################
+###[ VALUES / NUMBERS ]#########################################################
 
   decimal-float-basic:
     - match: |-
@@ -112,7 +112,7 @@ contexts:
         4: invalid.illegal.leading-zero.json
       pop: 1
 
-##[ VALUES / STRINGS ]##########################################################
+###[ VALUES / STRINGS ]#########################################################
 
   valid-string-escape-characters:
     - meta_prepend: true

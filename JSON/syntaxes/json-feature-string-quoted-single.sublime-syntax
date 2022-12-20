@@ -8,11 +8,11 @@ hidden: true
 extends:
   - Packages/JSON/JSON.sublime-syntax
 
-##[ CONTEXTS ]##################################################################
+###[ CONTEXTS ]#################################################################
 
 contexts:
 
-##[ VALUES / STRINGS ]##########################################################
+###[ VALUES / STRINGS ]#########################################################
 
   strings:
     - meta_append: true
@@ -46,7 +46,7 @@ contexts:
 
     - include: string-escape-characters
 
-##[ STRUCTURES / OBJECTS ]######################################################
+###[ STRUCTURES / OBJECTS ]#####################################################
 
   valid-mapping-keys:
     - meta_append: true

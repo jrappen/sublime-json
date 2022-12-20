@@ -82,7 +82,7 @@ first_line_match: |-
     ^ \s* // .*? -\*- .*? \bjson\b .*? -\*-
   )
 
-##[ VARIABLES ]#################################################################
+###[ VARIABLES ]################################################################
 
 variables:
   numeric_exponent: |-
@@ -92,7 +92,7 @@ variables:
       \d+
     )
 
-##[ CONTEXTS ]##################################################################
+###[ CONTEXTS ]#################################################################
 
 contexts:
 
@@ -105,7 +105,7 @@ contexts:
         - invalid-remainder
         - any-else-pop
 
-##[ COMMENTS ]##################################################################
+###[ COMMENTS ]#################################################################
 
   comments:
     - include: valid-comments
@@ -144,7 +144,7 @@ contexts:
     - match: \*/
       pop: 1
 
-##[ VALUES / CONSTANTS ]########################################################
+###[ VALUES / CONSTANTS ]#######################################################
 
   constants:
     - include: valid-constants
@@ -169,7 +169,7 @@ contexts:
       scope: invalid.illegal.expected-language-constant.json
       pop: 1
 
-##[ VALUES / NUMBERS ]##########################################################
+###[ VALUES / NUMBERS ]#########################################################
 
   numbers:
     - include: floats
@@ -250,7 +250,7 @@ contexts:
         5: invalid.illegal.leading-zero.json
       pop: 1
 
-##[ VALUES / STRINGS ]##########################################################
+###[ VALUES / STRINGS ]#########################################################
 
   strings:
     - include: double-quoted-string
@@ -316,7 +316,7 @@ contexts:
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 
-##[ STRUCTURES / ARRAYS ]#######################################################
+###[ STRUCTURES / ARRAYS ]######################################################
 
   arrays:
     - match: \[
@@ -365,7 +365,7 @@ contexts:
     - include: any
     - include: invalid-array-separators
 
-##[ STRUCTURES / OBJECTS ]######################################################
+###[ STRUCTURES / OBJECTS ]#####################################################
 
   # FIXME: leading separators
 
@@ -455,7 +455,7 @@ contexts:
       scope: invalid.illegal.expected-mapping-separator.json
       pop: 1
 
-##[ HELPERS ]###################################################################
+###[ HELPERS ]##################################################################
 
   any:
     - include: structures
@@ -478,7 +478,7 @@ contexts:
     - match: '[^\s]+'
       scope: invalid.illegal.expected-end-of-file.json
 
-##[ PROTOTYPES ]################################################################
+###[ PROTOTYPES ]###############################################################
 
   else-pop:
     - match: (?=\S)

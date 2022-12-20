@@ -8,7 +8,7 @@ hidden: true
 extends:
   - Packages/JSON/JSON.sublime-syntax
 
-##[ VARIABLES ]#################################################################
+###[ VARIABLES ]################################################################
 
 variables:
   identifier_escape: |-
@@ -44,11 +44,11 @@ variables:
       {{identifier_break}}
     )
 
-##[ CONTEXTS ]##################################################################
+###[ CONTEXTS ]#################################################################
 
 contexts:
 
-##[ STRUCTURES / OBJECTS ]######################################################
+###[ STRUCTURES / OBJECTS ]#####################################################
 
   valid-mapping-keys:
     - meta_append: true

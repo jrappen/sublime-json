@@ -8,11 +8,11 @@ hidden: true
 extends:
   - Packages/JSON/JSON.sublime-syntax
 
-##[ CONTEXTS ]##################################################################
+###[ CONTEXTS ]#################################################################
 
 contexts:
 
-##[ VALUES / STRINGS ]##########################################################
+###[ VALUES / STRINGS ]#########################################################
 
   strings:
     - meta_prepend: true                                                        # prepend to match multiline strings first
