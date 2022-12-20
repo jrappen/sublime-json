@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-name: 'GeoJSON'
+name: GeoJSON
 scope: source.json.geojson
 version: 2
 
