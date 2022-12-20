@@ -6,11 +6,11 @@ version: 2
 
 extends:
   - Packages/JSON/syntaxes/json-feature-comment.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
   - Packages/JSON/syntaxes/json-feature-constant-language-ieee754.sublime-syntax
   - Packages/JSON/syntaxes/json-feature-integer-hexadecimal.sublime-syntax
-  - Packages/JSON/syntaxes/json-feature-meta-mapping-key-ecma.sublime-syntax
-  - Packages/JSON/syntaxes/json-feature-separator-sequence.sublime-syntax
   - Packages/JSON/syntaxes/json-feature-string-quoted-single.sublime-syntax
+  - Packages/JSON/syntaxes/json-feature-meta-mapping-key-ecma.sublime-syntax
 
 file_extensions:
   - json5                               # https://json5.org/

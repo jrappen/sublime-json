@@ -1,0 +1,14 @@
+// SYNTAX TEST "Packages/JSON/JSON.sublime-syntax"
+
+// <- source.json - (source.json.geojson | source.json.hjson | source.json.json5 | source.json.jsonc | source.json.jsondotnet)
+
+[
+    'value',
+//  ^^^^^^^ invalid.illegal.single-quoted-string.json
+
+    {
+        'key': 'value'
+//      ^^^^^ invalid.illegal.single-quoted-string.json
+//             ^^^^^^^ invalid.illegal.single-quoted-string.json
+    }
+]

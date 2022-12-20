@@ -50,7 +50,7 @@ contexts:
 
 ###[ STRUCTURES / OBJECTS ]#####################################################
 
-  valid-mapping-keys:
+  mapping-keys:
     - meta_append: true
 
     # looking ahead at `identifier_start` would've been faster with possibly

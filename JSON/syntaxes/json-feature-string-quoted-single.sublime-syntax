@@ -14,18 +14,9 @@ contexts:
 
 ###[ VALUES / STRINGS ]#########################################################
 
-  strings:
-    - meta_append: true
-
-    - include: single-quoted-string
-
-  single-quoted-string:
-    - match: \'
-      scope: punctuation.definition.string.begin.json
-      set: single-quoted-string-content
-
   single-quoted-string-content:
     - meta_include_prototype: false
+    # invalid.illegal meta_scope removed
     - meta_scope: >-
         meta.string.json
         string.quoted.single.json
@@ -40,24 +31,12 @@ contexts:
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
-  single-quoted-string-escape-characters:
-    - match: \\\'
-      scope: constant.character.escape.single-quote.json                        # quotation mark
-
-    - include: string-escape-characters
-
 ###[ STRUCTURES / OBJECTS ]#####################################################
-
-  valid-mapping-keys:
-    - meta_append: true
-
-    - match: \'
-      scope: punctuation.definition.string.begin.json
-      push: mapping-key-single-quoted
 
   mapping-key-single-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
+    # invalid.illegal meta_scope removed
     - meta_scope: >-
         meta.mapping.key.json
         meta.string.json
