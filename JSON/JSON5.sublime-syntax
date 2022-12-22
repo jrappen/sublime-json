@@ -56,7 +56,9 @@ first_line_match: |-
 
 contexts:
 
-  # TODO: check valid whitespace chars                                          # https://spec.json5.org/#white-space
+  # NOTE:
+  # unfortunately the syntax engine currently does not support changing which
+  # characters are valid whitespace chars: https://spec.json5.org/#white-space
 
 ###[ VALUES / NUMBERS ]#########################################################
 
