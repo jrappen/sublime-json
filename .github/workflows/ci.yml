@@ -25,6 +25,10 @@ on:
       - '.github/workflows/ci.yml'
   workflow_dispatch:
 
+concurrency:
+  group: 'run_syntax_tests'
+  cancel-in-progress: true
+
 jobs:
   run_syntax_tests:
     name: Test on ${{ matrix.sublime-channel }} Build
@@ -44,7 +48,7 @@ jobs:
 
           # latest dev
           - sublime-channel: dev
-            sublime-build: 4141
+            sublime-build: 4147
             optional: false
 
           # first build with the latest changes to the syntax engine in core

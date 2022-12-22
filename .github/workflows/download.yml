@@ -11,6 +11,10 @@ on:
       - 'JSON/*'
   workflow_dispatch:
 
+concurrency:
+  group: 'download'
+  cancel-in-progress: true
+
 jobs:
   download:
     name: Create download
