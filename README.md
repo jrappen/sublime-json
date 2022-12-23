@@ -15,12 +15,6 @@ This `JSON` package targets and is tested against the **latest Build** of [Subli
 
 > [![Download](https://img.shields.io/static/v1?label=download&message=JSON.sublime-package&color=brightgreen)](https://github.com/jrappen/sublime-json/blob/download/JSON.sublime-package?raw=true)
 
-## Known issues
-
-The current syntax test binary provided by SublimeHQ has an issue with negative symbol tests.
-
-Failing negative symbol tests should actually pass.
-
 ## Pull request
 
 <https://github.com/sublimehq/Packages/issues/3097>
