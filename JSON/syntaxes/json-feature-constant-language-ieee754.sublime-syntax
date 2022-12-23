@@ -19,15 +19,17 @@ contexts:
     - include: decimal-float-language
 
   decimal-float-language:
-    # when spelled correctly
+
+    # NOTE: we match correctly spelled language constants first before matching
+    #       wrongly spelled language constants
+    #       (i.e. upper case vs. lower case & vice versa)
+
     - match: ([-+]??)(Infinity)
       scope: meta.number.float.decimal.json
       captures:
         1: constant.numeric.sign.json
         2: constant.language.infinity.json
       pop: 1
-
-    # when spelled correctly
     - match: ([-+]??)(NaN)
       scope: meta.number.float.decimal.json
       captures:
@@ -35,7 +37,6 @@ contexts:
         2: constant.language.nan.json
       pop: 1
 
-    # when spelled wrong (i.e. upper case vs. lower case & vice versa)
     - match: ([-+]??)(?i:(infinity|nan))
       scope: meta.number.float.decimal.json
       captures:
