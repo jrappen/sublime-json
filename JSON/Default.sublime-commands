@@ -14,17 +14,11 @@
     {
         "caption": "JSONC: Minify (while removing comments and trailing commas)",
         "command": "jsonc_minify",
-        "args":
-        {
-            "force": true
-        }
+        "args": { "force": true }
     },
     {
         "caption": "JSONC: Prettify (while removing comments and trailing commas)",
         "command": "jsonc_prettify",
-        "args":
-        {
-            "force": true
-        }
+        "args": { "force": true }
     }
 ]
