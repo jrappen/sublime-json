@@ -14,12 +14,6 @@ contexts:
 
 ###[ COMMENTS ]#################################################################
 
-  valid-comments:
-    - include: line-comments
-    - include: block-comments
-
-  invalid-comments: []
-
   line-comment-double-slash:
     - match: //
       scope: punctuation.definition.comment.json
@@ -31,12 +25,12 @@ contexts:
 
     - include: eol-pop
 
-  block-comment-basic:
+  block-comment-slash-star:
     - match: /\*
       scope: punctuation.definition.comment.begin.json
-      push: block-comment-basic-content
+      push: block-comment-slash-star-content
 
-  block-comment-basic-content:
+  block-comment-slash-star-content:
     - meta_include_prototype: false
     - meta_scope: comment.block.json
 

@@ -108,12 +108,6 @@ contexts:
 ###[ COMMENTS ]#################################################################
 
   comments:
-    - include: valid-comments
-    - include: invalid-comments
-
-  valid-comments: []
-
-  invalid-comments:
     - include: line-comments
     - include: block-comments
 
@@ -131,13 +125,13 @@ contexts:
     - include: eol-pop
 
   block-comments:
-    - include: block-comment-basic
+    - include: block-comment-slash-star
 
-  block-comment-basic:
+  block-comment-slash-star:
     - match: /\*
-      push: block-comment-basic-content
+      push: block-comment-slash-star-content
 
-  block-comment-basic-content:
+  block-comment-slash-star-content:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
 
