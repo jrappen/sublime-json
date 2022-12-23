@@ -14,9 +14,9 @@ contexts:
 
 ###[ VALUES / STRINGS ]#########################################################
 
+  # here we override with the `invalid.illegal` meta_scope removed
   single-quoted-string-content:
     - meta_include_prototype: false
-    # invalid.illegal meta_scope removed
     - meta_scope: >-
         meta.string.json
         string.quoted.single.json
@@ -33,10 +33,10 @@ contexts:
 
 ###[ STRUCTURES / OBJECTS ]#####################################################
 
+  # here we override with the `invalid.illegal` meta_scope removed
   mapping-key-single-quoted:
     - clear_scopes: 1
     - meta_include_prototype: false
-    # invalid.illegal meta_scope removed
     - meta_scope: >-
         meta.mapping.key.json
         meta.string.json
