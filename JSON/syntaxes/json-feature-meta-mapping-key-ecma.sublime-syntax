@@ -53,9 +53,10 @@ contexts:
   mapping-keys:
     - meta_append: true
 
-    # looking ahead at `identifier_start` would've been faster with possibly
-    # invalid matches, but we want to make sure we only match valid ecma
-    # `identifier_name`s as keys
+    # NOTE: looking ahead at `identifier_start` would've been faster with
+    #       possibly invalid matches, but we want to make sure we only match
+    #       valid ecma `identifier_name`s as keys
+
     - match: (?={{identifier_name}})
       push: mapping-key-ecma
 
