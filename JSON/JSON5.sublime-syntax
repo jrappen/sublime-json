@@ -56,9 +56,9 @@ first_line_match: |-
 
 contexts:
 
-  # NOTE:
-  # unfortunately the syntax engine currently does not support changing which
-  # characters are valid whitespace chars: https://spec.json5.org/#white-space
+  # NOTE: unfortunately SublimeHQ's syntax engine currently does not support
+  #       changing which characters are valid whitespace chars
+  #       https://spec.json5.org/#white-space
 
 ###[ VALUES / NUMBERS ]#########################################################
 
