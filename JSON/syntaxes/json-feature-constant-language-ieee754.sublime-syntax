@@ -16,13 +16,16 @@ contexts:
 
   decimal-float:
     - meta_append: true
+
     - include: decimal-float-language
 
   decimal-float-language:
 
     # NOTE: we match correctly spelled language constants first before matching
-    #       wrongly spelled language constants
+    #       incorrectly spelled language constants
     #       (i.e. upper case vs. lower case & vice versa)
+
+    # spelled correctly
 
     - match: ([-+]??)(Infinity)
       scope: meta.number.float.decimal.json
@@ -30,12 +33,15 @@ contexts:
         1: constant.numeric.sign.json
         2: constant.language.infinity.json
       pop: 1
+
     - match: ([-+]??)(NaN)
       scope: meta.number.float.decimal.json
       captures:
         1: constant.numeric.sign.json
         2: constant.language.nan.json
       pop: 1
+
+    # spelled incorrectly
 
     - match: ([-+]??)(?i:(infinity|nan))
       scope: meta.number.float.decimal.json

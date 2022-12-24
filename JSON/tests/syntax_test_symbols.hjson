@@ -22,7 +22,6 @@
     "key-five":
 //  @@@@@@@@@@ definition
 //  ^^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
-
     {
         "key-five-one": "value",
 //      @@@@@@@@@@@@@@ none
@@ -33,10 +32,10 @@
 //      ^^^^^^^^^^^^^^ meta.mapping.value meta.mapping.key
 
     },
+
     "key-six":
 //  @@@@@@@@@ definition
 //  ^^^^^^^^^ meta.mapping.key - meta.mapping.value meta.mapping.key
-
     {
         "key-six-one": "value",
 //      @@@@@@@@@@@@@ none

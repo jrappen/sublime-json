@@ -419,6 +419,7 @@ contexts:
     - match: \'
       scope: punctuation.definition.string.begin.json
       push: mapping-key-single-quoted
+
     - match: \"
       scope: punctuation.definition.string.begin.json
       push: mapping-key-double-quoted

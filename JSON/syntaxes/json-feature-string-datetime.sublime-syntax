@@ -21,10 +21,12 @@ contexts:
 
   double-quoted-string-with-datetime:
 
-    #   Date formatting:
-    #       https://www.iso.org/standard/70907.html (Basic rules)
-    #       https://www.iso.org/standard/70908.html (Extensions)
-    #       https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+    # Date formatting:
+    #
+    # - Basic rules:    https://www.iso.org/standard/70907.html
+    # - Extensions:     https://www.iso.org/standard/70908.html
+    #
+    # https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 
     - match: |-
         (?x:
