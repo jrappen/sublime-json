@@ -1,6 +1,6 @@
 [JSON] Rewrite syntax
 
-The JSON syntax was split up using inheritance into:
+Split up JSON syntax using inheritance into:
 
 ```text
 .
@@ -17,7 +17,8 @@ Python source changes:
 
 - use `py3.8`
 - add ability to prettify & minify both JSON & JSONC
-- add ability to auto-prettify JSON
+- add ability to auto-prettify (plain) JSON
+- add typing info
 
 
 Syntax changes:
@@ -26,6 +27,10 @@ Syntax changes:
     - add doc links to extensions where applicable as a reference to be
       able to more quickly verify that they (still) use said syntax
       flavor
+- (micro) Speed improvements:
+    - use lazy double question mark quantifier where applicable
+- Sublime Syntax Sections:
+    - added sections for maintainers
 - Numbers:
     - Correctly scope number signs with `constant.numeric.sign` instead
       of `keyword.operator.arithmetic`
@@ -33,14 +38,17 @@ Syntax changes:
       to catch more typos while typing and mark illegal formatting as
       such
     - highlight the following as invalid:
-        - numeric sign of explicitly positive numbers (for JSON,
-          JSON.NET & JSONC)
+        - numeric sign of explicitly positive numbers (for `JSON`,
+          `JSON.NET` & `JSONC`)
         - whitespace between numeric sign and numeric value in numbers
-        - leading decimal separators in numbers (for JSON, JSON.NET &
-          JSONC)
-        - trailing decimal separators in numbers (for JSON, JSON.NET &
-          JSONC)
+        - leading decimal separators in numbers (for `JSON`, `JSON.NET`
+          & `JSONC`)
+        - trailing decimal separators in numbers (for `JSON`,
+          `JSON.NET` & `JSONC`)
         - leading zeros in numbers
+- Strings:
+    - correctly highlight unclosed strings on the last line of the file
+    - fix autocomplete selectors
 - Objects:
     - Highlighting speed improvements for empty objects (thanks to
       FichteFoll)
@@ -52,38 +60,45 @@ Syntax changes:
 
 Metadata changes:
 
+- Commants:
+    - add missing `TM_COMMENT_MODE` metadata
 - Completions:
-    - completions have been added for language constants, including kind
-      info and details (with links to docs)
-        - `null`, `false`, `true` for JSON
-        - `Infinity` and `NaN` for JSON5
+    - add completions for language constants, including kind info and details
+      (with links to docs)
+        - `null`, `false`, `true` for `JSON`
+        - `Infinity` and `NaN` for `JSON5`
 - Settings:
-    - a `default_extension` is now set for all JSON flavors
+    - set a `default_extension`
 - Symbol index:
     - with an object structure at the top-level, only top-level keys
       within now show up in the index (including tests for symbols and
       syntax)
+- Indentation rules:
+    - fix `decreaseIndentPattern`s and `increaseIndentPattern`s
+- Folding rules:
+    - fix folding rules
+    - support indentation-based & syntax-based folding
 - Tests:
-    - test files now test the base scope
-    - Significantly extend tests to cover more parts of the syntaxes
-    - Split original test file into logical parts
-    - Add indentation tests for:
+    - test base scope in test files
+    - significantly extend tests to cover more parts of the syntaxes
+    - split original test file into logical parts
+    - add indentation tests for:
         - `json`, `json5` & `jsonc`
         - `mapping` (objects), `sequence` (arrays)
-    - Add symbols tests for:
+    - add symbols tests for:
         - top-level keys of object structures (thanks to deathaxe)
         - languages: `json`, `jsonc` & `json5`
-    - Fix tests for `meta.mapping meta.mapping.*`
+    - fix tests for `meta.mapping meta.mapping.*`
 
 
 Language specific changes:
 
-- JSON:
-    - Make use of newer syntax features including those only available
+- `JSON`:
+    - make use of newer syntax features including those only available
       in `version: 2` syntaxes
-    - Make use of `variables` (with optimizations provided by deathaxe
+    - nake use of `variables` (with optimizations provided by deathaxe
       and regex patterns provided by Thomas Smith)
-    - Context names now more closely match the naming scheme of other
+    - context names now more closely match the naming scheme of other
       (recently re-written) default syntaxes
     - (correctly formatted) JSON code can now be prettified or minified
       via the context menu or the command palette. JSON code can
@@ -94,21 +109,22 @@ Language specific changes:
         - multiple commas
     - only allow exactly one structure (object, array) or value
       (constant, number, string) at top level (thanks to Keith Hall)
-- JSON.NET:
+    - highlight single quoted strings as illegal
+- `JSON.NET`:
     - support requested by Keith Hall,
       built with feedback from Michael B. Lyons
-- JSONC:
+- `JSONC`:
     - highlight some files by default as `JSONC` (as decided by
       Jon Skinner in sublimehq/Packages#285)
     - highlight leading & multiple commas as invalid, trailing as valid
     - scope empty block comments as such
     - support syntax based folding of ST4131+,
       compare sublimehq/Packages#3291
-- HJSON:
+- `HJSON`:
     - single quoted strings
     - thrice single quoted multiline strings
     - line comments with hashes
-- JSON5:
+- `JSON5`:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
