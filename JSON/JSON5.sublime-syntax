@@ -19,9 +19,8 @@ file_extensions:
 
 hidden_file_extensions:
   - .babelrc                            # Babel.js File-relative Configuration
-                                        # https://babeljs.io/docs/en/config-files
-
   - .babelrc.json                       # Babel.js File-relative Configuration
+  - babel.config.json                   # Babel.js Project-wide Configuration
                                         # https://babeljs.io/docs/en/config-files
 
   - .jupyterlab-settings                # JupyterLab User Settings
@@ -34,14 +33,8 @@ hidden_file_extensions:
   - .postcssrc.json                     # PostCSS Configuration
                                         # https://postcss.org
 
-  - babel.config.json                   # Babel.js Project-wide Configuration
-                                        # https://babeljs.io/docs/en/config-files
-
   - next.config.json                    # Vercel Next.js Configuration
-                                        # https://nextjs.org/docs/api-reference/next.config.js/introduction
-
-  - nextrc.json                         # Vercel Next.js Configuration
-                                        # https://nextjs.org/docs/api-reference/next.config.js/introduction
+  - nextrc.json                         # https://nextjs.org/docs/api-reference/next.config.js/introduction
 
   - techdocs_metadata.json              # Spotify's @backstage/techdocs_common Configuration
                                         # https://backstage.io/docs/features/techdocs/techdocs-overview

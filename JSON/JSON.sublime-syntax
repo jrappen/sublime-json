@@ -23,11 +23,8 @@ hidden_file_extensions:
 
   - .markdownlintrc                     # https://github.com/DavidAnson/markdownlint
 
-  - .tern-config                        # Tern.js Server Configuration
-                                        # https://ternjs.net/doc/manual.html#server
-
-  - .tern-project                       # Tern.js Project Configuration
-                                        # https://ternjs.net/doc/manual.html#configuration
+  - .tern-config                        # Tern.js Server Configuration: https://ternjs.net/doc/manual.html#server
+  - .tern-project                       # Tern.js Project Configuration: https://ternjs.net/doc/manual.html#configuration
 
   - .watchmanconfig                     # Facebook Watchman
                                         # root specific configuration file
@@ -43,6 +40,8 @@ hidden_file_extensions:
                                         # https://getcomposer.org/doc/01-basic-usage.md
 
   - css.map                             # CSS Source Map
+  - js.map                              # JavaScript Source Map
+  - ts.map                              # TypeScript Source Map
 
   - gltf                                # glTF Runtime 3D asset delivery
                                         # https://www.khronos.com/gltf
@@ -52,30 +51,17 @@ hidden_file_extensions:
   - ipynb                               # Jupyter Notebook, formerly known as iPython Notebook
                                         # https://jupyter.org/documentation
 
-  - js.map                              # JavaScript Source Map
-
   - jsonld                              # JSON for Linking Data
-                                        # https://json-ld.org
-
-  - ldjson                              # JSON for Linking Data
-                                        # https://json-ld.org
+  - ldjson                              # https://json-ld.org
 
   - schema                              # JSON Schema
                                         # https://json-schema.org/learn
 
   - tfstate                             # Hashicorp Terraform State
-                                        # https://www.terraform.io/docs/language/state/index.html
-
-  - tfstate.backup                      # Hashicorp Terraform State
-                                        # https://www.terraform.io/docs/language/state/index.html
-
-  - ts.map                              # TypeScript Source Map
+  - tfstate.backup                      # https://www.terraform.io/docs/language/state/index.html
 
   - webapp                              # Web app manifests
-                                        # https://developer.mozilla.org/en-US/docs/Web/Manifest
-
-  - webmanifest                         # Web app manifests
-                                        # https://developer.mozilla.org/en-US/docs/Web/Manifest
+  - webmanifest                         # https://developer.mozilla.org/en-US/docs/Web/Manifest
 
 first_line_match: |-
   (?xi:

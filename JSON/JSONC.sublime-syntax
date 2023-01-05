@@ -37,10 +37,8 @@ hidden_file_extensions:
                                         # https://github.com/millermedeiros/esformatter
 
   - .eslintrc                           # ESLint Configuration
-                                        # https://eslint.org/docs/user-guide/configuring/
-
-  - .eslintrc.json                      # ESLint Configuration
-                                        # https://eslint.org/docs/user-guide/configuring/
+  - .eslintrc.json                      # https://eslint.org/docs/user-guide/configuring/
+  - eslintrc.json
 
   - .hintrc                             # Webhint Configuration
                                         # https://webhint.io/docs/user-guide/configuring-webhint/summary/
@@ -62,9 +60,6 @@ hidden_file_extensions:
 
   - .swcrc                              # swc Configuration
                                         # https://swc.rs/docs/configuring-swc
-
-  - eslintrc.json                       # ESLint Configuration
-                                        # https://eslint.org/docs/user-guide/configuring/
 
   - languagebabel
 
