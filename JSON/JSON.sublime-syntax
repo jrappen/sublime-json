@@ -145,16 +145,19 @@ contexts:
     - include: invalid-constants
 
   valid-constants:
-    - match: \b(?:false)\b
-      scope: constant.language.boolean.false.json
+    - match: \b(false)\b
+      captures:
+        1: constant.language.boolean.false.json
       pop: 1
 
-    - match: \b(?:true)\b
-      scope: constant.language.boolean.true.json
+    - match: \b(true)\b
+      captures:
+        1: constant.language.boolean.true.json
       pop: 1
 
-    - match: \b(?:null)\b
-      scope: constant.language.null.json
+    - match: \b(null)\b
+      captures:
+        1: constant.language.null.json
       pop: 1
 
   invalid-constants:
