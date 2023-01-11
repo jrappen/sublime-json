@@ -299,6 +299,15 @@ contexts:
     - include: invalid-string-escape-characters
 
   valid-string-escape-characters:
+    - include: valid-unicode-string-escape-characters
+    - include: valid-special-string-escape-characters
+
+  valid-unicode-string-escape-characters:
+    - match: \\u[0-9a-fA-F]{4}
+      scope: >-
+        constant.character.escape.unicode-symbol.basic-multilingual-plane.json
+
+  valid-special-string-escape-characters:
     - match: \\\\
       scope: constant.character.escape.back-slash.json                          # reverse solidus
 
@@ -319,10 +328,6 @@ contexts:
 
     - match: \\t
       scope: constant.character.escape.horizontal-tab.json
-
-    - match: \\u[0-9a-fA-F]{4}
-      scope: >-
-        constant.character.escape.unicode-symbol.basic-multilingual-plane.json
 
   invalid-string-escape-characters:
     - match: \\.

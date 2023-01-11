@@ -111,7 +111,17 @@ contexts:
 
 ###[ VALUES / STRINGS ]#########################################################
 
-  valid-string-escape-characters:
+  valid-unicode-string-escape-characters:
+    - meta_prepend: true
+
+    - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
+      scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json
+
+    - match: \\x[0-9a-fA-F]{2}
+      scope: >-
+        constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json
+
+  valid-special-string-escape-characters:
     - meta_prepend: true
 
     - match: ((\\)\x{2028})(.*)$\n?
@@ -137,13 +147,6 @@ contexts:
       captures:
         1: constant.character.escape.null.json
         2: invalid.illegal.unexpected-digit-character.json
-
-    - match: \\x[0-9a-fA-F]{2}
-      scope: >-
-        constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json
-
-    - match: \\u[0-9a-fA-F]{4}\\u[0-9a-fA-F]{4}
-      scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json
 
   invalid-string-escape-characters:
     - meta_prepend: true
