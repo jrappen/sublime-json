@@ -89,7 +89,7 @@ class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
     def __init__(self, window: sublime.Window) -> None:
         if settings is None:
             return
-        self.__is_checked = settings.get(key=self.__KEY, default=False)
+        self.__is_checked = bool(settings.get(key=self.__KEY, default=False))
 
     def run(self) -> None:
         global settings
