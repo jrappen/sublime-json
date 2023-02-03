@@ -17,9 +17,9 @@ contexts:
   integers:
     - meta_prepend: true
 
-    - include: hexadecimal-integer
+    - include: hexadecimal-integers
 
-  hexadecimal-integer:
+  hexadecimal-integers:
     - match: ([-+]??)(0[xX])(\h+)
       scope: meta.number.integer.hexadecimal.json
       captures:

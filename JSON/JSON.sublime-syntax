@@ -159,9 +159,9 @@ contexts:
     - include: integers
 
   floats:
-    - include: decimal-float
+    - include: decimal-floats
 
-  decimal-float:
+  decimal-floats:
     - include: decimal-float-basic
 
   decimal-float-basic:
@@ -204,9 +204,9 @@ contexts:
       pop: 1
 
   integers:
-    - include: decimal-integer
+    - include: decimal-integers
 
-  decimal-integer:
+  decimal-integers:
     - include: decimal-integer-basic
 
   decimal-integer-basic:

@@ -14,7 +14,7 @@ contexts:
 
 ###[ VALUES / NUMBERS ]#########################################################
 
-  decimal-float:
+  decimal-floats:
     - meta_append: true
 
     - include: decimal-float-language
