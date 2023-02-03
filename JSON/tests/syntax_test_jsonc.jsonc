@@ -823,51 +823,63 @@
         "\"",                                                                   // double quote
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.double-quote
+//       ^ punctuation.definition.ecape.string
 
         "\\",                                                                   // back slash
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.back-slash
+//       ^ punctuation.definition.ecape.string
 
         "\/",                                                                   // forward slash, solidus
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.forward-slash
+//       ^ punctuation.definition.ecape.string
 
         "\b",                                                                   // backspace
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.backspace
+//       ^ punctuation.definition.ecape.string
 
         "\f",                                                                   // form feed
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.form-feed
+//       ^ punctuation.definition.ecape.string
 
         "\n",                                                                   // new line, linefeed
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.newline
+//       ^ punctuation.definition.ecape.string
 
         "\r",                                                                   // carriage return
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.carriage-return
+//       ^ punctuation.definition.ecape.string
 
         "\t",                                                                   // tab
 //      ^^^^ meta.string string.quoted.double
 //       ^^ constant.character.escape.horizontal-tab
+//       ^ punctuation.definition.ecape.string
 
         "\u12345",                                                              // unicode symbol: basic multilingual plane
 //      ^^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+//       ^ punctuation.definition.ecape.string
 //             ^ string - constant.character.escape
 
         "\u0000",                                                               // unicode symbol: basic multilingual plane
 //      ^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+//       ^ punctuation.definition.ecape.string
 
         "\uffff",                                                               // unicode symbol: basic multilingual plane
 //      ^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+//       ^ punctuation.definition.ecape.string
 
         "\uFFFF"                                                                // unicode symbol: basic multilingual plane
 //      ^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ constant.character.escape.unicode-symbol.basic-multilingual-plane
+//       ^ punctuation.definition.ecape.string
     ],
 
 
@@ -881,46 +893,55 @@
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\B",                                                                   // unrecognized-string-escape-upper-case-b
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\F",                                                                   // unrecognized-string-escape-upper-case-f
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\N",                                                                   // unrecognized-string-escape-upper-case-n
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\R",                                                                   // unrecognized-string-escape-upper-case-r
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\T",                                                                   // unrecognized-string-escape-upper-case-t
 //      ^^^^ meta.string string.quoted.double
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^^ - constant.character.escape
+//       ^ - punctuation.definition.ecape.string
 
         "\u123",                                                                // unrecognized-string-escape-unicode-symbol-too-short
 //      ^^^^^^^ meta.string string.quoted.double
 //       ^^^^^ - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
+//       ^ - punctuation.definition.ecape.string
 
         "\U123",                                                                // unrecognized-string-escape-unicode-symbol-upper-case-and-too-short
 //      ^^^^^^^ meta.string string.quoted.double
 //       ^^^^^ - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
+//       ^ - punctuation.definition.ecape.string
 
         "\U1234"                                                                // unrecognized-string-escape-unicode-symbol-upper-case
 //      ^^^^^^^^ meta.string string.quoted.double
 //       ^^^^^^ - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
+//       ^ - punctuation.definition.ecape.string
     ],
 
 

@@ -262,8 +262,10 @@ contexts:
       pop: 1
 
   single-quoted-string-escape-characters:
-    - match: \\\'
+    - match: "(\\)'"
       scope: constant.character.escape.single-quote.json                        # quotation mark
+      captures:
+        1: punctuation.definition.ecape.string.json
 
     - include: string-escape-characters
 
@@ -289,8 +291,10 @@ contexts:
       pop: 1
 
   double-quoted-string-escape-characters:
-    - match: \\\"
+    - match: '(\\)"'
       scope: constant.character.escape.double-quote.json                        # quotation mark
+      captures:
+        1: punctuation.definition.ecape.string.json
 
     - include: string-escape-characters
 
@@ -303,31 +307,47 @@ contexts:
     - include: valid-special-string-escape-characters
 
   valid-unicode-string-escape-characters:
-    - match: \\u[0-9a-fA-F]{4}
+    - match: '(\\)u[0-9a-fA-F]{4}'
       scope: >-
         constant.character.escape.unicode-symbol.basic-multilingual-plane.json
+      captures:
+        1: punctuation.definition.ecape.string.json
 
   valid-special-string-escape-characters:
-    - match: \\\\
+    - match: '(\\)\\'
       scope: constant.character.escape.back-slash.json                          # reverse solidus
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\\/
+    - match: '(\\)\/'
       scope: constant.character.escape.forward-slash.json                       # solidus
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\b
+    - match: '(\\)b'
       scope: constant.character.escape.backspace.json
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\f
+    - match: '(\\)f'
       scope: constant.character.escape.form-feed.json
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\n
+    - match: '(\\)n'
       scope: constant.character.escape.newline.json                             # linefeed
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\r
+    - match: '(\\)r'
       scope: constant.character.escape.carriage-return.json
+      captures:
+        1: punctuation.definition.ecape.string.json
 
-    - match: \\t
+    - match: '(\\)t'
       scope: constant.character.escape.horizontal-tab.json
+      captures:
+        1: punctuation.definition.ecape.string.json
 
   invalid-string-escape-characters:
     - match: \\.

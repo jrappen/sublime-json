@@ -30,6 +30,7 @@
     'string \' one',
 //  ^^^^^^^^^^^^^^^ string.quoted.single
 //          ^^ string.quoted.single constant.character.escape.single-quote
+//          ^ punctuation.definition.ecape.string
 
     'string # no comment'
 //  ^^^^^^^^^^^^^^^^^^^^^ string.quoted.single
