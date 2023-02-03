@@ -797,11 +797,37 @@
 //       ^^ constant.numeric.value
 //        ^ invalid.illegal.decimal-separator
 
-        -9.                                                                     // negative-float-with-trailing-separator
+        -9.,                                                                    // negative-float-with-trailing-separator
 //      ^^^ meta.number.float.decimal
 //      ^ constant.numeric.sign
 //       ^^ constant.numeric.value
 //        ^ invalid.illegal.decimal-separator
+
+        0.e0,                                                                   // zero-float-with-trailing-separator-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^^^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+//        ^^ constant.numeric.value.exponent
+
+        9.e0,                                                                   // float-with-trailing-separator-with-exponent
+//      ^^^^ meta.number.float.decimal
+//      ^^^^ constant.numeric.value
+//       ^ invalid.illegal.decimal-separator
+//        ^^ constant.numeric.value.exponent
+
+        -0.e0,                                                                  // negative-zero-float-with-trailing-separator-with-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+//        ^ invalid.illegal.decimal-separator
+//         ^^ constant.numeric.value.exponent
+
+        -9.e0                                                                   // negative-float-with-trailing-separator-with-exponent
+//      ^^^^^ meta.number.float.decimal
+//      ^ constant.numeric.sign
+//       ^^^^ constant.numeric.value
+//        ^ invalid.illegal.decimal-separator
+//         ^^ constant.numeric.value.exponent
     ],
 
 
