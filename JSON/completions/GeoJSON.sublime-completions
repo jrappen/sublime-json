@@ -1,5 +1,5 @@
 {
-    "scope": "source.json.geojson - meta.mapping.key, source.json.geojson meta.mapping.value",
+    "scope": "source.json.geojson & (meta.mapping.value meta.string)",
     "completions":
     [
         {
