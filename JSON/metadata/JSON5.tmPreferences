@@ -62,7 +62,7 @@
 			(
 				^.*\{
 				(
-					# Consume double-quoted strings
+					# Consume single-quoted strings
 					'(?:[^'\\]|\\.)*'
 					|
 					# Consume double-quoted strings
