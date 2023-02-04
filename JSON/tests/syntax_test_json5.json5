@@ -238,54 +238,54 @@
     [
         '\'',                                                                   // escape-character-single-quote
 //       ^^ constant.character.escape.single-quote
-//       ^ punctuation.definition.ecape.string
+//       ^ punctuation.definition.escape.string
 
         '\v',                                                                   // escape-character-vertical-tab
 //       ^^ constant.character.escape.vertical-tab
-//       ^ punctuation.definition.ecape.string
+//       ^ punctuation.definition.escape.string
 
         '\00',                                                                  // escape-character-null must not be followed by zero
 //       ^^ constant.character.escape.null
-//       ^ punctuation.definition.ecape.string
+//       ^ punctuation.definition.escape.string
 //         ^ invalid.illegal.unexpected-digit-character
 
         '\x00',                                                                 // escape-character-unicode-symbol-basic
 //       ^^^^ constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement
-//       ^ punctuation.definition.ecape.string
+//       ^ punctuation.definition.escape.string
 
         '\x0',                                                                  // unrecognized-string-escape-unicode-symbol-too-short
 //       ^^^ meta.string string.quoted.double - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
-//       ^ - punctuation.definition.ecape.string
+//       ^ - punctuation.definition.escape.string
 
         '\X0',                                                                  // unrecognized-string-escape-unicode-symbol-upper-case-too-short
 //       ^^^ meta.string string.quoted.double - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
-//       ^ - punctuation.definition.ecape.string
+//       ^ - punctuation.definition.escape.string
 
         '\X00',                                                                 // unrecognized-string-escape-unicode-symbol-upper-case
 //       ^^^^ meta.string string.quoted.double - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
-//       ^ - punctuation.definition.ecape.string
+//       ^ - punctuation.definition.escape.string
 
         '\u0000\u0000',                                                         // escape-character-unicode-symbol-utf16-surrogate-pair
 //       ^^^^^^^^^^^^ constant.character.escape.unicode-symbol.utf16-surrogate-pair
 //       ^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
-//       ^ punctuation.definition.ecape.string
+//       ^ punctuation.definition.escape.string
 //             ^^^^^^^ - constant.character.escape.unicode-symbol.basic-multilingual-plane
-//             ^ punctuation.definition.ecape.string
+//             ^ punctuation.definition.escape.string
 
                                                                                 // escape-character-line-separator
         '\ 
 //       ^^ constant.character.escape.line-separator \
-//       ^ punctuation.definition.ecape.string \
+//       ^ punctuation.definition.escape.string \
         ',
 //     ^ meta.string string.quoted.single
 
                                                                                 // escape-character-paragraph-separator
         '\ 
 //       ^^ constant.character.escape.paragraph-separator \
-//       ^ punctuation.definition.ecape.string \
+//       ^ punctuation.definition.escape.string \
         ',
 //     ^ meta.string string.quoted.single
 

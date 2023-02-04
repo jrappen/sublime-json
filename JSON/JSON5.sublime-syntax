@@ -117,14 +117,14 @@ contexts:
     - match: '(\\)u[0-9a-fA-F]{4}(\\)u[0-9a-fA-F]{4}'
       scope: constant.character.escape.unicode-symbol.utf16-surrogate-pair.json
       captures:
-        1: punctuation.definition.ecape.string.json
-        2: punctuation.definition.ecape.string.json
+        1: punctuation.definition.escape.string.json
+        2: punctuation.definition.escape.string.json
 
     - match: '(\\)x[0-9a-fA-F]{2}'
       scope: >-
         constant.character.escape.unicode-symbol.basic-latin-or-latin-1-supplement.json
       captures:
-        1: punctuation.definition.ecape.string.json
+        1: punctuation.definition.escape.string.json
 
   valid-special-string-escape-characters:
     - meta_prepend: true
@@ -154,7 +154,7 @@ contexts:
     - match: (\\)v
       scope: constant.character.escape.vertical-tab.json
       captures:
-        1: punctuation.definition.ecape.string.json
+        1: punctuation.definition.escape.string.json
 
     - match: ((\\)0)([0-9])?
       captures:
