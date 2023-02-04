@@ -254,17 +254,17 @@
 //       ^ punctuation.definition.escape.string
 
         '\x0',                                                                  // unrecognized-string-escape-unicode-symbol-too-short
-//       ^^^ meta.string string.quoted.double - constant.character.escape
+//       ^^^ meta.string string.quoted.single - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^ - punctuation.definition.escape.string
 
         '\X0',                                                                  // unrecognized-string-escape-unicode-symbol-upper-case-too-short
-//       ^^^ meta.string string.quoted.double - constant.character.escape
+//       ^^^ meta.string string.quoted.single - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^ - punctuation.definition.escape.string
 
         '\X00',                                                                 // unrecognized-string-escape-unicode-symbol-upper-case
-//       ^^^^ meta.string string.quoted.double - constant.character.escape
+//       ^^^^ meta.string string.quoted.single - constant.character.escape
 //       ^^ invalid.illegal.unrecognized-string-escape
 //       ^ - punctuation.definition.escape.string
 
@@ -295,9 +295,9 @@
 //        ^ - constant.character.escape.line-separator
 
         'x '                                                             // expected-backslash-char-paragraph-separator
-//  ^^^^ meta.string string.quoted.single
-//   ^ invalid.illegal.expected-backslash-char
-//    ^ - constant.character.escape.paragraph-separator
+//      ^^^^ meta.string string.quoted.single
+//       ^ invalid.illegal.expected-backslash-char
+//        ^ - constant.character.escape.paragraph-separator
     ],
 
 
