@@ -61,6 +61,18 @@ hidden_file_extensions:
   - .swcrc                              # swc Configuration
                                         # https://swc.rs/docs/configuring-swc
 
+  - Doxy.sublime-license                # DoxyDoxygen plugin for Sublime Text
+                                        # https://github.com/20Tauri/DoxyDoxygen
+
+  - LaTeXing.sublime-license            # LaTeXing plugin for Sublime Text
+                                        # https://github.com/LaTeXing/LaTeXing
+
+  - SFTP.default-config                 # SFTP plugin for Sublime Text
+                                        # https://codexns.io/products/sftp_for_sublime
+
+  - colorhelper.palettes                # ColorHelper plugin for Sublime Text
+                                        # https://github.com/facelessuser/ColorHelper
+
   - languagebabel
 
   - tsconfig.json                       # TypeScript Configuration
