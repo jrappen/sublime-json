@@ -3,15 +3,22 @@
     "completions":
     [
         {
-            "trigger": "Point",
-            "contents": "Point",
-            "annotation": "Geometry Type",
+            "trigger": "Feature",
+            "contents": "Feature",
+            "annotation": "GeoJSON Type",
             "kind": [ "snippet", "s", "Snippet" ],
-            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
         },
         {
-            "trigger": "MultiPoint",
-            "contents": "MultiPoint",
+            "trigger": "FeatureCollection",
+            "contents": "FeatureCollection",
+            "annotation": "GeoJSON Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
+        },
+        {
+            "trigger": "Point",
+            "contents": "Point",
             "annotation": "Geometry Type",
             "kind": [ "snippet", "s", "Snippet" ],
             "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
@@ -24,15 +31,22 @@
             "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
         },
         {
-            "trigger": "MultiLineString",
-            "contents": "MultiLineString",
+            "trigger": "Polygon",
+            "contents": "Polygon",
             "annotation": "Geometry Type",
             "kind": [ "snippet", "s", "Snippet" ],
             "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
         },
         {
-            "trigger": "Polygon",
-            "contents": "Polygon",
+            "trigger": "MultiPoint",
+            "contents": "MultiPoint",
+            "annotation": "Geometry Type",
+            "kind": [ "snippet", "s", "Snippet" ],
+            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
+        },
+        {
+            "trigger": "MultiLineString",
+            "contents": "MultiLineString",
             "annotation": "Geometry Type",
             "kind": [ "snippet", "s", "Snippet" ],
             "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
@@ -50,20 +64,6 @@
             "annotation": "Geometry Type",
             "kind": [ "snippet", "s", "Snippet" ],
             "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>Geometry type</code>"
-        },
-        {
-            "trigger": "Feature",
-            "contents": "Feature",
-            "annotation": "GeoJSON Type",
-            "kind": [ "snippet", "s", "Snippet" ],
-            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
-        },
-        {
-            "trigger": "FeatureCollection",
-            "contents": "FeatureCollection",
-            "annotation": "GeoJSON Type",
-            "kind": [ "snippet", "s", "Snippet" ],
-            "details": "<a href=\"https://geojson.org/\">GeoJSON</a>: <code>GeoJSON type</code>"
         }
     ]
 }
