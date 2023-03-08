@@ -70,7 +70,7 @@ hidden_file_extensions:
   - SFTP.default-config                 # SFTP plugin for Sublime Text
                                         # https://codexns.io/products/sftp_for_sublime
 
-  - colorhelper.palettes                # ColorHelper plugin for Sublime Text
+  - color_helper.palettes               # ColorHelper plugin for Sublime Text
                                         # https://github.com/facelessuser/ColorHelper
 
   - languagebabel
