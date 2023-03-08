@@ -363,10 +363,7 @@ contexts:
         - array-item
 
   array-body:
-    - meta_scope: >-
-        meta.sequence.list.json
-        meta.block.array.json
-        meta.brackets.json
+    - meta_scope: meta.sequence.list.json # meta.block.array.json meta.brackets.json
 
     - match: \]
       scope: punctuation.definition.sequence.end.json
@@ -420,10 +417,7 @@ contexts:
       set: object-literal-body
 
   object-literal-body:
-    - meta_scope: >-
-        meta.mapping.json
-        meta.block.object.json
-        meta.braces.json
+    - meta_scope: meta.mapping.json # meta.block.object.json meta.braces.json
 
     - match: \}
       scope: punctuation.definition.mapping.end.json
