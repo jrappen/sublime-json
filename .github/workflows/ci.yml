@@ -48,7 +48,7 @@ jobs:
 
           # latest dev
           - sublime-channel: dev
-            sublime-build: 4147
+            sublime-build: 4148
             optional: false
 
           # first build with the latest changes to the syntax engine in core
