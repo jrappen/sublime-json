@@ -61,6 +61,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>indentationFoldingEnabled</key>
+		<false/>
 		<key>increaseIndentPattern</key>
 		<string><![CDATA[(?x)
 			# When an object is opened, but not closed
