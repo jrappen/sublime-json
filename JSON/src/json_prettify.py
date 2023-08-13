@@ -16,11 +16,8 @@ if typing.TYPE_CHECKING:
     import sublime_types
 
 
-BASE_SCOPE: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
-BASE_SETTINGS: typing.Final[str] = 'Preferences.sublime-settings'
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
-
-settings: typing.Optional[sublime.Settings] = None
+BASE_SCOPE: typing.Final[str] = 'source.json - (source.json.hjson | source.json.json5 | source.json.jsonc), source.json.geojson, source.json.jsondotnet'
 
 
 def status_msg(msg: str = '') -> None:
@@ -55,70 +52,6 @@ def whole_view(view: sublime.View) -> sublime.Region:
 
 def is_json(view: sublime.View) -> bool:
     return view.match_selector(pt=0, selector=BASE_SCOPE)
-
-
-def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
-    try:
-        global settings
-        settings = sublime.load_settings(base_name=BASE_SETTINGS)
-        settings.clear_on_change(tag='reload')
-        settings.add_on_change(
-            tag='reload',
-            callback=lambda: plugin_loaded(reload=True)
-        )
-    except Exception as e:
-        print_msg(
-            msg_header=f'Loading "{BASE_SETTINGS}" failed due to error',
-            msg_body=f'{e}'
-        )
-
-    if reload:
-        status_msg(msg='Reloaded settings on change.')
-
-
-def plugin_unloaded() -> None:
-    global settings
-    settings = None
-
-
-class JsonToggleAutoPrettify(sublime_plugin.WindowCommand):
-
-    __is_checked: bool = False
-    __KEY: typing.Final[str] = 'json.auto_prettify'
-
-    def __init__(self, window: sublime.Window) -> None:
-        if settings is None:
-            return
-        self.__is_checked = bool(settings.get(key=self.__KEY, default=False))
-
-    def run(self) -> None:
-        global settings
-        if settings is None:
-            return
-        if self.__is_checked:
-            # remove the override (true) of the default (false)
-            # settings.erase(key=self.__KEY)
-            settings.set(key=self.__KEY, value=False)
-        else:
-            settings.set(key=self.__KEY, value=True)
-        sublime.save_settings(base_name=BASE_SETTINGS)
-        # toggle
-        self.__is_checked = not self.__is_checked
-
-    def is_checked(self) -> bool:
-        return self.__is_checked
-
-
-class JsonAutoPrettifyListener(sublime_plugin.EventListener):
-
-    __KEY: typing.Final[str] = 'json.auto_prettify'
-
-    def on_pre_save_async(self, view) -> None:
-        if settings is None or not is_json(view):
-            return
-        if not settings.get(key=self.__KEY, default=False):
-            return
-        view.run_command(cmd='json_prettify')
 
 
 class JsonPrettify(sublime_plugin.TextCommand):

@@ -26,12 +26,6 @@
                                     },
                                     { "caption": "-" },
                                     {
-                                        "caption": "Automatically prettify before saving",
-                                        "command": "json_toggle_auto_prettify",
-                                        "checkbox": true
-                                    },
-                                    { "caption": "-" },
-                                    {
                                         "caption": "Documentation",
                                         "children":
                                         [

@@ -1,4 +1,0 @@
-{
-    //  whether `on_pre_save_async` events auto-trigger the `json_prettify` command
-    "json.auto_prettify": false
-}
