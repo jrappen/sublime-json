@@ -13,82 +13,60 @@
                         "children":
                         [
                             {
-                                "caption": "JSON",
+                                "caption": "Documentation",
                                 "children":
                                 [
                                     {
-                                        "caption": "Minify",
-                                        "command": "json_minify"
-                                    },
-                                    {
-                                        "caption": "Prettify",
-                                        "command": "json_prettify"
+                                        "caption": "JSON Specs",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://www.json.org/json-en.html"
+                                        }
                                     },
                                     { "caption": "-" },
                                     {
-                                        "caption": "Documentation",
-                                        "children":
-                                        [
-                                            {
-                                                "caption": "JSON Specs",
-                                                "command": "open_url",
-                                                "args":
-                                                {
-                                                    "url": "https://www.json.org/json-en.html"
-                                                }
-                                            },
-                                            {
-                                                "caption": "IETF RFC 7159",
-                                                "command": "open_url",
-                                                "args":
-                                                {
-                                                    "url": "https://datatracker.ietf.org/doc/html/rfc7159"
-                                                }
-                                            },
-                                            {
-                                                "caption": "IETF RFC 8259",
-                                                "command": "open_url",
-                                                "args":
-                                                {
-                                                    "url": "https://datatracker.ietf.org/doc/html/rfc8259"
-                                                }
-                                            },
-                                            {
-                                                "caption": "ECMA 404 (2nd Edition, Dec 2017)",
-                                                "command": "open_url",
-                                                "args":
-                                                {
-                                                    "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "caption": "JSONC (JSON with Comments)",
-                                "children":
-                                [
-                                    {
-                                        "caption": "Minify",
-                                        "command": "jsonc_minify",
+                                        "caption": "IETF RFC 7159",
+                                        "command": "open_url",
                                         "args":
                                         {
-                                            "force": true
+                                            "url": "https://datatracker.ietf.org/doc/html/rfc7159"
                                         }
                                     },
                                     {
-                                        "caption": "Prettify",
-                                        "command": "jsonc_prettify",
+                                        "caption": "IETF RFC 8259",
+                                        "command": "open_url",
                                         "args":
                                         {
-                                            "force": true
+                                            "url": "https://datatracker.ietf.org/doc/html/rfc8259"
+                                        }
+                                    },
+                                    { "caption": "-" },
+                                    {
+                                        "caption": "ECMA 404 (2nd Edition, Dec 2017)",
+                                        "command": "open_url",
+                                        "args":
+                                        {
+                                            "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
                                         }
                                     }
                                 ]
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "caption": "JSONC (JSON with Comments)",
+                        "children":
+                        [
+                            // ...
+                        ]
+                    },
+                    {
+                        "caption": "JSON5",
+                        "children":
+                        [
                             {
-                                "caption": "JSON5",
+                                "caption": "Documentation",
                                 "children":
                                 [
                                     {
