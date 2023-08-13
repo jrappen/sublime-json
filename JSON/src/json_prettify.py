@@ -35,8 +35,7 @@ def print_msg(msg_header: str = '', msg_body: str = '') -> None:
 def json2py(view: sublime.View) -> typing.Optional[sublime_types.Value]:
     OLD_CONTENTS: typing.Final[str] = view.substr(x=whole_view(view))
     try:
-        # https://docs.python.org/3.8/library/json.html#json.loads
-        return json.loads(
+        return json.loads(                                                      # https://docs.python.org/3.8/library/json.html#json.loads
             s=OLD_CONTENTS,
             object_pairs_hook=collections.OrderedDict,
             parse_float=decimal.Decimal
@@ -64,15 +63,14 @@ class JsonPrettify(sublime_plugin.TextCommand):
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=4,
                     sort_keys=True
                 )
             )
-            # status_msg(msg='Prettified.')
+            status_msg(msg='Prettified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
@@ -100,8 +98,7 @@ class JsonMinify(sublime_plugin.TextCommand):
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=None,
@@ -109,7 +106,7 @@ class JsonMinify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            # status_msg(msg='Minified.')
+            status_msg(msg='Minified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',

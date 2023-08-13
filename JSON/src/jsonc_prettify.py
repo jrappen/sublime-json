@@ -45,12 +45,15 @@ def is_jsonc(view: sublime.View) -> bool:
 
 class JsoncPrettify(sublime_plugin.TextCommand):
 
-    def run(self, edit_token: sublime.Edit, force: typing.Optional[bool] = False) -> None:
+    def run(
+        self,
+        edit_token: sublime.Edit,
+        force: typing.Optional[bool] = False
+    ) -> None:
         try:
             if not force and not sublime.ok_cancel_dialog(
-                msg='Prettifying JSONC will remove included comments and trailing commas.',
-                ok_title='Continue',
-                # only shown on Windows
+                msg='Prettifying removes comments and trailing commas.',
+                ok_title='Continue',                                            # only shown on Windows
                 title='JSONC: Prettify'
             ):
                 return
@@ -58,15 +61,14 @@ class JsoncPrettify(sublime_plugin.TextCommand):
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=4,
                     sort_keys=True
                 )
             )
-            # status_msg('Prettified.')
+            status_msg('Prettified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
@@ -86,12 +88,15 @@ class JsoncPrettify(sublime_plugin.TextCommand):
 
 class JsoncMinify(sublime_plugin.TextCommand):
 
-    def run(self, edit_token: sublime.Edit, force: typing.Optional[bool] = False) -> None:
+    def run(
+        self,
+        edit_token: sublime.Edit,
+        force: typing.Optional[bool] = False
+    ) -> None:
         try:
             if not force and not sublime.ok_cancel_dialog(
-                msg='Minifying JSONC will remove included comments and trailing commas.',
-                ok_title='Continue',
-                # only shown on Windows
+                msg='Minifying removes comments and trailing commas.',
+                ok_title='Continue',                                            # only shown on Windows
                 title='JSONC: Minify'
             ):
                 return
@@ -99,8 +104,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
             self.view.replace(
                 edit=edit_token,
                 region=whole_view(view=self.view),
-                # https://docs.python.org/3.8/library/json.html#json.dumps
-                text=json.dumps(
+                text=json.dumps(                                                # https://docs.python.org/3.8/library/json.html#json.dumps
                     obj=JSON_PY_OBJ,
                     allow_nan=False,
                     indent=None,
@@ -108,7 +112,7 @@ class JsoncMinify(sublime_plugin.TextCommand):
                     sort_keys=True
                 )
             )
-            # status_msg(msg='Minified.')
+            status_msg(msg='Minified.')
         except Exception as e:
             print_msg(
                 msg_header='Conversion failed due to error',
