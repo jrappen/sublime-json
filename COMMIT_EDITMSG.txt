@@ -34,7 +34,7 @@ Syntax changes:
 - Numbers:
     - Correctly scope number signs with `constant.numeric.sign` instead
       of `keyword.operator.arithmetic`
-    - Significantly improve number highlighting (thanks to deathaxe)
+    - Significantly improve number highlighting
       to catch more typos while typing and mark illegal formatting as
       such
     - highlight the following as invalid:
@@ -50,17 +50,15 @@ Syntax changes:
     - correctly highlight unclosed strings on the last line of the file
     - fix autocomplete selectors
 - Objects:
-    - Highlighting speed improvements for empty objects (thanks to
-      FichteFoll)
+    - Highlighting speed improvements for empty objects
     - Make `mapping.*` contexts more modular
 - Arrays:
-    - Highlighting speed improvements for empty arrays (thanks to
-      FichteFoll)
+    - Highlighting speed improvements for empty arrays
 
 
 Metadata changes:
 
-- Commants:
+- Comments:
     - add missing `TM_COMMENT_MODE` metadata
 - Completions:
     - add completions for language constants, including kind info and details
@@ -86,7 +84,7 @@ Metadata changes:
         - `json`, `json5` & `jsonc`
         - `mapping` (objects), `sequence` (arrays)
     - add symbols tests for:
-        - top-level keys of object structures (thanks to deathaxe)
+        - top-level keys of object structures
         - languages: `json`, `jsonc` & `json5`
     - fix tests for `meta.mapping meta.mapping.*`
 
@@ -96,8 +94,7 @@ Language specific changes:
 - `JSON`:
     - make use of newer syntax features including those only available
       in `version: 2` syntaxes
-    - nake use of `variables` (with optimizations provided by deathaxe
-      and regex patterns provided by Thomas Smith)
+    - make use of `variables` (with optimizations and regex patterns)
     - context names now more closely match the naming scheme of other
       (recently re-written) default syntaxes
     - (correctly formatted) JSON code can now be prettified or minified
@@ -108,11 +105,10 @@ Language specific changes:
         - trailing commas
         - multiple commas
     - only allow exactly one structure (object, array) or value
-      (constant, number, string) at top level (thanks to Keith Hall)
+      (constant, number, string) at top level
     - highlight single quoted strings as illegal
 - `JSON.NET`:
-    - support requested by Keith Hall,
-      built with feedback from Michael B. Lyons
+    - added support
 - `JSONC`:
     - highlight some files by default as `JSONC` (as decided by
       Jon Skinner in sublimehq/Packages#285)
@@ -128,11 +124,10 @@ Language specific changes:
     - explicitly pos numbers, hexadecimal ints, Infinity and NaN
     - single quoted strings
     - more escape chars for strings
-    - ECMA identifierName as object keys (regexes thanks to Thomas
-      Smith)
-        - scoped as plain unquoted strings (thanks to Thomas Smith)
-        - support string interpolation (thanks to deathaxe)
-    - line continuation in strings (with tests thanks to Keith Hall)
+    - ECMA identifierName as object keys
+        - scoped as plain unquoted strings
+        - support string interpolation
+    - line continuation in strings
     - highlight the following as invalid:
         - multiple commas
 
@@ -165,15 +160,15 @@ BREAKING CHANGES:
   with the help of operators, but only simple number values. Scopes for
   number signs have changed from being `keyword.operator.arithmetic` to
   `constant.numeric.sign`.
-  > Note
+  > **Note**
   > Color scheme authors should add this, should it be missing.
 - The `JSON.sublime-syntax` now marks comments as `invalid`.
-  > Note
+  > **Note**
   > Third party plugin authors should instead target
   > `JSONC.sublime-syntax` to keep the user experience as-is.
 - Only top-level keys in JSON files containing a single object structure
   are indexed symbols.
-  > Note
+  > **Note**
   > Color scheme authors should add special highlighting to
   > differentiate them from other keys. Compare the `Symbol List`
   > metadata file.
@@ -181,18 +176,14 @@ BREAKING CHANGES:
 References:
 
 - fix sublimehq/Packages#285
-- address sublimehq/Packages#421 (thanks to FichteFoll)
+- address sublimehq/Packages#421
 - address sublimehq/Packages#481 to remove incompatible regex patterns
-  (according to Will Bond)
 - address sublimehq/Packages#757 to fix line comments for `JSONC`
-  (thanks to Keith Hall)
-- address sublimehq/Packages#2430 using sort-order (as requested by
-  deathaxe)
+- address sublimehq/Packages#2430 using sort-order
 - address sublimehq/Packages#2711 with regards to
-  `constant.language.null` vs. `constant.language.empty` (thanks to
-  FichteFoll)
+  `constant.language.null` vs. `constant.language.empty`
 - address sublimehq/Packages#2852 to fix scopes of curly braces & square
-  brackets in `JSON` (thanks to Thomas Smith)
+  brackets in `JSON`
 - address sublimehq/Packages#3228 to fix `punctuation.separator` scopes,
   compare sublimehq/Packages#3270
 - address sublimehq/sublime_text#3154 and add symbol tests
