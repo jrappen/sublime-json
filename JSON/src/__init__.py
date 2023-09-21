@@ -4,11 +4,3 @@
 
 from .json_prettify import *
 from .jsonc_prettify import *
-
-
-def plugin_loaded() -> None:
-    # *.plugin_loaded()
-
-
-def plugin_unloaded() -> None:
-    # *.plugin_unloaded()
