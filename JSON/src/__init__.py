@@ -7,8 +7,8 @@ from .jsonc_prettify import *
 
 
 def plugin_loaded() -> None:
-    json_prettify.plugin_loaded(reload=False)
+    # *.plugin_loaded()
 
 
 def plugin_unloaded() -> None:
-    json_prettify.plugin_unloaded()
+    # *.plugin_unloaded()
