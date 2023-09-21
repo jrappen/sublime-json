@@ -31,7 +31,7 @@ concurrency:
 
 jobs:
   run_syntax_tests:
-    name: Test on ${{ matrix.sublime-channel }} Build ${{ matrix.sublime-build }}
+    name: Test on Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
     runs-on: ubuntu-latest
     timeout-minutes: 15 # default is 6 hours!
     continue-on-error: ${{ matrix.optional }}
@@ -42,9 +42,9 @@ jobs:
         include:
 
           # latest stable
-          - sublime-channel: stable
-            sublime-build: 4152
-            optional: true
+          # - sublime-channel: stable
+          #   sublime-build: 4152
+          #   optional: true
 
           # latest dev
           - sublime-channel: dev
@@ -52,9 +52,9 @@ jobs:
             optional: false
 
           # first build with the latest changes to the syntax engine in core
-          - sublime-channel: dev
-            sublime-build: 4131
-            optional: true
+          # - sublime-channel: dev
+          #   sublime-build: 4131
+          #   optional: true
 
     steps:
 
