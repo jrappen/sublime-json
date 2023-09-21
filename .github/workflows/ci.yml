@@ -42,19 +42,19 @@ jobs:
         include:
 
           # latest stable
-          # - sublime-channel: stable
-          #   sublime-build: 4152
-          #   optional: true
+          - sublime-channel: stable
+            sublime-build: 4152
+            optional: true
 
           # latest dev
           - sublime-channel: dev
-            sublime-build: 4154
+            sublime-build: 4156
             optional: false
 
           # first build with the latest changes to the syntax engine in core
-          # - sublime-channel: dev
-          #   sublime-build: 4131
-          #   optional: true
+          - sublime-channel: dev
+            sublime-build: 4131
+            optional: true
 
     steps:
 
