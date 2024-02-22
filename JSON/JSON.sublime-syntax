@@ -102,9 +102,9 @@ contexts:
 
   line-comment-double-slash:
     - match: //
-      push: line-comment-double-slash-content
+      push: line-comment-double-slash-body
 
-  line-comment-double-slash-content:
+  line-comment-double-slash-body:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
 
@@ -115,9 +115,9 @@ contexts:
 
   block-comment-slash-star:
     - match: /\*
-      push: block-comment-slash-star-content
+      push: block-comment-slash-star-body
 
-  block-comment-slash-star-content:
+  block-comment-slash-star-body:
     - meta_include_prototype: false
     - meta_scope: invalid.illegal.comment.json
 
@@ -242,9 +242,9 @@ contexts:
   single-quoted-string:
     - match: \'
       scope: punctuation.definition.string.begin.json
-      set: single-quoted-string-content
+      set: single-quoted-string-body
 
-  single-quoted-string-content:
+  single-quoted-string-body:
     - meta_include_prototype: false
     - meta_scope: >-
         meta.string.json
@@ -255,26 +255,26 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
 
-    - include: single-quoted-string-escape-characters
+    - include: single-quoted-string-escapes
 
     - match: '\n'
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
-  single-quoted-string-escape-characters:
+  single-quoted-string-escapes:
     - match: (\\)\'
       scope: constant.character.escape.single-quote.json                        # quotation mark
       captures:
         1: punctuation.definition.escape.string.json
 
-    - include: string-escape-characters
+    - include: string-escapes
 
   double-quoted-string:
     - match: \"
       scope: punctuation.definition.string.begin.json
-      set: double-quoted-string-content
+      set: double-quoted-string-body
 
-  double-quoted-string-content:
+  double-quoted-string-body:
     - meta_include_prototype: false
     - meta_scope: >-
         meta.string.json
@@ -284,36 +284,36 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
 
-    - include: double-quoted-string-escape-characters
+    - include: double-quoted-string-escapes
 
     - match: '\n'
       scope: invalid.illegal.unclosed-string.json
       pop: 1
 
-  double-quoted-string-escape-characters:
+  double-quoted-string-escapes:
     - match: (\\)\"
       scope: constant.character.escape.double-quote.json                        # quotation mark
       captures:
         1: punctuation.definition.escape.string.json
 
-    - include: string-escape-characters
+    - include: string-escapes
 
-  string-escape-characters:
-    - include: valid-string-escape-characters
-    - include: invalid-string-escape-characters
+  string-escapes:
+    - include: valid-string-escapes
+    - include: invalid-string-escapes
 
-  valid-string-escape-characters:
-    - include: valid-unicode-string-escape-characters
-    - include: valid-special-string-escape-characters
+  valid-string-escapes:
+    - include: valid-unicode-string-escapes
+    - include: valid-special-string-escapes
 
-  valid-unicode-string-escape-characters:
+  valid-unicode-string-escapes:
     - match: (\\)u[0-9a-fA-F]{4}
       scope: >-
         constant.character.escape.unicode-symbol.basic-multilingual-plane.json
       captures:
         1: punctuation.definition.escape.string.json
 
-  valid-special-string-escape-characters:
+  valid-special-string-escapes:
     - match: (\\)\\
       scope: constant.character.escape.back-slash.json                          # reverse solidus
       captures:
@@ -349,7 +349,7 @@ contexts:
       captures:
         1: punctuation.definition.escape.string.json
 
-  invalid-string-escape-characters:
+  invalid-string-escapes:
     - match: \\.
       scope: invalid.illegal.unrecognized-string-escape.json
 
@@ -447,7 +447,7 @@ contexts:
         string.quoted.single.json
         invalid.illegal.single-quoted-string.json
 
-    - include: single-quoted-string-content
+    - include: single-quoted-string-body
 
   mapping-key-double-quoted:
     - clear_scopes: 1
@@ -457,7 +457,7 @@ contexts:
         meta.string.json
         string.quoted.double.json
 
-    - include: double-quoted-string-content
+    - include: double-quoted-string-body
 
   mapping-separators:
     - include: valid-mapping-separators

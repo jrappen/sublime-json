@@ -111,7 +111,7 @@ contexts:
 
 ###[ VALUES / STRINGS ]#########################################################
 
-  valid-unicode-string-escape-characters:
+  valid-unicode-string-escapes:
     - meta_prepend: true
 
     - match: '(\\)u[0-9a-fA-F]{4}(\\)u[0-9a-fA-F]{4}'
@@ -126,7 +126,7 @@ contexts:
       captures:
         1: punctuation.definition.escape.string.json
 
-  valid-special-string-escape-characters:
+  valid-special-string-escapes:
     - meta_prepend: true
 
     - match: ((\\)\x{2028})(.*)$\n?
@@ -162,7 +162,7 @@ contexts:
         2: punctuation.definition.escape.string.json
         3: invalid.illegal.unexpected-digit-character.json
 
-  invalid-string-escape-characters:
+  invalid-string-escapes:
     - meta_prepend: true
 
     - match: |-

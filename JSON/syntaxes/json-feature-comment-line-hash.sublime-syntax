@@ -22,9 +22,9 @@ contexts:
   line-comment-hash:
     - match: \#
       scope: punctuation.definition.comment.json
-      push: line-comment-hash-content
+      push: line-comment-hash-body
 
-  line-comment-hash-content:
+  line-comment-hash-body:
     - meta_include_prototype: false
     - meta_scope: comment.line.hash.json
 

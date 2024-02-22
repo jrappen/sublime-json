@@ -22,9 +22,9 @@ contexts:
   single-quoted-multiline-string:
     - match: "'''"
       scope: punctuation.definition.string.begin.json
-      set: single-quoted-multiline-string-content
+      set: single-quoted-multiline-string-body
 
-  single-quoted-multiline-string-content:
+  single-quoted-multiline-string-body:
     - meta_include_prototype: false
     - meta_scope: >-
         meta.string.json
@@ -34,7 +34,7 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
 
-    - include: single-quoted-multiline-string-escape-characters
+    - include: single-quoted-multiline-string-escapes
 
-  single-quoted-multiline-string-escape-characters:
-    - include: string-escape-characters
+  single-quoted-multiline-string-escapes:
+    - include: string-escapes

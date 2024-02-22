@@ -17,9 +17,9 @@ contexts:
   line-comment-double-slash:
     - match: //
       scope: punctuation.definition.comment.json
-      push: line-comment-double-slash-content
+      push: line-comment-double-slash-body
 
-  line-comment-double-slash-content:
+  line-comment-double-slash-body:
     - meta_include_prototype: false
     - meta_scope: comment.line.double-slash.json
 
@@ -28,9 +28,9 @@ contexts:
   block-comment-slash-star:
     - match: /\*
       scope: punctuation.definition.comment.begin.json
-      push: block-comment-slash-star-content
+      push: block-comment-slash-star-body
 
-  block-comment-slash-star-content:
+  block-comment-slash-star-body:
     - meta_include_prototype: false
     - meta_scope: comment.block.json
 

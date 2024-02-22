@@ -15,7 +15,7 @@ contexts:
 ###[ VALUES / STRINGS ]#########################################################
 
   # here we override with the `invalid.illegal` meta_scope removed
-  single-quoted-string-content:
+  single-quoted-string-body:
     - meta_include_prototype: false
     - meta_scope: >-
         meta.string.json
@@ -25,7 +25,7 @@ contexts:
       scope: punctuation.definition.string.end.json
       pop: 1
 
-    - include: single-quoted-string-escape-characters
+    - include: single-quoted-string-escapes
 
     - match: \n
       scope: invalid.illegal.unclosed-string.json
@@ -42,4 +42,4 @@ contexts:
         meta.string.json
         string.quoted.single.json
 
-    - include: single-quoted-string-content
+    - include: single-quoted-string-body
