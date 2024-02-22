@@ -357,7 +357,7 @@ contexts:
 
   arrays:
     - match: \[
-      scope: punctuation.definition.sequence.begin.json
+      scope: punctuation.section.sequence.begin.json
       set:
         - array-body
         - array-item
@@ -366,7 +366,7 @@ contexts:
     - meta_scope: meta.sequence.list.json # meta.block.array.json meta.brackets.json
 
     - match: \]
-      scope: punctuation.definition.sequence.end.json
+      scope: punctuation.section.sequence.end.json
       pop: 1
 
     - include: array-separators
@@ -413,14 +413,14 @@ contexts:
 
   object-literal:
     - match: \{
-      scope: punctuation.definition.mapping.begin.json
+      scope: punctuation.section.mapping.begin.json
       set: object-literal-body
 
   object-literal-body:
     - meta_scope: meta.mapping.json # meta.block.object.json meta.braces.json
 
     - match: \}
-      scope: punctuation.definition.mapping.end.json
+      scope: punctuation.section.mapping.end.json
       pop: 1
 
     - include: mapping-keys

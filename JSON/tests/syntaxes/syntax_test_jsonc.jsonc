@@ -3,7 +3,7 @@
 // <- source.json.jsonc
 
 [
-// <- meta.sequence.list punctuation.definition.sequence.begin
+// <- meta.sequence.list punctuation.section.sequence.begin
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -155,17 +155,17 @@
 
     [1, 2, 3],
 //  ^^^^^^^^^ meta.sequence.list meta.sequence.list
-//  ^ punctuation.definition.sequence.begin
+//  ^ punctuation.section.sequence.begin
 //   ^ constant.numeric.value
 //    ^ punctuation.separator.sequence
 //      ^ constant.numeric.value
 //       ^ punctuation.separator.sequence
 //         ^ constant.numeric.value
-//          ^ punctuation.definition.sequence.end
+//          ^ punctuation.section.sequence.end
 //           ^ punctuation.separator.sequence
 
     [1, 2
-//  ^ meta.sequence.list punctuation.definition.sequence.begin
+//  ^ meta.sequence.list punctuation.section.sequence.begin
 //    ^ meta.sequence.list meta.sequence.list punctuation.separator.sequence
         ,
 //     ^ - invalid
@@ -175,7 +175,7 @@
 //             ^ punctuation.separator.sequence
 //             ^ - invalid.illegal.unexpected-separator
     ],
-//  ^ meta.sequence.list punctuation.definition.sequence.end
+//  ^ meta.sequence.list punctuation.section.sequence.end
 //   ^ meta.sequence.list punctuation.separator.sequence
 
 
@@ -192,15 +192,15 @@
 
     { "a": 1, "b": 2, "c": 3 },
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.sequence.list meta.mapping
-//  ^ meta.mapping punctuation.definition.mapping.begin
+//  ^ meta.mapping punctuation.section.mapping.begin
 //    ^^^ meta.mapping.key meta.string string.quoted.double
 //       ^ meta.mapping punctuation.separator.key-value
 //         ^ meta.mapping.value meta.number.integer.decimal constant.numeric.value
 //          ^ meta.mapping punctuation.separator.sequence
-//                           ^ meta.mapping punctuation.definition.mapping.end
+//                           ^ meta.mapping punctuation.section.mapping.end
 
     {
-//  ^ meta.mapping punctuation.definition.mapping.begin
+//  ^ meta.mapping punctuation.section.mapping.begin
 
         "meta-mapping-value-constant": null,
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
@@ -227,8 +227,8 @@
 //                                           ^^ meta.mapping.value
 //                                           ^^ - meta.mapping meta.mapping.value
 //                                           ^^ meta.mapping.value meta.sequence.list
-//                                           ^ punctuation.definition.sequence.begin
-//                                            ^ punctuation.definition.sequence.end
+//                                           ^ punctuation.section.sequence.begin
+//                                            ^ punctuation.section.sequence.end
 
         "meta-mapping-value-sequence-empty-with-space": [ ],
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
@@ -237,21 +237,21 @@
 //                                                      ^^^ meta.mapping.value
 //                                                      ^^^ - meta.mapping meta.mapping.value
 //                                                      ^^^ meta.mapping.value meta.sequence.list
-//                                                      ^ punctuation.definition.sequence.begin
-//                                                        ^ punctuation.definition.sequence.end
+//                                                      ^ punctuation.section.sequence.begin
+//                                                        ^ punctuation.section.sequence.end
 
         "meta-mapping-value-sequence": [1, 2
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
 //                                   ^ meta.mapping punctuation.separator.key-value
 //                                     ^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
-//                                     ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.begin
+//                                     ^ meta.mapping.value meta.sequence.list punctuation.section.sequence.begin
 //                                       ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
             ,
 //         ^ - invalid
 //          ^ meta.mapping.value meta.sequence.list punctuation.separator.sequence
             3
         ],
-//      ^ meta.mapping.value meta.sequence.list punctuation.definition.sequence.end
+//      ^ meta.mapping.value meta.sequence.list punctuation.section.sequence.end
 //       ^ meta.mapping punctuation.separator.sequence
 
         "meta-mapping-value-mapping-empty": {},
@@ -261,8 +261,8 @@
 //                                          ^^ meta.mapping.value
 //                                          ^^ - meta.mapping meta.mapping.value
 //                                          ^^ meta.mapping.value meta.mapping
-//                                          ^ punctuation.definition.mapping.begin
-//                                           ^ punctuation.definition.mapping.end
+//                                          ^ punctuation.section.mapping.begin
+//                                           ^ punctuation.section.mapping.end
 
         "meta-mapping-value-mapping-empty-with-space": { },
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key
@@ -271,15 +271,15 @@
 //                                                     ^^^ meta.mapping.value
 //                                                     ^^^ - meta.mapping meta.mapping.value
 //                                                     ^^^ meta.mapping.value meta.mapping
-//                                                     ^ punctuation.definition.mapping.begin
-//                                                       ^ punctuation.definition.mapping.end
+//                                                     ^ punctuation.section.mapping.begin
+//                                                       ^ punctuation.section.mapping.end
 //                                                        ^ meta.mapping punctuation.separator.sequence
 
         "meta-mapping-value-mapping": { "a": 1
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key meta.string string.quoted.double - meta.mapping.json meta.mapping.key
 //                                  ^ meta.mapping punctuation.separator.key-value
 //                                    ^^^^^^^^^^^^^^^^^^ meta.mapping.value - meta.mapping.json meta.mapping.value
-//                                    ^ meta.mapping.value meta.mapping punctuation.definition.mapping.begin
+//                                    ^ meta.mapping.value meta.mapping punctuation.section.mapping.begin
 //                                      ^^^ meta.mapping.value meta.mapping.key
 //                                         ^ meta.mapping.value meta.mapping punctuation.separator.key-value
 //                                           ^ meta.mapping.value meta.mapping.value
@@ -294,12 +294,12 @@
             ,
 //          ^ meta.mapping.value punctuation.separator.sequence
         }
-//      ^ meta.mapping.value meta.mapping punctuation.definition.mapping.end
+//      ^ meta.mapping.value meta.mapping punctuation.section.mapping.end
 
         ,
 //      ^ meta.mapping punctuation.separator.sequence
     },
-//  ^ meta.mapping punctuation.definition.mapping.end
+//  ^ meta.mapping punctuation.section.mapping.end
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1012,4 +1012,4 @@
 //  ^ meta.sequence.list punctuation.separator.sequence
 //  ^ - invalid.illegal.unexpected-separator
 ]
-// <- meta.sequence.list punctuation.definition.sequence.end
+// <- meta.sequence.list punctuation.section.sequence.end

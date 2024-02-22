@@ -4,7 +4,7 @@
 
     { }{ }
 //  ^^^ meta.mapping
-//  ^ punctuation.definition.mapping.begin
-//    ^ punctuation.definition.mapping.end
+//  ^ punctuation.section.mapping.begin
+//    ^ punctuation.section.mapping.end
 //     ^ invalid.illegal.expected-end-of-file
 //       ^ invalid.illegal.expected-end-of-file

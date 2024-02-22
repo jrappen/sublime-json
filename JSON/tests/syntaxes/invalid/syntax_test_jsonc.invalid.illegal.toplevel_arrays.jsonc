@@ -4,7 +4,7 @@
 
     [ ][ ]
 //  ^^^ meta.sequence.list
-//  ^ punctuation.definition.sequence.begin
-//    ^ punctuation.definition.sequence.end
+//  ^ punctuation.section.sequence.begin
+//    ^ punctuation.section.sequence.end
 //     ^ invalid.illegal.expected-end-of-file
 //       ^ invalid.illegal.expected-end-of-file
